@@ -1,0 +1,12 @@
+<ul class="productGrid">
+    {{#each products}}
+    <li class="product">
+            {{>components/products/card-grid settings=../settings show_compare=../show_compare show_rating=../settings.show_product_rating theme_settings=../theme_settings customer=../customer event=../event position=(add @index 1)}}
+    </li>
+    {{/each}}
+</ul>
+
+<script>
+    window.STOREFRONT_API_TOKEN = '{{settings.storefront_api.token}}';
+</script>
+<script src="{{cdn 'assets/js/theme/product/product-variants.js'}}"></script>

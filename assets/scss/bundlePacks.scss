@@ -1,0 +1,147 @@
+$black:  #0f0f0f;
+$white:  #ffffff;
+$red:  #E82222;
+$green: #08BC72;
+$grey:  #868686;
+
+//PACK AMAZON
+.bundle-content-product .content-wrapper .list-product-together .list-product .list-thumbnail-product li .sale {
+    background: $red !important;
+    border-radius: 30px !important;
+    white-space: nowrap !important;
+    font-weight: 700 !important;
+}
+.bundle-content-product .list-product-together .list-thumbnail-product li .detail-product .btn {
+    font-weight:600 !important;
+    border-radius: 50px !important;
+}
+.bundle-content-product .list-product-together .list-thumbnail-product li .detail-product .name-product {
+    font-weight: 500 !important;
+    color:#767676 !important;
+    font-size: 15px !important;
+}
+.bundle-content-product .list-product-together .list-thumbnail-product li .detail-product .price {
+    display: flex !important; 
+    align-items: center !important;
+}
+.bundle-content-product .list-product-together .list-thumbnail-product li .detail-product .price span.discount {
+    font-weight:700 !important;
+}
+.bundle-content-product .list-product-together .list-thumbnail-product li .detail-product .price span.save-percent {
+    font-size:14px !important;
+}
+.bundle-content-product .list-check-order ul li .choose-option .text {
+    border: 1px solid #0F0F0F !important;
+    background:#fff !important;
+    border-radius: 50px !important;
+    font-weight:600 !important;
+    padding: 5px 10px !important;
+    white-space: nowrap !important;
+}
+.bundle-content-product .list-check-order ul li .choose-option .out_of_stock {
+    border-radius: 30px !important;
+}
+.bundle-content-product .list-check-order ul li .name {
+    font-weight: 300 !important;
+}
+.bundle-content-product .list-check-order ul li .list-choose-option {
+    border: 0px !important;
+}
+.bundle-content-product .list-check-order ul li .price .real-price {
+    font-weight: 500 !important;
+}
+.bundle-content-product .list-check-order ul li .price span {
+    font-weight:700 !important;
+}
+
+.bundle-content-product .list-check-order ul li .choose-option .list-choose-option .select-snow .size-products {
+    max-width: 280px !important;
+    .size{
+        min-width: 145px !important;
+        font-size: 14px !important;
+    }
+}
+.bundle-content-product .list-check-order ul li .choose-option .list-choose-option 
+.native-recommender-productOptions-list.product_list_with_images-native-recommender {
+    border-radius: 10px;
+    .native-recommender-productOptions-list-item{
+        padding: 1rem !important;
+        font-size: 14px !important;
+        .native-recommender-productOptions-list-item-figure{
+            margin: 0;
+            img{
+                width: 60px !important;
+                height: auto !important;
+            }
+        }
+    }
+}
+
+@media (min-width: 1023px) {
+    .bundle-content-product .title-page h3 {
+        text-align:center;
+        font-size:25px !important;
+        font-weight:600 !important;
+        margin-bottom:4%;
+    }
+    .bundle-content-product .list-product-together .list-thumbnail-product li .detail-product .btn {
+        font-size: 15px !important;
+    }
+    .bundle-content-product .list-product-together .list-thumbnail-product li .detail-product .price span {
+        font-size:20px !important;
+    }
+    .bundle-content-product .list-check-order ul li .choose-option .text {
+        font-size: 13px !important;
+    }
+
+    .bundle-content-product .list-check-order ul li .name {
+        font-size:16px !important;
+    }
+    .bundle-content-product .list-check-order ul li .price span {
+        font-size:16px !important; 
+    }
+
+    .bundle-content-product .list-check-order {
+        padding-top: 55px !important;
+    }
+}
+@media (max-width: 1023px) {
+    .bundle-content-product .title-page h3 {
+        text-align:center;
+        font-size:18px !important;
+        font-weight:600 !important;
+        margin-bottom:4%;
+    }
+    .bundle-content-product .list-product-together .list-thumbnail-product li .detail-product .btn {
+        font-size: 14px !important;
+    }
+    .bundle-content-product .list-product-together .list-thumbnail-product li .detail-product .price span {
+        font-size: 18px !important;
+    }
+    .bundle-content-product .list-check-order ul li .choose-option .text {
+        font-size: 12px !important;
+    }
+
+    .bundle-content-product .list-check-order ul li .name {
+        font-size:14px !important;
+    }
+    .bundle-content-product .list-check-order ul li .price span {
+        font-size:14px !important; 
+    }
+    .bundle-content-product .list-check-order {
+        padding-top: 55px !important;
+    }
+    #ult-upsell-add-all-to-cart-down{
+        border-radius: 30px !important;
+    }
+}
+
+//Upsells
+
+#ult-upsell-popup-modal{
+    .ult-upsell-modal-body{
+        .btn-continue{
+            border-radius: 30px !important;
+        }
+    }
+}

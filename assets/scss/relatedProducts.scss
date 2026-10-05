@@ -1,0 +1,92 @@
+$black:  #0f0f0f;
+$white:  #ffffff;
+$red:  #E82222;
+$green: #08BC72;
+$grey:  #868686;
+
+
+.page_type__product{
+    .related.products{
+        .related-products-title{
+            text-align: center;
+            text-transform: unset;
+            margin-bottom: 20px;
+            font-weight: 700 !important;
+        }
+        .productGrid.productGrid--maxCol6{
+            flex-wrap: wrap;
+            .product{
+                flex: 0 1 20%;
+                max-width: 20%;
+                .card{
+                    .card-body{
+                        .card-main{
+                            .card-title{
+                                //word-break: break-all;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (min-width: 800px) {
+    .page_type__product{
+        .related.products{
+            .related-products-title{
+                font-size: 26px;
+            }
+            .productGrid.productGrid--maxCol6{
+                flex-wrap: wrap;
+                .product{
+                    max-width: 20%;
+                    min-width: 300px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .page_type__product{
+        .related.products{
+            .related-products-title{
+                font-size: 24px;
+            }
+            .productGrid.productGrid--maxCol6{
+                flex-wrap: wrap;
+                .product{
+                    max-width: 20%;
+                    min-width: 200px;
+                    .card{
+                        .card-body{
+                            .card-main{
+                                .card-title{
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .page_type__product{
+        .related.products{
+            .productGrid.productGrid--maxCol6{
+                flex-wrap: wrap;
+                .product{
+                    padding-left: 0.4rem;
+                    padding-right: 0.4rem;
+                    max-width: 50%;
+                    min-width: 155px;
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,1170 @@
+{{#each product.reviews.messages}}
+    {{#if error}}
+        {{> components/common/alert/alert-error error}}
+    {{/if}}
+    {{#if success}}
+        {{> components/common/alert/alert-success success}}
+    {{/if}}
+{{/each}}
+
+ {{#each product.custom_fields}}
+    {{#if this.name "==" "Interno Biciflex"}}
+        {{#or (if this.value "==" 1)}}
+            <div class="banner-biciflex">
+                {{{region name="biciflex-pview--global"}}}
+            </div>
+        {{/or}}
+    {{/if}}
+{{/each}}
+
+<div class="productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#or customer (unless theme_settings.restrict_to_login)}}{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}{{else}}{{lang 'common.login_for_pricing'}}{{/or}}" data-product-variant="single-product-option"{{/if}}>
+    <section class="productView-main">
+        <section class="productView-images" data-image-gallery>
+            <div class="flags">
+                {{#if page_type '===' 'product'}}
+                    {{#each product.custom_fields}}
+                        {{#if this.name "==" "Novedad"}}
+                            <div class="new-flag-side">
+                                <span class="new-text">{{lang "products.new_prod"}}</span>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                    {{#or product.price.non_sale_price_with_tax product.price.non_sale_price_without_tax}}
+                        <!--
+                        <div class="sale-flag-side">
+                            <span class="sale-text">{{lang "page_builder.pdp_sale_badge_label"}}</span>
+                        </div>--> 
+                        <div class="sale-flag-side">
+                            <span class="sale-text" id="dynamic-sale-flag">
+                                {{#if product.price.sale_price_with_tax.value}}
+                                -
+                                {{toInt (multiply (divide (subtract product.price.non_sale_price_with_tax.value product.price.sale_price_with_tax.value) product.price.non_sale_price_with_tax.value) 100) }}%
+                            {{/if}}
+                            </span>
+                        </div>
+                    {{/or}}
+                {{/if}}
+                {{assignVar "renderedFlag" 'false'}}
+                {{assignVar "priorityBadge" ' '}}
+    
+                {{#each product.custom_fields}}
+                    {{#if this.name "==" "Selección especial"}}
+                        {{#if this.value "==" "Novedad"}}
+                            {{assignVar "priorityBadge" 'new'}}
+                        {{/if}}
+                    {{/if}}
+                    {{#if (getVar "priorityBadge") "!=" "new" }}
+                        {{#if this.name "==" "Selección especial"}}
+                            {{#if this.value "==" "Outlet"}}
+                                {{assignVar "priorityBadge" 'outlet'}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                    {{#if (getVar "priorityBadge") "!=" "new"}}
+                        {{#if (getVar "priorityBadge") "!=" "outlet"}}
+                            {{#if this.name "==" "Selección especial"}}
+                                {{#if this.value "==" "Recomendado"}}
+                                    {{assignVar "priorityBadge" 'recommended'}}
+                                {{/if}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/each}}
+    
+                {{#if (getVar "priorityBadge") "==" "new"}}
+                <div class="new-flag-side">
+                    <span class="new-text">{{lang "page_builder.text_badge_new_product" }}</span>
+                </div>
+                {{/if}}
+                {{#if (getVar "priorityBadge") "==" "outlet"}}
+                    <div class="outlet-flag-side">
+                        <span class="outlet-text">{{lang "page_builder.text_badge_product_outlet" }}</span>
+                    </div>
+                {{/if}}
+                {{#if (getVar "priorityBadge") "==" "recommended"}}
+                    <div class="recommended-flag-side">
+                        <span class="recommended-text">{{lang "page_builder.text_badge_product_recommended" }}</span>
+                    </div>
+                {{/if}}
+            </div>
+            {{!--
+                Note that these image sizes are coupled to image sizes used in /assets/js/theme/common/product-details.js
+                for variant/rule image replacement
+            --}}
+            {{#if product.images.length '>' 1 }}
+            {{> components/carousel-content-announcement}}
+            {{/if}}
+            <div class="image-carousel-wrapper">
+                {{#if product.images.length '>' 1 }}
+                    <button class="image-carousel-prev" aria-label="Previous image">
+                        <svg style="transform: rotate(180deg); transform-origin: center;"><use xlink:href="#icon-arrow-right" /></svg>
+                    </button>
+                    <button class="image-carousel-next" aria-label="Next image"> 
+                        <svg><use xlink:href="#icon-arrow-right" /></svg>
+                    </button>
+                {{/if}}
+            </div>
+            <figure class="productView-image"
+                    data-image-gallery-main
+                    {{#if product.main_image}}
+                    data-zoom-image="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size }}"
+                    {{/if}}
+                    >
+                <div class="productView-img-container">
+                    {{!-- Remove the surrounding a-element if there is no main image. --}}
+                    {{#if product.main_image}}
+                        <a href="{{getImageSrcset product.main_image (cdn theme_settings.default_image_product) 1x=theme_settings.zoom_size}}"
+                            target="_blank">
+                    {{/if}}
+                    {{> components/common/responsive-img
+                        image=product.main_image
+                        class="productView-image--default"
+                        fallback_size=theme_settings.product_size
+                        lazyload=theme_settings.lazyload_mode
+                        default_image=theme_settings.default_image_product
+                        otherAttributes="data-main-image"
+                    }}
+                    {{!-- Remove the surrounding a-element if there is no main image. --}}
+                    {{#if product.main_image}}
+                        </a>
+                    {{/if}}
+                </div>
+                <span class="product-images-tooltip desktop">{{lang 'products.hover-zoom'}}</span>
+                <span class="product-images-tooltip mobile">{{lang 'products.click-zoom'}}</span>
+            </figure>
+            {{#if product.images.length '>' 1 }}
+                <ul class="productView-thumbnails"{{#gt product.images.length 10}} data-slick='{
+                        "infinite": false,
+                        "mobileFirst": true,
+                        "dots": false,
+                        "accessibility": false,
+                        "slidesToShow": 10,
+                        "slidesToScroll": 1,
+                        "arrows": true,
+                        "responsive": [
+                            {
+                                "breakpoint": 469,
+                                "settings": {
+                                    "arrows": false
+                                }
+                            }
+                        ]
+                    }'
+                    data-arrow-label="{{lang 'carousel.arrowAriaLabel'}} {{product.images.length}}"
+                    {{/gt}}>
+                    {{#each product.images}}
+                        <li class="productView-thumbnail">
+                            <a
+                                class="productView-thumbnail-link {{#if @first}}is-active-first{{/if}}"
+                                href="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                                data-image-gallery-item
+                                data-image-gallery-new-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.product_size}}"
+                                data-image-gallery-new-image-srcset="{{getImageSrcset this use_default_sizes=true}}"
+                                data-image-gallery-zoom-image-url="{{getImageSrcset this (cdn ../theme_settings.default_image_product) 1x=../theme_settings.zoom_size}}"
+                            >
+                                <!-- <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productview_thumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}"> -->
+                            </a>
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </section>
+
+        {{> components/products/tabs-escapa schema=true }}
+        
+        <section class="productView-details product-data">
+            <div class="productView-product">
+    
+                {{#if product.brand}}
+                    <span class="productView-brand">
+                        <a href="{{product.brand.url}}"><span>{{product.brand.name}}</span></a>
+                    </span>
+                {{/if}}
+    
+                <h1 class="productView-title main-heading">{{product.title}}</h1>
+    
+                <div class="productSKU">
+                    <!-- <dd class="productView-info-value" data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd> -->
+                    <dd class="productView-info-value" data-product-mpn>{{product.mpn}}</dd>
+                </div>
+                
+                <div class="productSKU" style="display: none;">
+                    <dt class="productView-info-name sku-label" {{#unless product.sku}} style="display: none;"{{/unless}}>{{lang 'products.sku'}}</dt>
+                    <dd class="productView-info-value" data-product-sku{{#if schema}} itemprop="sku"{{/if}}>{{product.sku}}</dd>
+                </div>
+                {{#and product.sku product.upc}}<span style="display: none; position:relative; padding: 0 3px; top: -1px;">|</span>{{/and}}
+                {{#if product.upc}}
+                    <div class="productUPC" style="display: none;">
+                        <dt class="productView-info-name upc-label">{{lang 'products.upc'}}</dt>
+                        <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+                    </div>
+                {{/if}}
+                 
+                {{#if product.availability}}
+                    <div>
+                        <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
+                        <dd class="productView-info-value">{{product.availability}}</dd>
+                    </div>
+                {{/if}}
+                {{#if product.call_for_price}}
+                    <p class="productView-price">
+                        <span>{{product.call_for_price}}</span>
+                    </p>
+                {{/if}}
+                <div class="productView-price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{> components/products/price price=product.price}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </div>
+    
+                {{#each product.custom_fields}}
+                    {{#if this.name "==" "Interno Promo"}}
+                        <div class="hidden-promo">
+                            <img src="{{cdn 'assets/icons/discount.svg'}}" alt="discount icon">
+                            <span class="text">{{{lang 'products.hidden-promo'}}}</span>
+                        </div> 
+                    {{/if}}
+                {{/each}}
+    
+                {{#and settings.bulk_discount_enabled product.bulk_discount_rates.length}}
+                    <div class="productView-info-bulkPricing">
+                        {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
+                    </div>
+                {{/and}}
+    
+                {{{region name="product_below_price"}}}
+
+                <span id="ow_earned_points" class="ow-earned-points-product-view" data-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{/if}}{{#if product.price.without_tax}}{{product.price.without_tax.value}}{{/if}}" data-range="{{#and product.price.price_range (if theme_settings.price_ranges '==' true)}}true{{else}}false{{/and}}"> </span>
+
+                <div class="productView-specs">
+                {{#all product.weight theme_settings.show_product_weight}}
+                    <div class="productView-info">
+                        <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+                        <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+                    </div>
+                {{/all}}
+                {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
+                    <div>
+                        <dt class="productView-info-name">{{lang 'products.width'}}</dt>
+                        <dd class="productView-info-value" data-product-width>
+                            {{product.width}}
+                            {{#if settings.measurements.length '==' 'Centimeters'}}
+                            ({{lang 'products.measurement.metric'}})
+                            {{else}}
+                            ({{lang 'products.measurement.imperial'}})
+                            {{/if}}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="productView-info-name">{{lang 'products.height'}}</dt>
+                        <dd class="productView-info-value" data-product-height>
+                            {{product.height}}
+                            {{#if settings.measurements.length '==' 'Centimeters'}}
+                            ({{lang 'products.measurement.metric'}})
+                            {{else}}
+                            ({{lang 'products.measurement.imperial'}})
+                            {{/if}}
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="productView-info-name">{{lang 'products.depth'}}</dt>
+                        <dd class="productView-info-value" data-product-depth>
+                            {{product.depth}}
+                            {{#if settings.measurements.length '==' 'Centimeters'}}
+                            ({{lang 'products.measurement.metric'}})
+                            {{else}}
+                            ({{lang 'products.measurement.imperial'}})
+                            {{/if}}
+                        </dd>
+                    </div>
+                {{/all}}
+                {{#if product.condition}}
+                    <div>
+                        <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
+                        <dd class="productView-info-value">{{product.condition}}</dd>
+                    </div>
+                {{/if}}
+                </div>
+                {{product.detail_messages}}
+            </div>
+            {{#and product.warranty theme_settings.show_short_desc}}
+                <div class="productView-warranty">
+                    {{{product.warranty}}}
+                </div>
+            {{/and}}
+            <div class="productView-options">
+                <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                      data-cart-item-add>
+                    <input type="hidden" name="action" value="add"/>
+                    <input type="hidden" name="product_id" value="{{product.id}}"/>
+                    
+                    <div class="productView-options-wrap" data-product-option-change style="display:none;">
+                        {{inject 'showSwatchNames' theme_settings.show_product_swatch_names}}
+                        {{#if product.options}}
+                            <div class="productView-options-inner">
+                                {{> components/products/options/option-list-button}}                                                 
+                            </div>
+                        {{/if}}
+                    </div>
+                    
+                    {{> components/products/add-to-cart}}
+
+                    <div class="shipping-giftWrap-stock">
+                        {{#if product.shipping}}
+                            {{#unless product.shipping.calculated}}
+                                {{#if product.shipping.price.value '===' 0}}
+                                    <div class="productView-shipping productView-shipping--free">
+                                        <dt class="productView-info-name hide-label">{{lang 'products.shipping'}}</dt>
+                                        <dd class="productView-info-value uppercase"><strong>{{lang 'products.shipping_free'}}</strong></dd>
+                                    </div>
+                                {{else}}
+                                    <div class="productView-shipping">
+                                        <dt class="productView-info-name">Fixed Shipping Cost: </dt>
+                                        <dd class="productView-info-value">{{product.shipping.price.formatted}}</dd>
+                                    </div>
+                                {{/if}}
+                            {{/unless}}
+                        {{/if}}
+                        {{#if product.gift_wrapping_available}}
+                            <div class="productView-giftWrap">
+                                <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
+                                <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+                            </div>
+                        {{/if}}
+                        
+                        <span class="inventory-tracking-disabled" style="display: none;">Producto bajo pedido, entrega en X días</span>
+                        
+                        <div class="form-field--stock {{#if product.options}}u-hiddenVisually{{/if}}">
+                            <div class="availability" id="availability-custom"></div>
+                            <a class="stock--store" onclick="openPopupStoreLocations(event)">{{lang 'products.store_stock'}}</a>
+                        </div>
+                    </div>
+    
+                    {{#if product.out_of_stock}}
+                        {{#if product.out_of_stock_message}}
+                            {{> components/common/alert/alert-error product.out_of_stock_message}}
+                        {{else}}
+                            {{> components/common/alert/alert-error (lang 'products.sold_out')}}
+                        {{/if}}
+                        <div id="add-to-cart-wrapper" class="add-to-cart-wrapper">
+                            <div class="product-actions product-actions--nostock" id="product-actions">
+                                <span class="button button--primary button--out-of-stock">{{lang 'products.sold_out'}}</span>
+                                <div class="favs-section">
+                                    <div id="b3Container__shoppinglist" class="b3Container__shoppinglist"></div>
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                </form>
+
+                {{#if product.release_date }}
+                    <p>{{product.release_date}}</p>
+                {{/if}}
+                
+                {{#unless is_ajax}}
+                    {{> components/common/share url=product.url}}
+                {{/unless}}
+            </div>
+            
+            <div class="pros-section">
+                <div class="pro">
+                    {{#contains product.category "Bicicletas" }}
+                        <div class="icon">
+                            <img src="{{cdn 'assets/icons/build1.svg'}}" alt="icon">
+                        </div>
+                        <span>{{lang 'products.bike_mount'}}</span>
+                    {{/contains}}
+                </div>
+                <div class="pro">
+                    <div class="icon">
+                        <img src="{{cdn 'assets/icons/truck1.svg'}}" alt="icon">
+                    </div>
+                    <span>{{lang 'products.free_shipping'}}</span>
+                </div>
+                <div class="pro">
+                    <div class="icon">
+                        <img src="{{cdn 'assets/icons/home1.svg'}}" alt="icon">
+                    </div>
+                    <span>{{lang 'products.estimated_shipping'}}</span>
+                </div>
+            </div>
+    
+            <div class="productView-rating">
+                {{#if settings.show_product_rating}}
+                    {{> components/products/ratings rating=product.rating}}
+                    {{#if product.num_reviews '>' 0}}
+                        <a href="{{product.url}}{{#if is_ajax}}#product-reviews{{/if}}" id="productReview_link">
+                            {{lang 'products.reviews.link_to_review' total=product.num_reviews}}
+                        </a>
+                    {{else}}
+                        <span>{{lang 'products.reviews.link_to_review' total=product.num_reviews}}</span>
+                    {{/if}}
+                {{/if}}
+                {{#if settings.show_product_reviews}}
+                    <button class="productView-reviewLink productView-reviewLink--new">
+                        <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
+                            {{#unless is_ajax}}data-reveal-id="modal-review-form"{{/unless}}
+                            role="button"
+                        >
+                           <i class="icon" aria-hidden="true" style="position: relative; top: -1px;">
+                                <svg><use xlink:href="#icon-plus" /></svg>
+                            </i>
+                           <strong style="text-decoration: underline;">{{lang 'products.reviews.new'}}</strong>
+                        </a>
+                    </button>
+                    {{> components/products/modals/writeReview}}
+                {{/if}}
+            </div>
+
+            <div class="productView-rating">
+                {{#or (if this.settings.channel_id '==' 1) (if this.settings.channel_id '==' 1692549) (if this.settings.channel_id '==' 1720977) }}
+                <!-- Begin eTrusted product-star tag --> <!-- ES + Notax -->
+                    <etrusted-product-review-list-widget-product-star-extension data-etrusted-widget-id="wdg-9f7f668b-0799-46a0-900c-e31aa921fe42"></etrusted-product-review-list-widget-product-star-extension>
+                <!-- End eTrusted product-star tag -->
+                {{/or}}
+                {{#or (if this.settings.channel_id '==' 1581490) (if this.settings.channel_id '==' 1655486) }}
+                <!-- Begin eTrusted product-star tag --> <!-- France -->
+                    <etrusted-product-review-list-widget-product-star-extension data-etrusted-widget-id="wdg-56dc9d62-577e-4c33-a81e-8f5fbd232bc6"></etrusted-product-review-list-widget-product-star-extension>
+                <!-- End eTrusted product-star tag -->
+                {{/or}}
+                {{#or (if this.settings.channel_id '==' 1620633) (if this.settings.channel_id '==' 1655483) }}
+                <!-- Begin eTrusted product-star tag --> <!-- Italy -->
+                    <etrusted-product-review-list-widget-product-star-extension data-etrusted-widget-id="wdg-1b8bb917-a14f-4399-9294-2a7bab277148"></etrusted-product-review-list-widget-product-star-extension>
+                <!-- End eTrusted product-star tag -->
+                {{/or}}
+                {{#or (if this.settings.channel_id '==' 1581488) (if this.settings.channel_id '==' 1655485) }}
+                <!-- Begin eTrusted product-star tag --> <!-- Germany -->
+                    <etrusted-product-review-list-widget-product-star-extension data-etrusted-widget-id="wdg-3b026007-4cec-4b31-b14d-fc9b4e177a6b"></etrusted-product-review-list-widget-product-star-extension>
+                <!-- End eTrusted product-star tag -->
+                {{/or}}
+            </div>
+    
+            <div class="payment-options">
+                <div id="eCalculadoraCetelemDiv" style="margin-top: 20px; margin-bottom: 30px"></div>
+            
+                <div class="payment-icons">
+                    {{#each product.custom_fields}}
+                        {{#if this.name "==" "Interno Biciflex"}}
+                            {{#or (if this.value "==" 1)}}
+                                <img src="{{cdn 'assets/img/payment-methods/biciflex.png'}}" alt="biciflex logo" style="height: fit-content; align-self: center;">
+                            {{/or}}
+                        {{/if}}
+                    {{/each}}
+                    <img src="{{cdn 'assets/img/payment-methods/paypal1.svg'}}" alt="paypal logo">
+                    <img src="{{cdn 'assets/img/payment-methods/apple-pay.svg'}}" alt="apple pay logo">
+                    <img src="{{cdn 'assets/img/payment-methods/google-pay.svg'}}" alt="google pay logo">
+                </div>
+            </div>
+    
+        </section>
+    </section>
+</div>
+
+<div class="packs-bundle">
+
+</div>
+
+{{#and product.related_products theme_settings.related_products_tab}}
+    <section class="related products">
+        <h2 class="related-products-title">Relacionados</h2>
+        {{> components/products/related products=product.related_products columns=5}}
+    </section>
+{{/and}}
+
+<section class="recommended related products">
+    <h2 class="related-products-title">Recomendaciones</h2>
+    {{> components/products/recommended products=product.related_products columns=5}} 
+</section>
+
+<div id="previewModal" class="modal modal--large" data-reveal>
+    {{> components/common/modal/modal-close-btn }}
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
+</div>
+
+<input type="hidden" id="variantId" value=""/>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="popup-store-locations" id="popup-store-locations">
+    <div class="popup-content" id="popup-content">
+        <div class="popup-header">
+            <h2 class="warning">Consulta el stock en nuestras tiendas</h2>
+            <a onclick="closePopupStoreLocation()" class="modal-close-custom" aria-label="{{lang 'common.close'}}" role="button">
+                <span aria-hidden="true">&#215;</span>
+            </a>
+        </div>
+        <span class="help"></span>
+        <div class="mapList" style="display: flex;">
+            <div id="location-container" class="location-container"></div>
+
+            <div id="map" style="width: 100%; height: 400px; border-radius: 15px; margin-left: 10px;"></div>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+    window.onload = function() {
+        // Only import JQuery if it doesn't already exist
+        if (!window.jQuery) {
+            var script = document.createElement('script');
+            script.src = 'https://code.jquery.com/jquery-3.7.1.min.js';
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+    }
+</script>
+
+
+<script>
+$(document).on('change', '[data-product-option-change] select, [data-product-option-change] input', function(event) {
+    const $form = $(this).closest('form');
+  
+    window.stencilUtils.api.productAttributes.optionChange(
+      productId,
+      $form.serialize(),
+      'products/bulk-discount-rates',
+      async (err, response) => {
+        if (err) return console.error(err);
+  
+        const newVarId = response.data.v3_variant_id;
+        if (!Number.isInteger(newVarId) || newVarId <= 0) return;
+  
+        varId = newVarId;        
+        const locations = await getLocations();
+        await getStockByLocation(locations);
+        await getOnlineStock();
+      }
+    );
+  });
+  
+    const productId = "{{ product.id }}";
+    const hasOptions = "{{ product.options }}";
+    let varId = 0;
+
+    function closePopupStoreLocation() {
+        // Hide the overlay
+        document.getElementById('overlay').style.display = 'none';
+        // Hide the popup
+        if(document.getElementById('popup-store-locations')){
+            document.getElementById('popup-store-locations').style.display = 'none';
+        }
+    }
+        
+    // Main function to fetch both locations and stock information
+    var main = async () => {
+        const locations = await getLocations(); // Wait for locations to resolve
+        if(varId!=null){
+            await getStockByLocation(locations);    // Pass resolved locations to getStockByLocation            
+            await getOnlineStock();    
+        }
+    };
+        
+    function openPopupStoreLocations(event){
+        main();
+        initMap();
+        // Show the overlay
+        document.getElementById('overlay').style.display = 'block';
+        //const triggerElement = event.target;
+        document.getElementById('popup-store-locations').style.display = 'block';
+    }
+
+    var fetchLocations = 
+    `query getLocations {
+        inventory {
+            locations {
+                edges {
+                    node {
+                        entityId
+                        code
+                        label
+                        description
+                        typeId
+                        timeZone
+                        address {
+                            city
+                            address1
+                            address2
+                            postalCode
+                            stateOrProvince
+                            email
+                            phone
+                            latitude
+                            longitude
+                            countryCode
+                        }
+                        operatingHours {
+                            sunday {
+                                open
+                                opening
+                                closing
+                            }
+                            monday {
+                                open
+                                opening
+                                closing
+                            }
+                            tuesday {
+                                open
+                                opening
+                                closing
+                            }
+                            wednesday {
+                                open
+                                opening
+                                closing
+                            }
+                            thursday {
+                                open
+                                opening
+                                closing
+                            }
+                            friday {
+                                open
+                                opening
+                                closing
+                            }
+                            saturday {
+                                open
+                                opening
+                                closing
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }`
+
+    // Function to fetch locations
+    var getLocations = async () => {
+        try {
+            const response = await fetch("/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer {{settings.storefront_api.token}}"
+                },
+                body: JSON.stringify({
+                    query: fetchLocations
+                }),
+            });
+            const data = await response.json();
+
+            const locations = data.data.inventory.locations.edges;
+
+            return locations; // This returns a resolved list of locations
+
+        } catch (error) {
+            console.error("Error fetching store inventory information:", error);
+        }
+    };
+
+    
+    var fetchStockByLocation = 
+    `query getStockByLocations($prodId: Int!, $variantId: Int!) {
+        site {
+            products (entityIds: [$prodId]) {
+                edges {
+                    node {
+                        variants (entityIds:[$variantId]) {
+                            edges {
+                                node {
+                                    entityId
+                                    sku
+                                    inventory {
+                                        byLocation {
+                                            edges {
+                                                node {
+                                                    locationEntityId
+                                                    locationEntityCode
+                                                    locationEntityTypeId
+                                                    locationDistance {
+                                                        value
+                                                        lengthUnit
+                                                    }
+                                                    availableToSell
+                                                    warningLevel
+                                                    isInStock
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }`;
+    
+    const fetchProductVariants = async () => {
+        var query = `
+          query getProductVariants($prodId: Int!) {
+            site {
+                product (entityId: $prodId) {
+                    variants (first:100) {
+                        edges {
+                            node {
+                                entityId
+                                isPurchasable
+                            }
+                        }
+                    }
+                }
+            }
+          }
+        `;
+      
+        try {
+            const response = await fetch("/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer {{settings.storefront_api.token}}"
+                },
+                body: JSON.stringify({ 
+                    query: query, 
+                    variables: { prodId: parseInt(productId) } 
+                }),
+            });
+      
+            const data = await response.json();
+
+            const purchasableVariant = data.data.site.product.variants.edges.find(
+                edge => edge.node.isPurchasable
+            );
+
+            if(data.data.site.product.variants.edges.length == 1){
+                $("#variantId").val(data.data.site.product.variants.edges[0].node.entityId);
+            }
+            
+            if (purchasableVariant) {
+                varId = purchasableVariant.node.entityId;
+            } else {
+                console.warn("No purchasable variant found.");
+            }
+        } catch (error) {
+          console.error("Error fetching product variants:", error);
+        }
+    };
+
+    var getStockByLocation = async (locations) => {
+        try {
+            /*
+            const response = await fetch("/graphql", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer {{settings.storefront_api.token}}"
+                },
+                body: JSON.stringify({
+                    query: fetchStockByLocation,
+                    variables: { prodId: parseInt(productId), variantId: varId }, 
+                }),
+            });
+            const data = await response.json();
+            */
+            const options = {
+                method: 'POST',
+                headers: {Accept: 'application/json', 'Content-Type': 'application/json'},
+                body: `{"searchArea":{"radius":{"value":9999,"unit":"KM"},"coordinates":{"latitude":40.4169473,"longitude":-3.7035285}},"items":[{"variantId":${varId},"quantity":1}]}`
+            };
+
+            const response = await fetch("/api/storefront/pickup-options", options);
+            const data = await response.json();
+
+            ///////////////////////////
+            //console.log('locations',locations);
+            //console.log('variantId', varId);
+            
+            const locationContainer = document.getElementById('location-container');
+            locationContainer.innerHTML = '';
+
+            const pickupOptions = data.results.flatMap(r => r.pickupOptions);
+
+            const allOutOfStock = pickupOptions.length === 0;
+
+            const stockMap = new Map();
+            pickupOptions.forEach(opt => {
+                const locId = opt.pickupMethod.locationId;
+                const totalQty = opt.availableItems.reduce((sum, item) => sum + item.quantity, 0);
+                stockMap.set(locId, totalQty);
+            });
+
+            const customLocationOrder = [
+                'BC-TIENDA-2',
+                'BC-TIENDA-3',
+                'BC-TIENDA-4',
+                'BC-TIENDA-7',
+                'BC-TIENDA-5',
+                'BC-TIENDA-8',
+                'BC-TIENDA-1 - V1',
+                'BC-TIENDA-6',
+            ];
+
+            locations.sort((a, b) => {
+                const codeA = a.node.code;
+                const codeB = b.node.code;
+
+                const indexA = customLocationOrder.indexOf(codeA);
+                const indexB = customLocationOrder.indexOf(codeB);
+
+                if (indexA !== -1 && indexB !== -1) {
+                    return indexA - indexB;
+                }
+                if (indexA !== -1) {
+                    return -1;
+                }
+                if (indexB !== -1) {
+                    return 1;
+                }
+                return codeA.localeCompare(codeB);
+            });
+
+            locations.forEach(location => {
+                const { id: entityId, code, label, address, description } = location.node;
+                const { address1, city, postalCode, latitude, longitude, phone } = address;
+
+                if (code === 'CENTRAL' || code === 'ONLINE') return;
+
+                const isInStock = stockMap.has(location.node.entityId);
+                const availableToSell = stockMap.get(location.node.entityId) || 0;
+
+                let availabilityMessage = '';
+                let availabilityClass = '';
+
+                if (allOutOfStock) {
+                    // Caso 1: Todas las tiendas están agotadas
+                    availabilityMessage = '<p class="no-stock-info" style="color: red;">{{lang 'products.stock_unavailable'}}</p>';
+                    availabilityClass = 'red';
+
+                } else if (availableToSell === 0 && !allOutOfStock) {
+                    // Caso 2: Esta tienda no tiene unidades online, pero hay stock en otras
+                    availabilityMessage = '<p class="limited-stock-info" style="color: orange;">{{lang 'products.stock_migration'}}</p>';
+                    availabilityClass = 'orange';
+
+                } else if (availableToSell > 0 && !isInStock) {
+                    // Caso 3: Tiene stock físico en tienda, pero no online
+                    availabilityMessage = '<p class="limited-stock-info" style="color: orange;">{{lang 'products.stock_in_store'}}</p>';
+                    availabilityClass = 'orange';
+
+                } else if (availableToSell > 0 && isInStock) {
+                    // Caso 4: Stock online disponible
+                    availabilityMessage = `<p class="stock-info" style="color: green;">{{lang 'products.in_stock'}}</p>`;
+                    availabilityClass = 'green';
+                }
+
+                const div = document.createElement('div');
+                div.classList.add('location-item');
+                div.innerHTML = `
+                    <b class="location-name">${label}</b>
+                    <p class="location-addr">
+                        ${address1}, ${postalCode}, ${city}<br>
+                        ${description || ''}
+                    </p>
+                    ${phone ? `<p class="location-addr phone">Tel. ${phone}</p>` : ''}
+                    <div class="location-availability">
+                    <div class="availability-dot ${availabilityClass}"></div>
+                        ${availabilityMessage}
+                    </div>
+                    <div class="open-map-link">
+                        <a href="https://www.google.com/maps/place/${latitude},${longitude}/@${latitude},${longitude},21z" target="_blank">
+                            {{lang 'products.maps'}}
+                        </a>
+                    </div>
+                `;
+
+                div.addEventListener('click', () => {
+                    document.querySelectorAll('.location-item.selected-location')
+                    .forEach(el => el.classList.remove('selected-location'));
+                    div.classList.add('selected-location');
+                    updateMapLocation(latitude, longitude);
+                });
+
+                locationContainer.appendChild(div);
+            });
+
+
+    } catch (error) {
+        console.error("Error fetching store inventory information:", error);
+    }
+};
+
+    var getOnlineStock = async () => {
+        try {            
+            if(varId !=null){
+                const response = await fetch("/graphql", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer {{settings.storefront_api.token}}"
+                    },
+                    body: JSON.stringify({
+                        query: fetchStockByLocation,
+                        variables: { prodId: parseInt(productId), variantId: varId }, 
+                    }),
+                });
+                const data = await response.json();            
+                ///////////////////////////
+                //console.log('variantId', varId);
+    
+                const byLocationEdges = data.data.site.products.edges[0].node.variants.edges[0].node.inventory.byLocation.edges;
+                const onlineLocation = byLocationEdges.find(edge => edge.node.locationEntityCode === "ONLINE");
+                const availableToSell = onlineLocation ? onlineLocation.node.availableToSell : null;
+                               
+                const stockElement = document.querySelector('#availability-custom');
+                if (stockElement) {
+                    if (availableToSell !== null && availableToSell > 5) {
+                        stockElement.innerHTML = `<div class="availability-dot green"></div><span>{{lang 'products.stock_available'}}</span>`;
+                    }else if(availableToSell == null ||availableToSell == 0 ){
+                        stockElement.innerHTML = `<div class="availability-dot red"></div><span>{{lang 'products.stock_unavailable'}}</span>`;
+                    } 
+                    else {
+                        stockElement.innerHTML = 
+                            `<div class="availability-dot"></div>
+                            <span>{{lang 'products.last'}}</span>
+                            <span class="stock_value">${availableToSell}</span>
+                            <span>{{lang 'products.units'}}</span>`
+                    }
+                }    
+            }            
+        } catch (error) {
+            console.error("Error fetching online inventory - ", error);
+        }
+    };
+
+
+    var map;
+    var marker;
+
+    async function initMap() {
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+        // Default center of the map (e.g., Barcelona)
+        var defaultLocation = { lat: 41.3896, lng: 2.1634 };
+        
+        map = new Map(document.getElementById('map'), {
+            zoom: 12,
+            center: defaultLocation,
+            mapId: 'storesMap',
+        });
+
+        // Create a marker at the default location
+        marker = new AdvancedMarkerElement({
+            position: defaultLocation,
+            map: map,
+        });
+    }
+
+    // Function to change the location on the map
+    function updateMapLocation(lat, lng) {
+        var location = { lat: lat, lng: lng };
+        map.setCenter(location);
+        marker.position = location;
+    }
+
+    const initializeProduct = async () => {
+        if(hasOptions){  //CASE: CONFIG PRODUCT
+            await fetchProductVariants();
+            ProductOptionsEventScript();
+            main();
+        }else{
+            await fetchProductVariants(); //CASE: SIMPLE PRODUCT
+            main();
+        }
+    };
+
+    initializeProduct();
+
+    function ProductOptionsEventScript() {
+        function productOptionsChangeHandler() {
+            waitForJquery(addProductOptionsChangedListener)
+        }
+
+        async function addProductOptionsChangedListener() {
+            // Get product option form
+            const $productOptionsElement = $("[data-product-option-change]")
+
+            $productOptionsElement.off('change').on('change', function (event) {
+                const $changedOption = $(event.target);
+                const $form = $changedOption.parents('form');
+                //const productId = parseInt(productId);
+
+                window.stencilUtils.api.productAttributes.optionChange(parseInt(productId), $form.serialize(), 'products/bulk-discount-rates', async (err, response) => {
+                    const productAttributesData = response.data || {};
+                    varId = productAttributesData.v3_variant_id;                    
+                    $("#variantId").val(varId);
+                    if(varId !=null){
+                        await getOnlineStock();
+                        locations = await getLocations();
+                        await getStockByLocation(locations);     
+                    }                
+                });
+            });
+        }
+
+        function waitForJquery(method) {
+            if (window.jQuery) {
+                method();
+            } else {
+                setTimeout(function() { waitForJquery(method) }, 50);
+            }
+        }
+
+        productOptionsChangeHandler();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        if (typeof hasOptions !== 'undefined' && hasOptions) {
+            initializeProduct();
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const saleFlagElement = document.getElementById("dynamic-sale-flag");
+        const saleFlagContainer = document.querySelector(".sale-flag-side");
+
+        const parsePrice = (priceString) => {
+            if (!priceString) return 0;
+            // Remove any currency symbols and normalize the format
+            const normalized = priceString.replace(/[^\d,.-]/g, '').replace('.', '').replace(',', '.');
+            return parseFloat(normalized);
+        };
+    
+        // Function to calculate and inject discount percentage
+        const updateDiscountPercentage = () => {
+            // Get the price elements
+            const nonSalePriceElement = document.querySelector(".price--non-sale");
+            const salePriceElement = document.querySelector(".price.red");
+
+            if(saleFlagContainer){
+                if (nonSalePriceElement && salePriceElement) {
+                    // Parse the prices
+                    const nonSalePrice = parsePrice(nonSalePriceElement.textContent);
+                    const salePrice = parsePrice(salePriceElement.textContent);
+        
+                    // Calculate the discount percentage
+                    if (nonSalePrice && salePrice && nonSalePrice > salePrice) {
+                        const discountPercentage = ((nonSalePrice - salePrice) / nonSalePrice) * 100;
+                        saleFlagElement.textContent = `- ${discountPercentage | 0}%`;
+                        saleFlagContainer.style.display = "block"; // Show the container
+                    } else {
+                        saleFlagElement.textContent = ""; // No discount
+                        saleFlagContainer.style.display = "none"; 
+                    }
+                } else {
+                    saleFlagContainer.style.display = "none";
+                }
+            }
+        };
+    
+        const priceContainer = document.querySelector(".productView-price");
+        if (priceContainer) {
+            const observer = new MutationObserver(() => {
+                updateDiscountPercentage(); // Trigger when the DOM changes
+            });
+    
+            observer.observe(priceContainer, { childList: true, subtree: true });
+        }
+
+        updateDiscountPercentage();
+    });
+    
+</script>
+
+
+<script>
+    (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+    ({key: "AIzaSyBsd3NTi2T9H7M8FAInHAxNAo0cUf6jX_E", v: "weekly"});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const thumbnails = document.querySelectorAll('.productView-thumbnail-link');
+        const prevButton = document.querySelector('.image-carousel-prev');
+        const nextButton = document.querySelector('.image-carousel-next');
+        let activeIndex = 0;
+    
+        const updateButtonStates = () => {
+            prevButton.disabled = activeIndex === 0;
+            nextButton.disabled = activeIndex === thumbnails.length - 1;
+        };
+
+        updateButtonStates();
+    
+        // Previous button click
+        prevButton.addEventListener('click', () => {
+            if (activeIndex > 0) {
+                activeIndex -= 1;
+                thumbnails[activeIndex].click();
+            }
+            updateButtonStates();
+        });
+    
+        // Next button click
+        nextButton.addEventListener('click', () => {
+            if (activeIndex < thumbnails.length - 1) {
+                activeIndex += 1;
+                thumbnails[activeIndex].click();
+            }
+            updateButtonStates();
+        });
+    
+        // Update activeIndex on thumbnail click (in case navigation occurs outside buttons)
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                activeIndex = index;
+                updateButtonStates();
+            });
+        });
+    });    
+</script>
+
+<script>
+    function formatNumber(numberString) {
+        return parseFloat(numberString.replace(/\./g, '').replace(',', '.'));
+    }
+
+    function detectCurrencySymbol(priceElement) {
+        const priceText = priceElement?.textContent.trim();
+        return priceText ? priceText.replace(/[\d\s.,]/g, '') : '€';
+    }
+
+    function formatCurrency(value, currencySymbol) {
+        return new Intl.NumberFormat('es-ES', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+            useGrouping: true
+        }).format(value) + ` ${currencySymbol}`;
+    }
+
+    function updateSavings() {
+        const salePriceEl = document.querySelector(".productView-main .productView-price [data-product-price-with-tax]");
+        const nonSalePriceEl = document.querySelector(".productView-main .old-price [data-product-non-sale-price-with-tax]");
+        const savingEl = document.querySelector(".productView-main .old-price .saving");
+
+        if (salePriceEl && nonSalePriceEl && savingEl) {
+            const salePrice = formatNumber(salePriceEl.textContent);
+            const nonSalePrice = formatNumber(nonSalePriceEl.textContent);
+            const currencySymbol = detectCurrencySymbol(salePriceEl);
+            if (!isNaN(salePrice) && !isNaN(nonSalePrice)) {
+                const saving = nonSalePrice - salePrice;
+                savingEl.textContent = `Ahorras ${formatCurrency(saving, currencySymbol)}`;
+            }
+        }
+    }
+
+    updateSavings();
+
+    const observerSavings = new MutationObserver(updateSavings);
+    const priceElement = document.querySelector(".productView-main .productView-price [data-product-price-with-tax]");
+    if (priceElement) {
+        observerSavings.observe(priceElement, { childList: true, subtree: true });
+    }
+</script>

@@ -1,0 +1,89 @@
+<nav aria-label="Breadcrumb">
+    <ol class="breadcrumbs">
+        {{#unless theme_settings.hide_breadcrumbs }}
+            {{#each breadcrumbs}}
+                {{#if @last}}
+                    {{assignVar "url" url }}
+                {{/if}}
+            {{/each}}
+            {{#each breadcrumbs}}
+                {{#if name '===' 'Modelos de Bicicleta'}}
+                    {{#all @index '===' 1 name '===' 'Modelos de Bicicleta'}}
+                        <li class="breadcrumb">
+                            <a class="breadcrumb-label" id="custom-brand"
+                                href="{{getVar "url"}}"
+                            >
+                                <span id="brandname" style="display: none;">{{name}}</span>
+                            </a>
+                        </li>
+                    {{/all}}
+                {{else}}
+                    <li class="breadcrumb {{#if @last}}is-active{{/if}}">
+                        <a class="breadcrumb-label"
+                            href="{{url}}"
+                            {{#if @last}}aria-current="page"{{/if}}
+                        >
+                            <span>{{name}}</span>
+                        </a>
+                    </li>
+                {{/if}}
+            {{/each}}
+        {{/unless}}
+    </ol>
+</nav>
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement":
+    [
+        {{#each breadcrumbs}}
+        {
+            "@type": "ListItem",
+            "position": {{add @index 1}},
+            "item": {
+                "@id": {{{JSONstringify url}}},
+                "name": {{{JSONstringify name}}}
+            }
+        }{{#unless @last}},{{/unless}}
+        {{/each}}
+    ]
+}
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const customBrandLink = document.querySelector('#custom-brand');
+
+    if (customBrandLink) {
+        let url = customBrandLink.getAttribute('href');
+
+        // Split the URL into parts using '/' as delimiter
+        let urlParts = url.split('/');
+
+        // Remove the last element from the URL (pop the last element)
+        urlParts.pop();
+
+        // Get the second-to-last element (brand name)
+        let brandName = urlParts[urlParts.length - 1];
+        brandName = brandName
+            .replace(/-/g, ' ')
+            .split(' ') // Split into words by space
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ');
+
+        const brandnameElement = document.getElementById('brandname');
+        if (brandnameElement) {
+            brandnameElement.textContent = brandName; 
+            brandnameElement.style.display = 'inline';
+        }
+
+        // Rebuild the modified URL
+        const newUrl = urlParts.join('/');
+
+        customBrandLink.setAttribute('href', newUrl);
+    }
+});
+</script>

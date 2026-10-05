@@ -1,0 +1,123 @@
+$black:  #0f0f0f;
+$white:  #ffffff;
+$red:  #E82222;
+$green: #08BC72;
+$grey:  #868686;
+
+.s48meganav, .header.slim .header-content-wrapper .header-logo--wrap{
+    border-bottom: 0px !important;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 800px) {
+    .s48meganav{
+        .nav{
+            max-width: 1620px !important;
+            .menu-block__depth-0{
+                justify-content: space-between !important;
+                .menu-block--item{
+                    .menu-block--anchor.menu-block--link, .menu-block--anchor.menu-block--no-link{
+                        padding: 0.8rem 1.2rem;
+                        .menu_block--heading{
+                            text-transform: uppercase;
+                            font-weight: 300;
+                        }
+                    }
+                    .menu-block--wrapper.menu-block__depth-1--wrapper{
+                        .menu-block__depth-1{
+                            max-width: 1620px;
+                            padding: 0.8rem;
+                        }
+                        .menu-block--item.menu-block__depth-1--item{
+                            margin: .75rem 2.5rem .6rem 0;
+                        }
+                        .menu-block--anchor.menu-block--link.menu-block__depth-1--link{
+                            padding: 0.15rem 1.2rem;
+                        }
+                        .menu_block--heading.menu_block__depth-1--heading {
+                            font-weight: 600;
+                            margin-bottom: 0;
+                        }
+                        .menu-block--wrapper.menu-block__depth-2--wrapper{
+                            .menu-block__depth-2{
+                                .menu-block--item.menu-block__depth-2--item{
+                                    padding: .2rem 0;
+                                    .menu-block--anchor.menu-block--link.menu-block__depth-2--link{
+                                        padding: 0.1rem 1.2rem;
+                                        .menu_block--heading{
+                                            text-transform: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .menu-block--item.menu-block__column-design-image-only{
+                    //margin: 0.5rem 0 !important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .s48meganav .nav .menu-block__depth-0 .menu-block--item.has-children>.menu-block--anchor .menu_block--heading:after{
+        top: 10px !important;
+    }
+    .s48meganav .nav .menu-block__depth-1 .menu-block--item.has-children>.menu-block--anchor .menu_block--heading:after{
+        top: 2px !important;
+    }
+    .s48meganav{
+        margin-top: 50px;
+        z-index: 1150;
+        padding-top: 30px !important;
+        .menu-back-btn{
+            padding: 8px 20px !important;
+        }
+        .menu-breadcrumb.menu-breadcrumb--active{
+            text-transform: uppercase;
+        }
+        .nav{
+            .menu-block__depth-0{
+                .menu-block--item{
+                    .menu-block--anchor.menu-block--link, .menu-block--anchor.menu-block--no-link{
+                        //padding: 0.8rem 1.2rem;
+                        .menu_block--heading{
+                            text-transform: uppercase;
+                            font-weight: 300;
+                            padding: 10px 20px;
+                        }
+                    }
+                    .menu-block--wrapper.menu-block__depth-1--wrapper{
+                        .menu-block__depth-1{
+                            max-width: 1620px;
+                        }
+                        .menu-block--anchor.menu-block--link.menu-block__depth-1--link{
+                            padding: 0.3rem 1.2rem;
+                        }
+                        .menu_block--heading.menu_block__depth-1--heading {
+                            //padding: 0.4rem 1.2rem;
+                            font-weight: 300;
+                            padding: 3px 0px;
+                        }
+                        .menu-block--wrapper.menu-block__depth-2--wrapper{
+                            .menu-block__depth-2{
+                                .menu-block--item.menu-block__depth-2--item{
+                                    .menu-block--anchor.menu-block--link.menu-block__depth-2--link{
+                                        .menu_block--heading{
+                                            text-transform: none;
+                                            padding: 6px 20px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+

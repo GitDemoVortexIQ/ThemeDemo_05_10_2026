@@ -1,0 +1,47 @@
+<div class="productView-options-inner">
+    {{#each product.options}}
+        {{#if this.required}}    
+            {{{dynamicComponent 'components/products/options'}}}
+        {{else}}
+            <div class="mejora">
+                {{{dynamicComponent 'components/products/options'}}}
+            </div>  
+        {{/if}}            
+    {{/each}}    
+    <div class="bici">
+    </div>
+</div>
+<script>
+    let htmlINNER = "";
+    const POptions = {{{ json product.options }}};
+    const picklist = POptions.filter(o => o.type == 'Configurable_PickList_Product');
+
+if (picklist.length > 0) {
+    let htmlBlock = `
+        <button class="button MejoraBiciButton" type="button">
+            <img src="{{cdn 'assets/icons/logo-upgrade.svg'}}" alt="upgrade logo">
+        <span class="bici-text">Mejora tu bicicleta</span>
+        </button
+    `;
+    const boton = document.querySelector('.bici');
+    boton.innerHTML = htmlBlock;
+}
+
+const mejora=document.querySelector('.MejoraBiciButton'); 
+if(mejora){
+    mejora.addEventListener('click', function () {
+    const mostrar = document.querySelectorAll('.mejora');
+    if(mostrar.length>0){
+        for (let i = 0; i < mostrar.length; i++) {
+            if (mostrar[i].style.display !== 'block') {
+                mostrar[i].style.display = 'block';
+                document.querySelector('.MejoraBiciButton').style.display = 'none';
+            } else {
+                mostrar[i].style.display = 'none';
+            }
+        }
+    }
+});
+}
+
+</script>

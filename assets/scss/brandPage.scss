@@ -1,0 +1,264 @@
+$black:  #0f0f0f;
+$white:  #ffffff;
+$red:  #E82222;
+$green: #08BC72;
+$grey:  #868686;
+
+//BRANDS LISTING
+.container.brands{
+    .page{
+        .page-content-subcategories{
+            .navList{
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                .navList-item{
+                    .navList-action{
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .container.brands{
+        .page{
+            .page-content-subcategories{
+                .navList{
+                    grid-template-columns: repeat(1, 1fr);
+                    gap: 8px;
+                    padding: 0 10px;
+                    .navList-item{
+                        .navList-action{
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 800px) {
+
+    .page_type__brand{
+        .body{
+            position: relative;
+            nav[aria-label="Breadcrumb"]{
+                position: absolute;
+                z-index: 2;
+                .breadcrumb-label{
+                    color: $white;
+                }
+                .breadcrumb:not(:first-child)::before {
+                    border-right: 0.1em solid $white;
+                }
+            }
+            .grid-bg{
+                .container{
+                    .page{
+                        .page-sidebar{
+                            padding-top: 8px;
+                            width: 18%;
+                            border: 0;
+                            .facetedSearch.sidebarBlock{
+                                margin-top: 0;
+                                padding-top: 0;
+                                border-top-color: transparent;
+                                .facetedSearch-refineFilters.sidebarBlock{
+                                    border-bottom: 1px solid $black;
+                                    padding-bottom: 19px;
+                                    .sidebarBlock-heading{
+                                        font-size: 18px;
+                                        text-transform: none;
+                                    }
+                                    .inlineList.inlineList--labels{
+                                        .facetLabel{
+                                            font-weight: 300;
+                                            text-decoration: none;
+                                            border-radius: 30px;
+                                            border: 1px solid $black;
+                                            background-color: $white;
+                                            padding-top: 0.15rem;
+                                            padding-bottom: 0.15rem;
+                                            .icon{
+                                                margin-left: 8px;
+                                            }
+                                        }
+                                    }
+                                    a[data-faceted-search-facet]{
+                                        font-weight: bold;
+                                        text-decoration: underline;
+                                        font-size: 14px;
+                                    }
+                                }
+                                #subcategoryList{
+                                    display: none !important;
+                                    .accordion.accordion--navList{
+                                        .sidebarBlock-heading{
+                                            border-bottom: none;
+                                            margin-bottom: 0;
+                                            padding: 0 0 0.78rem 0;
+                                            font-size: 18px;
+                                            text-transform: none;
+                                        }
+                                        .navList{
+                                            padding-bottom: 0;
+                                            .navList-item{
+                                                .navList-action{
+                                                    font-size: 14px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .facetedSearch-navList{
+                                    .accordion.accordion--navList{
+                                        .accordion-block{
+                                            border-top: 0;
+                                            border-bottom: 1px solid $black;
+                                            padding-bottom: 12px;
+                                            margin-top: 14px;
+                                            padding-top: 0;
+                                            &:first-child {
+                                                border-top: none;
+                                            }
+                                            .accordion-button{
+                                                border: 1px solid $black;
+                                                border-radius: 30px;
+                                            }
+                                            .accordion-navigation.toggleLink{
+                                                margin-bottom: 0 !important;
+                                                .accordion-title{
+                                                    font-size: 18px;
+                                                    text-transform: none;
+                                                }
+                                            }
+                                            .accordion-content{
+                                                padding-top: 10px;
+                                                .navList{
+                                                    .navList-item{
+                                                        .navList-action.navList-action--checkbox{
+                                                            font-size: 14px;
+                                                            font-weight: 300;
+                                                            padding-left: 1.85714rem;
+                                                            padding-right: 0;
+                                                            .navList-action-close{
+    
+                                                            }
+                                                        }
+                                                        .navList-action.navList-action--checkbox::before{
+                                                            right: unset;
+                                                            left: 0;
+                                                        }
+                                                        .navList-action.navList-action--checkbox::after{
+                                                            right: unset;
+                                                            left: 1px;
+                                                        }
+                                                    }
+                                                }
+                                                .toggleLink{
+                                                    .toggleLink-text.toggleLink-text--off{
+                                                        font-size: 12px;
+                                                    }
+                                                }
+                                            }
+                                            #facetedSearch-content--price{
+                                                .form{
+                                                    .form-fieldset{
+                                                        .form-minMaxRow{
+                                                            .form-field{
+                                                                .form-input.form-input--small{
+                                                                    font-size: 12px;
+                                                                    padding: 4px;
+                                                                }
+                                                                .button.button--small{
+                                                                    font-size: 12px;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .page-content{
+                            .actionBar.sort-products{
+                                .form-fieldset.actionBar-section{
+                                    float: right;
+                                    .form-field{
+                                        border-radius: 30px;
+                                        border: 1px solid $black;
+                                        padding-right: 14px;
+                                        .form-label{
+                                            font-size: 14px;
+                                        }
+                                        .form-select.form-select--small {
+                                            font-size: 14px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .page_type__brand{
+        .body{
+            position: relative;
+            nav[aria-label="Breadcrumb"]{
+                position: absolute;
+                z-index: 2;
+                top: 6px;
+                .breadcrumb-label{
+                    color: $white;
+                }
+                .breadcrumb:not(:first-child)::before {
+                    border-right: 0.1em solid $white;
+                }
+            }
+            .grid-bg{
+                .container{
+                    .page{
+                        .page-content{
+                            .actionBar.sort-products{
+                                width: auto;
+                                .form-fieldset.actionBar-section{
+                                    float: right !important;
+                                    .form-field{
+                                        border-radius: 30px;
+                                        border: 1px solid $black;
+                                        padding-right: 14px;
+                                        display: flex;
+                                        width: auto;
+                                        .form-label{
+                                            font-size: 12px;
+                                            min-width: 70px;
+                                        }
+                                        .form-select.form-select--small {
+                                            font-size: 12px;
+                                            max-width: 120px;
+                                            min-width: 50px;
+                                            width: auto;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

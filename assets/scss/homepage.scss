@@ -1,0 +1,159 @@
+$black:  #0f0f0f;
+$white:  #ffffff;
+$red:  #E82222;
+$green: #08BC72;
+$grey:  #868686;
+
+
+.body.home{
+    .main.full.grid-bg{
+        padding-top: 10px;
+        .container{
+            .page-heading{
+                text-transform: none !important;
+            }
+            
+            .tabs-container{
+                display: flex;
+                justify-content: center;
+                .tab {
+                    overflow: hidden;
+                    border-top: 0;
+                }
+            }
+
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 1px 20px;
+                transition: 0.3s;
+                font-size: 19px;
+                border-radius: 0 !important;
+            }
+              
+            .tab button:hover {
+                //background-color: #ddd;
+            }
+              
+            .tab button.active {
+                font-weight: 700;
+                border-bottom: 1px solid $green;
+            }
+              
+            .tabcontent {
+                //display: none;
+                padding: 30px 6px 6px 6px;
+                border-top: none;
+                .page-heading{
+                    display: none;
+                }
+                .productGrid{
+                    .product{
+                        padding-left: 0.25rem;
+                        padding-right: 0.25rem;
+                    }
+                }
+            }
+            .productGrid{
+                width: 100%;
+                .slick-track{
+                    display: flex !important;
+                }
+                .slick-dots{
+                    display: block !important;
+                    .slick-active{
+                        button{
+                            color: $green;
+                            background-color: $green;
+                            border-color: $black;
+                        }
+                    }
+                    li button{
+                        color: $white;
+                        background-color: $white;
+                        border-color: $black;
+                        width: 14px;
+                        height: 14px;
+                        border-width: 1px;
+                        .carousel-tooltip{
+                            display: none;
+                        }
+                    }
+                    li button::before{
+                     display: none;
+                    }
+                }
+                .product{
+                    margin-bottom: 20px;
+                    padding-left: 0.25rem;
+                    padding-right: 0.25rem;
+                    margin-left: 4px;
+                    margin-right: 4px;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .body.home{
+        .main.full.grid-bg{
+            .container{
+                .productGrid{
+                    min-height: 480px;
+                    .product{
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .body.home{
+        .main.full.grid-bg{
+            .container{
+                .productGrid{
+                    .product{
+
+                    }
+                }
+                .tabcontent{
+                    padding-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+//HERO-SECTIONS BLOCK + ZENO AUX
+
+.zn-banner.rounded{
+    border-radius: 5px;
+}
+.splide__pagination{
+    .splide__pagination__page.is-active{
+        color: $green !important;
+        background-color: $green !important;
+        border-color: $black !important;
+    }
+    .splide__pagination__page{
+        color: $white !important;
+        background-color: $white !important;
+        border: 1px solid $black !important;
+        width: 14px !important;
+        height: 14px !important;
+    }
+}
+.body.home{
+    div[id^="sd-image"] {
+        border-radius: 5px;
+    }
+}

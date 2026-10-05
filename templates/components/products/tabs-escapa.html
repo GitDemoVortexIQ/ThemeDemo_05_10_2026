@@ -1,0 +1,550 @@
+<div class="product-description-container">
+  <div class="product-description-tabs">
+      <div class="container 4661726c6579">
+          <div class="product-description-content">
+              <article class="ootb-tabcordion">
+                    <div class="ootb-tabcordion--tabs" role="tablist" aria-label="TabCordion">
+                    <button class="tab is-active" role="tab" aria-selected="true" aria-controls="tab1-tab" id="tab1">{{lang 'products.description'}}</button>
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="tab2-tab" id="tab2" tabindex="-1">{{lang 'products.specs'}}</button>
+                    <!-- <button class="tab" role="tab" aria-selected="false" aria-controls="tab3-tab" id="tab3" tabindex="-1">{{lang 'products.shipping-returns'}}</button>-->
+                    <button class="tab" role="tab" aria-selected="false" aria-controls="tab4-tab" id="tab4" tabindex="-1">{{lang 'products.reviews-tab'}}</button>
+                    </div>
+                      <section id="tab1-tab" class="ootb-tabcordion--entry is-active" data-title="{{lang 'products.description'}}" tabindex="0" role="tabpanel" aria-labelledby="tab1">
+                        <span class="chevron"></span>
+                        <div class="ootb-tabcordion--entry-container">
+                              <div class="ootb-tabcordion--entry-content">
+                                  {{#or product.description product.videos.list.length}}
+                                      <div {{#if schema}} itemprop="description"{{/if}} class="product-description">
+                                          {{{product.description}}}
+                                          {{{snippet 'product_description'}}}
+                                      </div>
+                                      
+                                      {{#if product.videos.list.length}}
+                                          {{> components/products/videos product.videos}}
+                                      {{/if}}
+                                  {{/or}}
+                  
+                                  {{#unless theme_settings.show_short_desc}}
+                                      {{#if product.warranty}}
+                                          {{{product.warranty}}}
+                                      {{/if}}
+                                  {{/unless}}
+
+                                  <span class="view-more desc toggle-btn" style="display: none;">
+                                    {{lang 'text_truncate.view_more'}}
+                                    <span class="chevron"></span>
+                                  </span>
+                              </div>
+                          </div>
+                      </section>
+                      <section id="tab2-tab" class="ootb-tabcordion--entry" data-title="Información técnica" tabindex="-1" role="tabpanel" aria-labelledby="tab2">
+                        <span class="chevron"></span>
+                          <div class="ootb-tabcordion--entry-container">
+                              <div class="ootb-tabcordion--entry-content">
+                                  {{#if product.custom_fields}}
+                                      <dl class="productView-info">
+                                          {{#each product.custom_fields}}
+                                            {{#contains name "Interno" }}
+                                              {{else}}
+                                                {{#contains name "Tipo de campaña" }}
+                                                  {{else}}
+                                                    {{#contains name "Selección especial" }}
+                                                      {{else}}
+                                                      <div>
+                                                        <dt class="productView-info-name">{{name}}:</dt>
+                                                        <dd class="productView-info-value">{{{value}}}</dd>
+                                                      </div>
+                                                    {{/contains}}
+                                                {{/contains}}
+                                            {{/contains}}
+                                          {{/each}}
+                                      </dl>
+                                  {{/if}}
+                                  <span class="view-more desc toggle-btn" style="display: none;">
+                                    {{lang 'text_truncate.view_more'}}
+                                    <span class="chevron"></span>
+                                  </span>
+                              </div>
+                          </div>
+                      </section>
+                    <!-- 
+                    <section id="tab3-tab" class="ootb-tabcordion--entry" data-title="Envío y devoluciones" tabindex="-1" role="tabpanel" aria-labelledby="tab3">
+                      <span class="chevron"></span>
+                        <div class="ootb-tabcordion--entry-container">
+                            <div class="ootb-tabcordion--entry-content">
+                              {{#contains product.category "Bicicletas"}}
+                                {{{region name="shipping-returns-bikes-info--global"}}}
+                              {{else}}
+                                {{{region name="shipping-returns-general--global"}}}
+                              {{/contains}}
+                            </div>
+                        </div>
+                    </section>
+                    -->
+                    <section id="tab4-tab" class="ootb-tabcordion--entry" data-title="Reseñas" tabindex="-1" role="tabpanel" aria-labelledby="tab4">
+                      <span class="chevron"></span>
+                        <div class="ootb-tabcordion--entry-container">
+                          <div class="ootb-tabcordion--entry-content">
+                              {{#if settings.show_product_reviews}}
+                                  {{#gt product.reviews.total 0}}
+                                      <div class="container-reviews">
+                                          {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+                                      </div>
+                                    {{else}}
+                                    <span class="reviews-empty">{{lang 'products.no_reviews'}}</span>
+                                  {{/gt}}
+                              {{/if}}
+                              
+                              <div id="trusted-stars">
+
+                              </div>
+
+                          </div>
+                      </div>
+                  </section>
+              </article>
+          </div>
+      </div>
+  </div>
+
+  {{#and product.similar_by_views theme_settings.customer_viewed_products_tab}}
+      <div class="accordion-block">   
+          <div id="accordion--similar" class="accordion-content">
+              <div class="grid-bg">
+                  <div class="container">
+                      {{> components/products/similar-by-views products=product.similar_by_views columns=6}}
+                  </div>
+              </div>
+          </div>
+      </div>
+  {{/and}}
+</div>
+
+
+<script>
+  const variantsInfoQuery = `
+    query GetVariants($productId: Int!) {
+      site {
+        product(entityId: $productId) {
+          variants(first: 250) {
+            edges {
+              node {
+                sku
+                isPurchasable
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+async function fetchVariantsSku() {
+    try {
+      const response = await fetch("/graphql", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer {{settings.storefront_api.token}}"
+        },
+        body: JSON.stringify({
+          query: variantsInfoQuery,
+          variables: { productId: parseInt('{{product.id}}') },
+        }),
+      });
+
+      const data = await response.json();
+      
+      const variants = data?.data?.site?.product?.variants?.edges || [];
+      const purchasableSkus = variants
+        .filter(variant => variant.node.isPurchasable)
+        .map(variant => variant.node.sku);
+
+      const trustedStarsDiv = document.getElementById("trusted-stars");
+
+      const channelID= `{{this.settings.channel_id}}`;
+      
+      const widgetIds = {
+          1: "wdg-b29cda13-6f58-40a5-a04f-f4f5244bc479",
+          1692549: "wdg-b29cda13-6f58-40a5-a04f-f4f5244bc479",
+          1720977: "wdg-b29cda13-6f58-40a5-a04f-f4f5244bc479",
+          1581490: "wdg-c8396f78-b416-47fc-9782-7ade2f3291f3",
+          1655486: "wdg-c8396f78-b416-47fc-9782-7ade2f3291f3",
+          1620633: "wdg-04a0df4a-7374-44a3-81e1-bfaa0933755f",
+          1655483: "wdg-04a0df4a-7374-44a3-81e1-bfaa0933755f",
+          1581488: "wdg-e4ce9e96-47d9-4e52-8709-f7cbc95fa592",
+          1655485: "wdg-e4ce9e96-47d9-4e52-8709-f7cbc95fa592"
+      };
+
+      if (widgetIds[channelID]) {
+          const sku = (variants.length > 0 && purchasableSkus.length > 0) ? purchasableSkus.join(',') : "{{ product.sku }}";
+          trustedStarsDiv.innerHTML = `<etrusted-widget data-etrusted-widget-id="${widgetIds[channelID]}" data-sku="${sku}"></etrusted-widget>`;
+      }
+    }catch{
+      console.error("Error fetching variants sku:", error);
+    }
+  }
+</script>
+
+
+<script>
+fetchVariantsSku();
+(function () {
+	'use strict';
+
+  const keyboardSupport = function(container, hasTabs) {
+    const tablist = container.querySelectorAll('[role="tablist"]')[0];
+    let tabs;
+    let panels;
+
+    const generateArrays = function() {
+      panels = container.querySelectorAll('[role="tabpanel"]');
+      tabs = container.querySelectorAll('[role="tab"]');
+    };
+    
+    generateArrays();
+
+    // For easy reference
+    const keys = {
+      end: 35,
+      home: 36,
+      left: 37,
+      up: 38,
+      right: 39,
+      down: 40,
+      delete: 46,
+      enter: 13,
+      space: 32
+    };
+
+    // Add or subtract depending on key pressed
+    const direction = {
+      37: -1,
+      38: -1,
+      39: 1,
+      40: 1
+    };
+
+    // Deactivate all tabs and tab panels
+    const deactivateTabs = function() {
+      for (let t = 0; t < tabs.length; t++) {
+        tabs[t].setAttribute('tabindex', '-1');
+        tabs[t].setAttribute('aria-selected', 'false');
+      }
+    };
+    
+    // Activates any given tab panel
+    const activateTab = function(tab, setFocus) {
+      setFocus = setFocus || true;
+      // Deactivate all other tabs
+      deactivateTabs();
+
+      // Remove tabindex attribute
+      tab.removeAttribute('tabindex');
+
+      // Set the tab as selected
+      tab.setAttribute('aria-selected', 'true');
+
+      // Set focus when required
+      if (setFocus) {
+        tab.focus();
+      }
+    };
+    
+    const triggerTabClick = function(e) {
+      const clickedId = e.target.getAttribute('id');
+      if(clickedId) {
+          const clickedTab = container.querySelector('[aria-controls="' + clickedId + '"]');
+          clickedTab.click();
+
+          const targetElement = document.getElementById(clickedId);
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+
+          window.scrollTo({
+              top: targetPosition - 100, 
+              behavior: 'smooth'
+          });
+      }
+    };
+    
+    const accordionClickEventListener = function(event) {
+      triggerTabClick(event);
+    };
+    
+    // When a tab is clicked, activateTab is fired to activate it
+    const clickEventListener = function(event) {
+       const tab = event.target;
+        activateTab(tab, false);
+    };
+    
+    const focusFirstTab = function() {
+      const target = hasTabs ? tabs : panels;
+      target[0].focus();
+    };
+
+    const focusLastTab = function() {
+      const target = hasTabs ? tabs : panels;
+      target[target.length - 1].focus();
+    };
+    
+    // Either focus the next, previous, first, or last tab
+    // depending on key pressed
+    const switchTabOnArrowPress = function(event) {
+      const pressed = event.keyCode;
+
+      if (direction[pressed]) {
+        const target = event.target;
+        const targetElems = hasTabs ? tabs : panels;
+        if (target.index !== undefined) {
+          if (targetElems[target.index + direction[pressed]]) {
+            targetElems[target.index + direction[pressed]].focus();
+          }
+          else if (pressed === keys.left || pressed === keys.up) {
+            focusLastTab();
+          }
+          else if (pressed === keys.right || pressed == keys.down) {
+            focusFirstTab();
+          }
+        }
+      }
+    };
+    
+    const determineOrientation = function(event) {
+      const key = event.keyCode;
+      const vertical = tablist ? tablist.getAttribute('aria-orientation') === 'vertical' : null;
+      let proceed = false;
+
+      if (vertical || !hasTabs) {
+        if (key === keys.up || key === keys.down) {
+          event.preventDefault();
+          proceed = true;
+        }
+      }
+      else {
+        if (key === keys.left || key === keys.right) {
+          proceed = true;
+        }
+      }
+
+      if (proceed) {
+        switchTabOnArrowPress(event);
+      }
+    };
+    
+    // Handle keydown on tabs
+    const keydownEventListener = function(event) {
+      const key = event.keyCode;
+      switch (key) {
+        case keys.end:
+          event.preventDefault();
+          // Activate last tab
+          focusLastTab();
+          break;
+        case keys.home:
+          event.preventDefault();
+          // Activate first tab
+          focusFirstTab();
+          break;
+
+          // Up and down are in keydown
+          // because we need to prevent page scroll >:)
+          case keys.up:
+          case keys.down:
+          determineOrientation(event);
+          break;
+      }
+    };
+
+    // Handle keyup on tabs
+    const keyupEventListener = function(event) {
+      const key = event.keyCode;
+      switch (key) {
+        case keys.left:
+        case keys.right:
+          determineOrientation(event);
+          break;
+        case keys.enter:
+        case keys.space:
+          if(hasTabs) {
+            activateTab(event.target);
+          } else {
+            triggerTabClick(event);
+          }
+          break;
+      }
+    };
+
+    const addListeners = function(index) {
+      const target = hasTabs ? tabs[index] : panels[index];
+      tabs[index].addEventListener('click', clickEventListener);
+      if(target) {
+         if(!hasTabs) {
+          target.addEventListener('click', accordionClickEventListener);
+        }
+        target.addEventListener('keydown', keydownEventListener);
+        target.addEventListener('keyup', keyupEventListener);
+        // Build an array with all tabs (<button>s) in it
+        target.index = index;
+      }    
+    };
+
+    // Bind listeners
+    for (let i = 0; i < tabs.length; ++i) {
+      addListeners(i);
+    }
+   
+    // Accordion mode
+    if(!hasTabs) {
+      for (const panel of panels) {
+        panel.onclick = function(e) {
+          triggerTabClick(e);
+        };
+      }
+    }   
+};
+  
+const toggleClass = function (otherElems, thisElem, className = 'is-active') {
+    const isAccordion = window.innerWidth < 540;
+
+    if (!isAccordion) {
+        for (const otherElem of otherElems) {
+            otherElem.classList.remove(className);
+        }
+        thisElem.classList.add(className);
+    } else {
+        if (thisElem.tagName !== 'SECTION') return;
+
+        // Use a data attribute to track execution
+        if (thisElem.dataset.toggleExecuted === 'true') return;
+
+        thisElem.dataset.toggleExecuted = 'true';
+
+        setTimeout(() => {
+            thisElem.dataset.toggleExecuted = 'false';
+        }, 100);
+
+        if (!thisElem.classList.contains(className)) {
+            thisElem.classList.add(className);
+        } else {
+            thisElem.classList.remove(className);
+        }
+    }
+};
+  
+  const toggleVerticalTabs = function (tabContainer, tabs, items, item) {
+    item.onclick = function (e) {
+				const currId = item.getAttribute('id');
+				const tab = tabContainer.querySelector('.ootb-tabcordion--tabs [aria-controls="' + currId + '"]');
+				toggleClass(tabs, tab);
+				toggleClass(items, item);
+			};
+  };
+  
+	const toggleTabs = function (tabContainer) {
+		const tabs = tabContainer.querySelectorAll('.ootb-tabcordion--tabs .tab');
+		const items = tabContainer.querySelectorAll('.ootb-tabcordion--entry');
+		for (const tab of tabs) {
+      tab.onclick = function() {
+        const target = tab.getAttribute('aria-controls');
+        const content = document.getElementById(target);
+        toggleClass(tabs, tab);
+        toggleClass(items, content);
+      };
+		}
+		for (const item of items) {
+			toggleVerticalTabs(tabContainer, tabs, items, item);
+		}
+	};
+
+  const hasTabs = function(container) {
+    return container.classList.contains('has-tabs');
+  };
+  
+	const modeSwitcher = function (tabContainer, containerWidth) {
+		const tabs = tabContainer.querySelectorAll('.tab');
+    const container = tabs[0].closest('.ootb-tabcordion');
+		let totalW = 0;
+		for (const tab of tabs) {
+			totalW += tab.offsetWidth;
+		}
+		if (totalW >= containerWidth) {
+			container.classList.remove('has-tabs');
+		} else {
+			container.classList.add('has-tabs');
+		}
+    keyboardSupport(tabContainer, hasTabs(container));
+	};
+
+  const setupToggle = function (selector, maxHeight = 400) {
+    document.querySelectorAll(selector).forEach(entry => {
+        const parentContainer = document.querySelector('.ootb-tabcordion'); 
+        if (!parentContainer) return;
+
+        const descriptionContent = entry.querySelector('.product-description');
+        const customFieldsContent = entry.querySelector('.productView-info');
+        const toggleButton = entry.querySelector('.toggle-btn');
+
+        if (!toggleButton || (!descriptionContent && !customFieldsContent)) return;
+
+        // Select the correct content to toggle
+        const content = descriptionContent || customFieldsContent;
+
+        const checkAccordionMode = () => {
+            const isAccordion = window.innerWidth < 540;
+
+            if (isAccordion && content.scrollHeight > maxHeight) {
+                content.style.height = `${maxHeight}px`;
+                content.style.overflow = 'hidden';
+                content.style.marginBottom = '20px';
+                toggleButton.style.display = 'block';
+            } else {
+                content.style.height = 'auto';
+                content.style.overflow = 'visible';
+                content.style.marginBottom = '';
+                toggleButton.style.display = 'none';
+            }
+        };
+
+        checkAccordionMode();
+        window.addEventListener('resize', checkAccordionMode);
+
+        // Click event to toggle content height
+        toggleButton.addEventListener('click', function () {
+            if (content.style.height === `${maxHeight}px`) {
+                content.style.height = 'auto';
+                content.style.overflow = 'visible';
+                this.innerHTML = `{{lang 'text_truncate.view_less'}}<span class="chevron"></span>`;
+                this.classList.add('active');
+            } else {
+                content.style.height = `${maxHeight}px`;
+                content.style.overflow = 'hidden';
+                content.style.marginBottom = '30px';
+                this.innerHTML = `{{lang 'text_truncate.view_more'}}<span class="chevron"></span>`;
+                this.classList.remove('active');
+
+                window.scrollTo({
+                    top: entry.getBoundingClientRect().top + window.scrollY - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+  };
+	
+	const resizeObserver = new ResizeObserver(entries => {
+		for (let entry of entries) {
+			modeSwitcher(entry.target, entry.contentRect.width);
+		}
+	});
+
+	const tabContainers = document.querySelectorAll('.ootb-tabcordion');
+	for (const tabContainer of tabContainers) {
+		const tabList = tabContainer.querySelector('.ootb-tabcordion--tabs');
+		resizeObserver.observe(tabList);
+		toggleTabs(tabContainer);
+    keyboardSupport(tabContainer, hasTabs(tabContainer));
+	}
+
+  setupToggle('.ootb-tabcordion--entry');
+
+})();
+</script>

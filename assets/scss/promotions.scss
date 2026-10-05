@@ -1,0 +1,81 @@
+$black:  #0f0f0f;
+$white:  #ffffff;
+$red:  #E82222;
+$green: #08BC72;
+$grey:  #868686;
+$darkgrey: #787878;
+
+
+#ult-upsell-popup-modal{
+    .new-modal-content.ult-upsell-modal-body{
+        border-radius: 5px !important;
+        #layout-basic-ecom-1{
+            .new-modal-body{
+                .multiple-product{
+                    .product-item{
+                        .new-modal-row{
+                            .new-modal-col.new-modal-body__right.modal-offer-product{
+                                .new-modal-body__titleProduct::after{
+                                    display: none !important;
+                                }
+                                .new-modal-addToCart{
+                                    border-radius: 30px !important;
+                                }
+                            }
+                        }   
+                    }
+                }
+            }
+        }
+        [id^="layout-basic-ecom"]{
+            .product-popup{
+                border-radius: 5px !important;
+                .fa.fa-times.btn-cancel{
+                    font-size: 0 !important;
+                }
+                .fa-times:before{
+                    font-size: 18px !important;
+                }
+                .product-list{
+                    .product-list__item.bg-gray{
+                        background-color: $white !important;
+                        border-bottom: 1px solid $black !important;
+                        .product-add-success{
+                            .product-price{
+                                display: none !important
+                            }
+                        }
+                    }
+                    .product-list__item.modal-offer-product{
+                        .product-list__item-content{
+                            .product-action{
+                                .product-quantity{
+                                    border-radius: 5px !important;
+                                }
+                                .btn-add{
+                                    border-radius: 30px !important;
+                                    font-size: 14px !important;
+                                    padding: 8px 14px !important;
+                                    text-wrap: nowrap !important;
+                                    margin-left: 10px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (min-width: 800px) {
+
+
+}
+
+@media (max-width: 800px) {
+
+
+
+}

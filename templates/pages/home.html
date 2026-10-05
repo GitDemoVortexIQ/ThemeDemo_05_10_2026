@@ -1,0 +1,139 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+{{#partial "hero"}}
+    {{#if carousel}}
+        {{> components/carousel arrows=theme_settings.homepage_show_carousel_arrows play_pause_button=theme_settings.homepage_show_carousel_play_pause_button}}
+    {{/if}}
+
+    {{#if banners.top}}
+    <div class="banners" data-banner-location="top">
+        {{#each (limit banners.top_metadata 1)}}
+        <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+            <div data-event-type="promotion-click">
+                {{{this.content}}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+
+    {{{snippet 'home_content'}}}
+
+    {{{region name="home_below_carousel"}}}
+
+{{/partial}}
+
+{{#partial "page"}}
+    {{#each shipping_messages}}
+        {{> components/common/alert/alert-info message}}
+    {{/each}}
+
+    <div class="main full grid-bg">
+        <div class="container">
+
+            {{{region name="home_below_hero_section"}}}
+
+            <h2 class="page-heading">Selección top</h2>
+
+            <div class="tabs-container">
+                <div class="tab">
+                    <button class="tablinks" data-tab="news" onclick="openTab(event, 'news')">Novedades</button>
+                    <button class="tablinks" data-tab="offers" onclick="openTab(event, 'offers')" id="defaultOpen">Ofertas</button>
+                </div>
+            </div>
+
+            <div id="news" class="tabcontent">
+                {{#if products.new}}
+                    {{> components/products/new-escapa products=products.new columns=theme_settings.homepage_new_products_column_count}}
+                {{/if}}
+            </div>
+              
+            <div id="offers" class="tabcontent">
+                {{#if products.featured}}
+                    {{> components/products/featured-escapa products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+                {{/if}}
+            </div>
+
+            {{{region name="home_below_featured_products"}}}
+        
+            {{#if products.top_sellers}}
+                {{> components/products/top-escapa products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+            {{/if}}
+
+            {{{region name="home_below_top_products"}}}
+
+            <div class="trusted-summary">
+                {{#or (if this.settings.channel_id '==' 1) (if this.settings.channel_id '==' 1692549) (if this.settings.channel_id '==' 1720977) }}
+                    <!-- Begin eTrusted widget tag --><!-- Spain -->
+                    <etrusted-widget data-etrusted-widget-id="wdg-d4ec2016-b71a-4e9f-898f-96d90d6f2202"></etrusted-widget>
+                    <!-- End eTrusted widget tag -->
+                {{/or}}
+                {{#or (if this.settings.channel_id '==' 1581490) (if this.settings.channel_id '==' 1655486) }}
+                    <!-- Begin eTrusted widget tag --><!-- France -->
+                    <etrusted-widget data-etrusted-widget-id="wdg-86dc4d0e-bbd2-470f-9c7d-0403768b7a89"></etrusted-widget>
+                    <!-- End eTrusted widget tag -->
+                {{/or}}
+                {{#or (if this.settings.channel_id '==' 1620633) (if this.settings.channel_id '==' 1655483) }}
+                    <!-- Begin eTrusted widget tag --><!-- Italy -->
+                    <etrusted-widget data-etrusted-widget-id="wdg-2b6bc2f3-4603-46e5-8011-0b7722cc7201"></etrusted-widget>
+                    <!-- End eTrusted widget tag -->
+                {{/or}}
+                {{#or (if this.settings.channel_id '==' 1581488) (if this.settings.channel_id '==' 1655485) }}
+                    <!-- Begin eTrusted widget tag --><!-- Germany -->
+                    <etrusted-widget data-etrusted-widget-id="wdg-a0a2ff5b-1aa1-4855-afb1-d71280994b87"></etrusted-widget>
+                    <!-- End eTrusted widget tag -->
+                {{/or}}
+            </div>
+
+            {{{region name="home_extra_content"}}}
+
+        </div>
+    </div>
+{{/partial}}
+
+{{#partial "hero-bottom"}}
+    {{#if blog.recent_posts}}
+        <div class="banners blog-posts-wrap">
+            <div class="container">
+                <h2 class="page-heading">Recent Posts</h2> 
+                <div class="blog-posts">
+                    {{#each blog.recent_posts}}
+                        {{> components/blog/post post=this}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout/base}}
+
+
+<script>
+    document.getElementById("defaultOpen").click();
+    function openTab(evt, tab) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tab).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+</script>
