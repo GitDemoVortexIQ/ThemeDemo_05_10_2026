@@ -1,0 +1,245 @@
+{{#if banners.bottom}}
+    <div class="banners" data-banner-location="bottom">
+        {{#each (limit banners.bottom_metadata 1)}}
+            <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                <div data-event-type="promotion-click">
+                    {{{this.content}}}
+                </div>
+            </div>
+        {{/each}}
+    </div>
+{{/if}}
+<footer class="footer" role="contentinfo">
+    <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
+    <div class="container">
+        <section class="footer-info">
+            {{#or (if settings.show_newsletter_box) (if theme_settings.social_icon_placement_bottom '!==' 'bottom_none')}}
+            <article class="footer-info-col footer-info-col-newsletter">  
+                {{#if settings.show_newsletter_box}}
+                <div class="footer-subscription" data-section-type="newsletterSubscription">
+                    {{> components/common/subscription-form}}
+                </div>
+                
+                <div class="footer-info-col--social">
+                    <ul class="socialLinks socialLinks--alt">
+                <li class="socialLinks-item">
+                    <a class="icon icon--instagram" href="https://www.instagram.com/striderbikes/" target="_blank" rel="noopener" title="Instagram">
+                        <span class="aria-description--hidden">Instagram</span>
+                        <svg>
+                            <use href="#icon-instagram"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socialLinks-item">
+                    <a class="icon icon--facebook" href="https://www.facebook.com/StriderBikes/" target="_blank" rel="noopener" title="Facebook">
+                        <span class="aria-description--hidden">Facebook</span>
+                        <svg>
+                            <use href="#icon-facebook"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socialLinks-item">
+                    <a class="icon icon--x" href="https://x.com/StriderBikes" target="_blank" rel="noopener" title="X">
+                        <span class="aria-description--hidden">X</span>
+                        <svg>
+                            <use href="#icon-x"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socialLinks-item">
+                    <a class="icon icon--youtube" href="https://www.youtube.com/user/striderbikes" target="_blank" rel="noopener" title="Youtube">
+                        <span class="aria-description--hidden">Youtube</span>
+                        <svg>
+                            <use href="#icon-youtube"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socialLinks-item">
+                    <a class="icon icon--linkedin" href="https://www.linkedin.com/company/striderbikes/posts/?feedView=all" target="_blank" rel="noopener" title="Linkedin">
+                        <span class="aria-description--hidden">Linkedin</span>
+                        <svg>
+                            <use href="#icon-linkedin"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socialLinks-item">
+                    <a class="icon icon--pinterest" href="https://www.pinterest.com/striderbikes/" target="_blank" rel="noopener" title="Pinterest">
+                        <span class="aria-description--hidden">Pinterest</span>
+                        <svg>
+                            <use href="#icon-pinterest"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li class="socialLinks-item" style="transform: translateY(9px);">
+                    <a class="icon icon--tiktok" href="https://www.tiktok.com/@striderbikes" target="_blank" rel="noopener" title="TikTok">
+                        <span class="aria-description--hidden">TikTok</span>
+                            <img src="/content/IconSVGs/TikTokLogoFooter.png">
+                    </a>
+                </li>
+                <!--
+                <li class="socialLinks-item">
+                    <a class="icon icon--tiktok" href="https://www.tiktok.com/@striderbikes" target="_blank" rel="noopener" title="TikTok">
+                        <span class="aria-description--hidden">TikTok</span>
+                            <svg>
+                                <use style="transform: translateY(-10px) translateX(-10px);" href="/content/IconSVGs/TikTokLogo.svg"></use>
+                            </svg>
+                    </a>
+                </li> -->
+               
+    </ul>
+                </div>
+                <!--Auto Populate from Social Links
+                {{/if}}
+                {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}            
+                    <div class="footer-info-col--social">
+                        {{> components/common/social-links}}
+                    </div>
+                {{/if}}
+                -->
+            </article>
+            {{/or}}
+            <div class="footer-info-nav {{#or (if settings.show_newsletter_box) (if theme_settings.social_icon_placement_bottom '!==' 'bottom_none')}}{{else}}footer-navigation-sec {{/or}}">
+
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                    <h3 class="footer-info-heading">Shop<span class="cavio-dropdown-nav"><svg><use xlink:href="#icon-cavio_expand-down" /></svg></span></h3>
+                    <ul class="footer-info-list">
+                        <li>
+                            <a href="/shop-all/">Shop All</a>
+                        </li>
+                        <li>
+                            <a href="/baby-balance-bikes">Baby Balance Bikes</a>
+                        </li>
+                        <li>
+                            <a href="/toddler-balance-bikes/">Toddler Balance Bikes</a>
+                        </li>
+                        <li>
+                            <a href="/balance-to-pedal/">Balance to Pedal</a>
+                        </li>
+                        <li>
+                            <a href="/gear/">Gear</a>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                    <h3 class="footer-info-heading">Learn<span class="cavio-dropdown-nav"><svg><use xlink:href="#icon-cavio_expand-down" /></svg></span></h3>
+                    <ul class="footer-info-list">
+                        <li>
+                            <a href="/developmental-phases/">Choosing the Right Bike</a>
+                        </li>
+                        <li>
+                            <a href="/how-it-works">Why Two Wheels Only</a>
+                        </li>
+                        <li>
+                            <a href="/assembly">Safety Tips / Assembly Help</a>
+                        </li>
+                        <li>
+                            <a href="/adaptive-programs">Adaptive Programs</a>
+                        </li>
+                        <li>
+                            <a href="/inclusive-biking">Inclusive Biking</a>
+                        </li>
+                    </ul>
+                </article>
+<!-- Old Categories Section
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
+                    <h3 class="footer-info-heading">{{lang 'footer.categories'}} <span class="cavio-dropdown-nav"><svg><use xlink:href="#icon-cavio_expand-down" /></svg></span></h3>
+                    <ul class="footer-info-list">
+                        {{#each (limit categories 11)}}
+                            {{#if this.name '==' ../theme_settings.category-name-of-category-filter}}
+                                {{else}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                            {{/if}}
+                        {{/each}}
+                    </ul>
+                </article>-->
+                
+                <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
+                    <h3 class="footer-info-heading">Discover<span class="cavio-dropdown-nav"><svg><use xlink:href="#icon-cavio_expand-down" /></svg></span></h3>
+                    <ul class="footer-info-list">
+                        
+                        <li>
+                            <a href="/about">About</a>
+                        </li>
+                        <li>
+                            <a href="/blog">Blog</a>
+                        </li>
+                        <li>
+                            <a href="/events">Events</a>
+                        </li>
+                        <li>
+                            <a href="/strider-international">International</a>
+                        </li>
+                    </ul>
+                </article>
+
+                <article class="footer-info-col footer-info-col--small footer-info-col--storeinfo" data-section-type="storeInfo">
+                    <h3 class="footer-info-heading">Support<span class="cavio-dropdown-nav"><svg><use xlink:href="#icon-cavio_expand-down" /></svg></span></h3>
+                    <ul class="footer-info-list">
+                        <li>
+                            <a href="/faq">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="/warranty">Warranty</a>
+                        </li>
+                        <li>
+                            <a href="/contact-us/">Contact Us</a>
+                        </li>
+                        <li>
+                            <a href="/dealer-resources">Dealer Resources</a>
+                        </li>
+                        <li>
+                            <a href="/donations">Request A Donation</a>
+                        </li>
+                        <li>
+                            <a href="/legal">Legal</a>
+                        </li>
+                        <li>
+                            <a href="/shipping-returns">Shipping & Returns</a>
+                        </li>
+                        <li>
+                            <a href="/Careers">Careers</a>
+                        </li>
+                        <li>
+                            <a href="https://app.impact.com/campaign-promo-signup/Strider-Bikes-Creator.brand?execution=e2s1&cc=___9XpvYq1Sf08ai2jmVgvAaHoXw1HyNtqt#/?viewkey=signUpPreStart">Affiliates and Partnerships</a>
+                        </li>
+                    </ul>      
+                </article>
+
+            </div>
+        </section>
+    </div>
+    {{#or (if theme_settings.show_accept_amex) (if theme_settings.show_accept_discover) (if theme_settings.show_accept_mastercard) (if theme_settings.show_applepay) (if theme_settings.show_accept_paypal) (if theme_settings.show_accept_visa) (if theme_settings.show_accept_amazonpay) (if theme_settings.show_accept_googlepay) (if theme_settings.show_accept_klarna) (if theme_settings.show_accept_affirm) (if theme_settings.show_accept_afterpay) (if theme_settings.show_copyright_footer) (if theme_settings.show_powered_by)}}
+    <div class="footer-copyright">
+        <div class="container">
+            <div class="footer-copyright-bottom">
+                <div class="footer-copyright-wrapper">
+                    {{#if theme_settings.show_copyright_footer}}
+                        <p class="powered-by"> &copy; {{moment format="YYYY"}} {{settings.store_name}} |  <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a></p>
+                    {{/if}}
+                    {{#if theme_settings.show_powered_by}}
+                        <p class="powered-by">Theme by <a href="https://lonestartemplates.com/" rel="nofollow" target="_blank">Lone Star Templates</a> | {{lang 'footer.powered_by'}} <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
+                    {{/if}}
+                </div>
+                <div class="payment-icons-wrapper">
+                    {{> components/common/payment-icons}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/or}}
+    {{{region name="ssl_site_seal--global"}}}
+</footer>
+<!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 5198301;
+    window.__lc.integration_name = "manual_channels";
+    window.__lc.product_name = "livechat";
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/5198301/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
+

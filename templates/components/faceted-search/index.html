@@ -1,0 +1,26 @@
+    <div class="filterflyout-top">
+        <h3><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cavio_filter"></use></svg>Filter by</h3>
+        <a href="javascript:void(0)" class="filter-visibility-button close-filter">
+            <span class="close-filter-label">Close Filters</span>
+            <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg>
+        </a>
+    </div>
+
+<div id="facetedSearch" class="facetedSearch sidebarBlock">
+    {{#any facets visible=true}}
+        <div id="facetedSearch-navList"
+            class="facetedSearch-navList"
+        >
+            <div class="accordion accordion--navList">
+                {{#each facets}}
+                    {{#if visible}}
+                        {{{dynamicComponent 'components/faceted-search/facets'}}}
+                    {{/if}}
+                {{/each}}
+            </div>
+
+            <div class="blocker" style="display: none;"></div>
+        </div>
+    {{/any}}
+    {{> components/faceted-search/selected-facets selected}}
+</div>

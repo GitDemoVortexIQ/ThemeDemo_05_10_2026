@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ locale_name }}">
+    <head>
+        <title>{{ head.title }}</title>
+        {{{ resourceHints }}}
+        {{{ head.meta_tags }}}
+        {{{ head.config }}}
+        {{#block "head"}} {{/block}}
+
+        <link href="{{ head.favicon }}" rel="shortcut icon">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex, nofollow" />
+
+        <script nonce="{{nonce}}">
+            {{!-- Change document class from no-js to js so we can detect this in css --}}
+            document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+        </script>
+
+        {{> components/common/polyfill-script }}
+        <script nonce="{{nonce}}">window.consentManagerTranslations = `{{{langJson 'consent_manager'}}}`;</script>
+
+        {{!-- Load Lazysizes script ASAP so images will appear --}}
+        <script nonce="{{nonce}}">
+            {{!-- Only load visible elements until the onload event fires, after which preload nearby elements. --}}
+            window.lazySizesConfig = window.lazySizesConfig || {};
+            window.lazySizesConfig.loadMode = 1;
+        </script>
+        {{getFontsCollection font-display='block'}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://use.typekit.net/znp8vyr.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">  
+        <script nonce="{{nonce}}" async src="{{cdn 'assets/dist/theme-bundle.head_async.js' resourceHint='preload' as='script'}}"></script>
+        <script nonce="{{nonce}}" async src="{{cdn 'assets/dist/theme-bundle.font.js' resourceHint='preload' as='script'}}"></script>
+
+        {{{stylesheet '/assets/css/theme.css'}}}
+        <style>
+            .productView .cxb-hide {
+              display: none !important;
+            }
+        </style>
+
+        {{{head.scripts}}}
+
+        {{~inject 'zoomSize' theme_settings.zoom_size}}
+        {{~inject 'productSize' theme_settings.product_size}}
+        {{~inject 'genericError' (lang 'common.generic_error')}}
+        {{~inject 'urls' urls}}
+        {{~inject 'secureBaseUrl' settings.secure_base_url}}
+        {{~inject 'cartId' cart_id}}
+        {{~inject 'template' template}}
+        {{~inject 'validationDictionaryJSON' (langJson 'validation_messages')}}
+        {{~inject 'validationFallbackDictionaryJSON' (langJson 'validation_fallback_messages')}}
+        {{~inject 'validationDefaultDictionaryJSON' (langJson 'validation_default_messages')}}
+        {{~inject 'carouselArrowAndDotAriaLabel' (lang 'carousel.arrow_and_dot_aria_label')}}
+        {{~inject 'carouselActiveDotAriaLabel' (lang 'carousel.active_dot_aria_label')}}
+        {{~inject 'carouselContentAnnounceMessage' (lang 'carousel.content_announce_message')}}
+        {{inject 'bearerToken' settings.storefront_api.token}}
+        {{~inject 'giftWrappingRemoveMessage' (lang 'cart.gift_wrapping.remove_confirm')}}
+        {{#if theme_settings.show_shop_collection '===' true}}
+            {{inject 'categoryFilter' true}}
+        {{/if}}  
+        {{#if theme_settings.show_swatches '===' true}}
+            {{inject 'show_swatches' true}}
+        {{/if}}  
+        {{inject 'pdp_sale_badge_label_cavio' theme_settings.pdp_sale_badge_label}}
+        {{#if theme_settings.pdp_sold_out_label}}
+            {{inject 'pdp_sold_out_label_cavio' theme_settings.pdp_sold_out_label}}
+        {{else}}
+            {{inject 'pdp_sold_out_label_cavio' (lang 'page_builder.pdp_sold_out_label')}}
+        {{/if}}
+        {{inject 'pdp_price_label' theme_settings.pdp-price-label}}
+        {{inject 'pdp_sale_price_label' theme_settings.pdp-sale-price-label}}
+        {{inject 'pdp_non_sale_price_label' theme_settings.pdp-non-sale-price-label}}
+        {{inject 'pdp_retail_price_label' theme_settings.pdp-retail-price-label}}
+
+    </head>
+    <body class="{{#if page_type '==' 'category' }}listing-page-body{{/if}} {{#if page_type '==' 'search' }}listing-page-body{{/if}} {{#if page_type '==' 'brands' }}listing-page-body{{/if}} {{#if page_type '==' 'brand' }}listing-page-body{{/if}} {{#if page_type '==' 'product' }}product-page-body{{/if}} {{page_type}}--cavio {{#if theme_settings.themeVariant 'Natural'}}natural-variant{{else if theme_settings.themeVariant 'Parts'}}parts-variant{{else if theme_settings.themeVariant 'Active'}}active-variant{{/if}}
+    {{#if page_type '==' 'cart' }}cart-page-body{{/if}} {{#if theme_settings.searchlayout '==' 'SearchLayout1'}} search-layout-one-active {{else}} search-layout-two-active{{/if}} {{#if theme_settings.show-secondary-image '===' false}}hide-secondary-image{{/if}}  {{#if theme_settings.navigation_design '===' 'simple'}} horizontal-menu-enabled{{/if}} {{#if theme_settings.sq_img '===' true}}square-image{{/if}} {{#if theme_settings.sq_mainimg '===' true}}image-reisze-container{{/if}}">
+        <svg data-src="{{cdn 'img/icon-sprite.svg'}}" class="icons-svg-sprite"></svg>
+        
+        <!-- Modal -->
+        <div id="subModal" class="sub-modal">
+        
+          <!-- Modal content -->
+          <div class="sub-modal-content">
+            <span class="sub-close">&times;</span>
+            <div class="_form_67"></div>
+            <script src="https://striderbikes.activehosted.com/f/embed.php?id=67" charset="utf-8"></script>
+          </div>
+        
+        </div>
+
+        {{> components/common/header }}
+        {{> components/common/body }}
+        {{> components/common/footer }}
+
+        <script nonce="{{nonce}}">window.__webpack_public_path__ = "{{cdn 'assets/dist/'}}";</script>
+        <script nonce="{{nonce}}">
+            {{!-- Exported in app.js --}}
+            function onThemeBundleMain() {
+                window.stencilBootstrap("{{page_type}}", {{jsContext}}).load();
+
+                function browserSupportsFormData() {
+                    return typeof FormData !== 'undefined' 
+                        && !!FormData.prototype.keys;
+                }
+                function loadFormDataPolyfillScript(src) {
+                    var formDataPolyfillScript = document.createElement('script');
+                    formDataPolyfillScript.src = src;
+                    formDataPolyfillScript.onerror = function () {
+                        console.error('Failed to load formData polyfill script ' + src);
+                    };
+                    document.body.appendChild(formDataPolyfillScript);
+                }
+
+                if (!browserSupportsFormData()) {
+                    loadFormDataPolyfillScript('{{cdn 'assets/dist/theme-bundle.polyfill_form_data.js'}}');
+                }
+            }
+        </script>
+        <script id="theme-bundle-main" nonce="{{nonce}}" async defer src="{{cdn 'assets/dist/theme-bundle.main.js' resourceHint='preload' as='script'}}"></script>
+        <script nonce="{{nonce}}">
+            const scriptElement = document.getElementById('theme-bundle-main');
+
+            if (scriptElement) {
+                addEventListener('load', onThemeBundleMain);
+            } else {
+                console.error('Could not find script element with id "theme-bundle-main"');
+            }
+        </script>
+
+        {{{footer.scripts}}}
+        <input type="hidden" name="" value="{{settings.storefront_api.token}}" id="set_token">
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="quick-search-buttons">
+        <div class="recent-search-box quickResults-item">
+            <div class="recent-history-title">
+                <span class="quickResults-item-heading">{{lang 'common.recent_label'}}</span>
+                <span class="clear-all-recent">{{lang 'search.clear_recent'}}</span>
+            </div>
+            <ul class="productGrid-search">
+            </ul>
+        </div>
+        <div class="populer-search-box quickResults-item">
+            <span class="quickResults-item-heading">{{lang 'common.popular_label'}}</span>
+            <ul class="productGrid-search">
+                {{#if theme_settings.pop-search-label-1}}
+                    <li>
+                        <a href="{{theme_settings.pop-search-label-link-1}}">{{theme_settings.pop-search-label-1}}</a>
+                        <span aria-hidden="true" class="delet-search">
+                            <svg><use xlink:href="#icon-close"></use></svg>
+                        </span>
+                    </li>
+                {{/if}}
+
+                {{#if theme_settings.pop-search-label-2}}
+                    <li>
+                        <a href="{{theme_settings.pop-search-label-link-2}}">{{theme_settings.pop-search-label-2}}</a>
+                        <span aria-hidden="true" class="delet-search">
+                            <svg><use xlink:href="#icon-close"></use></svg>
+                        </span>
+                    </li>
+                {{/if}}
+
+                {{#if theme_settings.pop-search-label-3}}
+                    <li>
+                        <a href="{{theme_settings.pop-search-label-link-3}}">{{theme_settings.pop-search-label-3}}</a>
+                        <span aria-hidden="true" class="delet-search">
+                            <svg><use xlink:href="#icon-close"></use></svg>
+                        </span>
+                    </li>
+                {{/if}}
+
+                {{#if theme_settings.pop-search-label-4}}
+                    <li>
+                        <a href="{{theme_settings.pop-search-label-link-4}}">{{theme_settings.pop-search-label-4}}</a>
+                        <span aria-hidden="true" class="delet-search">
+                            <svg><use xlink:href="#icon-close"></use></svg>
+                        </span>
+                    </li>
+                {{/if}}
+
+                {{#if theme_settings.pop-search-label-5}}
+                    <li>
+                        <a href="{{theme_settings.pop-search-label-link-5}}">{{theme_settings.pop-search-label-5}}</a>
+                        <span aria-hidden="true" class="delet-search">
+                            <svg><use xlink:href="#icon-close"></use></svg>
+                        </span>
+                    </li>
+                {{/if}}
+
+                {{#if theme_settings.pop-search-label-6}}
+                    <li>
+                        <a href="{{theme_settings.pop-search-label-link-6}}">{{theme_settings.pop-search-label-6}}</a>
+                        <span aria-hidden="true" class="delet-search">
+                            <svg><use xlink:href="#icon-close"></use></svg>
+                        </span>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>        
+    </div>
+    <div class="search-box-cavio">
+        <div class="search-label-box">
+            <span class="search-cavio-label"> {{lang 'common.search_text'}}</span>
+            {{#if theme_settings.searchlayout '==' 'SearchLayout1'}} 
+                <div class="search-close-button">
+                    <button class="modal-close"
+                        type="button"
+                        title="{{lang 'common.close_search'}}"
+                        data-drop-down-close
+                    >
+                        <span class="aria-description--search">{{lang 'common.close_search'}}</span>
+                        <span aria-hidden="true" class="icon--search-close">
+                            <svg><use xlink:href="#icon-close"></use></svg>
+                        </span>
+                    </button>
+                </div>
+            {{else}} 
+                <div class="search-close-button">
+                    <button class="modal-close layout-two-close"
+                        type="button"
+                        title="{{lang 'common.close_search'}}"
+                    >
+                        <span class="aria-description--search">{{lang 'common.close_search'}}</span>
+                        <span aria-hidden="true" class="icon--search-close">
+                            <svg><use xlink:href="#icon-close"></use></svg>
+                        </span>
+                    </button>
+                </div>            
+            {{/if}}
+
+        </div>
+        <form class="form" onsubmit="return false" data-url="{{urls.search}}" data-quick-search-form>
+            <fieldset class="form-fieldset">
+                <div class="form-field">
+                    <label class="is-srOnly" for="{{name}}">{{lang "search.quick_search.input_label"}}</label>
+                    <input class="form-input"
+                           data-search-quick
+                           name="{{name}}"
+                           id="{{name}}"
+                           data-error-message="{{lang 'search.error.empty_field'}}"
+                           placeholder="{{lang 'search.quick_search.input_placeholder'}}"
+                           autocomplete="off"
+                    >
+                    <svg class="cavio-input-icon"><use xlink:href="#icon-cavio_search"></use></svg>
+                </div>
+            </fieldset>
+        </form>
+        <div class="quick-search-result-wrapper">
+        <section class="quickSearchResults desktop-search hide-pagination" data-bind="html: results"></section>
+        </div>
+        <p role="status"
+           aria-live="polite"
+           class="aria-description--hidden"
+           data-search-aria-message-predefined-text="{{{lang 'search.results.quick_count_live'}}}"
+        ></p>        
+    </div>
+    <section class="quickSearchResults mobile-search hide-pagination" data-bind="html: results"></section>
+    <p role="status"
+       aria-live="polite"
+       class="aria-description--hidden"
+       data-search-aria-message-predefined-text="{{{lang 'search.results.quick_count_live'}}}"
+    ></p>
+</div>

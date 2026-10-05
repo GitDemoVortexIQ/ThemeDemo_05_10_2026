@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ locale_name }}">
+<head>
+    <title>{{ head.title }}</title>
+    {{{ head.meta_tags }}}
+     <meta charset="UTF-8">
+    {{{ head.config }}}
+
+    <link href="{{ head.favicon }}" rel="shortcut icon">
+    {{#block "head"}}{{/block}}
+</head>
+<body class="{{page_type}}--cavio {{#if theme_settings.themeVariant 'Natural'}}natural-variant{{else if theme_settings.themeVariant 'Parts'}}parts-variant{{else if theme_settings.themeVariant 'Active'}}active-variant{{/if}}
+">
+    {{#block "page"}}{{/block}}
+</body>
+</html>

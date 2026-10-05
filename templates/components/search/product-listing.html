@@ -1,0 +1,26 @@
+{{inject 'noCompareMessage' (lang 'compare.no_compare')}}
+<div data-list-name="Search Results">
+    {{#if theme_settings.product_list_display_mode '===' 'grid'}}
+        {{> components/products/grid products=product_results.products show_compare=product_results.show_compare event="list" theme_settings=theme_settings}}
+    {{else}}
+        {{> components/products/list products=product_results.products show_compare=product_results.show_compare event="list" theme_settings=theme_settings}}
+    {{/if}}
+</div>
+
+<div class="compare-button-bottom">
+    {{> components/common/paginator pagination.product_results}}
+    <div class="navUser-compare">
+        <a class="navUser-action navUser-item--compare"
+           href="{{urls.compare}}"
+           data-compare-nav
+           aria-label="{{lang 'common.compare'}}"
+        >
+            <i class="icon">
+                <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cavio_compare"></use></svg> 
+            </i>
+            <span class="desktop-label">{{lang 'common.compare'}} </span>
+            <span class="mobile-label">Compare </span>
+            <span class="countPill countPill--positive countPill--alt"></span>
+        </a>
+    </div>
+</div>

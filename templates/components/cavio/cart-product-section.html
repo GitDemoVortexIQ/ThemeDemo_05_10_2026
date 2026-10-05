@@ -1,0 +1,28 @@
+<div class="cart-products-section">
+    <div class="tabs-contents">
+        {{#if theme_settings.cart-products '==' 'cart-featured-products'}}
+            {{#if products.featured}}
+                <h2 class="cart-products-heading">{{lang 'cart.customers_also_purchased'}}</h2>
+                <div class="cart-addtional-products">
+                    {{> components/cavio/featured products=products.featured columns=theme_settings.cart_featured_products_column_count}}
+                </div>
+            {{/if}}
+        {{/if}}            
+        {{#if theme_settings.cart-products '==' 'cart-new-products'}}
+            {{#if products.new}}
+                <h2 class="cart-products-heading">{{lang 'cart.new_products'}}</h2>
+                <div class="cart-addtional-products">
+                    {{> components/cavio/new products=products.new columns=theme_settings.cart_new_products_column_count}}
+                </div>
+            {{/if}}
+        {{/if}}            
+        {{#if theme_settings.cart-products '==' 'cart-top-products'}}
+            {{#if products.top_sellers}}
+                <h2 class="cart-products-heading">{{lang 'cart.top_selling'}}</h2>
+                <div class="cart-addtional-products">
+                    {{> components/cavio/top products=products.top_sellers columns=theme_settings.cart_top_products_column_count}}
+                </div>
+            {{/if}}
+        {{/if}}            
+    </div>  
+</div>

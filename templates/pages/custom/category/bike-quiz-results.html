@@ -1,0 +1,62 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<h1 class="page-heading">Your Bike Matches</h1>
+<div class="quiz-results-intro">
+    <p>
+        You're on your way to giving your rider some confidence-building fun! 
+        Check out your results below to see what bikes may be best for your child based on your answers.
+        If you have more questions about these bikes or you'd like more guidance, please <a href="/contact-us/" aria-label="Go to Contact page">contact our friendly customer service team</a>.
+    </p>
+</div>
+
+<div class="category-description">{{{category.description}}}</div>
+
+{{!-- keep the subcategory + faceted search + product listing logic the same --}}
+<div class="page product--listing {{#if theme_settings.filter_layout_style '===' 'scrollingsidebar'}}scrolling-sidebar scrolling-sidebar-desktop{{/if}}  {{#if theme_settings.filter_layout_style '===' 'flyoutfilters'}}flyout-filters{{/if}}">
+    <div id="top-filter-container">
+        {{> components/cavio/top-filter-options}}
+    </div>
+    {{#if category.faceted_search_enabled}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.subcategories}}
+        <aside class="page-sidebar" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </aside>
+    {{else if category.shop_by_price}}
+        {{#if theme_settings.shop_by_price_visibility}}
+             <aside class="page-sidebar" id="faceted-search-container">
+                {{> components/category/sidebar}}
+            </aside>
+        {{/if}}
+    {{/if}}
+
+    <main class="page-content" id="product-listing-container">
+        {{> components/category/product-listing}}
+    </main>
+
+    <div class="page-region catgoryregion">
+        {{{region name="category_below_content"}}}
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}

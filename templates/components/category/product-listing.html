@@ -1,0 +1,44 @@
+{{inject 'noCompareMessage' (lang 'compare.no_compare')}}
+
+{{#if category.products}}
+    <div data-list-name="Category: {{category.name}}">
+        {{#if theme_settings.product_list_display_mode '===' 'grid'}}
+            {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+        {{else}}
+            {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+        {{/if}}
+    </div>
+    <div class="compare-button-bottom">
+        {{> components/common/paginator pagination.category}}
+        <div class="navUser-compare">
+            <a class="navUser-action navUser-item--compare"
+               href="{{urls.compare}}"
+               data-compare-nav
+               aria-label="{{lang 'common.compare'}}"
+            >
+                <i class="icon">
+                    <svg><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cavio_compare"></use></svg> 
+                </i>
+                <span class="desktop-label">{{lang 'common.compare'}} </span>
+                <span class="mobile-label">Compare </span>
+                <span class="countPill countPill--positive countPill--alt"></span>
+            </a>
+        </div>
+    </div>
+{{else}} 
+    {{#if category.search_error}}
+        <p>{{lang 'search.errorMessage'}}</p>
+    {{else}}
+        <p data-no-products-notification
+           role="alert"
+           aria-live="assertive"
+           tabindex="-1"
+        >
+            {{#if category.id '===' 83}}
+                Your rider is unique and instead of trying to fit them in a box, our customer support team would love to walk you through this decision.
+            {{else}}
+                {{lang 'categories.no_products'}}
+            {{/if}}
+        </p>
+    {{/if}}
+{{/if}}

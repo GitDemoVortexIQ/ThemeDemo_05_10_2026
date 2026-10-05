@@ -1,0 +1,28 @@
+<div class="featured-categories hide-pagination">
+    <div class="featured-category-title">
+        <h2 class="hp-section-title">{{theme_settings.featured_title}}</h2>
+        <p class="hp-section-description">{{theme_settings.featured_subtext}}</p>
+    </div>
+    <div class="featuredcat-nav">
+        <div class="slider-info">
+          <span class="current-slide"> </span> / <span class="total-slides"> </span>
+        </div>
+        <div class="slider-arrows">
+            <button type="button" aria-label="Previous Slide" class="slick-prev"><svg><use href="#icon-cavio_angle-left"></use></svg></button>
+            <button type="button" aria-label="Next Slide" class="slick-next"><svg><use href="#icon-cavio_angle-right"></use></svg></button>
+        </div> 
+    </div>    
+    <div class="featured-category-list">
+        {{#each (split theme_settings.featured_category_ids ',')}}
+        <div class="featured-category" data-category-id="{{this}}">
+            <a class="category-link">
+                <div class="thumb-img-category">
+                    <img src="" class="category-image">
+                </div>
+                <h4 class="category-title"></h4>
+                <div class="category-description"></div>
+            </a>            
+        </div>
+        {{/each}}
+    </div>
+</div>

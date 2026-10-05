@@ -1,0 +1,16 @@
+<div class="best-product-nav">
+    <div class="slider-info">
+      <span class="current-slide"></span> / <span class="total-slides"></span>
+    </div>
+    <div class="slider-arrows">
+        <button type="button" class="slick-prev"><svg><use href="#icon-cavio_angle-left"></use></svg></button>
+        <button type="button" class="slick-next"><svg><use href="#icon-cavio_angle-right"></use></svg></button>
+    </div> 
+</div>
+<div class="productGrid productGrid--maxCol{{ columns }}" data-product-type="top_sellers" data-list-name="Most Popular Products">
+{{#each products}}
+<div class="product">
+    {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating event="list" position=(add @index 1)}}
+</div>
+{{/each}}
+</div>

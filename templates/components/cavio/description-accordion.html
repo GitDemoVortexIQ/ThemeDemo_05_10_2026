@@ -1,0 +1,63 @@
+<div class="accordion-contents">
+    {{#if product.description}}
+    <div class="productDetailsView-section product-description show-descp">
+        <p class="productView-title">{{lang 'products.description'}}
+            <svg class="expand-icon icon"><use xlink:href="#icon-cavio_expand-down" /></svg>
+        </p>
+        
+        <div class="tab-content" id="tab-description">
+            {{{product.description}}}
+        </div>
+    </div>
+    {{/if}}
+    {{#if product.warranty}}
+    <div class="productDetailsView-section product-warrnaty">
+        <p class="productView-title">{{lang 'products.warranty'}}
+            <svg class="expand-icon icon"><use xlink:href="#icon-cavio_expand-down" /></svg>            
+        </p>
+        <div class="tab-content">
+            {{{product.warranty}}}
+        </div>
+    </div>
+    {{/if}}
+    {{#all product.custom_fields theme_settings.show_custom_fields_tabs}}
+        <div class="productDetailsView-section product-custom-fields">
+            <p class="productView-title">{{sanitize theme_settings.pdp-custom-fields-tab-label}}
+                <svg class="expand-icon icon"><use xlink:href="#icon-cavio_expand-down" /></svg>                
+            </p>
+              <div class="tab-content">
+                 <dl class="productView-info">
+                    {{> components/products/custom-fields }}
+                 </dl>
+              </div>
+          </div>
+    {{/all}}
+
+    {{#if product.videos.list.length}}
+    <div class="productDetailsView-section product-videos">
+        <p class="productView-title">{{lang 'products.prdt_video'}}
+            <svg class="expand-icon icon"><use xlink:href="#icon-cavio_expand-down" /></svg>
+        </p>
+        
+        <div class="tab-content" id="tab-videos">
+            {{> components/products/videos product.videos}}
+        </div>
+    </div>
+    {{/if}}
+
+    {{#all settings.show_product_reviews theme_settings.show_product_reviews}}
+        {{#if product.reviews.total}}
+            <div class="productDetailsView-section product-reviews">
+                <p class="productView-title">{{lang 'products.reviews.header_title'}}
+                    <svg class="expand-icon icon"><use xlink:href="#icon-cavio_expand-down" /></svg>                
+                </p>
+               <div class="tab-content">
+                   {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+               </div>
+           </div>
+       {{/if}}
+    {{/all}}
+    <div class="productDetailsView-section product-shipping">
+        <p class="productView-title"><a href="/shipping-returns" aria-label="Shipping & Returns">Shipping & Returns</a></p>
+    </div>
+</div>

@@ -1,0 +1,166 @@
+{{#if categories}}
+    <div class="navPage-subMenu navPage-subMenu-mega-menu" aria-hidden="true" tabindex="-1">
+        <div class="shop-nav-top">
+        <a href="javascript:void(0)" class="close-menu-cavio"><svg><use href="#icon-close"></use></svg>            
+        </a>            
+            <div class="shop-nav-title">
+                <span>{{lang 'alternate-navigation-menu.label'}}</span>
+            </div>
+            {{#if customer}}
+                    <div class="create-account-top">
+                        <a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                    </div>         
+            {{else}}
+                {{#if settings.account_creation_enabled}}
+                    <div class="create-account-top">
+                        <a href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a>
+                        <span>|</span>
+                        <a href="{{urls.auth.login}}">{{lang 'common.login'}}</a>
+                    </div>
+                {{/if}}
+            {{/if}}                
+        </div>
+        <div class="nav-shop-mega-menu-wrapper">
+            <ul class="navPage-subMenu-list">
+                {{#each categories}}
+                {{#if this.name '==' ../theme_settings.category-name-of-category-filter}}
+                {{else}}
+                    <li class="navPage-subMenu-item aa">
+                        {{#if children}}
+                            <div class="nav-menu-title-wrapper">
+                                <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+                                   href="{{url}}"
+                                   aria-label="{{name}}"
+                                >
+                                    <span class="nav-category-title">{{name}}</span>
+                                    <span class="collapsible-icon-wrapper"
+                                        data-collapsible="navPages-{{id}}"
+                                        data-collapsible-disabled-breakpoint="medium"
+                                        data-collapsible-disabled-state="closed"
+                                        data-collapsible-enabled-state="closed"
+                                    > 
+                                    <svg><use href="#icon-cavio_angle-right" /></svg>
+                                    </span>
+                                </a>
+                                <span class="collapsible-icon-wrapper-cavio-mobile"> 
+                                    <svg><use href="#icon-cavio_angle-right" /></svg>
+                                </span>     
+                            </div>
+                            <div class="navPage-childList navPage-child-second-level" id="navPages-{{id}}">
+                                <div class="category-level-title">
+                                    <h3>{{name}}</h3>
+                                    <a href="{{url}}" class="button category-shop-button">{{lang 'alternate-navigation-menu.shop_all'}}</a>
+                                </div>
+                                <ul class="navPage-childList-list">
+                                    {{#each children}}
+                                    <li class="navPage-childList-item navPage-second-child-item">
+                                        <a class="navPage-childList-action navPage-second-level-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                           href="{{url}}"
+                                           aria-label="{{name}}"
+                                        >
+                                            {{name}}
+                                        </a>
+                                        {{#if children}}
+                                        <span class="collapsible-icon-wrapper-cavio-mobile"> 
+                                            <svg><use href="#icon-cavio_angle-right" /></svg>
+                                        </span>    
+                                        {{/if}}                                         
+                                        {{#if children}}
+                                            <ul class="navPage-childList navPage-third-child-list" id="navPages-{{id}}">
+                                                {{#each children}}
+                                                <li class="navPage-childList-item">
+                                                    <a class="navPage-childList-action navPage-third-level-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                                       href="{{url}}"
+                                                       aria-label="{{name}}"
+                                                    >
+                                                        {{name}}
+                                                    </a>
+                                                </li>
+                                                {{/each}}
+                                            </ul>
+                                        {{/if}}
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        {{else}}
+                            <a class="navPage-subMenu-action navPages-action{{#if is_active}} activePage{{/if}}"
+                               href="{{url}}"
+                               aria-label="{{name}}"
+                            >
+                                {{name}}
+                            </a>
+                        {{/if}}
+                    </li>
+                {{/if}}
+                {{/each}}
+                {{#if shop_by_brand.length}}
+                <li class="navPage-subMenu-item aa">
+                    <div class="nav-menu-title-wrapper">
+                        <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+                            href="{{urls.brands}}"
+                            aria-label="brands-menu"
+                        >
+                            <span class="nav-category-title">{{lang 'brand.label'}}</span>
+                            <span class="collapsible-icon-wrapper"
+                                data-collapsible="navPages-{{id}}"
+                                data-collapsible-disabled-breakpoint="medium"
+                                data-collapsible-disabled-state="closed"
+                                data-collapsible-enabled-state="closed"
+                            > 
+                            <svg><use href="#icon-cavio_angle-right" /></svg>
+                            </span>
+                        </a>
+                        <span class="collapsible-icon-wrapper-cavio-mobile"> 
+                            <svg><use href="#icon-cavio_angle-right" /></svg>
+                        </span>     
+                    </div>
+                    <div class="navPage-childList navPage-child-second-level brand-mega-menu" id="navPages-brands-menu">
+                        <div class="category-level-title">
+                            <h3>{{lang 'brand.label'}}</h3>
+                            <a href="{{urls.brands}}" class="button category-shop-button">{{lang 'alternate-navigation-menu.shop_all'}}</a>
+                        </div>
+                        <ul class="navPage-childList-list">
+                            {{#each shop_by_brand}}
+                            <li class="navPage-childList-item navPage-second-child-item">
+                                <a class="navPage-childList-action navPage-second-level-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                    href="{{url}}"
+                                    aria-label="{{name}}"
+                                >
+                                    {{name}}
+                                </a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </li>
+                {{/if}}                
+            </ul>
+            <ul class="shop-nav-info-list">
+                {{#if settings.gift_certificates_enabled}}
+                <li>
+                    <a href="{{urls.gift_certificate.purchase}}"><span class="navUser-custom-icon navUser--gift-icon"><svg><use xlink:href="#icon-cavio-gitftcertificate"></use></svg></span> 
+                        <span class="shop-nav-info-label">{{lang 'common.gift_cert'}}</span>
+                    </a>
+                </li>
+                {{/if}}
+                {{#if settings.show_wishlist}}
+                <li>
+                    <a href="{{urls.account.wishlists.all}}"><span class="navUser-custom-icon navUser--wishlist-icon"><svg><use xlink:href="#icon-cavio_heart"></use></svg></span> <span class="shop-nav-info-label"><span class="shop-nav-info-label">{{lang 'common.wish_list'}}</span>
+                    </a>
+                </li>
+                {{/if}}
+                {{#if theme_settings.hot-deals}}
+                <li>
+                    <a href="{{theme_settings.hot-deals-url}}"><span class="navUser-custom-icon navUser--fire-icon"><svg><use xlink:href="#icon-cavio-fire"></use></svg></span> <span class="shop-nav-info-label">{{theme_settings.hot-deals}}</span></a>
+                </li>
+                {{/if}}   
+                {{#if theme_settings.clearance-url}} 
+                <li>
+                    <a href="{{theme_settings.clearance-url}}"><span class="navUser-custom-icon navUser--clearance-icon"><svg><use xlink:href="#icon-clearance-icon"></use></svg></span> <span class="shop-nav-info-label">{{theme_settings.clearance}}</span></a>
+                </li>
+                {{/if}}   
+            </ul>
+        </div>
+    </div>
+{{/if}}

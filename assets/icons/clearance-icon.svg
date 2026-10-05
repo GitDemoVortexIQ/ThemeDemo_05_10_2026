@@ -1,0 +1,24 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 307 307">
+	<title>Vector Smart Object-ai</title>
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m318.37 318.44h-320v-320h320z"/>
+		</clipPath>
+	</defs>
+	<style>
+		.clearance { fill: none;stroke-linecap: round;stroke-linejoin: round;stroke-width: 17 } 
+	</style>
+	<g id="icon">
+		<g id="&lt;Clip Group&gt;" clip-path="url(#cp1)">
+			<g id="&lt;Group&gt;">
+				<g id="&lt;Group&gt;">
+					<path id="&lt;Path&gt;" class="clearance" d="m212.9 58l17.1 2.5c8.6 1.2 15.5 8 16.7 16.7l2.4 17.1"/>
+					<path id="&lt;Path&gt;" class="clearance" d="m212.9 58l-56.2-8c-6.1-0.9-12.3 1.2-16.7 5.6l-125.5 125.5c-7.7 7.7-7.7 20.2 0 27.9l83.7 83.7c7.7 7.7 20.2 7.7 27.9 0l125.5-125.6c4.4-4.3 6.4-10.5 5.6-16.7l-8.1-56.1"/>
+					<path id="&lt;Path&gt;" class="clearance" d="m209.7 97.4c-9.6-9.6-25.2-9.6-34.8 0-9.6 9.6-9.6 25.3 0 34.9 9.6 9.6 25.2 9.6 34.8 0 9.7-9.6 9.7-25.3 0-34.9z"/>
+					<path id="&lt;Path&gt;" class="clearance" d="m212.9 58c4.4-7.8 10.2-15.8 17.8-23.3 23.1-23.1 51.2-32.5 62.7-21 11.6 11.6 2.2 39.7-20.9 62.8-7.5 7.5-15.5 13.4-23.4 17.8"/>
+					<path id="&lt;Path&gt;" class="clearance" d="m209.7 97.4c7.8 7.8 23.2 5.9 39.4-3.1"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

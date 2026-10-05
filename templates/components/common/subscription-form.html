@@ -1,0 +1,48 @@
+<div class="newsletter-info">
+    <h3 class="footer-info-heading">{{lang 'newsletter.subscribe'}}</h3>
+</div>
+<div style="margin: -4px auto 20px 0;">
+    <img src="https://cdn11.bigcommerce.com/s-rryv6w8sxg/images/stencil/original/strider-bikes-logo_1766099428__20429.original.png" alt="Strider footer logo">
+</div>
+
+<div class="form-field" style="width:100%;">
+    <input id="subBtn" class="button--signup form-prefixPostfix-button--postfix"
+        style="width:100%;max-width:210px;margin-left:0;"
+        type="button"
+        value="{{lang 'newsletter.subscribe_submit'}}"
+    >
+</div>
+
+{{!-- <form class="form" action="{{urls.subscribe.action}}" method="post">
+    <fieldset class="form-fieldset">
+        <input type="hidden" name="action" value="subscribe">
+        <input type="hidden" name="nl_first_name" value="bc">
+        <input type="hidden" name="check" value="1">
+        <div class="form-field">
+            <label class="form-label is-srOnly" for="nl_email">{{lang 'common.email_address'}}</label>
+            <div class="form-prefixPostfix wrap">
+                <input class="form-input"
+                       id="nl_email"
+                       name="nl_email"
+                       type="email"
+                       value="{{customer.email}}"
+                       placeholder="{{lang 'newsletter.email_placeholder'}}"
+                       aria-describedby="alertBox-message-text"
+                       aria-required="true"
+                       autocomplete="email"
+                       required
+                >
+                <input class="button--signup form-prefixPostfix-button--postfix"
+                       type="submit"
+                       value="{{lang 'newsletter.subscribe_submit'}}"
+                >
+            </div>
+            {{#if settings.show_newsletter_summary }}
+                <div class="footer-newsletter-summary">{{settings.newsletter_summary}}</div>
+            {{/if}}
+        </div>
+    </fieldset>
+</form> --}}
+<div class="newsletter-info" style="margin-top:15px;margin-bottom:-15px;">
+    <p>{{lang 'newsletter.subscribe_intro'}}</p>
+</div> 

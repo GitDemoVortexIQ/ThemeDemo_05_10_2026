@@ -1,0 +1,26 @@
+<div class="hp-instagram hide-pagination">
+    <div class="insta-post-title">
+        {{#if theme_settings.instagram-title}}
+            <h2 class="hp-section-title">{{theme_settings.instagram-title}}</h2>
+        {{/if}}
+        {{#if theme_settings.instagram-description-text}}
+            <p class="hp-section-description">{{theme_settings.instagram-description-text}} <a href="{{theme_settings.instagram-link}}" class="instagram-link" target="_blank">{{theme_settings.instagram-link-text}}</a></p>
+        {{/if}}
+    </div>
+    {{#if theme_settings.instagram-access-token}}
+        <div class="insta-post-nav" style="display:none;">
+            <div class="slider-info">
+              <span class="current-slide"> </span> / <span class="total-slides"> </span>
+            </div>
+            <div class="slider-arrows">
+                <button type="button" class="slick-prev"><svg><use href="#icon-cavio_angle-left"></use></svg></button>
+                <button type="button" class="slick-next"><svg><use href="#icon-cavio_angle-right"></use></svg></button>
+            </div>
+        </div>
+        <div class="instagram-grid" style="display:none;">
+            <div class="instagram-post">
+                                                   
+            </div>    
+        </div>
+    {{/if}}
+</div>

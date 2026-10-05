@@ -1,0 +1,75 @@
+{{#if categories}}
+    <div class="navPage-subMenu nav-pages-horizonal" id="navPages-shop" aria-hidden="true" tabindex="-1">
+        <ul class="navPage-subMenu-list">
+            {{#each categories}}
+            {{#if this.name '==' ../theme_settings.category-name-of-category-filter}}
+            {{else}}            
+                <li class="navPage-subMenu-item">
+                    {{#if children}}
+                        <div class="nav-menu-title-wrapper">
+                            <a class="navPage-subMenu-action navPages-action has-subMenu{{#if is_active}} activePage{{/if}}"
+                               href="{{url}}"
+                               aria-label="{{name}}"
+                            >
+                                {{#if image}}
+                                    <div class="nav-category-img">
+                                        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                    </div>
+                                {{else}}
+                                    <div class="nav-category-img coming-soon-image">
+                                        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{cdn '/assets/img/CavioDefault.gif'}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                    </div>
+                                {{/if}}
+                                <span class="nav-category-title">{{name}}</span>
+                                <span class="collapsible-icon-wrapper"
+                                    data-collapsible="navPages-{{id}}"
+                                    data-collapsible-disabled-breakpoint="medium"
+                                    data-collapsible-disabled-state="open"
+                                    data-collapsible-enabled-state="closed"
+                                >
+                                    <i class="icon navPages-action-moreIcon" aria-hidden="true">
+                                        <svg><use href="#icon-chevron-down" /></svg>
+                                    </i>
+                                </span>
+                            </a>
+                            <span class="collapsible-icon-wrapper-cavio-mobile"> 
+                                <svg><use href="#icon-cavio_angle-right"></use></svg>
+                            </span>                              
+                        </div>
+                        <ul class="navPage-childList" id="navPages-{{id}}">
+                            {{#each children}}
+                            <li class="navPage-childList-item">
+                                <a class="navPage-childList-action navPages-action{{#if is_active}} activePage{{/if}}"
+                                   href="{{url}}"
+                                   aria-label="{{name}}"
+                                >
+                                    {{name}}
+                                </a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    {{else}}
+                        <div class="nav-menu-title-wrapper">
+                            <a class="navPage-subMenu-action navPages-action {{#if is_active}} activePage{{/if}}"
+                               href="{{url}}"
+                               aria-label="{{name}}"
+                            >
+                                {{#if image}}
+                                    <div class="nav-category-img">
+                                        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                    </div>
+                                {{else}}
+                                    <div class="nav-category-img coming-soon-image">
+                                        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{cdn '/assets/img/CavioDefault.gif'}}" alt="{{image.alt}}" title="{{image.alt}}">
+                                    </div>
+                                {{/if}}
+                                <span class="nav-category-title">{{name}}</span>
+                            </a>                            
+                        </div>
+                    {{/if}}
+                </li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+{{/if}}

@@ -1,0 +1,256 @@
+{{#partial "page"}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<main class="page bike-quiz-page">
+
+    {{#unless theme_settings.hide_page_heading }}
+        <h1 class="page-heading">Bike Match Quiz</h1>
+    {{/unless}}
+
+    {{{region name="page_builder_content"}}}
+
+    <div class="page-content page-content--centered">
+        
+        <form id="bike-quiz-form" class="bike-quiz-form">
+            {{!-- Q1: Age / rider type --}}
+            <fieldset class="quiz-step" data-required="ageBucket">
+                <legend>Who's the bike for?</legend>
+                <div class="quiz-column left">
+                    <p class="question-number">Question 1/5</p>
+                    <h2 class="question-title">Who's the bike for?</h2>
+                    <div class="error-message">Please select an age group</div>
+                </div>
+                <div class="quiz-column right">
+                    <div class="quiz-option">
+                        <input type="radio" name="ageBucket" value="0-18" id="age-0-18" required>
+                        <label for="age-0-18">Months (0-18)</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="ageBucket" value="0-2" id="age-0-2">
+                        <label for="age-0-2">Baby / Toddler (0-2)</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="ageBucket" value="1-4" id="age-1-4">
+                        <label for="age-1-4">Preschooler (1-4)</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="ageBucket" value="3-6" id="age-3-6">
+                        <label for="age-3-6">Early Rider (3-6)</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="ageBucket" value="6+" id="age-6-plus">
+                        <label for="age-6-plus">Big Kid (6+)</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            {{!-- Q2: Height --}}
+            <fieldset class="quiz-step" data-required="height">
+                <legend>How tall is the rider?</legend>
+                <div class="quiz-column left">
+                    <p class="question-number">Question 2/5</p>
+                    <h2 class="question-title">How tall is the rider?</h2>
+                    <div class="error-message">Please select a height range</div>
+                </div>
+                <div class="quiz-column right">
+                    <div class="quiz-option">
+                        <input type="radio" name="height" value="30" id="height-under-30" required>
+                        <label for="height-under-30">Under 30"</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="height" value="30-36" id="height-30-36">
+                        <label for="height-30-36">30-36"</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="height" value="36-42" id="height-36-42">
+                        <label for="height-36-42">36-42"</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="height" value="42-48" id="height-42-48">
+                        <label for="height-42-48">42-48"</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="height" value="48+" id="height-48-plus">
+                        <label for="height-48-plus">48"+</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            {{!-- Q3: Play style --}}
+            <fieldset class="quiz-step" data-required="playStyle">
+                <legend>What's their play style?</legend>
+                <div class="quiz-column left">
+                    <p class="question-number">Question 3/5</p>
+                    <h2 class="question-title">What's their play style?</h2>
+                    <div class="error-message">Please select a play style</div>
+                </div>
+                <div class="quiz-column right">
+                    <div class="quiz-option">
+                        <input type="radio" name="playStyle" value="daredevil" id="play-daredevil" required>
+                        <label for="play-daredevil">Little daredevil — loves new challenges</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="playStyle" value="speed" id="play-speed">
+                        <label for="play-speed">Speed racer — wants to go fast!</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="playStyle" value="cruise" id="play-cruise">
+                        <label for="play-cruise">Easy rider — likes to cruise and explore</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="playStyle" value="timid" id="play-timid">
+                        <label for="play-timid">Careful cruiser — prefers slow and steady</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            {{!-- Q4: Confidence / skill --}}
+            <fieldset class="quiz-step" data-required="confidence">
+                <legend>How confident are they on two wheels?</legend>
+                <div class="quiz-column left">
+                    <p class="question-number">Question 4/5</p>
+                    <h2 class="question-title">How confident are they on two wheels?</h2>
+                    <div class="error-message">Please select a confidence level</div>
+                </div>
+                <div class="quiz-column right">
+                    <div class="quiz-option">
+                        <input type="radio" name="confidence" value="just-starting" id="confidence-just-starting" required>
+                        <label for="confidence-just-starting">Just starting out</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="confidence" value="casual" id="confidence-casual">
+                        <label for="confidence-casual">Comfortable and casual</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="confidence" value="confident" id="confidence-confident">
+                        <label for="confidence-confident">Confident and adventurous</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="confidence" value="skilled" id="confidence-skilled">
+                        <label for="confidence-skilled">Skilled and ready for bigger challenges</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            {{!-- Q5: Terrain --}}
+            <fieldset class="quiz-step" data-required="terrain">
+                <legend>Where will they ride most?</legend>
+                <div class="quiz-column left">
+                    <p class="question-number">Question 5/5</p>
+                    <h2 class="question-title">Where will they ride most?</h2>
+                    <div class="error-message">Please select a terrain</div>
+                </div>
+                <div class="quiz-column right">
+                    <div class="quiz-option">
+                        <input type="radio" name="terrain" value="neighborhood" id="terrain-neighborhood" required>
+                        <label for="terrain-neighborhood">Around the neighborhood</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="terrain" value="park" id="terrain-park">
+                        <label for="terrain-park">Park paths & sidewalks</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="terrain" value="trails" id="terrain-trails">
+                        <label for="terrain-trails">Dirt trails / uneven terrain</label>
+                    </div>
+                    <div class="quiz-option">
+                        <input type="radio" name="terrain" value="school" id="terrain-school">
+                        <label for="terrain-school">To and from school</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="quiz-submit">
+                <button type="submit" class="button button--primary">
+                    See My Recommended Bike
+                </button>
+                
+                <p class="quiz-note">We'll show you bikes that match your rider's age, size, confidence, and play style.</p>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var form = document.getElementById('bike-quiz-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var data = new FormData(form);
+
+        var ageBucket   = data.get('ageBucket');
+        var height      = data.get('height');
+        var playStyle   = data.get('playStyle');
+        var confidence  = data.get('confidence');
+        var terrain     = data.get('terrain');
+
+        // 1) Base category you want to send everyone to
+        var basePath = '/bike-recommendations'; // <-- update to real category URL
+
+        // 2) Build facet params
+        var params = new URLSearchParams();
+        params.set('_bc_fsnf', '1'); // faceted search flag
+
+        // Age → Age Range[]
+        if (ageBucket) {
+            // These values must match your facet option labels exactly
+            if (ageBucket === '0-18') params.append('Age Range', '0-18')
+            if (ageBucket === '0-2')  params.append('Age Range', '0-2');
+            if (ageBucket === '1-4')  params.append('Age Range', '1-4');
+            if (ageBucket === '3-6')  params.append('Age Range', '3-6');
+            if (ageBucket === '6+')   params.append('Age Range', '6+');
+        }
+
+        // Height → Wheel Size[]
+        if (height) {
+            if (height === '30')    params.append('Rider Size', '30');
+            if (height === '30-36') params.append('Rider Size', '30-36');
+            if (height === '36-42') params.append('Rider Size', '36-42');
+            if (height === '42-48') params.append('Rider Size', '42-48');
+            if (height === '48+')   params.append('Rider Size', '48+');
+        } 
+
+        // Confidence → Rider Confidence[]
+        /*
+        if (confidence) {
+            if (confidence === 'just-starting') params.append('Rider Confidence', 'Just Starting');
+            if (confidence === 'casual')        params.append('Rider Confidence', 'Comfortable & Casual');
+            if (confidence === 'confident')     params.append('Rider Confidence', 'Confident & Adventurous');
+            if (confidence === 'skilled')       params.append('Rider Confidence', 'Skilled');
+        } */
+
+        // Play Style → Play Style[]
+        /*
+        if (playStyle) {
+            if (playStyle === 'daredevil') params.append('Play Style[]', 'Adventure-seeker');
+            if (playStyle === 'speed')     params.append('Play Style[]', 'Speed racer');
+            if (playStyle === 'cruise')    params.append('Play Style[]', 'Easy rider');
+            if (playStyle === 'timid')     params.append('Play Style[]', 'Careful cruiser');
+        }
+
+        // Terrain → Terrain[]
+        if (terrain) {
+            if (terrain === 'neighborhood') params.append('Terrain[]', 'Neighborhood streets');
+            if (terrain === 'park')         params.append('Terrain[]', 'Park paths');
+            if (terrain === 'trails')       params.append('Terrain[]', 'Trails');
+            if (terrain === 'school')       params.append('Terrain[]', 'School commute');
+        } */
+
+        // 3) Redirect to results
+        var queryString = params.toString();
+        // Remove the first '&' after _bc_fsnf
+       // queryString = queryString.replace('1&', '1');
+        var url = basePath + '?' + queryString;
+        window.location.href = url;
+    });
+});
+</script>
+
+
+{{/partial}}
+
+{{> layout/base}}

@@ -1,0 +1,24 @@
+{{#and theme_settings.shop_by_price_visibility category.shop_by_price}}
+    <div class="filterflyout-top">
+        <h3><svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cavio_filter"></use></svg>Filter by</h3>
+        <a href="javascript:void(0)" class="filter-visibility-button close-filter">
+            <span class="close-filter-label">Close Filters</span>
+            <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-close"></use></svg>
+        </a>
+    </div>
+<div class="accordion accordion--navList">
+    <div class="accordion-block">
+        <div class="sidebarBlock shop-by-price-cavio">
+            <h2 class="accordion-navigation sidebarBlock-heading heading-price accordion-title" data-shop-by-price>{{lang 'category.shop_by_price'}}</h2>
+
+            {{> components/faceted-search/range-form shop_by_price=theme_settings.shop_by_price_visibility}}
+
+            <div class="reset-filters">
+                <a href="{{category.url}}" class="navList-action reset-btn">{{lang 'category.reset'}}</a>
+                <span class="reset-message aria-description--hidden">{{lang 'category.filter_reset_announcement'}}</span>
+            </div>
+        </div>    
+    </div>
+</div>
+
+{{/and}}
