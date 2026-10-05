@@ -1,0 +1,57 @@
+<div class="filter-buttons top-filter-section">
+    <div class="top-filter-options">
+        {{#if category.faceted_search_enabled}}
+            <a href="javascript:void(0)" class="filter-visibility-button">
+                <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cavio_filter"></use></svg>
+                <span class="visible-filter">Show Filters</span>
+                <span class="hide-filter">Hide Filters</span>
+            </a>
+        {{else if category.shop_by_price}}
+            {{#if theme_settings.shop_by_price_visibility}}
+            <a href="javascript:void(0)" class="filter-visibility-button">
+                <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cavio_filter"></use></svg>
+                <span class="visible-filter">Show Filters</span>
+                <span class="hide-filter">Hide Filters</span>
+            </a>
+            {{/if}}
+        {{/if}}  
+        {{#if category.faceted_search_enabled}}
+            {{#if category.selected.items}}
+                <ul class="inlineList inlineList--labels">
+                    {{#each category.selected.items}}
+                        <li>
+                            <a href="{{url}}"
+                               class="facetLabel"
+                               rel="nofollow"
+                               data-faceted-search-facet
+                            >
+                                {{#if facet '===' 'rating'}}
+                                    {{lang 'search.faceted.selected.rating-label' rating=title}}
+                                {{else}}
+                                    {{{sanitize title}}}
+                                {{/if}}
+
+                                <svg class="icon">
+                                    <use href="#icon-close" />
+                                </svg>
+                            </a>
+                        </li>
+                    {{/each}}
+                    {{#if category.selected.remove_all_url}}
+                        <li>
+                            <a href="{{category.selected.remove_all_url}}"  class="remove-link" data-faceted-search-facet>
+                                {{lang 'search.faceted.selected.clear-all'}}
+                            </a>
+                        </li>
+                    {{/if}} 
+            {{/if}}
+        {{/if}}
+        {{#if category.faceted_search_enabled}}
+            {{#if category.selected.items}}                    
+                </ul>
+            {{/if}}
+        {{/if}}
+       
+    </div>
+    {{> components/products/filter sort=pagination.category.sort}}
+</div>

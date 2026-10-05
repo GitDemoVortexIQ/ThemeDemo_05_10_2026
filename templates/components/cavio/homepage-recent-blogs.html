@@ -1,0 +1,39 @@
+{{#if blog.recent_posts}}
+    <div class="hp-recent-blogs hide-pagination">
+        <div class="blog-content{{#if theme_settings.show_hp_blog_images}} show-blog-img{{/if}}">
+            <div class="recent-post-title">
+                <h2 class="hp-section-title">{{theme_settings.blog-title}}</h2>
+                <p class="hp-section-description">{{theme_settings.blog-sub-text}}</p>
+            </div>
+            <div class="recentpost-nav">
+                <div class="slider-info">
+                  <span class="current-slide"> </span> / <span class="total-slides"> </span>
+                </div>
+                <div class="slider-arrows">
+                    <button type="button" aria-label="Previous Slide" class="slick-prev"><svg><use href="#icon-cavio_angle-left"></use></svg></button>
+                    <button type="button" aria-label="Next Slide" class="slick-next"><svg><use href="#icon-cavio_angle-right"></use></svg></button>
+                </div> 
+            </div>
+            <div class="blog-grid">
+                {{#each blog.recent_posts}}
+                    <div class="blog-post">
+                        <div class="blog-post-wrapper">
+                            <a class="recent-blog-card" href="{{url}}">
+                                <div class="blog-thumb-img">
+                                    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{#if thumbnail}}{{getImage thumbnail}}{{else}}{{cdn 'img/ProductDefault.gif'}}{{/if}}" alt="{{#if thumbnail.alt}}{{thumbnail.alt}}{{else}}Blog Image{{/if}}" alt="{{description}}" title="{{description}}">
+                                    <div class="overlay-blog">
+                                        <span class="read-more">{{lang 'blog.read_more_button'}}</span>
+                                    </div>
+                                </div>
+                                <div class="blog-details">
+                                    <h3 class="blog-title">{{title}}</h3>
+                                    <p>{{{ellipsis summary 80}}}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+{{/if}}

@@ -1,0 +1,183 @@
+{{!-- templates/components/products/custom-bike-carousel.html --}}
+{{!-- Only render if the product has at least one custom_bike_1_title field --}}
+
+{{#each product.custom_fields}}
+    {{#if name '==' 'custom_bike_1_title'}}
+<section class="hp-recent-blogs custom-bike-carousel hide-pagination" style="width: 100%;float: left;padding-left: 1rem;padding-right: 1rem;position: relative;z-index: 1;">
+    <div class="blog-content show-blog-img">
+        <div class="recent-post-title">
+            <h2 class="hp-section-title">
+                Build A Custom Bike
+            </h2>
+            {{!-- Optional subtitle from custom field custom_bike_subtitle --}}
+            <p class="hp-section-description">
+                {{#each ../../product.custom_fields}}
+                    {{#if name '==' 'custom_bike_subtitle'}}{{value}}{{/if}}
+                {{/each}}
+            </p>
+        </div>
+
+        <div class="recentpost-nav custom-bike-nav">
+            <div class="slider-info">
+                <span class="current-slide"></span> / <span class="total-slides"></span>
+            </div>
+            <div class="slider-arrows">
+                <button type="button" aria-label="Previous Slide" class="slick-prev">
+                    <svg><use href="#icon-cavio_angle-left"></use></svg>
+                </button>
+                <button type="button" aria-label="Next Slide" class="slick-next">
+                    <svg><use href="#icon-cavio_angle-right"></use></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="blog-grid custom-bike-grid">
+             {{!-- CARD 1 --}}
+            {{#each ../product.custom_fields}}
+                {{#if name '==' 'custom_bike_1_title'}}
+                    <div class="blog-post">
+                        <div class="blog-post-wrapper">
+                            <a class="recent-blog-card" href="
+                                {{#each ../product.custom_fields}}
+                                    {{#if name '==' 'custom_bike_1_url'}}{{value}}{{/if}}
+                                {{/each}}
+                            ">
+                                <div class="blog-thumb-img">
+                                    <img class="lazyload"
+                                         data-sizes="auto"
+                                         src="{{cdn 'img/loading.svg'}}"
+                                         data-src="
+                                            {{#each ../product.custom_fields}}
+                                                {{#if name '==' 'custom_bike_1_image'}}{{value}}{{/if}}
+                                            {{/each}}
+                                         "
+                                         alt="{{value}}">
+                                </div>
+                                <div class="blog-details">
+                                    <h3 class="blog-title">{{value}}</h3>
+                                    <p class="price">
+                                        {{#each ../product.custom_fields}}
+                                            {{#if name '==' 'custom_bike_1_price'}}{{value}}{{/if}}
+                                        {{/each}}
+                                    </p>
+                                    <span class="shop-button">Shop</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+
+
+            {{!-- CARD 2 --}}
+            {{#each ../product.custom_fields}}
+                {{#if name '==' 'custom_bike_2_title'}}
+                    <div class="blog-post">
+                        <div class="blog-post-wrapper">
+                            <a class="recent-blog-card" href="
+                                {{#each ../../product.custom_fields}}
+                                    {{#if name '==' 'custom_bike_2_url'}}{{value}}{{/if}}
+                                {{/each}}
+                            ">
+                                <div class="blog-thumb-img">
+                                    <img class="lazyload"
+                                         data-sizes="auto"
+                                         src="{{cdn 'img/loading.svg'}}"
+                                         data-src="
+                                            {{#each ../../product.custom_fields}}
+                                                {{#if name '==' 'custom_bike_2_image'}}{{value}}{{/if}}
+                                            {{/each}}
+                                         "
+                                         alt="{{value}}">
+                                </div>
+                                <div class="blog-details">
+                                    <h3 class="blog-title">{{value}}</h3>
+                                    <p class="price">
+                                        {{#each ../../product.custom_fields}}
+                                            {{#if name '==' 'custom_bike_2_price'}}{{value}}{{/if}}
+                                        {{/each}}
+                                    </p>
+                                    <span class="shop-button">Shop</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+
+            {{!-- CARD 3 --}}
+            {{#each ../product.custom_fields}}
+                {{#if name '==' 'custom_bike_3_title'}}
+                    <div class="blog-post">
+                        <div class="blog-post-wrapper">
+                            <a class="recent-blog-card" href="
+                                {{#each ../../product.custom_fields}}
+                                    {{#if name '==' 'custom_bike_3_url'}}{{value}}{{/if}}
+                                {{/each}}
+                            ">
+                                <div class="blog-thumb-img">
+                                    <img class="lazyload"
+                                         data-sizes="auto"
+                                         src="{{cdn 'img/loading.svg'}}"
+                                         data-src="
+                                            {{#each ../../product.custom_fields}}
+                                                {{#if name '==' 'custom_bike_3_image'}}{{value}}{{/if}}
+                                            {{/each}}
+                                         "
+                                         alt="{{value}}">
+                                </div>
+                                <div class="blog-details">
+                                    <h3 class="blog-title">{{value}}</h3>
+                                    <p class="price">
+                                        {{#each ../../product.custom_fields}}
+                                            {{#if name '==' 'custom_bike_3_price'}}{{value}}{{/if}}
+                                        {{/each}}
+                                    </p>
+                                    <span class="shop-button">Shop</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+
+            {{!-- CARD 4 --}}
+            {{#each ../product.custom_fields}}
+                {{#if name '==' 'custom_bike_4_title'}}
+                    <div class="blog-post">
+                        <div class="blog-post-wrapper">
+                            <a class="recent-blog-card" href="
+                                {{#each ../../product.custom_fields}}
+                                    {{#if name '==' 'custom_bike_4_url'}}{{value}}{{/if}}
+                                {{/each}}
+                            ">
+                                <div class="blog-thumb-img">
+                                    <img class="lazyload"
+                                         data-sizes="auto"
+                                         src="{{cdn 'img/loading.svg'}}"
+                                         data-src="
+                                            {{#each ../../product.custom_fields}}
+                                                {{#if name '==' 'custom_bike_4_image'}}{{value}}{{/if}}
+                                            {{/each}}
+                                         "
+                                         alt="{{value}}">
+                                </div>
+                                <div class="blog-details">
+                                    <h3 class="blog-title">{{value}}</h3>
+                                    <p class="price">
+                                        {{#each ../../product.custom_fields}}
+                                            {{#if name '==' 'custom_bike_4_price'}}{{value}}{{/if}}
+                                        {{/each}}
+                                    </p>
+                                    <span class="shop-button">Shop</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</section>
+    {{/if}}
+{{/each}}

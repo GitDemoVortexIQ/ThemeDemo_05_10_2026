@@ -1,0 +1,38 @@
+{{#if product.related_products}}
+    <div class="product-panel-section">
+        <div class="product-panel-top">
+            <h3 class="product-panel-title">{{lang 'products.related_products'}}</h3>
+            <div class="productpanel-nav related-product-panel">
+                <div class="slider-info">
+                  <span class="current-slide"></span> / <span class="total-slides"></span>
+                </div>
+                <div class="slider-arrows">
+                    <button type="button" class="slick-prev"><svg><use href="#icon-cavio_angle-left" /></svg></button>
+                    <button type="button" class="slick-next"><svg><use href="#icon-cavio_angle-right" /></svg></button>
+                </div> 
+            </div> 
+        </div>       
+        <div class="product-panel related-products">
+            {{> components/cavio/cavio-carousel products=product.related_products columns=6 list="Related Products"}}
+        </div>
+    </div>        
+{{/if}}
+{{#if product.similar_by_views}}
+    <div class="product-panel-section">
+        <div class="product-panel-top">
+            <h3 class="product-panel-title">{{lang 'products.similar_by_views'}}</h3>
+            <div class="productpanel-nav similar-product-panel">
+                <div class="slider-info">
+                  <span class="current-slide"></span> / <span class="total-slides"></span>
+                </div>
+                <div class="slider-arrows">
+                    <button type="button" class="slick-prev"><svg><use href="#icon-cavio_angle-left" /></svg></button>
+                    <button type="button" class="slick-next"><svg><use href="#icon-cavio_angle-right" /></svg></button>
+                </div> 
+            </div>
+        </div>          
+        <div class="product-panel similar-products">
+            {{> components/cavio/cavio-carousel products=product.similar_by_views columns=6 list="Customers Also Viewed"}}
+        </div>
+    </div>
+{{/if}}

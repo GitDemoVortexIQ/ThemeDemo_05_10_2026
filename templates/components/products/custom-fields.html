@@ -1,0 +1,7 @@
+{{#each product.custom_fields}}
+	{{#if (toLowerCase name) '==' 'size'}}
+	{{else}}
+		<dt class="productView-info-name">{{name}}:</dt>
+		<dd class="productView-info-value">{{{value}}}</dd>
+	{{/if}}
+{{/each}}

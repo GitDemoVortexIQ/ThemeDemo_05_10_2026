@@ -1,0 +1,15 @@
+{{#or customer (unless settings.hide_price_from_guests)}}
+    {{#if cart.show_primary_checkout_button}}
+        <div class="cart-actions cart-actions-top cart-content-padding-right">
+            <a
+                class="button button--primary"
+                href="{{urls.checkout.single_address}}"
+                title="{{lang 'cart.checkout.title'}}"
+                data-primary-checkout-now-action
+            >
+                {{lang 'cart.checkout.button_proceed'}}
+            </a>
+            <a class="button button--continue-shopping" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
+        </div>
+    {{/if}}
+{{/or}}

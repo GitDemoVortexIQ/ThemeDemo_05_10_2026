@@ -1,0 +1,59 @@
+<div class="hp-category-banners">
+	{{#if theme_settings.first-banner-image}}
+	<div class="hp-category-banner-cards">
+		<a href="{{theme_settings.first-banner-category-url}}" class="hp-category-banner-wrapper">
+			<div class="hp-category-banner-thumb">
+				<img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{settings.request.origin}}/images/stencil/original/image-manager/{{theme_settings.first-banner-image}}" alt="{{theme_settings.first-banner-title}}" title="{{theme_settings.first-banner-title}}">
+				<div class="overlay-category-banner"></div>
+			</div>
+			<div class="hp-category-banner-details">
+				<span class="category-banner-text">{{theme_settings.first-banner-small-text}}</span>
+				<h3 class="category-banner-title">
+					{{theme_settings.first-banner-title}}
+				</h3>
+				<span class="button button--primary">
+					{{theme_settings.first-banner-button-name}}
+				</span>
+			</div>
+		</a>
+	</div>
+	{{/if}}
+	{{#if theme_settings.second-banner-image}}
+	<div class="hp-category-banner-cards">
+		<a href="{{theme_settings.second-banner-category-url}}" class="hp-category-banner-wrapper">
+			<div class="hp-category-banner-thumb">
+				<img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{settings.request.origin}}/images/stencil/original/image-manager/{{theme_settings.second-banner-image}}" alt="{{theme_settings.second-banner-title}}" title="{{theme_settings.second-banner-title}}">
+				<div class="overlay-category-banner"></div>
+			</div>
+			<div class="hp-category-banner-details">
+				<span class="category-banner-text">{{theme_settings.second-banner-small-text}}</span>
+				<h3 class="category-banner-title">
+					{{theme_settings.second-banner-title}}
+				</h3>
+				<span class="button button--primary">
+					{{theme_settings.second-banner-button-name}}
+				</span>
+			</div>
+		</a>
+	</div>
+	{{/if}}
+	{{#if theme_settings.third-banner-image}}
+	<div class="hp-category-banner-cards">
+		<a href="{{theme_settings.third-banner-category-url}}" class="hp-category-banner-wrapper">
+			<div class="hp-category-banner-thumb">
+				<img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{settings.request.origin}}/images/stencil/original/image-manager/{{theme_settings.third-banner-image}}" alt="{{theme_settings.third-banner-title}}" title="{{theme_settings.third-banner-title}}">
+				<div class="overlay-category-banner"></div>
+			</div>
+			<div class="hp-category-banner-details">
+				<span class="category-banner-text">{{theme_settings.third-banner-small-text}}</span>
+				<h3 class="category-banner-title">
+					{{theme_settings.third-banner-title}}
+				</h3>
+				<span class="button button--primary">
+					{{theme_settings.third-banner-button-name}}
+				</span>
+			</div>
+		</a>
+	</div>
+	{{/if}}
+</div>

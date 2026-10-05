@@ -1,0 +1,20 @@
+{{inject 'carouselPlayPauseButtonPlay' (lang 'carousel.play_pause_button_play')}}
+{{inject 'carouselPlayPauseButtonPause' (lang 'carousel.play_pause_button_pause')}}
+{{inject 'carouselPlayPauseButtonAriaPlay' (lang 'carousel.play_pause_button_aria_play')}}
+{{inject 'carouselPlayPauseButtonAriaPause' (lang 'carousel.play_pause_button_aria_pause')}}
+
+<button
+    data-play-pause-button
+    type="button"
+    class="carousel-play-pause-button"
+    aria-label="{{lang 'carousel.play_pause_button_aria_pause'}}"
+>
+    <span class="icon {{lang 'carousel.play_pause_button_aria_pause'}}">
+        <svg class="play-button">
+            <use href="#icon-cavio_play"></use>
+        </svg>
+        <svg class="pause-button">
+            <use href="#icon-cavio_pause"></use>
+        </svg>        
+    </span>
+</button>

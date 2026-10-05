@@ -1,0 +1,242 @@
+{{#if banners.top}}
+<div class="banners banners-top" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+<header class="header header-logo-layout-{{theme_settings.logo-position}} {{#if theme_settings.navigation_design '===' 'simple'}} shop-menu-simple {{/if}} {{#if theme_settings.navigation_design '===' 'alternate'}} shop--mega-menu-alternate{{/if}} {{#if theme_settings.searchlayout '==' 'SearchLayout1'}} search-layout-one {{else}} search-layout-two{{/if}} {{#if theme_settings.sticky_active '===' true}} active-sticky-header{{/if}}" role="banner">
+    <div class="top-menu">
+        <div class="container">
+            <div class="top-menu-wrapper">
+                
+                <div class="social-icons-top">
+                        <div class="navUser-item navUser-item--social">
+                                <ul class="socialLinks socialLinks--alt">
+                                    <li class="socialLinks-item">
+                                        <a class="icon icon--instagram" href="https://www.instagram.com/striderbikes/" target="_blank" rel="noopener" title="Instagram">
+                                        <span class="aria-description--hidden">Instagram</span>
+                                        <svg>
+                                        <use href="#icon-instagram"></use>
+                                        </svg>
+                                    </a>
+                                </li>
+                            <li class="socialLinks-item">
+                                <a class="icon icon--facebook" href="https://www.facebook.com/StriderBikes/" target="_blank" rel="noopener" title="Facebook">
+                                <span class="aria-description--hidden">Facebook</span>
+                                <svg>
+                                    <use href="#icon-facebook"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    <li class="socialLinks-item">
+                        <a class="icon icon--x" href="https://x.com/StriderBikes" target="_blank" rel="noopener" title="X">
+                            <span class="aria-description--hidden">X</span>
+                            <svg>
+                                <use href="#icon-x"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="socialLinks-item">
+                        <a class="icon icon--youtube" href="https://www.youtube.com/user/striderbikes" target="_blank" rel="noopener" title="Youtube">
+                            <span class="aria-description--hidden">Youtube</span>
+                            <svg>
+                                <use href="#icon-youtube"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="socialLinks-item">
+                        <a class="icon icon--linkedin" href="https://www.linkedin.com/company/striderbikes/posts/?feedView=all" target="_blank" rel="noopener" title="Linkedin">
+                            <span class="aria-description--hidden">Linkedin</span>
+                            <svg>
+                                <use href="#icon-linkedin"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="socialLinks-item">
+                        <a class="icon icon--pinterest" href="https://www.pinterest.com/striderbikes/" target="_blank" rel="noopener" title="Pinterest">
+                            <span class="aria-description--hidden">Pinterest</span>
+                            <svg>
+                                <use href="#icon-pinterest"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="socialLinks-item">
+                        <a class="icon icon--tiktok" href="https://www.tiktok.com/@striderbikes" target="_blank" rel="noopener" title="TikTok">
+                            <span class="aria-description--hidden">TikTok</span>
+                                <img src="/content/IconSVGs/tiktok_icon_headerbar.png">
+                        </a>
+                    </li>
+    </ul>
+                        </div>
+                </div>
+<!--Old Social Media Header Icons                
+                <div class="social-icons-top">
+                    {{#if theme_settings.social_icon_placement_top}}
+                        <div class="navUser-item navUser-item--social">
+                            {{> components/common/social-links}}
+                        </div>
+                    {{/if}}
+                </div>
+                -->
+                <div class="global-banner">
+                    {{#unless theme_settings.hide_banner}}
+                        <div class="rotating-banner">
+                            {{#if theme_settings.banner-content-1}}
+                                <p class="global-banner-text">{{theme_settings.banner-content-1}}</p>
+                            {{/if}}
+                            {{#if theme_settings.banner-content-2}}
+                                <p class="global-banner-text">{{theme_settings.banner-content-2}}</p>
+                            {{/if}}
+                            {{#if theme_settings.banner-content-3}}
+                                <p class="global-banner-text">{{theme_settings.banner-content-3}}</p>
+                            {{/if}}
+                        </div>
+                    {{/unless}}
+                </div> 
+            
+                <div class="top-menu-user">
+                    <nav class="top-nav-user-section">
+                        <ul>
+                            <span style="display: none;" class="default-currency">{{currency_selector.default_currency_code}}</span>
+                            {{#if theme_settings.hot-deals}}
+                            <li class="{{#if theme_settings.hot-deals}}has-content{{/if}}">
+                                <a href="{{theme_settings.hot-deals-url}}"  class="navUser-action"> 
+                                    <span class="navUser-custom-icon navUser--fire-icon"><svg><use xlink:href="#icon-cavio-fire" /></svg></span> {{theme_settings.hot-deals}}</a>
+                            </li>     
+                            {{/if}}       
+                            {{#if theme_settings.help-label}}                
+                            <li class="help-nav-menu {{#if theme_settings.help-label}}has-content{{/if}}">
+                                <button class="navUser-action"  data-dropdown="helpSelection" aria-controls="helpSelection" aria-expanded="false">{{theme_settings.help-label}}</button>
+                                <div class="help-info--storeinfo dropdown-menu" id="helpSelection" data-dropdown-content="" aria-hidden="true">
+                                    <h3 class="help-info-heading">{{theme_settings.help-label}}</h3>
+                                    <ul class="help-info-list">
+                                        {{#if settings.gift_certificates_enabled}}
+                                            <li>
+                                                <span class="help-info-icons icon-cavio-gift-certificate"><svg><use xlink:href="#icon-cavio-gitftcertificate"></use></svg></span>
+                                                <a href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+                                            </li>                        
+                                        {{/if}}     
+                                        {{#if theme_settings.faqs}}                                    
+                                        <li>
+                                            <span class="help-info-icons icon-cavio-faq"><svg><use xlink:href="#icon-cavio_FAQ"></use></svg></span>
+                                            <a href="/faq/">{{theme_settings.faqs}}   </a>
+                                        </li>
+                                        {{/if}}   
+                                        {{#if theme_settings.chat-url}}
+                                        <li>
+                                            <span class="help-info-icons icon-cavio-chat"><svg><use xlink:href="#icon-cavio_chat"></use></svg></span>
+                                            <button onclick="LC_API.open_chat_window();return false">{{lang 'common.chat_with_us'}}</button>
+                                        </li>
+                                        {{/if}}   
+                                        {{#if theme_settings.email}}
+                                        <li>
+                                            <span class="help-info-icons icon-cavio-mail"><svg><use xlink:href="#icon-cavio_mail"></use></svg></span>
+                                            <a href="mailto:customerservice@striderbikes.com">{{lang 'common.email_us'}}</a>
+                                        </li>
+                                        {{/if}}   
+                                        {{#if settings.phone_number}}
+                                        <li>
+                                            <span class="help-info-icons icon-cavio-smartphone"><svg><use xlink:href="#icon-cavio_smartphone"></use></svg></span>
+                                            <a href="tel:{{settings.phone_number}}">{{lang 'footer.call_us' phone_number=settings.phone_number}}</a>
+                                        </li>
+                                        {{/if}}
+                                        {{#if theme_settings.shipping-returns}}
+                                        <li>
+                                            <span class="help-info-icons icon-cavio-returns"><svg><use xlink:href="#icon-cavio_returns"></use></svg></span>
+                                            <a href="{{theme_settings.shipping-returns-url}}">{{theme_settings.shipping-returns}}</a>
+                                        </li>
+                                        {{/if}}   
+                                        {{#if settings.address}}
+                                            <li>
+                                                <span class="help-info-icons icon-cavio-locator"><svg><use xlink:href="#icon-cavio_locator"></use></svg></span>
+                                                <address>{{nl2br settings.address}}</address>
+                                            </li> 
+                                        {{/if}}    
+                                    </ul>
+                                </div>
+                            </li>
+                            {{/if}}      
+                            {{#if currency_selector.currencies.length '>' 1}}
+                            {{#or customer (unless settings.hide_price_from_guests)}}
+                            <li>
+                                {{> components/common/currency-selector}}
+                            </li>
+                            {{/or}}
+                            {{/if}}
+                        </ul>
+                    </nav>
+                </div>                                
+            </div>
+        </div>
+    </div>
+    <div class="header-bottom">
+        <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+            <span class="mobileMenu-toggleIcon">Toggle menu</span>
+        </a>        
+        {{#if theme_settings.logo-position  '===' 'left-stacked'}}
+            <div class="container">
+                <div class="header-bottom-wrapper left-stacked-logo-search">
+                    {{> components/common/navigation}}
+
+                    {{#if page_type '===' 'default'}}
+                        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                            {{> components/common/store-logo}}
+                        </h1>
+                    {{else}}
+                        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                            {{> components/common/store-logo}}
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="container left-stacked-navigation">
+                <div class="header-bottom-wrapper">      
+                <span class="mobile-menu-overlay"></span>
+                    <div class="navPages-container" id="menu" data-menu>
+                        {{> components/common/navigation-menu}}
+                    </div>
+                    <div class="top-nav-right-section {{#and (if theme_settings.active-category-filter '===' true) (if theme_settings.category-name-of-category-filter)}} category-filter-right-active{{/and}}">
+                        {{#and (if theme_settings.active-category-filter "===" true) (if theme_settings.category-name-of-category-filter)}}
+                            <div class="category-dropdown-filter-section">
+                                {{> components/cavio/products-finder}}
+                            </div>                           
+                            {{else}}
+                            <div class="contact-num-sec">
+                                <span class="header-contact-number">{{lang 'common.call_us'}} </span>
+                                <a href="tel:{{settings.phone_number}}" class="header-contact-number">{{settings.phone_number}}</a>
+                            </div>
+                        {{/and}}
+                    </div>
+                </div>
+            </div>
+        {{else}}
+        <div class="container">
+            <div class="header-bottom-wrapper">
+                {{> components/common/navigation}}
+                
+
+                {{#if page_type '===' 'default'}}
+                    <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                        {{> components/common/store-logo}}
+                    </h1>
+                {{else}}
+                    <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                        {{> components/common/store-logo}}
+                    </div>
+                {{/if}}
+                <span class="mobile-menu-overlay"></span>
+                <div class="navPages-container" id="menu" data-menu>
+                    {{> components/common/navigation-menu}}
+                </div>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</header>
+{{{region name="header_bottom--global"}}}
+{{{region name="header_bottom"}}}

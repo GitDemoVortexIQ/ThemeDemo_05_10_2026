@@ -1,0 +1,31 @@
+{{#if product_results.products}}
+    <div class="searchresult-nav">
+        <div class="slider-info">
+          <span class="current-slide"></span> / <span class="total-slides"></span>
+        </div>
+        <div class="slider-arrows">
+            <button type="button" class="slick-prev"><svg><use href="#icon-cavio_angle-left" /></svg></button>
+            <button type="button" class="slick-next"><svg><use href="#icon-cavio_angle-right" /></svg></button>
+        </div>
+    </div>
+    <ul class="productGrid" data-list-name="Quick Search Results">
+        {{#each product_results.products}}
+        <li class="product">
+                {{> components/products/card
+                        settings=../settings
+                        show_rating=../settings.show_product_rating
+                        alternate=true
+                        show_compare=../show_compare
+                        theme_settings=../theme_settings
+                        customer=../customer
+                        event="list"
+                        position=(add @index 1)
+                }}
+        </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p class="quickSearchMessage">
+        {{{lang 'search.results.quick_count' count=pagination.product_results.total search_query=(sanitize forms.search.query) }}}
+    </p>
+{{/if}}

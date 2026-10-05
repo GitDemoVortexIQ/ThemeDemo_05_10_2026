@@ -1,0 +1,30 @@
+<section class="our-story-section">
+	<div class="our-story-section-wrap">
+		<div class="ourstory-card ourstory-content">
+			{{#if theme_settings.our-story-title}}
+				<h3 class="our-story-title">{{theme_settings.our-story-title}}</h3>
+			{{/if}}
+			<div class="our-story-description">
+				{{#if theme_settings.our-story-subtext-one}}
+					<p>{{theme_settings.our-story-subtext-one}}</p>
+				{{/if}}
+				{{#if theme_settings.our-story-subtext-two}}
+					<p>{{theme_settings.our-story-subtext-two}}</p>
+				{{/if}}
+			</div>
+			{{#if theme_settings.our-story-author}}
+				<span class="our-story-author">{{theme_settings.our-story-author}}</span>
+			{{/if}}
+		</div>
+		<div class="ourstory-card ourstory-banner-img">
+			<div class="ourstory-banner-wrap">
+				{{#if theme_settings.our-story-image}}
+					<img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{settings.request.origin}}/images/stencil/original/image-manager/{{theme_settings.our-story-image}}" alt="{{theme_settings.our-story-image}}" title="{{theme_settings.our-story-image}}">
+				{{/if}}
+				{{#if theme_settings.our-story-button-text}}
+					<a href="{{theme_settings.our-story-link}}" class="button our-story-button">{{theme_settings.our-story-button-text}}</a>
+				{{/if}}				
+			</div>
+		</div>
+	</div>
+</section>

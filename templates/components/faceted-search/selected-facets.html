@@ -1,0 +1,39 @@
+<div class="facetedSearch-refineFilters sidebarBlock">
+    {{#if items}}
+        <ul class="inlineList inlineList--labels">
+            {{#each items}}
+                <li>
+                    <a href="{{url}}"
+                       class="facetLabel"
+                       rel="nofollow"
+                       data-faceted-search-facet
+                    >
+                        {{#if facet '===' 'rating'}}
+                            {{lang 'search.faceted.selected.rating-label' rating=title}}
+                        {{else}}
+                            {{{sanitize title}}}
+                        {{/if}}
+
+                        <svg class="icon">
+                            <use href="#icon-close" />
+                        </svg>
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>{{lang 'search.faceted.selected.no-filters'}}</p>
+    {{/if}}
+    <div class="bottom-buttons-filter filter-buttons">
+        {{#if remove_all_url}}
+            <a href="{{remove_all_url}}"  class="button remove-all-button" data-faceted-search-facet>
+                {{lang 'search.faceted.selected.clear-all'}}
+            </a>
+        {{/if}}
+        <a href="javascript:void(0)" class="filter-visibility-button">
+            <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-cavio_filter"></use></svg>
+            <span class="visible-filter">Show Filters</span>
+            <span class="hide-filter">Hide Filters</span>
+        </a>
+    </div>
+</div>

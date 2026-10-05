@@ -1,0 +1,57 @@
+{{#or (if products.featured) (if products.new) (if products.top_sellers)}}
+<div class="hp-products-section">
+    <div class="dropdown-products">
+        <button class="dropdown-products-toggle" aria-haspopup="true" aria-expanded="false"><span></span><svg><use href="#icon-cavio_angle-right"></use></svg></button>
+        <div class="dropdown-products-menu" role="menu">
+            <ul class="tabs" data-tab role="tablist">
+                {{#if products.featured}}
+                    <li class="tab is-active" role="tab">
+                        <a class="tab-title" href="#tab-featured" tabindex="0" aria-selected="true" controls="tab-featured">
+                            {{lang 'products.featured' }}
+                        </a>
+                    </li>
+                {{/if}}
+                {{#if products.new}}
+                    <li class="tab{{#unless products.featured}} is-active{{/unless}}" role="tab">
+                        <a class="tab-title" href="#tab-new" tabindex="0" aria-selected="{{#if products.featured}}false{{else}}true{{/if}}" controls="tab-new">
+                            {{lang 'products.new' }}
+                        </a>
+                    </li>
+                {{/if}}
+                {{#if products.top_sellers}}
+                    <li class="tab" role="tab">
+                        <a class="tab-title" href="#tab-bestsellers" tabindex="0" aria-selected="true" controls="tab-bestsellers">
+                            {{lang 'products.top' }}
+                        </a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>    
+    <div class="tabs-contents">
+        {{#if products.featured}}
+            <div role="tabpanel" aria-hidden="false" class="tab-content has-jsContent is-active{{#unless theme_settings.disable_animation}} animation-enabled{{/unless}} hide-pagination" id="tab-featured">
+                {{{region name="home_above_featured_products"}}}
+                {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+                {{{region name="home_below_featured_products"}}}
+            </div>
+        {{/if}}
+
+        {{#if products.new}}
+            <div role="tabpanel" aria-hidden="{{#if products.featured}}true{{else}}false{{/if}}" class="tab-content has-jsContent{{#unless products.featured}} is-active{{/unless}}{{#unless theme_settings.disable_animation}} animation-enabled{{/unless}} hide-pagination" id="tab-new">
+                {{{region name="home_above_new_products"}}}
+                {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+                {{{region name="home_below_new_products"}}}
+            </div>
+        {{/if}}
+
+        {{#if products.top_sellers}}
+            <div role="tabpanel" aria-hidden="true" class="tab-content has-jsContent{{#unless theme_settings.disable_animation}} animation-enabled{{/unless}} hide-pagination" id="tab-bestsellers">
+                {{{region name="home_above_top_products"}}}
+                {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+                {{{region name="home_below_top_products"}}}
+            </div>
+        {{/if}}
+    </div>  
+</div>
+{{/or}}

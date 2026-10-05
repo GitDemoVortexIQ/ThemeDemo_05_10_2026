@@ -1,0 +1,12 @@
+<span class="product-count" {{#if page_type '==' 'brand'}} data-count="{{brand.products.length}}"{{/if}}> 
+    {{#if page_type '==' 'brand'}}
+        {{brand.products.length}} Products
+    {{/if}}
+
+    {{#if page_type '==' 'category' }}
+        {{category.total_products}} Products
+    {{/if}} 
+</span>
+<form class="actionBar" method="get" data-sort-by="product">
+    {{> components/category/sort-box sort=sort}}
+</form>
