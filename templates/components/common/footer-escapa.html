@@ -1,0 +1,79 @@
+{{#if banners.bottom}}
+    {{#if settings.data_tag_enabled}}
+        <div class="banners" data-banner-location="bottom">
+            {{#each (limit banners.bottom_metadata 1)}}
+                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                    <div data-event-type="promotion-click">
+                        {{{this.content}}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="banners" data-banner-location="bottom">
+            <div class="banner">
+                {{{limit banners.bottom 1}}}
+            </div>
+        </div>
+    {{/if}} 
+{{/if}}
+
+{{#if settings.show_newsletter_box}}
+    <div class="footer-newsletter">
+        <div class="container">
+            {{> components/common/subscription-form}}
+        </div>
+    </div>
+{{/if}}
+                    
+<footer class="footer" role="contentinfo">
+    <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
+    <div class="container">
+
+        <section class="footer-info 4a616d6573">
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                    {{{region name="column-1--global"}}}
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                    {{{region name="column-2--global"}}}
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                    {{{region name="column-3--global"}}}
+            </article>
+
+            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
+                    {{{region name="column-4--global"}}} 
+            </article>
+
+        </section>
+        
+        <div class="footer-copyright">
+
+            {{{region name="column-5--global"}}} 
+
+        </div>
+        
+    </div>
+    {{{region name="ssl_site_seal--global"}}}
+</footer>
+
+
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+    
+    for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        } 
+      });
+    }
+</script>

@@ -1,0 +1,211 @@
+{{inject 'noCompareMessage' (lang 'compare.no_compare')}}
+
+{{assignVar "category_name" category.name}}
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            {{#each category.products}}
+            {
+                "@type": "ListItem",
+                "position": {{add @index 1}},
+                "item": {
+                    "@type": "Product",
+                    "name": "{{this.name}}",
+                    "image": "{{getImage this.image 'productgallery_size' (cdn theme_settings.default_image_product)}}",
+                    {{#if this.summary}}"description": "{{encodeURI (sanitize this.summary)}}",{{/if}}
+                    {{#if this.brand}}
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "{{this.brand.name}}"
+                    },
+                    {{/if}}
+                    {{#if this.sku}}"sku": "{{this.sku}}",{{/if}}
+                    "category": "{{getVar "category_name"}}",
+                    "offers": {
+                        "@type": "Offer",
+                        {{#if this.price.price_range}}
+                        "minPrice": "{{#if this.price.price_range.min.with_tax}}{{this.price.price_range.min.with_tax.value}}{{else}}{{this.price.price_range.min.without_tax.value}}{{/if}}",
+                        "maxPrice": "{{#if this.price.price_range.max.with_tax}}{{this.price.price_range.max.with_tax.value}}{{else}}{{this.price.price_range.max.without_tax.value}}{{/if}}",
+                        {{else}}
+                        "price": "{{#if this.price.with_tax}}{{this.price.with_tax.value}}{{else}}{{this.price.without_tax.value}}{{/if}}",
+                        {{/if}}
+                        "priceCurrency": "{{this.price.with_tax.currency}}",
+                        "availability": "https://schema.org/{{#if this.pre_order}}PreOrder{{else if this.stock_level '>' 0 }}InStock{{else if this.out_of_stock_message '===' undefined}}InStock{{else}}OutOfStock{{/if}}",
+                        "url": "{{this.url}}"
+                    }
+                    {{#if this.num_reviews '>' 0}}
+                    ,
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": "{{this.rating}}",
+                        "reviewCount": "{{this.num_reviews}}"
+                    }
+                    {{/if}}
+                }
+            }{{#unless @last}},{{/unless}}
+            {{/each}}
+        ]
+    }
+</script>
+
+{{#if category.products}}
+    <div class="sort-and-pagination">
+        <div class="sidebar-nav-mobile">
+            {{#if category.subcategories}}
+                    <a href="#subcategoryList" role="button" class="{{#if category.faceted_search_enabled}}facetedSearch-toggle{{/if}} toggleLink toggleSidebarBlock button" data-collapsible>
+                        <span class="facetedSearch-toggle-indicator">
+                            <span class="toggleLink-text toggleLink-text--on">
+                                <i class="icon" aria-hidden="true">
+                                    <svg><use xlink:href="#icon-close"></use></svg>
+                                </i>
+                                <span>Close to View Results</span>
+                            </span>
+                            <span class="toggleLink-text toggleLink-text--off">
+                                <span>
+                                    <i class="icon" aria-hidden="true">
+                                        <svg><use xlink:href="#icon-sort"></use></svg>
+                                    </i>
+                                    Subcategories
+                                </span>
+                            </span>
+                        </span>
+                    </a>
+            {{/if}}
+            {{#if template '!==' 'pages/custom/category/category-nofilters'}}
+                {{#or category.faceted_search_enabled theme_settings.shop_by_price_visibility}}
+                    {{#or category.faceted_search_enabled shop_by_price}}
+                        <a role="button" class="button" id="toggle-filters" data-collapsible="" aria-controls="facetedSearch-navList" aria-expanded="true">
+                            <span class="facetedSearch-toggle-indicator">
+                                <span class="toggleLink-text toggleLink-text--on">
+                                    <i class="icon" aria-hidden="true">
+                                        <svg><use xlink:href="#icon-close"></use></svg>
+                                    </i>
+                                    Close to View Results
+                                </span>
+        
+                                <span class="toggleLink-text toggleLink-text--off">
+                                    <i class="icon" aria-hidden="true">
+                                        <svg><use xlink:href="#icon-filter"></use></svg>
+                                    </i>
+                                    <span>{{lang 'search.faceted.filters'}} </span>
+                                </span>
+                            </span>
+                        </a>
+                    {{/or}}
+                {{/or}}
+            {{/if}}
+            {{#and theme_settings.shop_by_price_visibility shop_by_price}}
+                <a href="#facetedSearch-byPrice" role="button" class="facetedSearch-toggle toggleLink toggleSidebarBlock button" data-collapsible="" aria-controls="facetedSearch-byPrice" aria-expanded="true">
+                    <span class="facetedSearch-toggle-indicator">
+                        <span class="toggleLink-text toggleLink-text--on">
+                            <i class="icon" aria-hidden="true">
+                                <svg><use xlink:href="#icon-close"></use></svg>
+                            </i>
+                            Close to View Results
+                        </span>
+        
+                        <span class="toggleLink-text toggleLink-text--off">
+                            <i class="icon" aria-hidden="true">
+                                <svg><use xlink:href="#icon-filter"></use></svg>
+                            </i>
+                            <span>Shop By Price</span>
+                        </span>
+                    </span>
+                </a>
+            {{/and}}
+        </div>
+        {{> components/products/filter sort=pagination.category.sort}}
+        
+    </div>
+
+    <div {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}}>
+        {{#if theme_settings.product_list_display_mode '===' 'grid'}}
+            {{#if settings.data_tag_enabled}}
+                {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+            {{else}}
+                {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
+            {{/if}}
+        {{else}}
+            {{#if settings.data_tag_enabled}}
+                {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+            {{else}}
+                {{> components/products/list products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
+            {{/if}}
+        {{/if}}
+    </div>
+
+    {{#if category.total_products '!==' 0}}
+    <span class="category__title-count">
+        {{#if category.count '<' category.total_products}}
+            {{lang 'category.showing_some' count=category.count total=category.total_products}}
+        {{else}}
+            {{lang 'category.showing_all' quantity=category.total_products}}
+        {{/if}}
+    </span>
+    {{/if}}
+    <!-- customization -->
+    {{> components/common/paginator pagination.category}}
+    <script>
+        /*
+        document.addEventListener("DOMContentLoaded", function () {
+            // Ensure totalProducts is parsed as an integer
+            var totalProducts = parseInt('{{category.total_products}}', 10) || 0;
+            var totalPages = Math.max(1, Math.ceil(totalProducts / 60)); // Ensure at least 1 page
+
+            var first = document.getElementById('first-pagination');
+            var end = document.getElementById('last-pagination');
+            var nextPagination = document.querySelector(".pagination-item--next a");
+            var previousPagination = document.querySelector(".pagination-item--previous a");
+            var dotsFirst = document.querySelector(".pagination-item.first.dots");
+            var dotsEnd = document.querySelector(".pagination-item.last.dots");
+
+            console.log("Last pagination element:", end);
+
+            function updatePageParam(url, pageNumber) {
+                if (!url) return null;
+                let urlObj = new URL(url, window.location.origin);
+                urlObj.searchParams.set("page", pageNumber);
+                return urlObj.toString();
+            }
+
+            if (end) {
+                // Use requestAnimationFrame to ensure the change is applied after rendering
+                requestAnimationFrame(() => {
+                    end.innerHTML = totalPages;
+                });
+            }
+
+            if (previousPagination && first) {
+                first.href = updatePageParam(previousPagination.href, 1);
+            } else if (first) {
+                first.style.display = "none";
+                if (dotsFirst) dotsFirst.style.display = "none";
+            }
+
+            if (nextPagination && end) {
+                end.href = updatePageParam(nextPagination.href, totalPages);
+            } else if (end) {
+                end.style.display = "none";
+                if (dotsEnd) dotsEnd.style.display = "none";
+            }
+        });
+        */
+    </script>
+    <!-- customization -->
+
+{{else}}
+    {{#if category.search_error}}
+        <p>{{lang 'search.errorMessage'}}</p>
+    {{else}}
+        <p data-no-products-notification
+           role="alert"
+           aria-live="assertive"
+           tabindex="-1"
+        >
+            {{lang 'categories.no_products'}}
+        </p>
+    {{/if}}
+{{/if}}

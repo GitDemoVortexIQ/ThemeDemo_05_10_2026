@@ -1,0 +1,201 @@
+
+
+<span class="product-title">{{product.title}}</span>
+<div class="productView-price sticky">
+    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+        {{> components/products/price price=product.price}}
+    {{else}}
+        {{> components/common/login-for-pricing}}
+    {{/or}}
+</div>
+
+<div class="actions">
+    
+    {{#if product.options}}
+        <a class="product-options-dropdown dropdown-button" data-dropdown="product-options-dropdown" data-options="align:bottom" bc-dropdown-toggle>
+            {{#each product.options}}
+                {{#if this.state '==' 'variant_option'}}
+                    {{#unless @first}} / {{/unless}}
+                    {{this.display_name}}
+                {{/if}}
+                
+            {{/each}}
+            <img class="chevron" src="{{cdn 'icons/arrow.svg'}}" alt="chevron icon"/>
+        </a>
+    {{/if}}
+
+    <div class="dropdown-menu" id="product-options-dropdown" bc-dropdown-menu aria-hidden="false">
+        <div class="productView-options-sticky sticky-form-select">
+
+            <div class="productView-options-wrap">
+                {{inject 'showSwatchNames' theme_settings.show_product_swatch_names}}
+                {{#if product.options}}
+                    <div class="productView-options-inner">
+                        {{#each product.options}}
+
+                            {{#if this.partial "==" 'swatch'}}
+                                {{> components/products/options/swatch-sticky }}
+                            {{/if}}
+                            {{#if this.partial "==" 'set-rectangle'}}
+                                {{> components/products/options/set-rectangle-sticky }}
+                            {{/if}}
+        
+                        {{/each}}
+                    </div>
+                {{/if}}
+            </div>
+        
+        </div>
+    </div>
+
+    {{#if product.can_purchase}}
+        <button class="sticky-form-button button button--primary">{{lang 'products.add_to_cart'}}</button>
+    {{else}}
+        <button disabled class="sticky-form-button button button--primary">{{lang 'products.sold_out'}}</button>
+    {{/if}}
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+        $('.sticky-form-button').on('click', () => {
+            $('#form-action-addToCart').click();
+        });
+
+        // Change event handler for the sticky-form-select
+        $('.sticky-form-select').on('change', (event) => {
+            const $changed = $(event.currentTarget);
+            const toChange = $changed.attr('name');
+            const changedVal = $changed.val();
+            $('[name="product_id"]').parents('form').find(`[name="${toChange}"]`).val(changedVal).change();
+        });
+
+        $('.sticky-form-select .options .form-option-wrapper').on('click', function() {
+            $('.sticky-form-select .options .form-radio').prop('checked', false);
+            const $radio = $(this).find('.form-radio');
+            $radio.prop('checked', true);
+
+            const value = $radio.val();
+            const $target = $(`[data-product-attribute-value="${value}"]`);
+            $target.get(0)?.scrollIntoView({ behavior: 'instant', block: 'nearest' });
+            document.documentElement.style.scrollBehavior = "auto";
+
+            setTimeout(() => {
+                $target.trigger('click');
+                document.documentElement.style.scrollBehavior = "";
+            }, 0);
+        });
+
+        $('.sticky-form-select .rectangles .form-option-wrapper').on('click', function() {
+            $('.sticky-form-select .rectangles .form-radio').prop('checked', false);
+            const $radio = $(this).find('.form-radio');
+            $radio.prop('checked', true);
+
+            const value = $radio.val();
+            const $target = $(`[data-product-attribute-value="${value}"]`);
+
+            // Prevent auto-scrolling
+            $target.get(0)?.scrollIntoView({ behavior: 'instant', block: 'nearest' });
+            document.documentElement.style.scrollBehavior = "auto";
+
+            // Simulate click
+            setTimeout(() => {
+                $target.trigger('click');
+                document.documentElement.style.scrollBehavior = "";
+            }, 0);
+        });
+
+        const targetDiv = document.querySelector('.productView-product .productView-price');
+
+        function copyContent() {
+            const clonedContent = $('.productView-product .productView-price').clone(true);
+            $('.sticky-add-to-cart .productView-price').html(clonedContent.html());
+        }
+
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' || mutation.type === 'subtree') {
+                    copyContent();
+                }
+            });
+        });
+
+        // Configure the observer to look for changes in child elements and subtree
+        const config = { childList: true, subtree: true, characterData: true };
+
+        // Start observing the original div for changes
+        observer.observe(targetDiv, config);
+        copyContent();
+
+        let hasScrolled = false;
+
+        function checkVisibility() {
+            const targetDiv = $('.productView-product .productView-price');
+            const windowWidth = $(window).width();
+            const stickyBar = $('.sticky-add-to-cart');
+
+            if (windowWidth < 800) {
+                const targetTop = targetDiv.offset().top;
+                const targetBottom = targetTop + targetDiv.outerHeight();
+                const windowScrollTop = $(window).scrollTop();
+                if (windowScrollTop + 100 > targetBottom )  {  
+                    if (hasScrolled) { 
+                        stickyBar.fadeIn();
+                    }
+                } else {
+                    stickyBar.fadeOut();
+                }
+
+            }else{
+                const targetTop = targetDiv.offset().top;
+                const targetBottom = targetTop + targetDiv.outerHeight();
+                const windowScrollTop = $(window).scrollTop();
+                const windowHeight = $(window).height();
+
+                // Check if the target div is fully within the visible window
+                if (windowScrollTop > targetBottom || windowScrollTop + windowHeight < targetTop) {
+                    stickyBar.fadeIn();
+                } else {
+                    stickyBar.fadeOut();
+                }
+            }
+        }
+
+        // Check visibility when scrolling or resizing the window
+        $(window).on('scroll resize', function() {
+            hasScrolled = true;
+            checkVisibility();
+        });
+
+        // Initial check
+        checkVisibility();
+
+        function syncButtonState() {
+            const isDisabled = $('#form-action-addToCart').prop('disabled');
+            const $stickyButton = $('.sticky-form-button');
+
+            $stickyButton.prop('disabled', isDisabled);
+            if (isDisabled) {
+                $stickyButton.css('opacity', '0.6');
+            } else {
+                $stickyButton.css('opacity', '1');
+            }
+        }
+
+        // Observe changes to the #form-action-addToCart button
+        const addToCartObserver = new MutationObserver(syncButtonState);
+        addToCartObserver.observe(document.getElementById('form-action-addToCart'), {
+            attributes: true,
+            attributeFilter: ['disabled'],
+        });
+
+        // Initial sync
+        syncButtonState();
+
+    });
+
+</script>

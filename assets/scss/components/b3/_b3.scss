@@ -1,0 +1,205 @@
+// button
+
+.modal-close {
+
+  &.modal-close--button,
+  &.modal-close--button.b3cacel-btn {
+    position: relative;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: 1rem 2.7857142857rem;
+
+    &:before,
+    &:after {
+      content: '';
+      display: none;
+    }
+  }
+}
+
+// dropdown
+.b2b-wrap {
+
+  .dropdown-menu {
+  
+    .dropdown-menu-item {
+
+      &.button {
+
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+// account nav
+
+// desktop
+.body {
+
+  .container {
+
+    .navBar.navBar--sub.navBar--account {
+      display: none;
+    }
+  }
+}
+
+// order
+
+// list
+.page_type__account_orderstatus {
+
+  .body {
+
+    .container {
+
+      .account {
+        display: none !important;
+      }
+    }
+  }
+}
+
+// setting
+
+.page_type__editaccount {
+
+  .body {
+
+    .container {
+
+      .form {
+        display: none;
+      }
+    }
+  }
+}
+
+// shoppinglist
+
+.page_title__shopping_list {
+
+  .footer {
+    transform: none;
+  }
+}
+
+.shopping-list-table {
+
+  .button {
+
+    &.edit-option,
+    &.list-button-remove {
+      display: inline-flex;
+    }
+  }
+}
+
+// address
+
+.address-lists-wrap {
+
+  .button {
+
+    &#filter_open_button,
+    &#filter_cancel_button,
+    &#filter_apply_button {
+      display: inline-flex;
+    }
+
+    &#search_button,
+    &#search_clear {
+      color: #4e4e4e;
+    }
+  }
+}
+
+// buy again
+
+.tingle-modal {
+
+  .tingle-modal-box {
+
+    .pagination-list {
+      margin-bottom: 0;
+      padding-bottom: 0 !important;
+    }
+  }
+}
+
+// user management
+
+.button {
+
+  &#userManage-searchButton,
+  &#userManage-searchClear {
+    color: #4e4e4e;
+  }
+}
+
+// quote
+
+// list
+.quotes .quotes-filter-form .filter-fields .filter-status {
+  width: 45%;
+}
+
+.quote-list-table {
+
+  .dropdown-menu {
+    width: auto;
+  }
+}
+
+// pdp
+.add-to-cart-wrapper {
+
+  .rfq-button-container {
+  
+    &.rfq-pdp-button-container {
+      margin-top: 1rem;
+      margin-right: 0;
+    }
+  }
+}
+
+.productView-details {
+
+  .productView-options {
+
+    .b3_container__shoppinglist {
+
+      > .form-action {
+  
+        > .form-action {
+          width: auto !important;
+  
+          .dropdown-menu {
+            
+            .button {
+              margin-bottom: 0;
+  
+              &.cancel {
+                margin-bottom: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// print
+
+@media print {
+
+  .page_title__invoice_details,
+  .page_title__quote {
+    padding-top: 20px !important;
+  }
+}

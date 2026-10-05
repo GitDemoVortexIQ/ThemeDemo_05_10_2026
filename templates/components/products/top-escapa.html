@@ -1,0 +1,54 @@
+<h2 class="page-heading">{{lang 'products.top' }}</h2>
+
+    <ul class="productGrid productGrid--maxCol{{ columns }}" data-product-type="top_sellers" {{#if settings.data_tag_enabled}} data-list-name="Most Popular Products" {{/if}}
+        {{#if products.length '>' 2}}
+            data-slick='{
+                "arrows": false,
+                "dots": true,
+                "mobileFirst": true,
+                "slidesToShow": 2,
+                "slidesToScroll": 2,
+                "infinite": true,
+                "autoplay": false,
+                "lazyLoad":"anticipated",
+                "slide": ".top-product-slide",
+                "responsive": [
+                    {
+                        "breakpoint": 1280,
+                        "settings": {
+                            "slidesToShow": 5,
+                            "slidesToScroll": 2,
+                            "dots": false
+                        }
+                    },
+                    {
+                        "breakpoint": 1000,
+                        "settings": {
+                            "slidesToShow": 4,
+                            "slidesToScroll": 2
+                        }
+                    },
+                    {
+                        "breakpoint": 600,
+                        "settings": {
+                            "slidesToShow": 3,
+                            "slidesToScroll": 2
+                        }
+                    },
+                    {
+                        "breakpoint": 468,
+                        "settings": {
+                            "slidesToShow": 2,
+                            "slidesToScroll": 2
+                        }
+                    }
+                ]
+            }'
+        {{/if}}
+    >
+        {{#each products}}
+            <li class="product top-product-slide">
+                {{>components/products/card settings=../settings theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+            </li>
+        {{/each}}
+    </ul>

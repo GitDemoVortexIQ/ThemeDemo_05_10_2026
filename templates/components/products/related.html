@@ -1,0 +1,50 @@
+<ul class="productGrid productGrid--maxCol{{ columns }}"{{#if settings.data_tag_enabled}} data-list-name="Related Products" {{/if}}
+    data-slick='{
+        "arrows": false,
+        "dots": true,
+        "mobileFirst": true,
+        "slidesToShow": 2,
+        "slidesToScroll": 1,
+        "infinite": true,
+        "autoplay": false,
+        "lazyLoad":"anticipated",
+        "slide": ".related-product-slide",
+        "responsive": [
+            {
+                "breakpoint": 1280,
+                "settings": {
+                    "slidesToShow": {{#if products.length '>=' 5}} 5 {{else}} {{products.length}} {{/if}},
+                    "slidesToScroll": 1,
+                    "dots": false
+                }
+            },
+            {
+                "breakpoint": 1000,
+                "settings": {
+                    "slidesToShow": {{#if products.length '>=' 4}} 4 {{else}} {{products.length}} {{/if}},
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint": 600,
+                "settings": {
+                    "slidesToShow": {{#if products.length '>=' 3}} 3 {{else}} {{products.length}} {{/if}},
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint": 468,
+                "settings": {
+                    "slidesToShow": 2,
+                    "slidesToScroll": 1
+                }
+            }
+        ]
+    }'
+>
+    {{#each products}}
+    <li class="product related-product-slide">
+        {{>components/products/card settings=../settings show_compare=true theme_settings=../theme_settings customer=../customer event="list" position=(add @index 1)}}
+    </li>
+    {{/each}}
+</ul>

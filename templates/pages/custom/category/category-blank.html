@@ -1,0 +1,87 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{inject "categoryId" category.id}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+<div class="page page--category blank">
+    <section class="page-content container">
+        
+        {{{region name="category_below_breadcrumbs"}}}
+    </section>
+    <div class="overlay" id="filters-overlay"></div>
+    <div class="main full grid-bg">
+        <div class="container">
+            <main class="page-content" id="product-listing-container" style="width: 100%; margin-bottom: 40px;">
+                <section class="container">
+                    {{{region name="category_below_header"}}}
+                    {{{category.description}}}
+                </section>
+                {{{region name="category_main_content"}}}
+                {{{region name="category_below_content"}}}
+            </main>
+        </div>
+    </div>
+</div>
+
+{{/partial}}
+{{> layout/base}}
+
+
+<script>
+
+function toggleOverlay() {
+    const searchContainer = document.getElementById('faceted-search-container');
+    const overlay = document.getElementById('filters-overlay');
+
+    if (window.innerWidth < 800) {
+        if (searchContainer && overlay) {
+            overlay.style.display = searchContainer.classList.contains('active') ? 'block' : 'none';
+        }
+    } else if (overlay) {
+        overlay.style.display = 'none';
+    }
+}
+
+// Modern browsers: Use MutationObserver if available
+if (window.MutationObserver) {
+    function observeClassChange() {
+        const searchContainer = document.getElementById('faceted-search-container');
+        if (!searchContainer) return;
+
+        const observer = new MutationObserver(toggleOverlay);
+        observer.observe(searchContainer, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+
+        toggleOverlay(); // Initial check
+    }
+
+    if (window.innerWidth < 800) observeClassChange();
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 800) observeClassChange();
+        else toggleOverlay();
+    });
+} else {
+    // Fallback for older browsers: Polling with setInterval
+    setInterval(() => {
+        if (window.innerWidth < 800) toggleOverlay();
+    }, 500); // Check every 500ms
+}
+
+
+</script>
