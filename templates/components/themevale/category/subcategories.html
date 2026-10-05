@@ -1,0 +1,46 @@
+{{#if theme_settings.categorypage_subcategories}}
+    {{#if category.subcategories}}
+        <div class="themevale_subCategory">
+            <div class="container">
+                <div class="themevale_column themevale_column--col3 text-left">
+                    {{#each (limit category.subcategories theme_settings.categorypage_subcategories-limit)}}
+                        <div class="item">
+                            <div class="sub-category">
+                                <div class="content">
+                                    {{#if ../theme_settings.categorypage_subcategories-title}}
+                                        <a class="title" href="{{url}}">
+                                            <span class="text sub-title" >{{name}}</span>{{#if ../../theme_settings.categorypage_subcategories-count}}<span class="count">{{product_count}}</span>{{/if}}
+                                        </a>
+                                    {{/if}}
+                                    {{#if ../theme_settings.categorypage_subcategories-desc}}
+                                        {{#if description}} 
+                                            <div class="description">
+                                                {{{description}}}  &hellip;
+                                                <!--<span class="dots">&hellip;</span>-->
+                                            </div>
+                                        {{else}}
+                                            <div class="description">
+                                                Lorem ipsum dolor sit amet consectetur adipiscing elit. Nam &hellip;
+                                            </div>
+                                        {{/if}}
+                                    {{/if}}
+                                </div>
+                                {{#if ../theme_settings.categorypage_subcategories-img}}
+                                    {{#if image}}
+                                        <div class="image">
+                                            <img src="{{getImage image '178x125' (cdn theme_settings.default_image_product)}}" alt="{{name}}" title="{{name}}">
+                                        </div>
+                                    {{else}}
+                                        <div class="image">
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{cdn 'img/No-Image.jpg'}}" alt="{{name}}" title="{{name}}">
+                                        </div>
+                                    {{/if}}
+                                {{/if}}
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
+{{/if}} 

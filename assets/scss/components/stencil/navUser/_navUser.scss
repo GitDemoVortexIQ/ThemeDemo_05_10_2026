@@ -1,0 +1,669 @@
+// =============================================================================
+// USER NAVIGATION (CSS)
+// =============================================================================
+//
+// 1. Corrects the spacing added by .navUser-or
+// 2. Can't use top: 50% because its container `.header` changes its height to
+//    100% when mobile menu is expanded
+// 3. Make the triangle for store credit dropdown centered
+// 4. Needs to be 100% so its dropdown can take full width in mobile viewport
+// 5. Needs to be lower than logo zIndex, otherwise, logo is not clickable
+// 6. Make the triangle for currency dropdown right aligned
+// 7. Corrects mini cart positioned outside viewport. Since this resets right
+//    position, nudge dropdown away from the side of viewport in mobile viewport.
+// 8. This corrects mini cart dropdown arrow alignment in mobile viewport by
+//    setting the previous styles to medium breakpoint and adjusts for nudge in (7).
+//
+// -----------------------------------------------------------------------------
+
+.navUser {
+    @include nav($style: "navBar", $wrapper: "nav");
+    display: none;
+    top: auto;
+    right: auto;
+    transform: none;
+    position: relative;
+    z-index: zIndex("high");
+    padding: 0 spacing("single");
+    color: stencilColor('themevale_topbar-color');
+    background-color: stencilColor('themevale_topbar-bg');
+    .navUser--left {
+        float: left;
+    }
+    .navUser--right {
+        float: right;
+    }
+    .navUser-items {
+        display: inline-block;
+        vertical-align: middle;
+        width: 36%;
+        &.text-center {
+            width: 28%;
+        }
+        .navUser-item {
+            float: none;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        @media (min-width: 1281px) {
+            width: 33.33333333%;
+            &.text-center {
+                width: 33.33333333%;
+            }
+        }
+    }
+    .navUser-item--account {
+        color: stencilColor('themevale_topbar-color');
+    }
+    .navUser-action {
+        color: stencilColor('themevale_topbar-color');
+        svg {
+            fill: stencilColor('themevale_topbar-color');
+            stroke: stencilColor('themevale_topbar-color');
+        }
+        &:hover {
+            color: stencilColor('themevale_topbar-color--hover');
+            svg {
+                fill: stencilColor('themevale_topbar-color--hover');
+                stroke: stencilColor('themevale_topbar-color--hover');
+            }
+        }
+    }
+    .own-text {
+        margin-bottom: 0;
+        font-weight: 700;
+        color: stencilColor('themevale_topbar-color');
+    }
+    @media (min-width: 1025px) {
+        display: block;
+        .navUser-action {
+            &:before {
+                left: 0;
+                bottom: 9px;
+                height: 1px;
+                width: 0;
+                content: "";
+                position: absolute;
+                background-color: stencilColor('themevale_topbar-color--hover');
+                transition: all 0.3s ease;
+            }
+            &:hover,
+            &.is-open {
+                &:before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+.themevale_header-layout-2 {
+    .navUser .container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navUser-items.text-left,
+    .navUser-items.text-right {
+        .navUser-item > .navUser-action,
+        .navUser-item > svg {
+            opacity: 0.6;
+        }
+    }
+    #menu .navPages-label {
+        border-radius: 3px;
+    }
+}
+
+.dropdown-menu {
+    border-radius: 1px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    outline: none;
+    // scss-lint:disable NestingDepth
+    &.is-open {
+        &:before {
+            @include css-triangle(
+                $triangle-direction: "bottom",
+                $triangle-size: 10px,
+                $triangle-color: #e5e5e5
+            );
+            bottom: 100%;
+            left: spacing("half");
+            position: absolute;
+        }
+
+        &:after {
+            @include css-triangle(
+                $triangle-direction: "bottom",
+                $triangle-size: 8px,
+                $triangle-color: #ffffff
+            );
+            bottom: 100%;
+            left: spacing("half") + remCalc(2px);
+            position: absolute;
+        }
+    }
+}
+
+.dropdown-cart {
+    @media (min-width: 1025px) {
+        top: calc(100% + 10px);
+        right: 0;
+        padding: 0;
+        z-index: 20;
+        display: none;
+        outline: none;
+        text-align: left;
+        position: absolute;
+        border-radius: 3px;
+        width: remCalc(340px);
+        color: stencilColor('color-textBase');
+        background-color: #ffffff;
+        border: 1px solid #e5e5e5;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+        &.is-loading .loadingOverlay {
+            background: none;
+            padding: 25px;
+            position: relative;
+        }
+        .button--primary {
+            color: stencilColor('card-figcaption-button-color2');
+            border-color: stencilColor('card-figcaption-button-background2');
+            background-color: stencilColor('card-figcaption-button-background2');
+            svg {
+                fill: stencilColor('card-figcaption-button-color2');
+            }
+            &:hover, &:focus, &:active {
+                color: stencilColor('card-figcaption-button-background2');
+                border-color: stencilColor('card-figcaption-button-background2');
+                background-color: stencilColor('card-figcaption-button-color2');
+                svg {
+                    fill: stencilColor('card-figcaption-button-background2');
+                }
+            }
+        }
+        .themevale_cart.is-open & {
+            display: block !important;
+            &:before {
+                @include css-triangle(
+                    $triangle-direction: "bottom",
+                    $triangle-size: 10px,
+                    $triangle-color: #e5e5e5
+                );
+                bottom: 100%;
+                right: spacing("half");
+                position: absolute;
+            }
+
+            &:after {
+                @include css-triangle(
+                    $triangle-direction: "bottom",
+                    $triangle-size: 8px,
+                    $triangle-color: #ffffff
+                );
+                bottom: 100%;
+                right: spacing("half") + remCalc(2px);
+                position: absolute;
+            }
+        }
+    }
+}
+
+.navUser-section {
+    @include breakpoint("medium") {
+        position: relative; // 7
+    }
+}
+
+.navUser-action {
+    color: #8c8c8c;
+    font-weight: 400;
+    padding: 9px 0px;
+    text-decoration: none;
+    text-transform: capitalize;
+    &:hover,
+    &.is-open {
+        color: stencilColor('color-textLink--hover');
+        svg {
+            fill: stencilColor('color-textLink--hover');
+            stroke: stencilColor('color-textLink--hover');
+        }
+    }
+    .icon {
+        @include square(8px);
+        margin: 0 0 0 spacing("eighth");
+    }
+    svg {
+        fill: #8c8c8c;
+        stroke: #8c8c8c;
+    }
+    .image-flag {
+        width: 16px;
+        height: 11px;
+        overflow: hidden;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        img {
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            height: 100%;
+            width: auto;
+            max-width: none;
+            margin: 0 auto;
+            position: absolute;
+            transform: translateX(-50%);
+        }
+        + .text-flag {
+            margin-left: 5px;
+        }
+    }
+    .text-flag {
+        font-weight: 700;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &.navUser-action--currencySelector {
+        &:before {
+            content: none;
+        }
+    }
+    .navUser-item--mail &,
+    &.store-phone {
+        text-transform: lowercase;
+    }
+}
+
+.navUser-action--languageSelection {
+    + .dropdown-menu {
+        max-width: 220px;
+        padding: 15px;
+        &:before {
+            // scss-lint:disable ImportantRule
+            left: auto !important; // 6
+            right: spacing("single"); // 6
+        }
+        &:after {
+            // scss-lint:disable ImportantRule
+            left: auto !important; // 6
+            right: spacing("single") + remCalc(2px); // 6
+        }
+        .goog-te-gadget-simple {
+            padding: 5px;
+            .goog-te-menu-value {
+                color: stencilColor('color-textBase');
+                > span:first-child {
+                    min-width: 120px;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+
+.navUser-action--currencySelector {
+    font-size: 0;
+    .image-flag, .text-flag, .icon {
+        font-size: $body-fontSize;
+    }
+    .icon {
+        margin-left: 5px;
+    }
+    + .dropdown-menu {
+        width: 200px;
+        &:before {
+            // scss-lint:disable ImportantRule
+            left: auto !important; // 6
+            right: spacing("half"); // 6
+        }
+        &:after {
+            // scss-lint:disable ImportantRule
+            left: auto !important; // 6
+            right: spacing("half") + remCalc(2px); // 6
+        }
+        .dropdown-menu-item {
+            a {
+                padding: 10px;
+                img {
+                    margin-right: 5px;
+                }
+            }
+            + .dropdown-menu-item {
+                border-top: 1px solid #eeeeee;
+            }
+        }
+    }
+    &.is-open {
+        + .dropdown-menu {
+            display: block;
+            left: auto;
+            right: 0;
+        }
+    }
+}
+
+.navUser-action--myaccount {
+    position: relative;
+    &.is-open {
+        + .dropdown-menu {
+            display: block;
+            left: auto;
+            right: 0;
+        }
+    }
+}
+
+#navPages-account-topbar {
+    right: 0;
+    left: auto;
+    width: 130px;
+    border: none;
+    box-shadow: none;
+    padding-top: 5px;
+    outline: none;
+    border-radius: 0px;
+    position: absolute;
+    text-transform: capitalize;
+    background-color: transparent;
+    .dropdown-menu-item {
+        margin: 0;
+        padding: 0;
+        border: 1px solid #e5e5e5;
+        background-color: #fafafa;
+        transition: all 0.3s ease;
+        color: #8c8c8c;
+        &:hover {
+            background-color: #ffffff;
+        }
+        a {
+            padding: 8px;
+            color: #8c8c8c;
+            img {
+                margin-right: 5px;
+            }
+            strong {
+                font-weight: 600;
+            }
+        }
+        + .dropdown-menu-item {
+            border-top: none;
+        }
+    }
+}
+
+.navUser-action--storeCredit + .dropdown-menu {
+    max-width: remCalc(300px);
+    padding: spacing("single");
+
+    &:before {
+        // scss-lint:disable ImportantRule
+        left: remCalc(140px) !important; // 3
+    }
+
+    &:after {
+        // scss-lint:disable ImportantRule
+        left: remCalc(142px) !important; // 3
+    }
+}
+
+.navUser-action-divider {
+    border-right: container("border");
+    color: stencilColor("color-textSecondary");
+    display: inline-block;
+    padding: 0 remCalc(20) 0 0;
+    text-decoration: none;
+}
+
+.navUser-item {
+    > .icon {
+        display: inline-block;
+        vertical-align: middle;
+        fill: stencilColor('themevale_topbar-color');
+        + .navUser-action {
+            margin-left: 3px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    + .navUser-item {
+        margin-left: 20px;
+    }
+    &.layout-2 {
+        > .icon {
+            @include square(15px);
+            fill: #383e47;
+        }
+        .navUser-action {
+            color: #383e47;
+            &:before {
+                background-color: #383e47;
+            }
+        }
+    }
+}
+
+.navUser-item--cart {
+    display: block;
+
+    .navUser-action {
+        color: stencilColor("navUser-color");
+
+        // scss-lint:disable NestingDepth
+        &:hover,
+        &.is-open {
+            color: stencilColor("navUser-color-hover");
+        }
+    }
+
+    .dropdown-menu {
+        max-width: remCalc(320px);
+
+        // scss-lint:disable NestingDepth
+        &.is-open {
+            top: auto !important; // 7
+            left: auto !important; // 7
+            right: remCalc(5px); // 7
+            @include breakpoint("medium") {
+                right: 0; // 7
+            }
+
+            &:before,
+            &:after {
+                left: auto;
+            }
+
+            &:before {
+                right: spacing("half") - remCalc(5px); // 8
+                @include breakpoint("medium") {
+                    right: spacing("half"); // 8
+                }
+            }
+
+            &:after {
+                right: spacing("half") - remCalc(3px); // 8
+                @include breakpoint("medium") {
+                    right: spacing("half") + remCalc(2px); // 8
+                }
+            }
+        }
+    }
+}
+
+.navUser-item-cartLabel {
+    display: none;
+
+    @include breakpoint("small") {
+        display: inline;
+    }
+}
+
+.navUser-item--compare {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}
+
+.item--account,
+.navUser-item--myaccount {
+    position: relative;
+}
+.navUser-item--account {
+    color: #8c8c8c;
+    .navUser-or {
+        margin: 0px;
+    }
+    .navUser-action {
+        display: inline-block;
+    }
+    .icon {
+        position: relative;
+        top: -2px;
+        margin-right: 5px;
+    }
+    .dropdown-menu {
+        width: 180px;
+    }
+    .navUser-action {
+        display: inline-block;
+        strong {
+            font-weight: 600;
+        }
+        + .navUser-action {
+            margin-left: 5px;
+        }
+    }
+}
+
+.navUser-or {
+    cursor: default;
+    display: inline-block;
+    margin: 0;
+    padding: 0 2px;
+    position: relative;
+    z-index: 1;
+    color: inherit;
+}
+// Quick search
+// -----------------------------------------------------------------------------
+//
+// 1. Overriding the inline styles from Foundation as this is a unique dropdown.
+//
+// -----------------------------------------------------------------------------
+
+.navUser-action--quickSearch {
+
+    &.is-open {
+        position: relative;
+
+        // scss-lint:disable NestingDepth
+        &:before {
+            @include css-triangle(
+                $triangle-direction: "bottom",
+                $triangle-size: 10px,
+                $triangle-color: color("greys", "lightest")
+            );
+            bottom: 0;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.dropdown--quickSearch {
+    padding: 0;
+    width: 100%;
+    position: fixed;
+    background-color: transparent;
+    &.is-open {
+        left: 0;
+        right: 0;
+        outline: none;
+        z-index: zIndex("high");
+        @media (min-width: 768px) {
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+        }
+    }
+    .form {
+        margin: auto;
+        width: 100%;
+    }
+    .form,
+    .form-field {
+        position: relative;
+        margin-bottom: 0;
+    }
+    .productGrid {
+        padding: spacing("single") 0 0;
+
+        @include breakpoint("small") {
+            padding: spacing("double") 0 0;
+        }
+    }
+}
+
+// Counter Pill
+// -----------------------------------------------------------------------------
+//
+// 1. Hardcoded intentionally for precise pixels.
+//
+// -----------------------------------------------------------------------------
+
+.navUser-item-cartIcon {
+    position: relative;
+}
+
+.countPill {
+    top: -4px;
+    right: -6px;
+    background-color: stencilColor("navUser-indicator-backgroundColor");
+    border-radius: 50%;
+    color: color("whites", "bright");
+    /*display: none;*/
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 11px;
+    font-weight: 400;
+    text-align: center;
+    position: absolute;
+    @media (min-width: 768px){
+        top: -6px;
+        right: -10px;
+        font-size: 12px;
+        width: 22px;
+        height: 22px;
+        line-height: 22px;
+    }
+}
+
+.countPill--positive {
+    display: block;
+    
+}
+
+.countPill--alt {
+    background-color: color("greys", "lighter");
+    color: color("greys", "darker");
+}
+
+
+.navUser {
+    .countPill {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        color: inherit;
+        background-color: transparent;
+        padding: 0
+    }
+}

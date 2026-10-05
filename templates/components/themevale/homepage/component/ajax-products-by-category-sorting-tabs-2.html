@@ -1,0 +1,79 @@
+<div class="themevale_sectionChild">
+    {{#each categories}}
+        {{#if id '==' ../category_id}}
+            <div class="themevale_productsByCategoryTabs">
+                <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-content
+                    image-1=../../theme_settings.themevale_category-id-width-banner-2-image-1
+                    image-2=../../theme_settings.themevale_category-id-width-banner-2-image-2
+                    image-3=../../theme_settings.themevale_category-id-width-banner-2-image-3 }}
+            </div>
+            <div class="themevale_bannerbycategory themevale_bannerbycategory_2">
+                <div class="themevale_bannerbycategory-carousel" data-slick='{
+                    "arrows": false,
+                    "dots": true,
+                    "infinite": false,
+                    "slidesToShow": 4,
+                    "slidesToScroll": 4
+                    }'>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-ex-1.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Body Kits</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-ex-2.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Custom Hoods</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-ex-3.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Spoliers</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-ex-4.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Custom Grilles</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-ex-2.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Custom Hoods</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    {{/each}}
+</div>
+            

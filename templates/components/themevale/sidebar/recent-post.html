@@ -1,0 +1,16 @@
+{{#if theme_settings.sidebar_advertisement-recent-post}}
+    <div class="sidebarBlock">
+        <h5 class="sidebarBlock-heading"><span>{{theme_settings.sidebar_advertisement-recent-post-title}}</span></h5>
+        <div class="sidebarBlock-content">
+        	<div class="recentPosts_List recentPosts--col1">
+        		{{#each blog.posts}}
+        			<div class="item">
+        				<div class="recentPost-sidebar">
+    	    				<h5 class="title"><a href='{{url}}'>{{title}}</a></h5>
+    					</div>
+        			</div>
+        		{{/each}}
+        	</div>
+        </div>
+    </div>
+{{/if}}

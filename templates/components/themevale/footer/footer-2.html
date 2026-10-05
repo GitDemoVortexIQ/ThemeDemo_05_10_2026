@@ -1,0 +1,189 @@
+<div class="themevale_service layout-2">
+    <div class="container">
+        <div class="service-item">
+            <div class="service-wrapper">
+                <div class="service-icon">
+                    <i class="icon"><svg><use xlink:href="#icon-truck"></use></svg></i>
+                </div>
+                <div class="service-content">
+                    <h3 class="title">International Delivery</h3>
+                    <p class="text">Phasellus de minterdum loremous*</p>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="service-wrapper">
+                <div class="service-icon">
+                    <i class="icon"><svg><use xlink:href="#icon-credit-card"></use></svg></i>
+                </div>
+                <div class="service-content">
+                    <h3 class="title">Secure Shopping</h3>
+                    <p class="text">Phasellus de minterdum loremous*</p>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="service-wrapper">
+                <div class="service-icon">
+                    <i class="icon"><svg><use xlink:href="#icon-shield"></use></svg></i>
+                </div>
+                <div class="service-content">
+                    <h3 class="title">Shop With Confidence</h3>
+                    <p class="text">Phasellus de minterdum loremous*</p>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="service-wrapper">
+                <div class="service-icon">
+                    <i class="icon"><svg><use xlink:href="#icon-support"></use></svg></i>
+                </div>
+                <div class="service-content">
+                    <h3 class="title">24/7 Help Center</h3>
+                    <p class="text">Phasellus de minterdum loremous*</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer footer-layout-2">
+    <div class="themevale_middleFooter">
+        <div class="container">
+            <div class="footer-info themevale_footer-info">
+                <div class="footer-info-col footer-info-col--big" data-section-type="newsletterSubscription">
+                    {{#if settings.show_newsletter_box}}
+                        {{> components/common/subscription-form}}
+                    {{/if}}
+                    {{#if social_media}}
+                        <ul class="socialLinks socialLinks--layout2">
+                            {{#each social_media}}
+                                <li class="socialLinks-item">
+                                    {{#if display_name '===' 'google+'}}
+                                        <a class="icon icon--google" href="{{url}}" target="_blank" rel="noopener">
+                                            <svg><use xlink:href="#icon-google" /></svg>
+                                        </a>
+                                    {{else}}
+                                        <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                                            <svg><use xlink:href="#icon-{{display_name}}" /></svg>
+                                        </a>
+                                    {{/if}}
+                                </li>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading">{{lang 'footer.shop'}}</h5>
+                    <ul class="footer-info-list">
+                        {{#each (limit categories 8)}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-Pages">
+                    <h5 class="footer-info-heading">{{lang 'footer.navigate'}}</h5>
+                    <ul class="footer-info-list">
+                        {{#each (limit pages 8)}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-webPages">
+                    <h5 class="footer-info-heading">{{lang 'footer.services'}}</h5>
+                    <ul class="footer-info-list">
+                        <li><a href="/faq/">Help & FAQs</a></li>
+                        <li><a href="/terms-of-conditions/">Terms of Conditions</a></li>
+                        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                        <li><a href="/returns-policy/">Online Returns Policy</a></li>
+                        <li><a href="/rewards-program/">Rewards Program</a></li>
+                        <li><a href="/rebate-center/">Rebate Center</a></li>
+                        <li><a href="/partners/">Partners</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-brands">
+                    <h5 class="footer-info-heading">{{lang 'footer.brands'}}</h5>
+                    <ul class="footer-info-list">
+                        {{#each (limit shop_by_brand 8)}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <svg class="icon icon-view"><use xlink:href="#icon-chevron-right"></use></svg>
+                            <a class="view-all" href="{{urls.brands}}">
+                                {{lang 'common.view_all'}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-dropdownmobile" data-section-type="footer-info">
+                    <h5 class="footer-info-heading">Get In Touch</h5>
+                    <ul class="footer-info-list">
+                        <li class="store-address"><svg class="icon"><use xlink:href="#icon-location-3"></use></svg>{{nl2br settings.address}}</li>
+                        <li class="store-phone"><svg class="icon"><use xlink:href="#icon-telephone-3"></use></svg><p>Toll-free: +1.800.000.6890</p><p>International: +1.900.880.6890</p><a class="ask_an_expert button button--transparent" href="#" data-reveal-id="ask-an-expert">Ask An Expert</a></li>
+                        <li class="store-email"><svg class="icon"><use xlink:href="#icon-envelope-2"></use></svg><a href="mailto:sales@halothemes.com">Email: sales@halothemes.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="themevale_securityImage text-center">
+                <ul>
+                    <li>
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-6.png" alt="">
+                    </li>
+                    <li>
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-7.png" alt="">
+                    </li>
+                    <li>
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-1.png" alt="">
+                    </li>
+                    <li>
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-8.png" alt="">
+                    </li>
+                    <li>
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-2.png" alt="">
+                    </li>
+                    <li>
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-3.png" alt="">
+                    </li>
+                    <li>
+                        <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-4.png" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="themevale_bottomFooter">
+        <div class="container">
+            <div class="item">
+                {{#if theme_settings.show_copyright_footer}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+                    </div>
+                {{/if}}
+                {{#if theme_settings.show_powered_by}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">Bigcommerce Themes & Templates by <a href="themevale.com" rel="nofollow">ThemeVale.com</a></p>
+                    </div>
+                {{/if}}
+            </div>
+            <div class="item">
+                {{> components/common/payment-icons}}
+            </div>
+        </div>
+    </div>
+</footer>
+
+{{#if theme_settings.themevale_ask_an_expert}}
+    {{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 2'}}
+        {{> components/themevale/ask-an-expert}}
+    {{/if}}
+{{/if}}

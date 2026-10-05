@@ -1,0 +1,3852 @@
+[
+  {
+    "name": "Global",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Body text"
+      },
+      {
+        "type": "select",
+        "label": "Body text font size",
+        "id": "fontSize-root",
+        "options": [
+          {
+            "value": 12,
+            "label": "12px"
+          },
+          {
+            "value": 13,
+            "label": "13px"
+          },
+          {
+            "value": 14,
+            "label": "14px"
+          },
+          {
+            "value": 15,
+            "label": "15px"
+          },
+          {
+            "value": 16,
+            "label": "16px"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Body text color",
+        "id": "color-textBase"
+      },
+      {
+        "type": "heading",
+        "content": "Links"
+      },
+      {
+        "type": "color",
+        "label": "Link color",
+        "id": "color-textLink"
+      },
+      {
+        "type": "color",
+        "label": "Link hover color",
+        "id": "color-textLink--hover"
+      },
+      {
+        "type": "heading",
+        "content": "Headings"
+      },
+      {
+        "type": "color",
+        "label": "Headings text color",
+        "id": "color-textHeading"
+      },
+      {
+        "type": "select",
+        "id": "product_list_display_mode",
+        "force_reload": true,
+        "label": "Display mode",
+        "options": [
+          {
+            "value": "grid 3",
+            "label": "Show products in a grid 3 column"
+          },
+          {
+            "value": "grid 4",
+            "label": "Show products in a grid 4 column"
+          },
+          {
+            "value": "list",
+            "label": "Show products in a list"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Blog"
+      },
+      {
+        "type": "imageDimension",
+        "label": "Blog image size",
+        "id": "blog_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "190x250",
+            "label": "Optimized for theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify dimensions"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Buttons Default"
+      },
+      {
+        "type": "color",
+        "label": "Button Default color",
+        "id": "button--default-color"
+      },
+      {
+        "type": "color",
+        "label": "Button Default hover color",
+        "id": "button--default-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Default Border color",
+        "id": "button--default-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Default Border hover color",
+        "id": "button--default-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Default Background color",
+        "id": "button--default-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Default Background hover color",
+        "id": "button--default-backgroundColorHover"
+      },
+      {
+        "type": "heading",
+        "content": "Buttons Primary"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary color",
+        "id": "button--primary-color"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary hover color",
+        "id": "button--primary-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary Border color",
+        "id": "button--primary-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary Border hover color",
+        "id": "button--primary-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary Background color",
+        "id": "button--primary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Primary Background hover color",
+        "id": "button--primary-backgroundColorHover"
+      },
+      {
+        "type": "heading",
+        "content": "Buttons Transparent"
+      },
+      {
+        "type": "color",
+        "label": "Button Transparent color",
+        "id": "button--transparent-color"
+      },
+      {
+        "type": "color",
+        "label": "Button Transparent hover color",
+        "id": "button--transparent-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Transparent Border color",
+        "id": "button--transparent-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Transparent Border hover color",
+        "id": "button--transparent-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button Transparent Background color",
+        "id": "button--transparent-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button Transparent Background hover color",
+        "id": "button--transparent-backgroundColorHover"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Banner Promotion"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Banner Promotion",
+        "force_reload": true,
+        "id": "themevale_top-promotion"
+      },
+      {
+        "type": "color",
+        "label": "Banner Promotion background color",
+        "id": "themevale_top-promotion-bg"
+      },
+      {
+        "type": "color",
+        "label": "Banner top text color",
+        "id": "themevale_top-promotion-color"
+      },
+      {
+        "type": "text",
+        "label": "Banner Promotion image",
+        "id": "themevale_top-promotion-image",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Banner Promotion content",
+        "id": "themevale_top-promotion-text",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Banner Promotion button",
+        "id": "themevale_top-promotion-link",
+        "force_reload": true
+      },
+      {
+        "type": "text",
+        "label": "Banner Promotion button url",
+        "force_reload": true,
+        "id": "themevale_top-promotion-href"
+      },
+      {
+        "type": "heading",
+        "content": "Choose one layout header"
+      },
+      {
+        "type": "checkbox",
+        "label": "Display header layout 1",
+        "id": "themevale_header_layout_1",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Display header layout 2",
+        "id": "themevale_header_layout_2",
+        "force_reload": true
+      },
+      {
+        "type": "checkbox",
+        "label": "Display header layout 3",
+        "id": "themevale_header_layout_3",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Header TopBar"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Header TopBar",
+        "id": "themevale_header-top",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Header TopBar background color",
+        "id": "themevale_topbar-bg"
+      },
+      {
+        "type": "color",
+        "label": "Header TopBar text color",
+        "id": "themevale_topbar-color"
+      },
+      {
+        "type": "color",
+        "label": "Header TopBar text color hover",
+        "id": "themevale_topbar-color--hover"
+      },
+      {
+        "type": "text",
+        "label": "Header TopBar phone",
+        "id": "themevale_topbar-numberphone",
+        "force_reload": true,
+        "reference": "themevale_header_layout_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header TopBar email",
+        "id": "themevale_topbar-email",
+        "force_reload": true,
+        "reference": "themevale_header_layout_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header TopBar own text",
+        "id": "themevale_topbar-owntext",
+        "force_reload": true,
+        "reference": "themevale_header_layout_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header TopBar own text 1",
+        "id": "themevale_topbar-owntext1",
+        "force_reload": true,
+        "reference": "themevale_header_layout_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header TopBar own text 2",
+        "id": "themevale_topbar-owntext2",
+        "force_reload": true,
+        "reference": "themevale_header_layout_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header TopBar own text 3",
+        "id": "themevale_topbar-owntext3",
+        "force_reload": true,
+        "reference": "themevale_header_layout_3",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Header Middle"
+      },
+      {
+        "type": "color",
+        "label": "Header background color",
+        "id": "header-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Header Middle text color",
+        "id": "themevale_middle-color"
+      },
+      {
+        "type": "color",
+        "label": "Header Middle border color",
+        "id": "themevale_middle-bordercolor",
+        "reference": "themevale_header_layout_2",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------",
+        "reference": "themevale_header_layout_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header Middle own image",
+        "id": "themevale_middle-ownimg",
+        "force_reload": true,
+        "reference": "themevale_header_layout_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header Middle own text 1",
+        "id": "themevale_middle-owntext1",
+        "force_reload": true,
+        "reference": "themevale_header_layout_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header Middle own text 2",
+        "id": "themevale_middle-owntext2",
+        "force_reload": true,
+        "reference": "themevale_header_layout_2",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------",
+        "reference": "themevale_header_layout_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header Middle office phone",
+        "id": "themevale_office-phone",
+        "force_reload": true,
+        "reference": "themevale_header_layout_3",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Header Middle office phone color",
+        "id": "themevale_office-phone-color",
+        "force_reload": true,
+        "reference": "themevale_header_layout_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Header Middle office hours",
+        "id": "themevale_office-hours",
+        "force_reload": true,
+        "reference": "themevale_header_layout_3",
+        "reference_default": false
+      },
+      {
+        "type": "paragraph",
+        "content": "-----------------------------------------"
+      },
+      {
+        "type": "color",
+        "label": "Cart counter background color",
+        "id": "navUser-indicator-backgroundColor"
+      },
+      {
+        "type": "heading",
+        "content": "Header Middle Search Category"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Search Category",
+        "id": "themevale_header-search-category",
+        "force_reload": true
+      },
+      {
+        "type": "color",
+        "label": "Search Category input background",
+        "id": "themevale_middle-search-input"
+      },
+      {
+        "type": "color",
+        "label": "Search Category input border",
+        "id": "themevale_middle-search-border"
+      },
+      {
+        "type": "color",
+        "label": "Search Category button color",
+        "id": "themevale_middle-search-color"
+      },
+      {
+        "type": "color",
+        "label": "Search Category button background",
+        "id": "themevale_middle-search-bg"
+      },
+      {
+        "type": "heading",
+        "content": "Logo size"
+      },
+      {
+        "type": "imageDimension",
+        "label": "Image logo size",
+        "id": "logo_size",
+        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "250x100",
+            "label": "Optimized for theme"
+          },
+          {
+            "value": "original",
+            "label": "Original (as uploaded)"
+          },
+          {
+            "value": "custom",
+            "label": "Specify dimensions"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Header Bottom"
+      },
+      {
+        "type": "color",
+        "label": "header bottom background",
+        "id": "themevale_header-bottom-background"
+      },
+      {
+        "type": "color",
+        "label": "header bottom border",
+        "id": "themevale_header-bottom-border"
+      },
+      {
+        "type": "heading",
+        "content": "All Category Dropdown",
+        "reference": "themevale_header_layout_1",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "All Category background",
+        "id": "themevale-allCategories-backgroundColor",
+        "reference": "themevale_header_layout_1",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "All Category border",
+        "id": "themevale-allCategories-borderColor",
+        "reference": "themevale_header_layout_1",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "All Category color",
+        "id": "themevale-allCategories-textColor",
+        "reference": "themevale_header_layout_1",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "All Category Dropdown background",
+        "id": "themevale-allCategories-dropdown-backgroundColor",
+        "reference": "themevale_header_layout_1",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "All Category Dropdown text",
+        "id": "themevale-allCategories-dropdown-textColor",
+        "reference": "themevale_header_layout_1",
+        "reference_default": true
+      },
+      {
+        "type": "color",
+        "label": "All Category Dropdown background hover",
+        "id": "themevale-allCategories-dropdown-bghover",
+        "reference": "themevale_header_layout_1",
+        "reference_default": true
+      },
+      {
+        "type": "heading",
+        "content": "Main navigation"
+      },
+      {
+        "type": "checkbox",
+        "label": "Hide web pages in main navigation",
+        "force_reload": true,
+        "id": "hide_content_navigation"
+      },
+      {
+        "type": "color",
+        "label": "Text color",
+        "id": "navPages-color"
+      },
+      {
+        "type": "color",
+        "label": "Text hover color",
+        "id": "navPages-color-hover"
+      },
+      {
+        "type": "color",
+        "label": "Text hover background color",
+        "id": "navPages-bg-color-hover",
+        "reference": "themevale_header_layout_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Custom text",
+        "id": "themevale_header-layout-3-customtext",
+        "force_reload": true,
+        "reference": "themevale_header_layout_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Custom link",
+        "id": "themevale_header-layout-3-customlink",
+        "force_reload": true,
+        "reference": "themevale_header_layout_3",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Label Sale"
+      },
+      {
+        "type": "color",
+        "label": "Label Sale color",
+        "id": "navPages-label-color-1"
+      },
+      {
+        "type": "color",
+        "label": "Label Sale background color",
+        "id": "navPages-label-background-1"
+      },
+      {
+        "type": "text",
+        "label": "position show",
+        "id": "themevale_megamenu-layout-1",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Label New"
+      },
+      {
+        "type": "color",
+        "label": "Label New color",
+        "id": "navPages-label-color-2"
+      },
+      {
+        "type": "color",
+        "label": "Label New background color",
+        "id": "navPages-label-background-2"
+      },
+      {
+        "type": "text",
+        "label": "position show",
+        "id": "themevale_megamenu-layout-2",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Label Hot"
+      },
+      {
+        "type": "color",
+        "label": "Label Hot color",
+        "id": "navPages-label-color-3"
+      },
+      {
+        "type": "color",
+        "label": "Label Hot background color",
+        "id": "navPages-label-background-3"
+      },
+      {
+        "type": "text",
+        "label": "position show",
+        "id": "themevale_megamenu-layout-3",
+        "force_reload": true
+      },
+      {
+        "type": "heading",
+        "content": "Dropdown menu/ Mega menu"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown background color",
+        "id": "navPages-subMenu-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown title color",
+        "id": "navPages-subMenu-titleColor"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown text color",
+        "id": "navPages-subMenu-textColor"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown text color hover",
+        "id": "navPages-subMenu-textColor--hover"
+      },
+      {
+        "type": "color",
+        "label": "Dropdown border color",
+        "id": "navPages-subMenu-separatorColor",
+        "reference": "themevale_header_layout_1",
+        "reference_default": false
+      },
+      {
+        "type": "color",
+        "label": "Mega menu bottom background",
+        "id": "navPages-bottommegaMenu-background"
+      },
+      {
+        "type": "color",
+        "label": "Mega menu bottom text color",
+        "id": "navPages-bottommegaMenu-color"
+      },
+      {
+        "type": "color",
+        "label": "Mega menu bottom link",
+        "id": "navPages-bottommegaMenu-link"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "color",
+        "label": "Background color",
+        "id": "footer-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Text color",
+        "id": "footer-fontColor"
+      },
+      {
+        "type": "color",
+        "label": "Text hover color",
+        "id": "footer-fontColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Title color",
+        "id": "footer-titleColor"
+      },
+      {
+        "type": "color",
+        "label": "Social color",
+        "id": "footer-socialColor"
+      },
+      {
+        "type": "color",
+        "label": "Social background color",
+        "id": "footer-socialbackgroundColor"
+      },
+      {
+        "type": "heading",
+        "content": "Footer Bottom"
+      },
+      {
+        "type": "color",
+        "label": "Text color",
+        "id": "footer-bottom-textColor"
+      },
+      {
+        "type": "color",
+        "label": "Background color",
+        "id": "footer-bottom-backgroundColor"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show &quot;Powered by BigCommerce&quot;",
+        "force_reload": true,
+        "id": "show_powered_by"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show &quot;&copy;&quot;, current year and store name",
+        "force_reload": true,
+        "id": "show_copyright_footer"
+      },
+      {
+        "type": "heading",
+        "content": "Payment icons"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment visa",
+        "force_reload": true,
+        "id": "show_accept_visa"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment mastercard",
+        "force_reload": true,
+        "id": "show_accept_mastercard"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment amex",
+        "force_reload": true,
+        "id": "show_accept_amex"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment discover",
+        "force_reload": true,
+        "id": "show_accept_discover"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment paypal",
+        "force_reload": true,
+        "id": "show_accept_paypal"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment sage",
+        "force_reload": true,
+        "id": "show_accept_sage"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show payment wallet",
+        "force_reload": true,
+        "id": "show_accept_wallet"
+      }
+    ]
+  },
+  {
+    "name": "Home Page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Carousel"
+      },
+      {
+        "type": "color",
+        "label": "Title color",
+        "id": "carousel-title-color"
+      },
+      {
+        "type": "color",
+        "label": "Description color",
+        "id": "carousel-description-color"
+      },
+      {
+        "type": "color",
+        "label": "button color",
+        "id": "carousel-button-color"
+      },
+      {
+        "type": "color",
+        "label": "Indicator color",
+        "id": "carousel-dot-color"
+      },
+      {
+        "type": "color",
+        "label": "Indicator active color",
+        "id": "carousel-dot-color-active"
+      },
+      {
+        "type": "color",
+        "label": "Arrow color",
+        "id": "carousel-arrow-color"
+      },
+      {
+        "type": "color",
+        "label": "Arrow border color",
+        "id": "carousel-arrow-borderColor"
+      },
+      {
+        "type": "heading",
+        "content": "Categories get ID (Special Offers)",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "carousel-category-id",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Maximum product show",
+        "id": "carousel-category-number",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Categories get ID (pre order)",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "carousel-category-id-3",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Filter Category"
+      },
+      {
+        "type": "color",
+        "label": "background color",
+        "id": "filter-background-Color"
+      },
+      {
+        "type": "color",
+        "label": "title color",
+        "id": "filter-title-Color"
+      },
+      {
+        "type": "color",
+        "label": "input background color",
+        "id": "filter-input-bgColor"
+      },
+      {
+        "type": "color",
+        "label": "input border color",
+        "id": "filter-input-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "button color",
+        "id": "filter-button-Color"
+      },
+      {
+        "type": "heading",
+        "content": "Featured Categories",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Featured Categories column",
+        "id": "themevale_featured-category-col",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Carousel Categories use ID",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "carousel-category-id",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "time countdown",
+        "force_reload": true,
+        "id": "carousel-category-id-countdown",
+        "reference": "themevale_homepage_1",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Maximum product show",
+        "id": "carousel-category-number",
+        "force_reload": true,
+        "reference": "themevale_homepage_1",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Categories width banner 1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "category-sorting-tabs-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 1",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-1-image-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 2",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-1-image-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 3",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-1-image-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner title",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-1-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category banner description",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-1-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product image",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-1",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product title",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-1-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product description",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-1-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product link",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-1-link",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product url",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-1-url",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Categories width banner 2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "category-sorting-tabs-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 1",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-2-image-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 2",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-2-image-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 3",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-2-image-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner title",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-2-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category banner description",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-2-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product image",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-2",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product title",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-2-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product description",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-2-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product link",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-2-link",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product url",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-2-url",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Categories width banner 3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "category-sorting-tabs-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 1",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-3-image-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 2",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-3-image-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 3",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-3-image-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner title",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-3-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category banner description",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-3-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product image",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-3",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product title",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-3-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product description",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-3-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product link",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-3-link",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product url",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-3-url",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Categories width banner 4",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "category-sorting-tabs-4",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 1",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-4-image-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 2",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-4-image-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 3",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-4-image-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner title",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-4-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category banner description",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-4-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product image",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-4",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product title",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-4-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product description",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-4-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product link",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-4-link",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product url",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-4-url",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Categories width banner 5",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "category-sorting-tabs-5",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 1",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-5-image-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 2",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-5-image-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 3",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-5-image-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner title",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-5-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category banner description",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-5-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product image",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-5",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product title",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-5-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product description",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-5-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product link",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-5-link",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product url",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-5-url",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Categories width banner 6",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "category-sorting-tabs-6",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 1",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-6-image-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 2",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-6-image-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 3",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-6-image-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner title",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-6-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category banner description",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-6-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product image",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-6",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product title",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-6-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product description",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-6-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product link",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-6-link",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product url",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-6-url",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Categories width banner 7",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "category-sorting-tabs-7",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 1",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-7-image-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 2",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-7-image-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 3",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-7-image-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner title",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-7-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category banner description",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-7-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product image",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-7",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product title",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-7-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product description",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-7-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product link",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-7-link",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product url",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-7-url",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Categories width banner 8",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "category-sorting-tabs-8",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 1",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-8-image-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 2",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-8-image-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner 3",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-8-image-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category banner title",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-8-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category banner description",
+        "force_reload": true,
+        "id": "themevale_category-id-width-banner-8-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product image",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-8",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product title",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-8-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product description",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-8-text",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product link",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-8-link",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category width special product url",
+        "force_reload": true,
+        "id": "themevale_category-special-banner-8-url",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Categories get ID (Recommendations for you)",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "carousel-category-id-2",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category title",
+        "force_reload": true,
+        "id": "carousel-category-id-2-title",
+        "reference": "themevale_homepage_2",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Maximum product show",
+        "id": "carousel-category-2-number",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Categories Featured",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category Featured ID 1",
+        "force_reload": true,
+        "id": "themevale_category-custom-1",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category Featured ID 2",
+        "force_reload": true,
+        "id": "themevale_category-custom-2",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category Featured ID 3",
+        "force_reload": true,
+        "id": "themevale_category-custom-3",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category Featured ID 4",
+        "force_reload": true,
+        "id": "themevale_category-custom-4",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category Featured ID 5",
+        "force_reload": true,
+        "id": "themevale_category-custom-5",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category Featured ID 6",
+        "force_reload": true,
+        "id": "themevale_category-custom-6",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "heading",
+        "content": "Categories get ID",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "text",
+        "label": "Category ID",
+        "force_reload": true,
+        "id": "carousel-category-id",
+        "reference": "themevale_homepage_3",
+        "reference_default": false
+      },
+      {
+        "type": "select",
+        "label": "Maximum product show",
+        "id": "carousel-category-number",
+        "force_reload": true,
+        "reference": "themevale_homepage_3",
+        "reference_default": false,
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Popup Video",
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "text",
+        "label": "Category Banner video url (youtube)",
+        "id": "themevale_category-banner-video-url",
+        "force_reload": true,
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      },
+      {
+        "type": "paragraph",
+        "content": "Ex: https://www.youtube.com/embed/ZeKC2myhQf8?autoplay=1&mute=1",
+        "reference": "themevale_homepage_2",
+        "reference_default": true
+      }
+    ]
+  },
+  {
+    "name": "Category Page",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Subcategories"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Subcategories",
+        "force_reload": true,
+        "id": "categorypage_subcategories"
+      },
+      {
+        "type": "checkbox",
+        "label": "Product Count",
+        "force_reload": true,
+        "id": "categorypage_subcategories-count"
+      },
+      {
+        "type": "checkbox",
+        "label": "Title",
+        "force_reload": true,
+        "id": "categorypage_subcategories-title"
+      },
+      {
+        "type": "checkbox",
+        "label": "Description",
+        "force_reload": true,
+        "id": "categorypage_subcategories-desc"
+      },
+      {
+        "type": "checkbox",
+        "label": "Image",
+        "force_reload": true,
+        "id": "categorypage_subcategories-img"
+      }
+    ]
+  },
+  {
+    "name": "Brands Page",
+    "settings": [
+      {
+        "type": "select",
+        "label": "Brands layout",
+        "id": "themevale_brandlayout",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "aztable",
+            "label": "A to Z layout"
+          },
+          {
+            "value": "Grid",
+            "label": "Grid layout"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number brands per page",
+        "id": "homepage_brands_count",
+        "force_reload": true,
+        "reference": "themevale_brandlayout",
+        "reference_default": "Grid",
+        "options": [
+          {
+            "value": 10,
+            "label": "10 brands"
+          },
+          {
+            "value": 20,
+            "label": "20 brands"
+          },
+          {
+            "value": 50,
+            "label": "50 brands"
+          },
+          {
+            "value": 100,
+            "label": "100 brands"
+          },
+          {
+            "value": 200,
+            "label": "200 brands"
+          },
+          {
+            "value": 500,
+            "label": "500 brands"
+          },
+          {
+            "value": 1000,
+            "label": "1000 brands"
+          },
+          {
+            "value": 5000,
+            "label": "5000 brands"
+          },
+          {
+            "value": 10000,
+            "label": "10000 brands"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Products",
+    "settings": [
+      {
+        "type": "imageDimension",
+        "label": "product images size",
+        "id": "productgallery_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "400x400",
+            "label": "Optimized for theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify dimensions"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Product title color",
+        "id": "card-title-color"
+      },
+      {
+        "type": "color",
+        "label": "Product title hover color",
+        "id": "card-title-color-hover"
+      },
+      {
+        "type": "color",
+        "label": "Button text color",
+        "id": "card-figcaption-button-color"
+      },
+      {
+        "type": "color",
+        "label": "Button background color",
+        "id": "card-figcaption-button-background"
+      },
+      {
+        "type": "color",
+        "label": "Text color Sale Badges",
+        "id": "color_text_product_sale_badges"
+      },
+      {
+        "type": "color",
+        "label": "Background color Sale Badges",
+        "id": "color_bg_product_sale_badges"
+      },
+      {
+        "type": "color",
+        "label": "Text color Custom Badges",
+        "id": "color_text_product_custom_badges"
+      },
+      {
+        "type": "color",
+        "label": "Background color Custom Badges",
+        "id": "color_bg_product_custom_badges"
+      },
+      {
+        "type": "color",
+        "label": "Text color SoldOut Badges",
+        "id": "color_text_product_soldOut_badges"
+      },
+      {
+        "type": "color",
+        "label": "Background color SoldOut Badges",
+        "id": "color_bg_product_soldOut_badges"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Quickview",
+        "force_reload": true,
+        "id": "show_product_quick_view"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Wish List",
+        "force_reload": true,
+        "id": "show_product_wishlist"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Compare",
+        "force_reload": true,
+        "id": "show_product_compare"
+      },
+      {
+        "type": "heading",
+        "content": "Product pages"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sticky Add To Cart",
+        "force_reload": true,
+        "id": "themevale_sticky-add-to-cart"
+      },
+      {
+        "type": "select",
+        "label": "Number of Related Products",
+        "id": "productpage_related_products_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number of Customers Also Viewed Products",
+        "id": "productpage_similar_by_views_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 0,
+            "label": "Disable"
+          },
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 11,
+            "label": "11"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Number of Product Reviews",
+        "id": "productpage_reviews_count",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 0,
+            "label": "Disable"
+          },
+          {
+            "value": 1,
+            "label": "1"
+          },
+          {
+            "value": 2,
+            "label": "2"
+          },
+          {
+            "value": 3,
+            "label": "3"
+          },
+          {
+            "value": 4,
+            "label": "4"
+          },
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 6,
+            "label": "6"
+          },
+          {
+            "value": 7,
+            "label": "7"
+          },
+          {
+            "value": 8,
+            "label": "8"
+          },
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 11,
+            "label": "11"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Number of products per page"
+      },
+      {
+        "type": "select",
+        "label": "Category pages",
+        "id": "categorypage_products_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Brand pages",
+        "id": "brandpage_products_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Search result pages",
+        "id": "searchpage_products_per_page",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 9,
+            "label": "9"
+          },
+          {
+            "value": 12,
+            "label": "12"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 20,
+            "label": "20"
+          },
+          {
+            "value": 24,
+            "label": "24"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Product Detail Image"
+      },
+      {
+        "type": "paragraph",
+        "content": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices."
+      },
+      {
+        "type": "imageDimension",
+        "label": "Main product images",
+        "id": "product_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "600x600",
+            "label": "Optimized for theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify dimensions"
+          }
+        ]
+      },
+      {
+        "type": "imageDimension",
+        "label": "Thumbnail image in product page",
+        "id": "productview_thumb_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "100x100",
+            "label": "Optimized for theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify dimensions"
+          }
+        ]
+      },
+      {
+        "type": "imageDimension",
+        "label": "Zoomed image",
+        "id": "zoom_size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "1280x1280",
+            "label": "Optimized for theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify dimensions"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Sold In Last function"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Sold In Last function",
+        "force_reload": true,
+        "id": "product_soldProduct"
+      },
+      {
+        "type": "color",
+        "label": "Change text color",
+        "id": "product_soldProduct_textColor"
+      },
+      {
+        "type": "text",
+        "label": "The number of Product",
+        "force_reload": true,
+        "id": "product_soldProduct_products"
+      },
+      {
+        "type": "text",
+        "label": "Text sold in",
+        "force_reload": true,
+        "id": "product_soldProduct_text"
+      },
+      {
+        "type": "text",
+        "label": "Hours",
+        "force_reload": true,
+        "id": "product_soldProduct_hours"
+      },
+      {
+        "type": "text",
+        "label": "Text Hours",
+        "force_reload": true,
+        "id": "product_soldProduct_hours_text"
+      }
+    ]
+  },
+  {
+    "name": "Sidebar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "label": "Show Sidebar on Category Page",
+        "force_reload": true,
+        "id": "categorypage_sidebar"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sidebar on Brand Page",
+        "force_reload": true,
+        "id": "brandpage_sidebar"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sidebar on Search Page",
+        "force_reload": true,
+        "id": "searchpage_sidebar"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Sidebar on Blog Page",
+        "force_reload": true,
+        "id": "blogpage_sidebar"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Side All Categories",
+        "force_reload": true,
+        "id": "sidebar_allcategories"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Side Shop By Price",
+        "force_reload": true,
+        "id": "shop_by_price_visibility"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Side Shop By Brand",
+        "force_reload": true,
+        "id": "sidebar_shop_by_brand"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Side Featured Products",
+        "force_reload": true,
+        "id": "sidebar_featured-products"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Side Advertisement Image",
+        "force_reload": true,
+        "id": "sidebar_advertisement-image"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Side Custom Block",
+        "force_reload": true,
+        "id": "sidebar_advertisement-cms"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Side Recent Posts",
+        "force_reload": true,
+        "id": "sidebar_advertisement-recent-post"
+      }
+    ]
+  },
+  {
+    "name": "Checkout Page",
+    "enable": "ucoEnabled",
+    "settings": [
+      {
+        "type": "heading",
+        "content": "Header"
+      },
+      {
+        "type": "checkbox",
+        "label": "Use background image",
+        "id": "optimizedCheckout-show-backgroundImage"
+      },
+      {
+        "type": "optimizedCheckout-image",
+        "label": "1000 x 400px recommended",
+        "reference": "optimizedCheckout-show-backgroundImage",
+        "reference_default": false,
+        "id": "optimizedCheckout-backgroundImage"
+      },
+      {
+        "type": "imageDimension",
+        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "label": "Header image size",
+        "reference": "optimizedCheckout-backgroundImage",
+        "reference_default": "",
+        "id": "optimizedCheckout-backgroundImage-size",
+        "options": [
+          {
+            "value": "1000x400",
+            "label": "Optimized for theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify dimensions"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Background color",
+        "id": "optimizedCheckout-header-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Header text color",
+        "id": "optimizedCheckout-header-textColor"
+      },
+      {
+        "type": "color",
+        "label": "Header border",
+        "id": "optimizedCheckout-header-borderColor"
+      },
+      {
+        "type": "heading",
+        "content": "Logo"
+      },
+      {
+        "type": "select",
+        "label": "Logo type",
+        "id": "optimizedCheckout-show-logo",
+        "options": [
+          {
+            "value": "none",
+            "label": "Text"
+          },
+          {
+            "value": "custom",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "type": "optimizedCheckout-image",
+        "label": "250 x 100px recommended",
+        "reference": "optimizedCheckout-show-logo",
+        "reference_default": "none",
+        "force_reload": true,
+        "id": "optimizedCheckout-logo"
+      },
+      {
+        "type": "imageDimension",
+        "description": "Please specify a maximum image size for desktop display. We'll automatically scale down the image for smaller devices.",
+        "label": "",
+        "reference": "optimizedCheckout-logo",
+        "reference_default": "",
+        "id": "optimizedCheckout-logo-size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "250x100",
+            "label": "Optimized for theme"
+          },
+          {
+            "value": "custom",
+            "label": "Specify dimensions"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Logo position",
+        "id": "optimizedCheckout-logo-position",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Discount banner"
+      },
+      {
+        "type": "color",
+        "label": "Banner background",
+        "id": "optimizedCheckout-discountBanner-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Banner text color",
+        "id": "optimizedCheckout-discountBanner-textColor"
+      },
+      {
+        "type": "color",
+        "label": "Banner icon",
+        "id": "optimizedCheckout-discountBanner-iconColor"
+      },
+      {
+        "type": "heading",
+        "content": "Order summary box"
+      },
+      {
+        "type": "color",
+        "label": "Box background",
+        "id": "optimizedCheckout-orderSummary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Box border",
+        "id": "optimizedCheckout-orderSummary-borderColor"
+      },
+      {
+        "type": "heading",
+        "content": "Checkout steps"
+      },
+      {
+        "type": "color",
+        "label": "Icon background",
+        "id": "optimizedCheckout-step-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Icon border",
+        "id": "optimizedCheckout-step-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Icon text color",
+        "id": "optimizedCheckout-step-textColor"
+      },
+      {
+        "type": "heading",
+        "content": "Headings"
+      },
+      {
+        "type": "font",
+        "label": "Heading 1 font family",
+        "id": "optimizedCheckout-headingPrimary-font",
+        "options": [
+          {
+            "group": "Open Sans",
+            "label": "Open Sans",
+            "value": "Google_Open+Sans_400"
+          },
+          {
+            "group": "Open Sans",
+            "label": "Open Sans Bold",
+            "value": "Google_Open+Sans_700"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat Light",
+            "value": "Google_Montserrat_400"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat Bold",
+            "value": "Google_Montserrat_700"
+          },
+          {
+            "group": "Karla",
+            "label": "Karla",
+            "value": "Google_Karla_400"
+          },
+          {
+            "group": "Roboto",
+            "label": "Roboto",
+            "value": "Google_Roboto_400"
+          },
+          {
+            "group": "Source Sans Pro",
+            "label": "Source Sans Pro",
+            "value": "Google_Source+Sans+Pro_400"
+          },
+          {
+            "group": "Volkhov",
+            "label": "Volkhov",
+            "value": "Google_Volkhov_400"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Heading 1 text color",
+        "id": "optimizedCheckout-headingPrimary-color"
+      },
+      {
+        "type": "font",
+        "label": "Heading 2 font family",
+        "id": "optimizedCheckout-headingSecondary-font",
+        "options": [
+          {
+            "group": "Open Sans",
+            "label": "Open Sans",
+            "value": "Google_Open+Sans_400"
+          },
+          {
+            "group": "Open Sans",
+            "label": "Open Sans Bold",
+            "value": "Google_Open+Sans_700"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat Light",
+            "value": "Google_Montserrat_400"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat Bold",
+            "value": "Google_Montserrat_700"
+          },
+          {
+            "group": "Karla",
+            "label": "Karla",
+            "value": "Google_Karla_400"
+          },
+          {
+            "group": "Roboto",
+            "label": "Roboto",
+            "value": "Google_Roboto_400"
+          },
+          {
+            "group": "Source Sans Pro",
+            "label": "Source Sans Pro",
+            "value": "Google_Source+Sans+Pro_400"
+          },
+          {
+            "group": "Volkhov",
+            "label": "Volkhov",
+            "value": "Google_Volkhov_400"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Heading 2 text color",
+        "id": "optimizedCheckout-headingSecondary-color"
+      },
+      {
+        "type": "heading",
+        "content": "Body"
+      },
+      {
+        "type": "color",
+        "label": "Page background",
+        "id": "optimizedCheckout-body-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Focus color",
+        "id": "optimizedCheckout-colorFocus"
+      },
+      {
+        "type": "heading",
+        "content": "Body text and links"
+      },
+      {
+        "type": "font",
+        "label": "Body text font family",
+        "id": "optimizedCheckout-contentPrimary-font",
+        "options": [
+          {
+            "group": "Open Sans",
+            "label": "Open Sans",
+            "value": "Google_Open+Sans_400"
+          },
+          {
+            "group": "Open Sans",
+            "label": "Open Sans Bold",
+            "value": "Google_Open+Sans_700"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat Light",
+            "value": "Google_Montserrat_400"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat",
+            "value": "Google_Montserrat_500"
+          },
+          {
+            "group": "Karla",
+            "label": "Karla",
+            "value": "Google_Karla_400"
+          },
+          {
+            "group": "Roboto",
+            "label": "Roboto",
+            "value": "Google_Roboto_400"
+          },
+          {
+            "group": "Source Sans Pro",
+            "label": "Source Sans Pro",
+            "value": "Google_Source+Sans+Pro_400"
+          },
+          {
+            "group": "Volkhov",
+            "label": "Volkhov",
+            "value": "Google_Volkhov_400"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Body text color",
+        "id": "optimizedCheckout-contentPrimary-color"
+      },
+      {
+        "type": "font",
+        "label": "Secondary text font family",
+        "id": "optimizedCheckout-contentSecondary-font",
+        "options": [
+          {
+            "group": "Open Sans",
+            "label": "Open Sans",
+            "value": "Google_Open+Sans_400"
+          },
+          {
+            "group": "Open Sans",
+            "label": "Open Sans Bold",
+            "value": "Google_Open+Sans_700"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat Light",
+            "value": "Google_Montserrat_400"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat",
+            "value": "Google_Montserrat_500"
+          },
+          {
+            "group": "Karla",
+            "label": "Karla",
+            "value": "Google_Karla_400"
+          },
+          {
+            "group": "Roboto",
+            "label": "Roboto",
+            "value": "Google_Roboto_400"
+          },
+          {
+            "group": "Source Sans Pro",
+            "label": "Source Sans Pro",
+            "value": "Google_Source+Sans+Pro_400"
+          },
+          {
+            "group": "Volkhov",
+            "label": "Volkhov",
+            "value": "Google_Volkhov_400"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Secondary text color",
+        "id": "optimizedCheckout-contentSecondary-color"
+      },
+      {
+        "type": "font",
+        "label": "Link font family",
+        "id": "optimizedCheckout-link-font",
+        "options": [
+          {
+            "group": "Open Sans",
+            "label": "Open Sans",
+            "value": "Google_Open+Sans_400"
+          },
+          {
+            "group": "Open Sans",
+            "label": "Open Sans Bold",
+            "value": "Google_Open+Sans_700"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat Light",
+            "value": "Google_Montserrat_400"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat",
+            "value": "Google_Montserrat_500"
+          },
+          {
+            "group": "Karla",
+            "label": "Karla",
+            "value": "Google_Karla_400"
+          },
+          {
+            "group": "Roboto",
+            "label": "Roboto",
+            "value": "Google_Roboto_400"
+          },
+          {
+            "group": "Source Sans Pro",
+            "label": "Source Sans Pro",
+            "value": "Google_Source+Sans+Pro_400"
+          },
+          {
+            "group": "Volkhov",
+            "label": "Volkhov",
+            "value": "Google_Volkhov_400"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Link color",
+        "id": "optimizedCheckout-link-color"
+      },
+      {
+        "type": "color",
+        "label": "Link hover color",
+        "id": "optimizedCheckout-link-hoverColor"
+      },
+      {
+        "type": "heading",
+        "content": "Primary action button"
+      },
+      {
+        "type": "font",
+        "label": "Button text font family",
+        "id": "optimizedCheckout-buttonPrimary-font",
+        "options": [
+          {
+            "group": "Open Sans",
+            "label": "Open Sans",
+            "value": "Google_Open+Sans_400"
+          },
+          {
+            "group": "Open Sans",
+            "label": "Open Sans Bold",
+            "value": "Google_Open+Sans_700"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat Light",
+            "value": "Google_Montserrat_400"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat",
+            "value": "Google_Montserrat_500"
+          },
+          {
+            "group": "Karla",
+            "label": "Karla",
+            "value": "Google_Karla_400"
+          },
+          {
+            "group": "Roboto",
+            "label": "Roboto",
+            "value": "Google_Roboto_400"
+          },
+          {
+            "group": "Source Sans Pro",
+            "label": "Source Sans Pro",
+            "value": "Google_Source+Sans+Pro_400"
+          },
+          {
+            "group": "Volkhov",
+            "label": "Volkhov",
+            "value": "Google_Volkhov_400"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Button text color",
+        "id": "optimizedCheckout-buttonPrimary-color"
+      },
+      {
+        "type": "color",
+        "label": "Button text hover color",
+        "id": "optimizedCheckout-buttonPrimary-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button text active color",
+        "id": "optimizedCheckout-buttonPrimary-colorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button text disabled color",
+        "id": "optimizedCheckout-buttonPrimary-colorDisabled"
+      },
+      {
+        "type": "color",
+        "label": "Button background",
+        "id": "optimizedCheckout-buttonPrimary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button background hover",
+        "id": "optimizedCheckout-buttonPrimary-backgroundColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button background active",
+        "id": "optimizedCheckout-buttonPrimary-backgroundColorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button background disabled",
+        "id": "optimizedCheckout-buttonPrimary-backgroundColorDisabled"
+      },
+      {
+        "type": "color",
+        "label": "Button border",
+        "id": "optimizedCheckout-buttonPrimary-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button border hover",
+        "id": "optimizedCheckout-buttonPrimary-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button border active",
+        "id": "optimizedCheckout-buttonPrimary-borderColorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button border disabled",
+        "id": "optimizedCheckout-buttonPrimary-borderColorDisabled"
+      },
+      {
+        "type": "heading",
+        "content": "Secondary action button"
+      },
+      {
+        "type": "font",
+        "label": "Button text font family",
+        "id": "optimizedCheckout-buttonSecondary-font",
+        "options": [
+          {
+            "group": "Open Sans",
+            "label": "Open Sans",
+            "value": "Google_Open+Sans_400"
+          },
+          {
+            "group": "Open Sans",
+            "label": "Open Sans Bold",
+            "value": "Google_Open+Sans_700"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat Light",
+            "value": "Google_Montserrat_400"
+          },
+          {
+            "group": "Montserrat",
+            "label": "Montserrat",
+            "value": "Google_Montserrat_500"
+          },
+          {
+            "group": "Karla",
+            "label": "Karla",
+            "value": "Google_Karla_400"
+          },
+          {
+            "group": "Roboto",
+            "label": "Roboto",
+            "value": "Google_Roboto_400"
+          },
+          {
+            "group": "Source Sans Pro",
+            "label": "Source Sans Pro",
+            "value": "Google_Source+Sans+Pro_400"
+          },
+          {
+            "group": "Volkhov",
+            "label": "Volkhov",
+            "value": "Google_Volkhov_400"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "label": "Button text color",
+        "id": "optimizedCheckout-buttonSecondary-color"
+      },
+      {
+        "type": "color",
+        "label": "Button text hover color",
+        "id": "optimizedCheckout-buttonSecondary-colorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button text active color",
+        "id": "optimizedCheckout-buttonSecondary-colorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button background",
+        "id": "optimizedCheckout-buttonSecondary-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Button background hover",
+        "id": "optimizedCheckout-buttonSecondary-backgroundColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button background active",
+        "id": "optimizedCheckout-buttonSecondary-backgroundColorActive"
+      },
+      {
+        "type": "color",
+        "label": "Button border",
+        "id": "optimizedCheckout-buttonSecondary-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Button border hover",
+        "id": "optimizedCheckout-buttonSecondary-borderColorHover"
+      },
+      {
+        "type": "color",
+        "label": "Button border active",
+        "id": "optimizedCheckout-buttonSecondary-borderColorActive"
+      },
+      {
+        "type": "heading",
+        "content": "Form input fields"
+      },
+      {
+        "type": "color",
+        "label": "Label text color",
+        "id": "optimizedCheckout-form-textColor"
+      },
+      {
+        "type": "color",
+        "label": "Field text color",
+        "id": "optimizedCheckout-formField-textColor"
+      },
+      {
+        "type": "color",
+        "label": "Field placeholder text color",
+        "id": "optimizedCheckout-formField-placeholderColor"
+      },
+      {
+        "type": "color",
+        "label": "Field error text color",
+        "id": "optimizedCheckout-formField-errorColor"
+      },
+      {
+        "type": "color",
+        "label": "Field background",
+        "id": "optimizedCheckout-formField-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Field inner shadow",
+        "id": "optimizedCheckout-formField-shadowColor"
+      },
+      {
+        "type": "color",
+        "label": "Field border",
+        "id": "optimizedCheckout-formField-borderColor"
+      },
+      {
+        "type": "color",
+        "label": "Checkbox checkbox background",
+        "id": "optimizedCheckout-formField-inputControlColor"
+      },
+      {
+        "type": "heading",
+        "content": "Form checklist"
+      },
+      {
+        "type": "color",
+        "label": "Background color",
+        "id": "optimizedCheckout-formChecklist-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Form background",
+        "id": "optimizedCheckout-formChecklist-backgroundColorSelected"
+      },
+      {
+        "type": "color",
+        "label": "Form header text color",
+        "id": "optimizedCheckout-formChecklist-color"
+      },
+      {
+        "type": "color",
+        "label": "Form border color",
+        "id": "optimizedCheckout-formChecklist-borderColor"
+      },
+      {
+        "type": "heading",
+        "content": "Loading toaster"
+      },
+      {
+        "type": "color",
+        "label": "Toaster background",
+        "id": "optimizedCheckout-loadingToaster-backgroundColor"
+      },
+      {
+        "type": "color",
+        "label": "Toaster text color",
+        "id": "optimizedCheckout-loadingToaster-textColor"
+      }
+    ]
+  },
+  {
+    "name": "Other Settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "label": "Enable Sticky Navigation",
+        "force_reload": true,
+        "id": "themevale_stickyHeader"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Mega Menu",
+        "force_reload": true,
+        "id": "themevale_megamenu"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Button Back To Top",
+        "force_reload": true,
+        "id": "themevale_BackTop"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Theme Add To Cart",
+        "description": "when you enable this setting and use google analytics, the data in the add to cart button will not be collected in google analytics.",
+        "force_reload": true,
+        "id": "themevale_addtocart"
+      },
+      {
+        "type": "heading",
+        "content": "Newsletter Popup"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Newsletter Popup",
+        "force_reload": true,
+        "id": "themevale_NewsletterPopup"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Social Media Links on Newsletter Popup",
+        "force_reload": true,
+        "id": "themevale_NewsletterPopup-sociallink"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Don't show again",
+        "force_reload": true,
+        "id": "themevale_NewsletterPopup-dontshowagain"
+      },
+      {
+        "type": "text",
+        "label": "Image",
+        "id": "themevale_NewsletterPopup-img"
+      },
+      {
+        "type": "text",
+        "label": "Heading",
+        "id": "themevale_NewsletterPopup-heading"
+      },
+      {
+        "type": "text",
+        "label": "Sub Heading",
+        "id": "themevale_NewsletterPopup-subheading"
+      },
+      {
+        "type": "text",
+        "label": "Placeholder",
+        "id": "themevale_NewsletterPopup-placeholder"
+      },
+      {
+        "type": "text",
+        "label": "Button",
+        "id": "themevale_NewsletterPopup-btn"
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "themevale_NewsletterPopup-text"
+      },
+      {
+        "type": "heading",
+        "content": "Ask An Expert"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Ask An Expert",
+        "force_reload": true,
+        "id": "themevale_ask_an_expert"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Phone Number",
+        "force_reload": true,
+        "id": "themevale_ask_an_expert-numberphone"
+      },
+      {
+        "type": "text",
+        "label": "Image",
+        "id": "themevale_ask_an_expert-img"
+      },
+      {
+        "type": "text",
+        "label": "Question",
+        "id": "themevale_ask_an_expert-question"
+      },
+      {
+        "type": "text",
+        "label": "Label",
+        "id": "themevale_ask_an_expert-label"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Service Block",
+        "force_reload": true,
+        "id": "themevale_ask_an_expert-service"
+      },
+      {
+        "type": "paragraph",
+        "content": "Item 1"
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "themevale_ask_an_expert-item1-title"
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "themevale_ask_an_expert-item1-text"
+      },
+      {
+        "type": "paragraph",
+        "content": "Item 2"
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "themevale_ask_an_expert-item2-title"
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "themevale_ask_an_expert-item2-text"
+      },
+      {
+        "type": "paragraph",
+        "content": "Item 4"
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "themevale_ask_an_expert-item3-title"
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "themevale_ask_an_expert-item3-text"
+      },
+      {
+        "type": "paragraph",
+        "content": "Item 4"
+      },
+      {
+        "type": "text",
+        "label": "Title",
+        "id": "themevale_ask_an_expert-item4-title"
+      },
+      {
+        "type": "text",
+        "label": "Text",
+        "id": "themevale_ask_an_expert-item4-text"
+      },
+      {
+        "type": "text",
+        "label": "Popup - Title",
+        "id": "themevale_ask_an_expert-popuptitle"
+      },
+      {
+        "type": "text",
+        "label": "Popup - Description 1",
+        "id": "themevale_ask_an_expert-popupdesc1"
+      },
+      {
+        "type": "text",
+        "label": "Popup - Description 2",
+        "id": "themevale_ask_an_expert-popupdesc2"
+      },
+      {
+        "type": "text",
+        "label": "Popup - Text",
+        "id": "themevale_ask_an_expert-popuptext"
+      },
+      {
+        "type": "text",
+        "label": "Popup - Button",
+        "id": "themevale_ask_an_expert-popupbtn"
+      },
+      {
+        "type": "text",
+        "label": "Mail to",
+        "id": "themevale_ask_an_expert-popupmail"
+      },
+      {
+        "type": "text",
+        "label": "Email Subject",
+        "id": "themevale_ask_an_expert-popupsubject"
+      },
+      {
+        "type": "text",
+        "label": "Email Name",
+        "id": "themevale_ask_an_expert-popuplabelname"
+      },
+      {
+        "type": "heading",
+        "content": "Someone just bought Popup"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Someone just bought Popup",
+        "force_reload": true,
+        "id": "themevale_RecentlyBought"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Someone just bought Popup (Mobile)",
+        "force_reload": true,
+        "id": "themevale_RecentlyBought_mobile"
+      },
+      {
+        "type": "text",
+        "label": "Choose Product ID",
+        "force_reload": true,
+        "id": "recently_bought_productID"
+      },
+      {
+        "type": "text",
+        "label": "Change Purchase time",
+        "force_reload": true,
+        "id": "recently_bought_hours"
+      },
+      {
+        "type": "text",
+        "label": "Text Name Someone Purchase",
+        "force_reload": true,
+        "id": "recently_bought_text_name"
+      },
+      {
+        "type": "text",
+        "label": "Change text minutes ago Someone Purchase",
+        "force_reload": true,
+        "id": "recently_bought_text_info"
+      },
+      {
+        "type": "text",
+        "label": "Location 1",
+        "force_reload": true,
+        "id": "recently_bought_customer_name1"
+      },
+      {
+        "type": "text",
+        "label": "Location 2",
+        "force_reload": true,
+        "id": "recently_bought_customer_name2"
+      },
+      {
+        "type": "text",
+        "label": "Location 3",
+        "force_reload": true,
+        "id": "recently_bought_customer_name3"
+      },
+      {
+        "type": "text",
+        "label": "Location 4",
+        "force_reload": true,
+        "id": "recently_bought_customer_name4"
+      },
+      {
+        "type": "text",
+        "label": "Location 5",
+        "force_reload": true,
+        "id": "recently_bought_customer_name5"
+      },
+      {
+        "type": "text",
+        "label": "Location 6",
+        "force_reload": true,
+        "id": "recently_bought_customer_name6"
+      },
+      {
+        "type": "text",
+        "label": "Location 7",
+        "force_reload": true,
+        "id": "recently_bought_customer_name7"
+      },
+      {
+        "type": "text",
+        "label": "Location 8",
+        "force_reload": true,
+        "id": "recently_bought_customer_name8"
+      },
+      {
+        "type": "text",
+        "label": "Location 9",
+        "force_reload": true,
+        "id": "recently_bought_customer_name9"
+      },
+      {
+        "type": "text",
+        "label": "Location 10",
+        "force_reload": true,
+        "id": "recently_bought_customer_name10"
+      },
+      {
+        "type": "select",
+        "label": "Someone just bought Popup Change slides (Second)",
+        "id": "recently_bought_changeSlides",
+        "force_reload": true,
+        "options": [
+          {
+            "value": 5,
+            "label": "5"
+          },
+          {
+            "value": 10,
+            "label": "10"
+          },
+          {
+            "value": 15,
+            "label": "15"
+          },
+          {
+            "value": 30,
+            "label": "30"
+          },
+          {
+            "value": 60,
+            "label": "60"
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "content": "Customers View In Last function"
+      },
+      {
+        "type": "checkbox",
+        "label": "Enable Customers View In",
+        "force_reload": true,
+        "id": "product_viewingProduct"
+      },
+      {
+        "type": "text",
+        "label": "The number of Customers View In",
+        "force_reload": true,
+        "id": "product_viewingProduct_viewer"
+      },
+      {
+        "type": "text",
+        "label": "Customers View In text",
+        "force_reload": true,
+        "id": "product_viewingProduct_text"
+      },
+      {
+        "type": "heading",
+        "content": "Paypal Buttons"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show Paypal tagline",
+        "force_reload": true,
+        "id": "paymentbuttons-paypal-tagline"
+      },
+      {
+        "type": "checkbox",
+        "label": "Show funding icons",
+        "force_reload": true,
+        "id": "paymentbuttons-paypal-fundingicons"
+      },
+      {
+        "type": "select",
+        "label": "Button color",
+        "id": "paymentbuttons-paypal-color",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "gold",
+            "label": "Gold"
+          },
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "silver",
+            "label": "Silver"
+          },
+          {
+            "value": "black",
+            "label": "Black"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Button shape",
+        "id": "paymentbuttons-paypal-shape",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "pill",
+            "label": "Pill"
+          },
+          {
+            "value": "rect",
+            "label": "Rectangle"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Button size",
+        "id": "paymentbuttons-paypal-size",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "medium",
+            "label": "Medium"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          },
+          {
+            "value": "responsive",
+            "label": "Responsive"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Button content",
+        "id": "paymentbuttons-paypal-label",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "checkout",
+            "label": "Paypal Checkout"
+          },
+          {
+            "value": "pay",
+            "label": "Pay with Paypal"
+          },
+          {
+            "value": "buynow",
+            "label": "Buy Now"
+          },
+          {
+            "value": "paypal",
+            "label": "Paypal"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "label": "Display style",
+        "id": "paymentbuttons-paypal-layout",
+        "force_reload": true,
+        "options": [
+          {
+            "value": "horizontal",
+            "label": "Show buttons horizontally"
+          },
+          {
+            "value": "vertical",
+            "label": "Show buttons vertically"
+          }
+        ]
+      }
+    ]
+  }
+]

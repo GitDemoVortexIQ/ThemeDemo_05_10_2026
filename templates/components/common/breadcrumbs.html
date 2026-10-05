@@ -1,0 +1,21 @@
+<ul class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+    {{#each breadcrumbs}}
+        <li class="breadcrumb {{#if @last}}is-active{{/if}}" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            {{#if url}}
+               {{#if name '===' 'Your Cart'}}
+                     <a href="{{url}}" class="breadcrumb-label" itemprop="item">Your Basket</a>
+               {{else}}
+                   {{#if name '===' 'Gift Certificates'}}
+                         <a href="{{url}}" class="breadcrumb-label" itemprop="item">e-Gift Cards</a>
+                   {{else}}
+                        <a href="{{url}}" class="breadcrumb-label sub-title" itemprop="item">{{name}}</a>
+                   {{/if}}
+               {{/if}}
+            {{else}} 
+              <span class="breadcrumb-label sub-title" itemprop="name">{{name}}</span>
+            {{/if}}
+            <meta itemprop="position" content="{{@index}}" />
+            <meta itemprop="name" content="{{name}}">
+        </li>
+    {{/each}}
+</ul>

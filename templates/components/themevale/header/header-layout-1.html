@@ -1,0 +1,126 @@
+<header class="header themevale_header-layout-1">
+    {{#if theme_settings.themevale_header-top}}
+        {{> components/common/navigation}}
+    {{/if}}
+
+    <div class="themevale_middleHeader">
+        <div class="middleHeader-container">
+            <div class="middleHeader-item text-left">
+                <div class="items item--hamburger">
+                    <a class="mobileMenu-toggle" href="#" data-mobile-menu-toggle="menu">
+                        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+                    </a>
+                </div>
+                <div class="items item--searchMobile">
+                    <a class="navUser-action" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
+                        <div class="navUser-icon">
+                            <svg class="icon"><use xlink:href="#icon-search"></use></svg>
+                        </div>
+                        <span class="navUser-text">{{lang 'common.search'}}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="middleHeader-item text-center">
+                <div class="items item--logo">
+                    {{#if page_type '===' 'default'}}
+                        <h1 class="header-logo">
+                            {{> components/common/store-logo}}
+                        </h1>
+                    {{else}}
+                        <div class="header-logo">
+                            {{> components/common/store-logo}}
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="middleHeader-item text-right">
+                <div class="items item--quicksearch">
+                    <div class="dropdown dropdown--quickSearch themevale_search" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+                        {{> components/common/quick-search}}
+                    </div>
+                </div>
+                <div class="items item--account">
+                    {{#if customer}}
+                        <p class="my-account">{{lang 'common.account'}}</p>
+                        <div class="my-account-link">
+                            <a class="navUser-action account-name" href="{{urls.account.index}}">{{customer.name}}</a>
+                            <a class="navUser-action" href="{{urls.auth.logout}}">
+                                {{lang 'common.logout'}}
+                                <i class="icon"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                            </a>
+                        </div>
+                    {{else}}
+                         <div class="navUser-icon desktop-user">
+                            <svg class="icon"><use xlink:href="#icon-user"/></svg>
+                        </div> 
+                        <!--<p class="my-account">{{lang 'common.account'}}</p>-->
+                        <div class="my-account-link">
+                            
+                            <!--{{#if page_type '!==' 'login'}}-->
+                               
+                            <!--{{else}}-->
+                            <!--    <span class="navUser-action account-name">{{lang 'common.account_default'}}.</span>-->
+                            <!--{{/if}}-->
+                            
+                            
+                            <a class="navUser-action" href="{{urls.auth.login}}" data-login-form>
+                                {{lang 'common.login'}}
+                                <!--<i class="icon"><svg><use xlink:href="#icon-chevron-down" /></svg></i>-->
+                            </a>
+                            {{#if page_type '!==' 'login'}}
+                                {{> components/common/login-form}}
+                            {{/if}}
+                             <!--<a class="navUser-action join" href="{{urls.auth.login}}" data-login-form>| JOIN</a>-->
+                                <a class="navUser-action join" href="/login.php?action=create_account"> JOIN</a>
+                        </div>
+                    {{/if}}
+                    <a class="navUser-action accountMobile" href="javascript:void(0)">
+                        <div class="navUser-icon">
+                            <svg class="icon"><use xlink:href="#icon-user"/></svg>
+                        </div>
+                        <span class="navUser-text">{{lang 'common.account'}}</span>
+                    </a>
+                </div>
+                <div class="items item--wishlist">
+                    <!--<a class="navUser-action" href="{{urls.account.wishlists.all}}">-->
+                    <!--    <div class="navUser-icon">-->
+                    <!--        <svg class="icon"><use xlink:href="#icon-heart"></use></svg>-->
+                    <!--    </div>-->
+                    <!--    <span class="navUser-text">{{lang 'common.wishlist'}}</span>-->
+                    <!--</a>-->
+                    
+                    <a class="navUser-action" href="#swym-wishlist" id="notepad-anchor-title">
+                        <div class="navUser-icon">
+                            <svg class="icon"><use xlink:href="#icon-heart"></use></svg>
+                        </div>
+                        <span class="navUser-text">{{lang 'common.wishlist'}}</span>
+                    </a>
+                </div>
+                <div class="items item--cart themevale_cart">
+                    <a class="navUser-action cartdesktop"
+                        data-cart-preview
+                        data-options="align:right"
+                        href="{{urls.cart}}">
+                        <div class="navUser-icon navUser-item-cartIcon">
+                            <svg class="icon"><use xlink:href="#icon-cart"></use></svg><span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                        </div>
+                        <span class="navUser-text navUser-item-cartLabel">{{lang 'common.cart'}}</span>
+                    </a>
+                    <div class="dropdown-cart baron" id="cart-preview-dropdown" aria-hidden="true"></div>
+                    <a class="navUser-action cartMobile" data-cart-preview="" href="/cart.php">
+                        <div class="navUser-icon navUser-item-cartIcon">
+                            <svg class="icon"><use xlink:href="#icon-cart"></use></svg>
+                            <span class="countPill cart-quantity">{{#if cart.items}}{{cart.quantity}}{{else}}0{{/if}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="themevale_bottomHeader">
+        <div class="navPages-container" id="menu" data-menu>
+            {{> components/common/navigation-menu}}
+        </div>
+    </div>
+</header>

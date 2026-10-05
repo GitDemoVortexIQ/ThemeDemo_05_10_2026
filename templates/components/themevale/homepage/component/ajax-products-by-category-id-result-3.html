@@ -1,0 +1,31 @@
+<div class="themevale_productsByCategory-products">
+    <div class="productCarousel productCarousel_custom"
+        data-slick='{
+            "arrows": true,
+            "dots": true,
+            "rows": 1,
+            "infinite": false,
+            "slidesToShow": 1,
+            "slidesToScroll": 1,
+            "adaptiveHeight": true,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1400,
+                    "settings": {
+                        "rows": 1,
+                        "arrows": true,
+                        "slidesToShow": 5,
+                        "slidesToScroll": 1
+                    }
+                }
+            ]
+        }'>
+        {{#each (limit category.products theme_settings.carousel-category-number)}}
+        <div class="productCarousel-slide">
+            {{> components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist}}
+        </div>
+        {{/each}}
+    </div>
+</div>

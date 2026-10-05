@@ -1,0 +1,12 @@
+<div class="themevale_section" id="themevale_blogs">
+    <div class="container">
+        <div class="themevale_page-heading-wrapper text-center">
+            <h2 class="page-heading">From Our Blog</h2>
+            <a href="/blog/" class="themevale_link">View More</a>
+        </div>
+        {{#if blog.recent_posts}}
+            {{> components/blog/recent_posts blog=blog.recent_posts columns=theme_settings.homepage_blog_posts_count}}
+        {{/if}}
+        {{{region name="below_recent_post_list"}}}
+    </div>
+</div>

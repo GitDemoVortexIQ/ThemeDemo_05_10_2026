@@ -1,0 +1,200 @@
+{{inject "jgiftcert" cart.gift_certificates}}
+<div class="cart-totals">
+    <div class="column column-1">
+        {{#each cart.taxes}}
+            <div class="cart-total">
+                <div class="cart-total-label">
+                    <strong>{{name}}:</strong>
+                </div>
+                <div class="cart-total-value">
+                    <span>{{cost.formatted}}</span>
+                </div>
+            </div>
+        {{/each}}
+        {{#if cart.discount }}
+            <div class="cart-total">
+                <div class="cart-total-label">
+                    <strong>{{lang 'cart.discount'}}:</strong>
+                </div>
+                <div class="cart-total-value">
+                    {{cart.discount.formatted}}
+                </div>
+            </div>
+        {{/if}}
+        {{#if cart.coupons}}
+            {{#each cart.coupons}}
+                <div class="cart-total">
+                    <div class="cart-total-label">
+                        <strong>{{lang 'cart.coupons.code_label' code=code}}</strong>
+                        <div>
+                            <a href="{{remove_url}}">{{lang 'cart.coupons.remove'}}</a>
+                        </div>
+                    </div>
+                    <div class="cart-total-value">
+                        <span>{{discount.formatted}}</span>
+                    </div>
+                </div>
+            {{/each}}
+        {{else}}
+            <div class="cart-total">
+                <div class="cart-total-label">
+                    <strong>{{lang 'cart.coupon_code'}}:</strong>
+                </div>
+                {{> components/cart/coupon-input}}
+            </div>
+        {{/if}}
+        {{#if settings.gift_certificates_enabled}}
+            {{#each cart.gift_certificates}}
+                <div class="cart-total">
+                    <div class="cart-total-label">
+                        <strong>{{lang 'cart.gift_certificates.code_label' code=code}}</strong>
+                        <span>
+                            {{remaining.formatted}} | <a href="{{remove_url}}">{{lang 'cart.gift_certificates.remove'}}</a>
+                        </span>
+                    </div>
+                    <div class="cart-total-value">
+                        {{used.formatted}}
+                    </div>
+                </div>
+            {{/each}}
+            <div class="cart-total">
+                <div class="cart-total-label">
+                    <strong>{{lang 'cart.gift_certificates.gift_certificate'}}:</strong>
+                </div>
+                {{> components/cart/gift-certificate-input}}
+            </div>
+        {{/if}}
+    </div>
+    <div class="column column-2">
+        {{#if cart.shipping_handling.show_estimator}}
+            <div class="cart-total">
+                <div class="cart-total-label">
+                    <strong>{{lang 'cart.checkout.shipping'}}:</strong>
+                </div>
+                {{> components/cart/shipping-estimator cart.shipping_handling}}
+            </div>
+        {{/if}}
+    </div>
+    <div class="column column-3">
+        <div class="cart-total">
+            <div class="cart-total-label">
+                <strong>{{lang 'cart.checkout.order_title'}}:</strong>
+            </div>
+        </div>
+        <div class="cart-total cart-total-custom">
+            <div class="cart-total-label">
+                <strong>{{lang 'cart.checkout.subtotal'}}:</strong>
+            </div>
+            <div class="cart-total-value">
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    <span>{{cart.sub_total.formatted}}</span>
+                {{else}}
+                    {{> components/common/login-for-pricing}}
+                {{/or}}
+            </div>
+        </div>
+        
+        <div class="cart-total cart-total-custom" id="egiftcardshow">
+            <div class="cart-total-label">
+                <strong>e-Gift Card:</strong>
+            </div>
+            <div class="cart-total-value">
+               <span id="hgiftcode"></span>
+            </div>
+        </div>
+        
+        
+         <div class="cart-total cart-total-custom">
+            <div class="cart-total-label">
+                <strong>Shipping:</strong>
+            </div>
+            <div class="cart-total-value">
+                  <span id="shpprice"></span>
+            </div>
+        </div>
+        
+        {{#if cart.gift_wrapping_cost.amount}}
+            <div class="cart-total cart-total-custom">
+                <div class="cart-total-label">
+                    <strong>{{lang 'cart.checkout.gift_wrapping'}}:</strong>
+                </div>
+                <div class="cart-total-value">
+                    <span>{{cart.gift_wrapping_cost.formatted}}</span>
+                </div>
+            </div>
+        {{/if}}
+        <div class="cart-total cart-total-custom cart-total-grandTotal">
+            <div class="cart-total-label">
+                <strong>{{lang 'cart.checkout.grand_total'}}:</strong>
+            </div>
+            <div class="cart-total-value">
+                {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                    <span>{{cart.grand_total.formatted}}</span>
+                {{else}}
+                    {{> components/common/login-for-pricing}}
+                {{/or}}
+            </div>
+        </div>
+        {{#if cart.show_primary_checkout_button}}
+            <div class="cart-actions">
+                <a class="button button--primary" href="{{urls.checkout.single_address}}" title="{{lang 'cart.checkout.title'}}">{{lang 'cart.checkout.button'}}</a>
+                {{#if cart.show_multiple_address_shipping}}
+                    <a class="checkoutMultiple" href="{{urls.checkout.multiple_address}}">
+                        {{lang 'cart.preview.checkout_multiple'}}
+                    </a>
+                {{/if}}
+            </div>
+        {{else}}
+            <div class="cart-actions">
+                <a class="button" href="{{urls.home}}" title="{{lang 'cart.continue_shopping'}}">{{lang 'cart.continue_shopping'}}</a>
+            </div>
+        {{/if}}
+        {{#if cart.additional_checkout_buttons}}
+            <div class="cart-additionalCheckoutButtons">
+                {{#each cart.additional_checkout_buttons}}
+                    {{{this}}}
+                {{/each}}
+            </div>
+        {{/if}}
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+     var res = $('#shippingestvalue').text();
+     if(res!=''){
+          $('#shpprice').text(res);
+     }else{
+         $('#shpprice').text('---');
+     }
+     console.log(res,'res');
+     //$('#shpprice').text(res);
+});
+</script>
+
+<script>
+var jsContext = JSON.parse({{jsContext}});
+var giftvalue=jsContext.jgiftcert;
+var gtotal=0;
+var currencysym="";
+
+if(typeof giftvalue !=undefined && giftvalue !=null && giftvalue !=="" && giftvalue.length>0){
+    $.each(giftvalue, function( Gkey, Gvalue ) {
+        if(Gkey == 0){
+           currencysym= Gvalue.used.formatted;
+           currencysym= currencysym.toString().substr(1,1);
+        }
+        gtotal=gtotal+Gvalue.used.value;
+    });
+    gtotal= addStr(gtotal.toFixed(2).toString(),1,currencysym);
+    $("#egiftcardshow").attr("style","display:flex;");
+    $("#hgiftcode").html(gtotal);
+}else{
+    $("#egiftcardshow").attr("style","display:none;");
+    $("#hgiftcode").html("");
+}
+
+function addStr(str, index, stringToAdd){
+  return str.substring(0, index) + stringToAdd + str.substring(index, str.length);
+}
+</script>

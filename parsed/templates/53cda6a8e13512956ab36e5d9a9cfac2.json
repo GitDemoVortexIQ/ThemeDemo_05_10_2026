@@ -1,0 +1,3 @@
+{
+  "components/themevale/product/securityImage": "<div class=\"themevale_securityImage\">\r\n    <ul>\r\n        <li>\r\n            <img src=\"/product_images/uploaded_images/security-1.png\" alt=\"\">\r\n        </li>\r\n        <li>\r\n            <img src=\"/product_images/uploaded_images/security-2.png\" alt=\"\">\r\n        </li>\r\n        <li>\r\n            <img src=\"/product_images/uploaded_images/security-3.png\" alt=\"\">\r\n        </li>\r\n        <li>\r\n            <img src=\"/product_images/uploaded_images/security-4.png\" alt=\"\">\r\n        </li>\r\n    </ul>\r\n</div>\n"
+}

@@ -1,0 +1,42 @@
+<div class="themevale_searchMobile"></div>
+
+{{{region name="header_top_promotion--global"}}}
+
+<!--{{#if theme_settings.themevale_top-promotion}}-->
+<!--    <div id="themevale_top-promotion">-->
+<!--        <div class="container">-->
+<!--            <div class="banner-promotion">-->
+                <!--<a class="link-url" href="{{theme_settings.themevale_top-promotion-href}}" target="_blank" rel="noopener">-->
+<!--                    {{#if theme_settings.themevale_top-promotion-image}}-->
+<!--                        <img class="image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.themevale_top-promotion-image}}" alt="{{theme_settings.themevale_top-promotion-image}}" title="{{theme_settings.themevale_top-promotion-image}}">-->
+<!--                    {{/if}}-->
+                    <!--<span class="text">{{theme_settings.themevale_top-promotion-text}}</span>-->
+<!--                    <span class="text"><ul><li><a href="#">Click here for latest COVID-19 Update</a></li> <li>|</li> <li><img src="../product_images/uploaded_images/icon-travel.jpg" alt="">Free UK Delivery over &pound;40 <span>We are shipping to the EU</span></li></ul></span>-->
+<!--                    {{#if theme_settings.themevale_top-promotion-link}}-->
+<!--                        <span class="link">{{theme_settings.themevale_top-promotion-link}}</span>-->
+<!--                    {{/if}}-->
+                <!--</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <a href="javascript:void(0)" class="close-banner-promotion">-->
+<!--            <svg><use xlink:href="#icon-close"></use></svg>-->
+<!--        </a>-->
+<!--    </div>-->
+<!--{{/if}}-->
+{{#if theme_settings.themevale_header_layout_1}}
+    {{> components/themevale/header/header-layout-1}}
+{{/if}}
+{{#if theme_settings.themevale_header_layout_2}}
+    {{> components/themevale/header/header-layout-2}}
+{{/if}}
+{{#if theme_settings.themevale_header_layout_3}}
+    {{> components/themevale/header/header-layout-3}}
+{{/if}}
+
+{{#if banners.top}}
+    <div class="banners" data-banner-location="top">
+        <div class="banner">
+            {{{limit banners.top 1}}}
+        </div>
+    </div>
+{{/if}}

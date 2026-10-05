@@ -1,0 +1,28 @@
+<div class="navPage-subMenu navPage-subMenu-horizontal" id="navPages2-{{id}}" aria-hidden="true" tabindex="-1">
+    <ul class="navPage-subMenu-list">
+        <li class="navPage-subMenu-item-child">
+            <p class="navPage-subMenu-action navPages-action navPage-subMenu-title">
+                <span class="navPages-action-moreIcon" aria-hidden="true">
+                    <svg class="icon"><use xlink:href="#icon-chevron-down" /></svg>
+                    <span>back</span>
+                </span>
+                <a class="text" href="{{url}}">{{name}}</a>
+            </p>
+        </li>
+        {{#each children}}
+            <li class="navPage-subMenu-item-child">
+                {{#if children}}
+                    <p class="navPage-subMenu-action navPages-action navPages-action-depth-max has-subMenu">
+                        <a class="text" href="{{url}}">{{name}}</a>
+                        <span class="navPages-action-moreIcon" aria-hidden="true">
+                            <svg class="icon"><use xlink:href="#icon-chevron-down" /></svg>
+                        </span>
+                    </p>
+                    {{> components/common/navigation-dropdownMobile}}
+                {{else}}
+                    <a class="navPage-subMenu-action navPages-action navPages-action-end" href="{{url}}"><span class="text">{{name}}</span></a>
+                {{/if}}
+            </li>
+        {{/each}}
+    </ul>
+</div>

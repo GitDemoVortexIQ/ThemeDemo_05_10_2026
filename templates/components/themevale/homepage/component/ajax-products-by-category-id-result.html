@@ -1,0 +1,63 @@
+{{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 3'}}
+<div class="themevale_productsByCategory-products">
+    <div class="productCarousel"
+        data-slick='{
+            "arrows": true,
+            "dots": true,
+            "infinite": false,
+            "slidesToShow": 5,
+            "slidesToScroll": 5,
+            "adaptiveHeight": true,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-prev&apos;></use></svg>"
+        }'>
+        {{#each (limit category.products theme_settings.carousel-category-number)}}
+        <div class="productCarousel-slide">
+            {{> components/products/card-sale-2 theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+{{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 2'}}
+<div class="themevale_productsByCategory-products">
+    <div class="productCarousel"
+        data-slick='{
+            "arrows": true,
+            "dots": false,
+            "infinite": false,
+            "slidesToShow": 6,
+            "slidesToScroll": 6,
+            "adaptiveHeight": true,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-prev&apos;></use></svg>"
+        }'>
+        {{#each (limit category.products theme_settings.carousel-category-2-number)}}
+        <div class="productCarousel-slide">
+            {{> components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}
+{{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 1'}}
+<div class="themevale_productsByCategory-products">
+    <div class="productCarousel"
+        data-slick='{
+            "arrows": true,
+            "dots": false,
+            "infinite": false,
+            "slidesToShow": 5,
+            "slidesToScroll": 5,
+            "adaptiveHeight": true,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-prev&apos;></use></svg>"
+        }'>
+        {{#each (limit category.products theme_settings.carousel-category-number)}}
+        <div class="productCarousel-slide">
+            {{> components/products/card-sale theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist}}
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{/if}}

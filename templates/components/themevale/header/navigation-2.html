@@ -1,0 +1,42 @@
+<nav class="navUser">
+    <div class="container">
+        <div class="navUser-items text-left">
+            <div class="navUser-item navUser-item--phone">
+                <svg class="icon big"><use xlink:href="#icon-telephone"></use></svg>
+                <a class="navUser-action store-phone" href="tel:{{theme_settings.themevale_topbar-numberphone}}">Toll-free +{{theme_settings.themevale_topbar-numberphone}}</a>
+            </div>
+            <div class="navUser-item navUser-item--mail">
+                <svg class="icon big"><use xlink:href="#icon-envelope-3"></use></svg>
+                <a class="navUser-action" href="mailto:{{theme_settings.themevale_topbar-email}}">{{theme_settings.themevale_topbar-email}}</a>
+            </div>
+        </div>
+        <div class="navUser-items text-center">
+            <p class="own-text">{{theme_settings.themevale_topbar-owntext}}</p>
+        </div>
+        <div class="navUser-items text-right">
+            <!-- <div class="navUser-item">
+                <a class="navUser-action" href="/help/">help</a>
+            </div> -->
+            <div class="navUser-item">
+                <a class="navUser-action" href="/faq/">FAQs</a>
+            </div>
+            <div class="navUser-item">
+                <a class="navUser-action" href="{{#if customer}}{{urls.account.orders.all}}{{else}}{{urls.auth.login}}{{/if}}">My Orders</a>
+            </div>
+            <div class="navUser-item">
+                <a class="navUser-action" href="/about-us/">about us</a>
+            </div>
+            <div class="navUser-item">
+                <a class="navUser-action" href="/blog/">blog</a>
+            </div>
+            {{#if settings.gift_certificates_enabled}}
+                <div class="navUser-item">
+                    <a class="navUser-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+                </div>
+            {{/if}}
+            <div class="navUser-item">
+                {{> components/common/currency-selector}}
+            </div>
+        </div>
+    </div>
+</nav>

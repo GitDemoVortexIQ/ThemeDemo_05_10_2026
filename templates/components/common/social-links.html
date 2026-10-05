@@ -1,0 +1,80 @@
+{{#if social_media}}
+    <ul class="socialLinks socialLinks--alt">
+     
+        {{#each social_media}}
+            <li class="socialLinks-item">
+            {{#if display_name '===' 'facebook'}}
+                <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                     <img src="/product_images/uploaded_images/fb.png" alt=""/ width="11">
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'twitter'}}
+                 <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                     <svg><use xlink:href="#icon-twitter" /></svg>
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'linkedin'}}
+               <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <svg><use xlink:href="#icon-linkedin" /></svg>
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'google'}}
+               <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <svg><use xlink:href="#icon-google" /></svg>
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'google_plusone'}}
+                 <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <svg><use xlink:href="#icon-google-plus" /></svg>
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'pinterest'}}
+                 <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <svg><use xlink:href="#icon-pinterest" /></svg>
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'email'}}
+                 <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <svg><use xlink:href="#icon-envelope" /></svg>
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'print'}}
+                 <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <svg><use xlink:href="#icon-print" /></svg>
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'facebook_like'}}
+                 <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <svg><use xlink:href="#icon-facebook_like" /></svg>
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'instagram'}}
+                 <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <img src="/product_images/uploaded_images/instagram.png" alt=""/>
+                </a>
+            {{/if}}
+            
+            {{#if display_name '===' 'youtube'}}
+                 <a class="icon icon--{{display_name}}" href="{{url}}" target="_blank" rel="noopener">
+                    <svg><use xlink:href="#icon-youtube" /></svg>
+                </a>
+            {{/if}}
+            
+           </li>
+        {{/each}}
+        <li class="socialLinks-item">
+            <a class="icon" href="mailto:sales@woodworkersworkshop.co.uk" rel="noopener">
+                <svg><use xlink:href="#icon-envelope"/></svg>
+            </a>
+        </li>
+    </ul>
+{{/if}}

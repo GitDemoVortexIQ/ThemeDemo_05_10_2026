@@ -1,0 +1,182 @@
+{{!-- There are 2 code paths for generating the PDP pricing HTML determined by the following #and condition. 
+If a 'price_range' exists then we generate all HTML in price-range.html, otherwise it is defined here. Both code
+paths generate the same HTML structure with some differences in whether that element is displayed by default (css styling).
+
+If you are making a change here or in price-range.html, you probably want to make that change in both files. --}}
+
+{{#and price.price_range (if theme_settings.price_ranges '==' true)}}
+    {{> components/products/price-range price=price schema_org=schema_org}}
+{{else}}
+ <div id="caldefaultprice" style="display:none">{{price.non_sale_price_with_tax.value}}</div>
+ <div id="calsaleprice" style="display:none">{{price.sale_price_with_tax.value}}</div>
+ <div id="calcurrency" style="display:none">{{price.sale_price_without_tax.formatted}}</div>
+ 
+    {{#if price.with_tax}}
+    
+        <!--<div class="price-section price-section--withTax rrp-price--withTax" {{#unless price.rrp_with_tax}} style="display: none;"{{/unless}}>-->
+        <!--   {{theme_settings.pdp-retail-price-label}}-->
+        <!--    <span data-product-rrp-with-tax class="price price--rrp">-->
+        <!--        {{price.rrp_with_tax.formatted}}-->
+        <!--    </span>-->
+        <!--</div>-->
+        
+       
+        <div class="price-wrap2">
+                <div class="price-section price-section--withTax non-sale-price--withTax {{#unless price.non_sale_price_without_tax}}price-none{{/unless}}" >
+                <span id="247commercenonsale"  data-product-non-sale-price-with-tax class="price price--non-sale">
+                    {{price.non_sale_price_with_tax.formatted}}
+                </span>
+            </div>
+            <div class="price-section price-section--withTax" {{#if schema_org}}itemprop="offers" itemscope itemtype="http://schema.org/Offer"{{/if}} style="margin-bottom:8px;">
+                <span data-product-price-with-tax id="247commercesale" class="price price--withTax">{{price.with_tax.formatted}} </span>
+                {{#if schema_org}}
+                    <meta itemprop="availability" content="{{product.availability}}">
+                    <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/{{product.condition}}Condition">
+                    <!--<div itemprop="priceSpecification" itemscope itemtype="http://schema.org/PriceSpecification">-->
+                    <!--    <meta itemprop="price" content="{{price.with_tax.value}}">-->
+                    <!--    <meta itemprop="valueAddedTaxIncluded" content="true">-->
+                    <!--</div>-->
+                {{/if}}
+                {{#if price.without_tax}}
+                    <abbr title="{{lang 'products.including_tax'}}">{{lang 'products.price_with_tax' tax_label=price.tax_label}}</abbr>
+                {{/if}}
+                
+            </div>
+        </div>
+    {{/if}}
+    {{#if price.without_tax}}
+        <div class="price-section price-section--withoutTax rrp-price--withoutTax{{#if price.with_tax}} price-section--minor{{/if}}" {{#unless price.rrp_without_tax}}style="display: none;"{{/unless}}>
+            <!--{{theme_settings.pdp-retail-price-label}}-->
+            <span data-product-rrp-price-without-tax class="price price--rrp"> 
+                {{price.rrp_without_tax.formatted}}
+            </span>
+        </div>
+        <div class="price-section price-section--withoutTax non-sale-price--withoutTax{{#if price.with_tax}} price-section--minor{{/if}} {{#unless price.non_sale_price_without_tax}}price-none{{/unless}}">
+            <span data-product-non-sale-price-without-tax class="price price--non-sale">
+                {{price.non_sale_price_without_tax.formatted}}
+            </span>
+        </div>
+        <div class="price-section price-section--withoutTax" {{#if schema_org}}itemprop="offers" itemscope itemtype="http://schema.org/Offer"{{/if}}>
+            <span data-product-price-without-tax class="price price--withoutTax{{#if price.with_tax}} price-section--minor{{/if}}">{{price.without_tax.formatted}}</span>
+            {{#if schema_org}}
+                <meta itemprop="availability" itemtype="http://schema.org/ItemAvailability"
+                    content="http://schema.org/{{#if product.pre_order}}PreOrder{{else if product.out_of_stock}}OutOfStock{{else if product.can_purchase '===' false}}OutOfStock{{else}}InStock{{/if}}">
+                <meta itemprop="itemCondition" itemtype="http://schema.org/OfferItemCondition" content="http://schema.org/{{product.condition}}Condition">
+                <!--<div itemprop="priceSpecification" itemscope itemtype="http://schema.org/PriceSpecification">-->
+                <!--    <meta itemprop="price" content="{{price.without_tax.value}}">-->
+                <!--    <meta itemprop="valueAddedTaxIncluded" content="false">-->
+                <!--</div>-->
+            {{/if}}
+            {{#if price.with_tax}}
+                <abbr title="{{lang 'products.excluding_tax'}}">{{lang 'products.price_without_tax' tax_label=price.tax_label}}</abbr>
+            {{/if}}
+             <!--TTT{{currency_selector.active_currency_code}}YYYZZ-->
+            
+        </div>
+    {{/if}}
+    
+     {{#if page_type '===' 'product'}}
+         <div class="price-section price-section--saving price" style="display: none;" id="salepriceshow">
+                <span class="price">{{lang 'products.you_save_opening_text'}}</span>
+                <span data-product-price-saved class="price price--saving" id="salepricedisplay"></span>
+         </div>
+         {{else}}
+		 {{#if price.sale_price_with_tax.value}}
+			<div class="price-section price-section--saving price">
+						<span class="price price--non-sale" style="padding-right: 7px;color: #999999 !important">
+							{{price.non_sale_price_with_tax.formatted}}
+						</span>
+					<span class="price">{{lang 'products.you_save_opening_text'}}</span>
+					<span class="price price--saving">{{settings.money.currency_token}}{{toFixed (subtract price.non_sale_price_with_tax.value price.sale_price_with_tax.value) 2}}</span>
+			 </div>
+		{{/if}}
+    {{/if}}
+    
+    <!--{{#if page_type '===' 'product'}}-->
+    <!--     <div class="price-section price-section--saving price" {{#unless price.saved}}style="display: none;"{{/unless}}>-->
+    <!--            <span class="price">{{lang 'products.you_save_opening_text'}}</span>-->
+    <!--            <span data-product-price-saved class="price price--saving">-->
+    <!--                {{price.saved.formatted}}-->
+    <!--            </span>-->
+    <!--            <span class="price">{{lang 'products.you_save_closing_bracket'}}</span>-->
+    <!--     </div>-->
+    <!--{{/if}}-->
+{{/and}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var smProduct = {};
+    smProduct.retailPrice = "%%GLOBAL_RetailPrice%%".replace('<strike>','').replace('</strike>','').slice(1);
+    smProduct.regularPrice = "%%GLOBAL_ProductPrice%%".slice(1);
+    
+    console.log(smProduct.retailPrice,"smProduct.retailPrice",smProduct.regularPrice,"smProduct.regularPrice");
+    
+    $(document).ready(function() {
+        var percentSaved = Math.round((1 - parseFloat(smProduct.regularPrice/smProduct.retailPrice)) * 100);
+        console.log(percentSaved,"percentSaved 000");
+        if(percentSaved > 0) {
+            console.log(percentSaved,"percentSaved 1111");
+        }
+        
+        
+       var res1 = $('#caldefaultprice').text();
+       var res2 = $('#calsaleprice').text();
+       var res4 = $('#calcurrency').text();
+       var res3=0.00;
+       if(typeof res2 !=undefined && res2 !="" && res2 !=null){
+           if(typeof res1 !=undefined && res1 !="" && res1 !=null ){
+              res1=parseFloat(res1);
+              res2=parseFloat(res2);
+              
+            //  console.log(res1,"res1",res2,"res2");
+              if(res2<=res1){
+                 res3=  parseFloat(res1) - parseFloat(res2);
+                 res3 = res4.substring(0, 1) + res3.toFixed(2);
+              }
+           }
+       }
+       
+       if(res3 !=0.00){
+           console.log(res3,"res3 0000");
+           $('#salepricedisplay').html('');
+           $('#salepricedisplay').append(res3);
+           $("#salepriceshow").attr("style","display:block;");
+           
+          // $('#salepricedisplaycat').html('');
+           $('#salepricedisplaycat').append(res3);
+           $("#salepriceshowcat").attr("style","display:block;");
+       }else{
+           console.log(res3,"res3 1111");
+           $('#salepricedisplay').html('');
+           $("#salepriceshow").attr("style","display:none;");
+           
+           $('#salepricedisplaycat').html('');
+           $("#salepriceshowcat").attr("style","display:none;");
+       }
+       
+      
+       
+       setTimeout(function(){ 
+          // var currency = %%GLOBAL_AllPricesAreInCurrency%%;
+          // console.log("Currency ",currency);
+          
+            var cname= document.getElementById('ge_countryName');
+           // console.log(cname,"cname");
+          
+            let att = document.getElementById('247commercesale');
+
+            let arr = Array();
+        
+            for (let i = 0; i < att.attributes.length; i++) {
+               // arr.push(att.attributes[i].nodeValue);
+               // console.log(att.attributes[i].nodeValue,"Value",att.attributes[i].nodeName,"Name");
+             }
+            // console.log( $('#gle_selectedCurrency').val(),"Value Code");
+         
+        }, 2000);
+    });
+    
+   
+</script>
+
+

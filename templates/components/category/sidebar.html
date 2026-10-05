@@ -1,0 +1,26 @@
+<nav>
+    
+     {{> components/themevale/sidebar/side-all-categories}}
+   
+    <div style=" margin-top:30px;"></div>
+    {{> components/faceted-search/index category}}
+    
+     {{#if products.featured}}
+        {{> components/themevale/sidebar/featured-products products=products.featured}}
+     {{/if}}
+
+    {{> components/themevale/sidebar/advertisement-image-1}}
+
+    {{> components/themevale/sidebar/advertisement-image-2}}
+    
+    <!--{{> components/themevale/sidebar/advertisement-content}}-->
+    
+    <!--div class="sidebarBlock" id="advertisement-content">
+	    <h5 class="sidebarBlock-heading"><span>Great Shipping Rates</span></h5>
+	    <div class="sidebarBlock-content">
+	        <p>FREE UK delivery on all orders over £40 within the UK Mainland, Northern Ireland, Highlands & Scottish Offshore Islands. Only £4.50 on orders under £40. </p>
+	        <p>We ship worldwide to over 200 countries. Pay a guaranteed price at checkout including duty and tax, with no hidden costs.</p>
+	    </div>
+	</div-->
+    
+</nav>

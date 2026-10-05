@@ -1,0 +1,49 @@
+<div class="heroCarousel heroCarousel-special"
+    data-slick='{
+        "fade": true,
+        "dots": true,
+        "arrows": false,
+        "autoplay": true,
+        "slidesToShow": 1,
+        "slidesToScroll": 1,
+        "mobileFirst": true,
+        "pauseOnHover": false,
+        "autoplaySpeed": {{carousel.swap_frequency}},
+        "lazyLoad": "anticipated",
+        "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-next&apos;></use></svg>", 
+        "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-prev&apos;></use></svg>",
+        "responsive": [
+            {
+                "breakpoint": 1300,
+                "settings": {
+                    "dots": true,
+                    "arrows": false
+                }
+            }
+    ]}'>
+    {{#each carousel.slides}}
+    <div class="heroCarousel-slide {{#if ../theme_settings.homepage_stretch_carousel_images}}stretch{{/if}} {{#if @first}}heroCarousel-slide--first{{/if}}">
+        <div class="heroCarousel-image-wrapper">
+            <a class="link" href="{{url}}"></a>
+            <img class="heroCarousel-image" {{#if @first}}src{{else}}src="{{cdn 'img/loading.svg'}}" data-lazy{{/if}}="{{image}}" alt="{{alt_text}}" title="{{alt_text}}" 
+                {{#if image_width}}width="{{image_width}}"{{/if}} {{#if image_height}}height="{{image_height}}"{{/if}} />
+            {{#if heading}}
+                <h2 class="heroCarousel-title heroCarousel-titleMobile">{{{heading}}}</h2>
+            {{/if}}
+        </div>
+        {{#if heading}}
+            {{> components/carousel-content-2 show_background=true}}
+        {{else}}
+            {{#if text}}
+                {{> components/carousel-content-2 show_background=true}}
+            {{else}}
+                {{#if button_text}}
+                    {{> components/carousel-content-2 show_background=false}}
+                {{/if}}
+            {{/if}}
+        {{/if}}
+    </div>
+    {{/each}}
+</div>
+<div class="category-filter-mobile">
+</div>

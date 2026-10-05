@@ -1,0 +1,36 @@
+<div class="themevale_sectionChild">
+    {{> components/themevale/homepage/component/ajax-products-by-category-id category_id=theme_settings.carousel-category-id has_count_down=theme_settings.carousel-category-id-countdown}}
+    <div class="themevale_bannerByCategoryId" data-slick='{
+        "dots": true,
+        "arrows": false,
+        "infinite": false,
+        "slidesToShow": 1,
+        "slidesToScroll": 1,
+        "mobileFirst": true,
+        "responsive": [
+            {
+                "breakpoint": 551,
+                "settings": {
+                    "dots": false,
+                    "arrows": false,
+                    "slidesToShow": 2,
+                    "slidesToScroll": 2
+                }
+            }
+        ]}'>
+        <div class="item">
+            <div class="bannerimage-wrapper">
+                <a class="link" href="#">
+                    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-sale-1.jpg" alt="banner-sale-1">
+                </a>
+            </div>
+        </div>
+        <div class="item">
+            <div class="bannerimage-wrapper">
+                <a class="link" href="#">
+                    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-sale-2.jpg" alt="banner-sale-2">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

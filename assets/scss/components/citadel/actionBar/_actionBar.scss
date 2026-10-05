@@ -1,0 +1,170 @@
+// =============================================================================
+// ACTION BAR (CSS)
+// =============================================================================
+
+
+.actionBar-section {
+    .form-field {
+        margin: 0;
+    }
+    .form-input,
+    .form-select {
+        height: 40px;
+        min-width: 215px;
+        vertical-align: middle;
+        border-color: #e2e4e8;
+        background-color: #f7f7f7;
+    }
+    .form-select {
+        width: auto;
+    }
+    @include breakpoint('small') {
+        .form-input,
+        .form-select {
+            min-width: 205px;
+        }
+    }
+}
+
+.themevale_categoryToolbar {
+    margin-bottom: 30px;
+    text-align: left;
+    position: relative;
+    .actionBar {
+        margin: 0 0 15px 0;
+        display: block;
+        &:last-child {
+            margin: 0;
+        }
+    }
+    .form-label {
+        margin: 0;
+        font-size: 12px;
+        padding-right: 10px;
+        min-width: 70px;
+        display: inline-block;
+        vertical-align: middle;
+        text-transform: uppercase;
+        font-family: $fontFamily-headings;
+        color: stencilColor('color-textHeading');
+        font-weight: stencilFontWeight("headings-font");
+    }
+    .view-as-btn {
+        font-size: 0;
+        border-radius: 3px;
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid #e2e4e8;
+        > a {
+            padding: 10px;
+            width: 40px;
+            height: 40px;
+            vertical-align: top;
+            display: inline-block;
+            background-color: #ffffff;
+            svg {
+                width: 100%;
+                height: 100%;
+                fill: #e2e4e8;
+                stroke: #e2e4e8;
+                pointer-events: none;
+            }
+            /*&.is-active {
+                background-color: #f7f7f7;
+                svg {
+                    fill: stencilColor('color-textHeading');
+                    stroke: stencilColor('color-textHeading');
+                }
+            }*/
+            &[data-layout="productGrid--maxCol1"] {
+                .productGrid--maxCol1 & {
+                    background-color: #f7f7f7;
+                    svg {
+                        fill: stencilColor('color-textHeading');
+                        stroke: stencilColor('color-textHeading');
+                    }
+                }
+            }
+            &[data-layout="productGrid--maxCol3"] {
+                .productGrid--maxCol3 & {
+                    background-color: #f7f7f7;
+                    svg {
+                        fill: stencilColor('color-textHeading');
+                        stroke: stencilColor('color-textHeading');
+                    }
+                }
+            }
+            &[data-layout="productGrid--maxCol4"] {
+                .productGrid--maxCol4 & {
+                    background-color: #f7f7f7;
+                    svg {
+                        fill: stencilColor('color-textHeading');
+                        stroke: stencilColor('color-textHeading');
+                    }
+                }
+            }
+            &#grid-view {
+                svg {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+        > #grid-view-4 {
+            display: none;
+        }
+    }
+    .item-iconSidebar {
+        + .item {
+            .view-as-group {
+                top: 0;
+                right: 0;
+                margin-right: 0;
+                position: absolute;
+                .form-label {
+                    display: none;
+                }
+            }
+        }
+    }
+    &.themevale_sidebar-mobile-wrapper {
+        margin-bottom: 30px;
+    }
+    @include breakpoint("medium") {
+        text-align: right;
+        margin-bottom: 50px;
+        .actionBar {
+            margin: 0 30px 0 0;
+            vertical-align: middle;
+            display: inline-block;
+            &:last-child {
+                margin: 0;
+            }
+        }
+        .form-label {
+            min-width: 0;
+        }
+        &.themevale_sidebar-mobile-wrapper {
+            margin-bottom: 50px;
+        }
+    }
+    @media (min-width: 993px) {
+        .view-as-btn #grid-view-4 {
+            display: inline-block;
+        }
+    }
+    @media (min-width: 1025px) {
+        .item-iconSidebar {
+            + .item {
+                .view-as-group {
+                    top: auto;
+                    right: auto;
+                    margin-right: 30px;
+                    position: relative;
+                    .form-label {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}

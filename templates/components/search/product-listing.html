@@ -1,0 +1,101 @@
+{{#if product_results.products.length}}
+<div class="themevale_categoryToolbar themevale_sidebar-mobile-wrapper">
+    <div class="item item-iconSidebar text-left">
+        <div class="themevale_sidebar-mobile">
+            <span class='text'>sidebar:</span>
+            <svg class="icon"><use xlink:href='#sidebar'></use></svg>
+        </div>
+    </div>
+    <div class="item text-right">
+        <div class="themevale_categoryToolbar">
+            <div class="view-as-group actionBar">
+                <label class="form-label">{{lang 'common.view.view_as'}}</label>
+                <div class="view-as-btn">
+                    <a href="javascript:void(0);" id="list-view" data-layout="productGrid--maxCol1" title="List View">
+                        <svg class="icon-view"><use xlink:href="#icon-list"></use></svg></a>
+                    <a href="javascript:void(0);" id="grid-view" data-layout="productGrid--maxCol3" title="Grid View 3">
+                        <svg class="icon-view"><use xlink:href="#icon-list"></use></svg></a>
+                    <a href="javascript:void(0);" id="grid-view-4" data-layout="productGrid--maxCol4" title="Grid View 4">
+                        <svg class="icon-view"><use xlink:href="#icon-grid"></use></svg></a>
+                </div>
+            </div>
+            <form class="actionBar" method="get" data-sort-by data-show-products>
+                <fieldset class="form-fieldset actionBar-section">
+                    <div class="form-field">
+                        <label class="form-label" for="limit">{{lang 'common.number_products.show'}}</label>
+                        <select class="form-select" name="limit" id="limit">
+                            <option value="9" {{#if '9' '==' theme_settings.brandpage_products_per_page }}selected{{/if}}>9 {{lang 'common.number_products.show_text'}}</option>
+                            <option value="12" {{#if '12' '==' theme_settings.brandpage_products_per_page }}selected{{/if}}>12 {{lang 'common.number_products.show_text'}}</option>
+                            <option value="15" {{#if '15' '==' theme_settings.brandpage_products_per_page }}selected{{/if}}>15 {{lang 'common.number_products.show_text'}}</option>
+                            <option value="20" {{#if '20' '==' theme_settings.brandpage_products_per_page }}selected{{/if}}>20 {{lang 'common.number_products.show_text'}}</option>
+                            <option value="24" {{#if '24' '==' theme_settings.brandpage_products_per_page }}selected{{/if}}>24 {{lang 'common.number_products.show_text'}}</option>
+                            <option value="30" {{#if '30' '==' theme_settings.brandpage_products_per_page }}selected{{/if}}>30 {{lang 'common.number_products.show_text'}}</option>
+                        </select>
+                    </div>
+                </fieldset>
+                <script>
+                (function(){
+                    try {
+                        var url = new URL(window.location.href);
+                        var c = url.searchParams.get("limit");
+                        if(c != null){
+                            var limit = document.querySelectorAll('select#limit option');
+                            Array.prototype.forEach.call(limit, function(element) {
+                                if(element.value == c){
+                                    element.selected = true;
+                                }
+                            });
+                        }
+                    } catch(e) {}
+                }());
+                </script>
+
+            </form>
+            <form class="actionBar" method="get" data-sort-by>
+                {{> components/category/sort-box sort=pagination.product_results.sort}}
+            </form>
+        </div>
+    </div>
+</div>
+{{/if}}
+
+<form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Search Results" {{/if}} data-product-compare>
+    {{#if settings.data_tag_enabled}}
+        {{> components/products/grid products=product_results.products show_compare=product_results.show_compare event="list" theme_settings=theme_settings}}
+    {{else}}
+        {{> components/products/grid products=product_results.products show_compare=product_results.show_compare theme_settings=theme_settings}}
+    {{/if}}
+</form>
+
+<div class="button-group text-center">
+    <a id="button-showmore-category" class="button button-showmore" href="javascript:void(0)">
+        <svg class="icon"><use xlink:href="#icon-refresh"></use></svg>
+        <span class="text">show more</span>
+    </a>
+</div>
+
+<div style="float:right;">
+    {{> components/common/paginator pagination.product_results reload=true total=category.total_products}}
+</div>
+<script>
+	var jdgmReloadFlag = 0;
+	setInterval(function() {
+		if(jQuery && jdgmCacheServer && "undefined" != typeof jdgmSettings) {
+			var jdgm_preview_badge = jQuery("div.jdgm-preview-badge").length;
+			var jdgm_done_setup = jQuery("div.jdgm--done-setup").length;
+			if(jdgmReloadFlag == 0 && jdgm_preview_badge != 0 && jdgm_preview_badge != jdgm_done_setup) {
+				jdgmReloadFlag = 1;
+				jdgmCacheServer.reloadPreviewBadges();
+			}
+			else {
+				if(jdgm_done_setup != 0 && jdgm_preview_badge != jdgm_done_setup && jdgmReloadFlag == 1) {
+					jdgmReloadFlag++;
+					jdgmCacheServer.reloadPreviewBadges();
+				}
+				else if(jdgm_done_setup != 0 && jdgm_preview_badge == jdgm_done_setup && jdgmReloadFlag > 1) {
+					jdgmReloadFlag = 1;
+				}
+			}
+		}
+	}, 3500);
+</script>

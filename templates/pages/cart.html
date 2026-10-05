@@ -1,0 +1,60 @@
+{{#partial "page"}}
+<div class="themevale_breadcrumb">
+    {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+    {{> components/cart/page-title}}   
+</div>
+<div class="page">
+    <main class="page-content" data-cart>
+        <div data-cart-status>
+            {{> components/cart/status-messages}}
+        </div>
+        {{#if cart.items.length}}
+            <div class="loadingOverlay"></div>
+            <div data-cart-content>
+                {{> components/cart/content}}
+            </div>
+            <div class="button-group" data-cart-empty data-go-home>
+                <button class="button button--transparent" id="emptyCart" data-confirm="Are you sure you want to empty your cart?">Clear Basket</button>
+                <a class="button button--transparent" href="{{urls.home}}">Continue Shopping</a>
+            </div>
+            <div class="data-cart-totals">
+                <div data-cart-totals>
+                    {{> components/cart/totals}}
+                </div>
+            </div>
+            <div class="brand-protective">
+                <div class="item">
+                    <div class="themevale_securityImage">
+                        <ul>
+                            <li>
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-1.png" alt="">
+                            </li>
+                            <li>
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-2.png" alt="">
+                            </li>
+                            <li>
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-3.png" alt="">
+                            </li>
+                            <li>
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-4.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div class="item">-->
+                <!--    <div class="themevale_securityContent">-->
+                <!--        <i class="icon"><svg><use xlink:href="#icon-user-protection"></use></svg></i>-->
+                <!--        <p class="text">Secure Shopping Guarantee. Your information is secure.</p>-->
+                <!--    </div>-->
+                <!--    <p class="description">Need Help? Contact us or Get in touch 1.800.000.6890</p>-->
+                <!--</div>-->
+            </div>
+        {{else}}
+            <h3 class="cart-title-empty">{{lang 'cart.checkout.empty_cart'}}</h3>
+        {{/if}}
+
+        {{{snippet 'cart'}}}
+    </main>
+</div>
+{{/partial}}
+{{> layout/base}}

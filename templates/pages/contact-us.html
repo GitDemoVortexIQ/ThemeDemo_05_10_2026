@@ -1,0 +1,70 @@
+{{#partial "page"}}
+<div class="themevale_map">
+    {{#if theme_settings.themevale_map}}
+        {{> components/themevale/contact-us-map}}
+    {{/if}}
+</div>
+<div class="themevale_breadcrumb">
+    <div class="container contact-inner">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}} 
+        <h1 class="page-heading">{{page.title}}</h1>
+    </div>
+</div>
+<main class="page">
+    <div class="container">
+        {{#if page.sub_pages}}
+            <nav class="navBar navBar--sub">
+                <ul class="navBar-section account-navigation">
+                    {{#each page.sub_pages}}
+                        <li class="navBar-item"><a class="navBar-action" href="{{url}}">{{title}}</a></li>
+                    {{/each}}
+                </ul>
+            </nav>
+        {{/if}}
+
+        <div class="page-content themevale_contact-us">
+            <div class="themevale_form">
+                {{#if forms.contact.success}}
+                    <div class="alertBox alertBox--info">
+                        <div class="alertBox-column alertBox-icon">
+                            <icon glyph="ic-success" class="icon" aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path></svg>
+                            </icon>
+                        </div>
+                        <p class="alertBox-column alertBox-message">
+                            <span>{{{lang 'forms.contact_us.successful' shopPath=urls.home}}}</span>
+                        </p>
+                    </div>
+                {{else}}
+                    <div class="desciption-page">{{{page.content}}}</div>
+                    {{> components/page/contact-us-form}}
+                {{/if}}
+            </div>
+            <div class="themevale_location">
+                <h3 class="title">Showroom Location at TESTING Area NodeJs 22 SRINI Approve&Deploy </h3>
+                <div class="content about-us">
+                    <div class="store-address">{{nl2br settings.address}}</div>
+                    <div class="store-email">Email: <a href="mailto:sales@woodworkersworkshop.co.uk" style="color:#b5b54c;">sales@woodworkersworkshop.co.uk</a></div>
+                    <!--<div class="store-phone">Phone: {{settings.phone_number}}</div>-->
+                     <div class="store-phone">Phone:<a href="tel:{{settings.phone_number}}" style="color:#b5b54c;"> {{settings.phone_number}}</a></div>
+                </div>
+                <div class="content about-us">
+                    <p class="sub-title"><strong>Opening Hours</strong></p>
+                    <div class="item1">Monday to Friday - 9.00am to 4.00pm</div>
+                    <!--div class="item2">Visits by appointment only, please call or email us for details.</div-->
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</main>
+{{/partial}}
+{{> layout/base}}
+
+
+
+
+
+
+
+

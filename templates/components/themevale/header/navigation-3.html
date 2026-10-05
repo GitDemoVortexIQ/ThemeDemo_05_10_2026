@@ -1,0 +1,88 @@
+<nav class="navUser">
+    <div class="container">
+        <div class="navUser--left">
+            <div class="navUser-item layout-2">
+                <svg class="icon big"><use xlink:href="#icon-check"></use></svg>
+                <a class="navUser-action" href="#">{{theme_settings.themevale_topbar-owntext1}}</a>
+            </div>
+            <div class="navUser-item layout-2">
+                <svg class="icon big"><use xlink:href="#icon-check"></use></svg>
+                <a class="navUser-action" href="#">{{theme_settings.themevale_topbar-owntext2}}</a>
+            </div>
+            <div class="navUser-item layout-2">
+                <svg class="icon big"><use xlink:href="#icon-check"></use></svg>
+                <a class="navUser-action" href="#">{{theme_settings.themevale_topbar-owntext3}}</a>
+            </div>
+        </div>
+        <div class="navUser--right">
+            <div class="navUser-item navUser-item--myaccount">
+                {{#if customer}}
+                    <a class="navUser-action navUser-action--myaccount" href="{{urls.account.index}}">
+                        {{lang 'common.myaccount'}} <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                    </a>
+                    <ul class="dropdown-menu" id="navPages-account-topbar">
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+                        </li>
+                        {{#if settings.returns_enabled}}
+                            <li class="dropdown-menu-item">
+                                <a href="{{urls.account.returns}}">{{lang 'account.nav.returns'}}</a>
+                            </li>
+                        {{/if}}
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.inbox}}">{{lang 'account.mobile_nav.messages'}}</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.addresses}}">{{lang 'account.nav.addresses'}}</a>
+                        </li>
+                        {{#if settings.show_payment_methods}}
+                            <li class="dropdown-menu-item">
+                                <a href="{{urls.account.payment_methods.all}}">{{lang 'account.nav.payment_methods'}}</a>
+                            </li>
+                        {{/if}}
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                            <a href="{{urls.account.details}}">{{lang 'account.nav.settings'}}</a>
+                        </li>
+                        <li class="dropdown-menu-item">
+                        <a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                    </li>
+                    </ul>
+                {{else}}
+                    <a class="navUser-action" href="{{urls.auth.login}}">{{lang 'common.myaccount'}}</a>
+                {{/if}}
+            </div>
+            {{#if settings.gift_certificates_enabled}}
+                <div class="navUser-item">
+                    <a class="navUser-action" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+                </div>
+            {{/if}}
+            <div class="navUser-item navUser-item--account">
+                {{#if customer}}
+                    <a class="navUser-action" href="{{urls.account.index}}"><strong>{{customer.name}}.</strong></a>
+                    <a class="navUser-action" href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                {{else}}
+                    <a class="navUser-action" href="javascript:void(0)" data-login-form>{{lang 'common.login'}}</a>
+                    {{#if settings.account_creation_enabled}}
+                    {{#if page_type '!==' 'login'}}
+                        {{> components/common/login-form}}
+                    {{/if}}
+                    <span class="navUser-or">{{lang 'common.or'}}</span>
+                    <a class="navUser-action" href="{{urls.auth.create_account}}">{{lang 'common.create_account'}}</a>
+                    {{/if}}
+                {{/if}}
+            </div>
+            <!-- <div class="navUser-item navUser-item--compare show">
+                <a class="navUser-action" href="{{urls.compare}}" data-compare-nav>{{lang 'common.compare'}} (<span class="countPill">0</span>)</a>
+            </div> -->
+            <div class="navUser-item">
+                {{> components/common/currency-selector}}
+            </div>
+        </div>
+    </div>
+</nav>

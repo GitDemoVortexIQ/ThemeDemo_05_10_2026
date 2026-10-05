@@ -1,0 +1,78 @@
+<div class="themevale_sectionChild">
+    {{#each categories}}
+        {{#if id '==' ../category_id}}
+            <div class="themevale_productsByCategoryTabs">
+                <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                {{> components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-content
+                    image-1=../../theme_settings.themevale_category-id-width-banner-7-image-1
+                    image-2=../../theme_settings.themevale_category-id-width-banner-7-image-2
+                    image-3=../../theme_settings.themevale_category-id-width-banner-7-image-3 }}
+            </div>
+            <div class="themevale_bannerbycategory themevale_bannerbycategory_6">
+                <div class="themevale_bannerbycategory-carousel" data-slick='{
+                    "arrows": false,
+                    "dots": true,
+                    "infinite": false,
+                    "slidesToShow": 4,
+                    "slidesToScroll": 4
+                }'>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-au-1.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Speakers</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-au-2.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Installation Kits</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-au-3.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Dash Cams</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-au-4.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">GPS Tracker</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="bannerbycategory-wrapper">
+                            <div class="image">
+                                <a href="#"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/banner-marketing-au-2.jpg" alt=""></a>
+                            </div>
+                            <div class="content">
+                                <h6 class="title"><a href="#">Installation Kits</a></h6>
+                                <p>Dinterdum pretium, Mauris, Condimentus</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    {{/each}}
+</div>

@@ -1,0 +1,15 @@
+<div class="themevale_sectionChild">
+    <div class="themevale_productsByCategoryId layout-2">
+        <div class="themevale_page-heading-wrapper text-center">
+            <h2 class="page-heading">{{lang 'products.new' }}</h2>
+            <!--<a class="themevale_link" href="/new-products/">View All</a>-->
+        </div>
+        <div class="page-content layout-2">
+            {{#if settings.data_tag_enabled}}
+                {{> components/products/carousel-2 products=products list="New Products"}}
+            {{else}}
+                {{> components/products/carousel-2 products=products}}
+            {{/if}}
+        </div>
+    </div>
+</div>

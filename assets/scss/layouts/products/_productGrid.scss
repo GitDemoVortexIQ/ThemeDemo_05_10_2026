@@ -1,0 +1,294 @@
+// =============================================================================
+// PRODUCT GRID (CSS)
+// =============================================================================
+
+
+// Product grid view
+// -----------------------------------------------------------------------------
+//
+// 1. Re-set the font-size, as we're reducing it to 0 in the .products class.
+//
+// -----------------------------------------------------------------------------
+
+.productGrid {
+    list-style: none;
+    margin: 0 -8px;
+    max-width: none;
+    width: auto;
+    font-size: 0;
+    margin-bottom: 0;
+    @media (min-width: 1025px) {
+        margin: 0 -15px;
+    }
+    .product {
+        @include grid-column(6, $float: none);
+        display: inline-block;
+        font-size: fontSize("base");
+        vertical-align: top;
+        padding-left: 8px;
+        padding-right: 8px;
+
+        @include breakpoint("small") {
+            width: grid-calc(4, $total-columns);
+        }
+        @media (min-width: 993px) {
+            width: grid-calc(3, $total-columns);
+        }
+        @media (min-width: 1025px) {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+}
+
+
+// Product grid view variation
+// -----------------------------------------------------------------------------
+
+.productGrid--maxCol6 {
+    .product {
+        @media (min-width: 1025px) {
+            width: 20%;
+        }
+        @media (min-width: 1281px) {
+            width: grid-calc(2, $total-columns);
+        }
+    }
+}
+
+.productGrid--maxCol5 {
+    .product {
+        @media (min-width: 1025px) {
+            width: 20%;
+        }
+    }
+}
+
+.productGrid--maxCol3 {
+    .product {
+        @media (min-width: 993px) {
+            width: grid-calc(4, $total-columns);
+        }
+    }
+}
+
+.productGrid--maxCol2 {
+    .product {
+        @include breakpoint("small") {
+            width: grid-calc(6, $total-columns);
+        }
+    }
+}
+
+.productGrid--maxCol1 {
+    .product {
+        width: 100%;
+        float: none;
+    }
+}
+
+// Product when sidebar is present
+// -----------------------------------------------------------------------------
+//
+// 1. When the sidebar is visible, reduce products to 3 across.
+//
+// -----------------------------------------------------------------------------
+
+.page-sidebar + .page-content {
+    .productGrid {
+        .product {
+            @media (min-width: 1025px) {
+                width: grid-calc(4, $total-columns);
+            }
+        }
+    }
+    .productGrid--maxCol1 & {
+        .productGrid .product {
+            width: 100%;
+            float: none;
+        }
+    }
+    .productGrid--maxCol3 & {
+        .productGrid .product {
+            @media (min-width: 1025px) {
+                width: grid-calc(4, $total-columns);
+            }
+        }
+    }
+    .productGrid--maxCol4 & {
+        .productGrid .product {
+            @media (min-width: 1025px) {
+                width: grid-calc(3, $total-columns);
+            }
+        }
+    }
+}
+
+
+.productGrid--maxCol1 .productGrid {
+    .card-desciption {
+        display: block;
+        max-height: 60px;
+        overflow: hidden;
+    }
+    .card {
+        width: 100%;
+        display: table;
+        margin-bottom: 0;
+        .card-rating {
+            .icon {
+                @include square(14px);
+            }
+        }
+        .card-figure,
+        .card-body {
+            display: table-cell;
+            vertical-align: top;
+        }
+        .card-figure {
+            width: 85px;
+            .card-figcaption {
+                display: none;
+            }
+            .card-button-wishlist {
+                display: none;
+            }
+            .card-button-quickview {
+                width: auto;
+                svg {
+                    width: 19px;
+                    height: 19px;
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .text {
+                    font-size: 12px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    text-transform: capitalize;
+                    padding-left: 10px;
+                    color: stencilColor('color-textHeading');
+                }
+            }
+        }
+        .card-body {
+            padding-top: 0;
+            padding-left: 15px;
+        }
+        .card-detail {
+            font-size: fontSize("base");
+            display: block;
+            padding-right: 0;
+            margin-bottom: 17px;
+            .card-price-wrapper .card-compare {
+                display: none;
+            }
+        }
+        .card-actions {
+            font-size: fontSize("base");
+            display: block;
+            .card-figcaption {
+                display: block;
+            }
+            .card-compare {
+                opacity: 1;
+                right: auto;
+                bottom: auto;
+                position: relative;
+                visibility: visible;
+            }
+        }
+    }
+    li.product {
+        .card {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eeeeee;
+        }
+    }
+    @media (min-width: 360px) {
+        .card {
+            .card-figure {
+                width: 120px;
+            }
+            .card-rating {
+                .icon {
+                    @include square(16px);
+                }
+            }
+        }
+    }
+    @include breakpoint("small") {
+        .card-desciption {
+            max-height: none;
+            visibility: visible;
+        }
+        .card {
+            .card-figure {
+                width: 250px;
+            }
+            .card-body {
+                padding-left: 30px;
+            }
+        }
+        li.product {
+            .card {
+                padding-bottom: 30px;
+                margin-bottom: 30px;
+            }
+        }
+    }
+    @media (min-width: 993px) {
+        .card {
+            .card-figure {
+               width: 290px;
+            }
+            .card-body {
+                font-size: 0;
+                padding-left: 50px;
+            }
+            .card-title {
+                font-weight: 700;
+            }
+            .card-price {
+                font-size: 16px;
+            }
+            .card-detail {
+                display: inline-block;
+                vertical-align: top;
+                width: calc(100% - 200px);
+                padding-right: 30px;
+                margin-bottom: 0px;
+            }
+            .card-actions {
+                display: inline-block;
+                vertical-align: top;
+                width: 200px;
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        .card {
+            .card-actions {
+                .form-wishlist {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+
+form[data-product-compare] + .button-group {
+    margin-top: 30px;
+    .button {
+        min-width: 160px;
+        width: auto;
+        display: inline-block;
+    }
+    @media (min-width: 1025px) {
+        .button {
+            width: 285px;
+        }
+    }
+}

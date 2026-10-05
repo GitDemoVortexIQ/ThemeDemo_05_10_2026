@@ -1,0 +1,663 @@
+<div class="productView themevale_productView" {{#if settings.data_tag_enabled}} data-event-type="product" data-entity-id="{{product.id}}" data-name="{{product.title}}" data-product-category="{{#each product.category}}{{#if @last}}{{this}}{{else}}{{this}}, {{/if}}{{/each}}" data-product-brand="{{product.brand.name}}" data-product-price="{{#if product.price.with_tax}}{{product.price.with_tax.value}}{{else}}{{product.price.without_tax.value}}{{/if}}" data-product-variant="single-product-option"{{/if}}>
+    {{#each product.reviews.messages}}
+        {{#if error}}
+            {{> components/common/alert-error error}}
+        {{/if}}
+        {{#if success}}
+            {{> components/common/alert-success success}}
+        {{/if}}
+    {{/each}}
+    <div class="themevale_productView-left">
+        <div class="productView-images">
+            <div class="themevale_badges">
+                {{#each products.new}}
+                    {{#if this.id '==' ../product.id}}
+                    <div class="new-badge themevale_badge">
+                        <span class="text">New</span>
+                    </div>
+                    {{/if}}
+                {{/each}}
+                {{#or product.price.non_sale_price_with_tax product.price.non_sale_price_without_tax}}
+                    <div class="sale-badge themevale_badge">
+                        <span class="text">Sale</span>
+                    </div>
+                {{/or}}
+                {{#each product.custom_fields}}
+                    {{#if name '===' 'customlabel'}}
+                        <div class="custom-badge themevale_badge">
+                            <span class="text">{{{value}}}</span>
+                        </div>
+                    {{/if}}
+                {{/each}}
+                {{#if product.out_of_stock_message}}
+                    <div class="soldOut-badge themevale_badge">
+                        <span class="text">sold out</span>
+                    </div>
+                {{/if}}
+            </div>
+             <div class="themevale_productView-images zoom-image" data-image-gallery>
+                {{#if product.main_image}}
+                <meta itemprop="name" content="{{product.main_image.data}}" />
+                {{/if}}
+            <div class="themevale_productView-images zoom-image" data-image-gallery>
+                {{#if product.main_image}}
+                <meta itemprop="name" content="{{product.main_image.data}}" />
+                {{/if}}
+            <div id="productslider" class="productView-for" data-slick='{
+                 "arrows" : true,
+                 "dots" : false,
+                 "vertical" : true,
+                 "infinite" : false,
+                 "focusOnSelect" : true,
+                 "slidesToShow" : 3,
+                 "slidesToScroll" : 1,
+                 "asNavFor" : ".themevale_productView-images .productView-nav" ,
+                 "nextArrow" : "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-next&apos;></use></svg>" ,
+                 "prevArrow" : "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-prev&apos;></use></svg>" ,
+                 "responsive" : [
+                 {
+                 "breakpoint" : 1026,
+                 "settings" : {
+                 "slidesToShow" : 4,
+                 "vertical" : false,
+                 "slidesToScroll" : 1
+                 }
+                 },
+                 {
+                 "breakpoint" : 321,
+                 "settings" : {
+                 "slidesToShow" : 3,
+                 "vertical" : false,
+                 "slidesToScroll" : 1
+                 }
+                 }
+                 ]
+                 }'>
+                {{#each product.images}}
+                <div class="productView-thumbnail">
+                    <a class="productView-thumbnail-link"
+                       href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                       data-image-gallery-item
+                       data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                       data-image-gallery-zoom-image-url="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}">
+                        <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'productthumb_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                    </a>
+                </div>
+                {{/each}}
+            </div>
+            <div class="productView-nav-wrapper">
+                <div class="productView-nav" data-slick='{
+                    "fade": true,
+                    "arrows": false,
+                    "dots": false,
+                    "infinite": true,
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1,
+                    "asNavFor": ".themevale_productView-images .productView-for",
+                    "responsive": [
+
+                        {
+                            "breakpoint": 1026,
+                            "settings": {
+                                "dots": true
+                            }
+                        },
+                        {
+                            "breakpoint": 321,
+                            "settings": {
+                               "dots": true
+                            }
+                        }
+                    ]
+                    }'>
+                    {{#each product.images}}
+                    <figure class="productView-image" data-fancybox="images" href="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}"
+                            data-image-gallery-main
+                            data-zoom-image="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}"
+                            data-mfp-src="{{getImage this 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                        <div class="productView-img-container">
+                            <a href="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}">
+                                <img class="productView-image--default"
+                                     data-sizes="auto" src="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}"
+                                     alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image>
+                            </a>
+                        </div>
+                    </figure>
+                    {{/each}}
+                </div>
+                {{#if product.videos.list.length}}
+                <div class="label-videos">
+                    <a class="video-link" href="javascript:void(0);" data-reveal-id="video-gallery-popup">
+                        <img class="icon" src="https://cdn11.bigcommerce.com/s-nv2zhlgt3y/product_images/uploaded_images/icon-youtube4.png" alt="">
+                    </a>
+                    {{> components/themevale/modals/video-gallery product.videos}}
+                </div>
+                {{/if}}
+                {{#each product.custom_fields}}
+                {{#if name '===' 'instruction'}}
+                <li class="productView-thumbnail-custom">
+                    <a class="instruction-link" target="_blank" href="{{value}}">
+                        <span class="icon"><img src="/product_images/uploaded_images/download.png" alt="" width="26"></span>
+                        <span class="text" style="font-size:14px;">Download</span>
+                    </a>
+                    <!--   style="cursor:pointer" onclick="downloadinstruction('{{value}}')"  {{>components/themevale/modals/instruction}}-->
+                </li>
+                {{/if}}
+                {{#if name '===' 'warranty'}}
+                <li class="productView-thumbnail-custom">
+                    <a class="warranty-link" href="javascript:void(0);" data-reveal-id="warranty-popup">
+                        <span class="icon"><img src="https://cdn8.bigcommerce.com/s-s9avbdi7u2/product_images/uploaded_images/warranty.png" alt=""></span>
+                        <span class="text">warranty</span>
+                    </a>
+                    {{>components/themevale/modals/warranty}}
+                </li>
+                {{/if}}
+                {{/each}}
+                <div class="hover-to-zoom">
+                    <svg class="icon"><use xlink:href="#icon-search"></use></svg>
+                    <span class="text">{{lang 'products.click_zoom'}}</span>
+                </div>
+            </div>
+            </div>
+            </div>
+            {{#if theme_settings.themevale_ask_an_expert}}
+                {{> components/themevale/product/ask-an-expert}}
+            {{/if}}
+        </div>
+    </div>
+    <div class="themevale_productView-right">
+        <div class="productView-details">
+            <div class="productView-product">
+                {{#if product.brand}}
+                    <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
+                       By <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
+                    </h2>
+                {{/if}}
+                 <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+                 <div class="free-extra" style="display:none;" id="free-extra">FREE EXTRAS</div> 
+                <div class='jdgm-widget jdgm-preview-badge' data-id='{{product.id}}'></div>
+                <div style="display:none;" class="productView-rating"{{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}{{/if}}>
+                    {{#if settings.show_product_rating}}
+                        {{#if product.num_reviews '>' 0}}
+                            {{#if schema}}
+                                <meta itemprop="ratingValue" content="{{product.rating}}">
+                                <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+                                <meta itemprop="reviewCount" content="{{product.num_reviews}}">
+                            {{/if}}
+                        {{/if}}
+                        {{> components/products/ratings rating=product.rating}}
+                        <span class="productView-reviewLink review-link">
+                            {{#if product.num_reviews '>' 0}}
+                                <a href="{{product.url}}#product-reviews">
+                                    {{product.num_reviews}} reviews
+                                </a>
+                            {{else}}
+                                (No reviews yet)
+                            {{/if}}
+                        </span>
+                    {{/if}}
+                    {{#if settings.show_product_reviews}}
+                        <span class="productView-reviewLink popup-link">
+                            <a href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}"
+                               {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
+                               {{lang 'products.reviews.new'}}
+                            </a>
+                        </span>
+                        {{> components/products/modals/writeReview}}
+                    {{/if}}
+                </div>
+
+                {{> components/themevale/countdown}}
+                {{#if product.call_for_price}}
+                    <p class="productView-price">
+                        <span>{{product.call_for_price}}</span>
+                    </p>
+                {{/if}}
+                <div class="productView-price">
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{> components/products/price price=product.price schema_org=schema}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                    {{#if theme_settings.product_soldProduct}}
+                        <div class="sold-product"></div>
+                    {{/if}}
+                </div>
+                {{{region name="product_below_price"}}}
+                {{product.detail_messages}}
+                <dl class="productView-info">
+                    {{#if product.sku}}
+                        <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
+                        <dd class="productView-info-value" style="margin-left:10%;" data-product-sku>{{product.sku}}</dd>
+                    {{/if}}
+                    <!--{{#if product.upc}}-->
+                    <!--    <dt class="productView-info-name">{{lang 'products.upc'}}</dt>-->
+                    <!--    <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>-->
+                    <!--{{/if}}-->
+                    {{#if product.condition}}
+                        <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
+                        <dd class="productView-info-value">{{product.condition}}</dd>
+                    {{/if}}
+                    {{#if product.availability}}
+                        <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
+                        <dd class="productView-info-value" style="margin-left:10%;">{{product.availability}}</dd>
+                    {{/if}}
+                    {{#all product.weight theme_settings.show_product_weight}}
+                        <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+                        <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+                    {{/all}}
+                    {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
+                        <dt class="productView-info-name">{{lang 'products.width'}}</dt>
+                        <dd class="productView-info-value" data-product-width>
+                            {{product.width}}
+                            {{#if settings.measurements.length '==' 'Centimeters'}}
+                            ({{lang 'products.measurement.metric'}})
+                            {{else}}
+                            ({{lang 'products.measurement.imperial'}})
+                            {{/if}}
+                        </dd>
+                        <dt class="productView-info-name">{{lang 'products.height'}}</dt>
+                        <dd class="productView-info-value" data-product-height>
+                            {{product.height}}
+                            {{#if settings.measurements.length '==' 'Centimeters'}}
+                            ({{lang 'products.measurement.metric'}})
+                            {{else}}
+                            ({{lang 'products.measurement.imperial'}})
+                            {{/if}}
+                        </dd>
+                        <dt class="productView-info-name">{{lang 'products.depth'}}</dt>
+                        <dd class="productView-info-value" data-product-depth>
+                            {{product.depth}}
+                            {{#if settings.measurements.length '==' 'Centimeters'}}
+                            ({{lang 'products.measurement.metric'}})
+                            {{else}}
+                            ({{lang 'products.measurement.imperial'}})
+                            {{/if}}
+                        </dd>
+                    {{/all}}
+                    {{#if product.min_purchase_quantity}}
+                        <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
+                        <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
+                    {{/if}}
+                    {{#if product.max_purchase_quantity}}
+                        <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
+                        <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
+                    {{/if}}
+                    {{#if product.gift_wrapping_available}}
+                        <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
+                        <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+                    {{/if}}
+                    {{#if product.shipping}}
+                        {{#if product.shipping.calculated}}
+                            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                            <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
+                        {{else}}
+                            {{#if product.shipping.price.value '===' 0}}
+                                <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                                <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
+                            {{else}}
+                                <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                                <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                    {{#each product.custom_fields}}
+                        {{#and (if name '!=' 'warranty' ) (if name '!=' 'instruction')}}
+                            {{#and (if name '!=' 'countdown' ) (if name '!=' 'customlabel')}}
+                             {{#and  (if name '!=' 'freebutton') (if name '!=' 'freebuttonlabel')}}
+                            <dt class="productView-info-name {{name}}">{{name}}:</dt>
+                            <dd class="productView-info-value {{name}}">{{{value}}}</dd>
+                            {{/and}}
+                        {{/and}}
+                        {{/and}}
+                    {{/each}}
+                    <div class="productView-info-bulkPricing">
+                        {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
+                    </div>
+                </dl>
+                
+            </div>
+            <div class="productView-options">
+                <!--{{#if product.release_date }}-->
+                <!--    <p>{{product.release_date}}</p>-->
+                <!--{{/if}}-->
+                <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                      data-cart-item-add>
+                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="product_id" value="{{product.id}}"/>
+                        {{#each product.customizations}}
+                            {{{dynamicComponent 'components/products/customizations'}}}
+                        {{/each}}
+                   
+
+                    <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}" style="display:none;">
+                        <label class="form-label form-label--alternate">
+                            {{lang 'products.current_stock'}}
+                            <span data-product-stock id="showstock">{{product.stock_level}}</span>
+                        </label>
+                    </div>
+                    <div class="form-field form-field--stock">
+                        <label class="form-label form-label--alternate" id="showsimpleprodavail">
+                            Stock Availability:
+                            {{#if product.stock_level }}
+                                <span>In Stock</span>
+                            {{else}}
+                              {{#if product.stock_level '===' undefined }}
+                                {{#if product.release_date }}
+                                  <span>{{product.release_date}}</span>
+                                  {{else}}
+                                  <span>Please email for further information</span>
+                                {{/if}}
+                             {{/if}}
+                            {{/if}}
+                        </label>
+                         <label class="form-label form-label--alternate" id="showvarprodavail" style="display:none;">
+                            Availability: <span id="vstock" style="display:none;">In Stock</span>
+                            <span id="vreleaseDt" style="display:none;">{{product.release_date}}</span>
+                            <span id="vemail" style="display:block;">Please Email</span>
+                        </label>
+                    </div>
+                    <a class="viewdescription" href="#tab-description-scroll">View Product Description</a>
+                     <div data-product-option-change style="display:none;">
+                        {{#each product.options}}
+                            {{{dynamicComponent 'components/products/options'}}}
+                        {{/each}}
+                    </div>
+                    
+                     <div>
+                    {{#if product.brand.name '===' 'Woodpeckers'}}
+                    <img src="https://store-nv2zhlgt3y.mybigcommerce.com/content/authorised/woodpeckers.svg" />
+                    <!--<img src="https://cdn11.bigcommerce.com/s-nv2zhlgt3y/images/stencil/original/image-manager/auth-woodpeckers-01.jpg" />-->
+                      {{else if product.brand.name '===' "Armor Tool"}}
+                      <img src="https://store-nv2zhlgt3y.mybigcommerce.com/content/authorised/armor.svg" />
+                       <!--<img src="https://cdn11.bigcommerce.com/s-nv2zhlgt3y/images/stencil/original/image-manager/armor-tool-brand-new.png?t=1704965702" />-->
+                     <!--<img src="https://cdn11.bigcommerce.com/s-nv2zhlgt3y/images/stencil/original/image-manager/auth-armor-01.jpg" />-->
+                    {{else if product.brand.name '===' "INCRA"}}
+                    <img src="https://store-nv2zhlgt3y.mybigcommerce.com/content/authorised/incra.svg" />
+                     <!--<img src="https://cdn11.bigcommerce.com/s-nv2zhlgt3y/images/stencil/original/image-manager/auth-incra-01.jpg" />-->
+                     {{else if product.brand.name '===' "Micro Jig"}}
+                     <img src="https://store-nv2zhlgt3y.mybigcommerce.com/content/authorised/microjig.svg" />
+                     <!--<img src="https://cdn11.bigcommerce.com/s-nv2zhlgt3y/images/stencil/original/image-manager/auth-microjig-01.jpg" />-->
+                      {{else if product.brand.name '===' "Milescraft"}}
+                      <img src="https://store-nv2zhlgt3y.mybigcommerce.com/content/authorised/milescraft.svg" />
+                     <!--<img src="https://cdn11.bigcommerce.com/s-nv2zhlgt3y/images/stencil/original/image-manager/auth-milescraft-01.jpg" />-->
+                      {{else if product.brand.name '===' "JessEm"}}
+                      <img src="https://store-nv2zhlgt3y.mybigcommerce.com/content/authorised/jessem.svg" />
+                     <!--<img src="https://cdn11.bigcommerce.com/s-nv2zhlgt3y/images/stencil/original/image-manager/auth-jessem-01.jpg" />-->
+                      {{else if product.brand.name '===' "iGaging"}}
+                      <img src="https://store-nv2zhlgt3y.mybigcommerce.com/content/authorised/igaging.svg" />
+                     <!--<img src="https://cdn11.bigcommerce.com/s-nv2zhlgt3y/images/stencil/original/image-manager/auth-igaging-01.jpg" />-->
+                     {{else}}
+                    {{#or (if product.brand.name '===' 'Ashley Iles') (if product.brand.name '===' 'Clifton') (if product.brand.name '===' 'Thomas Flinn') (if product.brand.name '===' 'Joseph Marples') (if product.brand.name '===' 'Shield Technology') (if product.brand.name '===' 'Swann Morton') (if product.id '===' '2286')  (if product.id '===' '2285') (if product.id '===' '2443')  (if product.id '===' '2444')  (if product.id '===' '2439') }}
+                    <img src="https://store-nv2zhlgt3y.mybigcommerce.com/content/authorised/Made-in-Britain.jpg" />
+                    {{/or}}
+                    {{/if}}
+                </div>
+                    
+                    
+                    {{#if product.can_purchase}}
+                         {{> components/products/add-to-cart}}
+                    {{/if}}
+                    
+                    {{#if product.out_of_stock}}
+                        <div class="form-action">
+                             {{#if product.out_of_stock_message}}
+                                <div class="button" disabled>{{{product.out_of_stock_message}}}</div>
+                            {{else}}
+                                <div class="button" disabled>{{lang 'products.sold_out'}}</div>
+                            {{/if}}
+                            <!--{{#if product.out_of_stock_message}}-->
+                            <!--<input id="form-action-addToCart" data-wait-message="{{lang 'products.adding_to_cart'}}" class="button" type="submit"-->
+                            <!-- value="{{lang 'products.pre_order'}}">-->
+                                <!--<div class="button" disabled>{{{product.out_of_stock_message}}}</div>-->
+                            <!--{{else}}-->
+                            <!--    <div class="button" disabled>{{lang 'products.sold_out'}}</div>-->
+                                
+                            <!--{{/if}}-->
+                        </div>
+                    {{/if}}
+                </form>
+                <!--{{#if settings.show_wishlist}}-->
+                <!--    {{> components/common/wishlist-dropdown}}-->
+                <!--{{/if}}-->
+            </div>
+            {{#if theme_settings.product_viewingProduct}}
+                <div class="viewing-product">
+                    <svg class="icon"><use xlink:href="#icon-eye"></use></svg>5 customers are viewing this product
+                </div>
+            {{/if}}
+            <div id="tab-description-scroll" style="font-size:0px">scroll</div>
+            {{> components/common/share}}
+
+            {{> components/themevale/product/securityImage}}
+            
+            <!--<span>Test - T {{product.price.with_tax.value}}</span>-->
+            <!--<div -->
+            <!--    data-pp-message-->
+            <!--    data-pp-style-layout="text"-->
+            <!--    data-pp-style-logo-type="inline"-->
+            <!--    data-pp-style-text-color="black"-->
+            <!--    data-pp-amount="{{product.price.with_tax.value}}">-->
+            <!--</div>-->
+             <div 
+                data-pp-message
+                 data-pp-style-text-color="black"
+                data-pp-amount="{{product.price.with_tax.value}}">
+            </div>
+            {{{snippet 'product_details'}}}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    {{> components/themevale/themevale-fbt}}
+    
+    {{> components/products/grid products=customer.recently_viewed_products.items show_compare=customer.recently_viewed_products.show_compare}}
+   
+    {{#if theme_settings.themevale_sticky-add-to-cart}}
+        {{> components/themevale/product/sticky-add-to-cart}}
+    {{/if}}
+</div>
+{{#if theme_settings.themevale_ask_an_expert}}
+    {{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 1'}}
+        {{> components/themevale/ask-an-expert}}
+    {{/if}}
+{{/if}}
+
+{{> components/themevale/modals/video-gallery-pc product.videos}}
+
+<div id="previewModal" class="modal" data-reveal>
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=AX5LlMSie-CntS9OUvM-oVM9hncyLSYQFkPes4jlulviqsFdutx16IL3SgZ5MgPaCQFSGxmzf61gVpsC&currency=GBP&components=messages" 
+data-namespace="PayPalSDK">
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+         var jsContext = JSON.parse({{jsContext}});
+         console.log(jsContext,"jsContext");
+   if (typeof jsContext.productSc.custom_fields != undefined && jsContext.productSc.custom_fields != null && jsContext.productSc.custom_fields != "") {   
+        if (jsContext.productSc.custom_fields.length > 0) {
+             $.each(jsContext.productSc.custom_fields, function (key, val) {
+                console.log(key,"key",val,"value");
+                if(val.name === "freebutton"){
+                     if(val.value == 1){
+                         $("#free-extra").attr("style","display:block;")
+                         $("#free-extra").text('Updated content');
+                     }
+                }
+                if(val.name === "freebuttonlabel"){
+                     if(val.value   !='' ){
+                         $("#free-extra").text(val.value);
+                     }
+                }
+            });
+        }
+   }
+    if (typeof jsContext.productSc.options != undefined && jsContext.productSc.options != null && jsContext.productSc.options != "") {       
+            if (jsContext.productSc.options.length > 0) {
+                $("#cartoptions").attr("style", "display:block");
+                $("#cartsimple").attr("style", "display:none");                
+                $("#showsimpleprodavail").attr("style", "display:none;");
+                $("#showvarprodavail").attr("style", "display:flex;");
+            } else {
+                $("#cartoptions").attr("style", "display:none");
+                $("#cartsimple").attr("style", "display:block");
+                $("#showsimpleprodavail").attr("style", "display:block;");
+                $("#showvarprodavail").attr("style", "display:none;");
+            }
+        } else {
+            $("#cartoptions").attr("style", "display:none");
+            $("#cartsimple").attr("style", "display:block");
+            $("#showsimpleprodavail").attr("style", "display:block;");
+            $("#showvarprodavail").attr("style", "display:none;");
+        }
+
+
+        $('body .productView-options').on('change', '.form-select', function (event) {
+               // event.preventDefault();
+                setTimeout(function () {
+                    var s1 = $("#showstock").text();
+                    if (typeof s1 != undefined && s1 != null && s1 != "") {
+                        var s2 = parseInt(s1);
+                       
+                        if (s2 > 0) {
+                            $(".variationsimpleordercart").attr("style", "display:block");
+                            $(".variationpreordercart").attr("style", "display:none");
+                            showavailabilityvaraint(1);
+                        } else {
+                            $(".variationsimpleordercart").attr("style", "display:none");
+                            $(".variationpreordercart").attr("style", "display:block");
+
+                            if (typeof jsContext.productSc.release_date != undefined && jsContext.productSc.release_date != null && jsContext.productSc.release_date != "") {
+                                showavailabilityvaraint(2);
+                            } else {
+                                showavailabilityvaraint(3);
+                            }
+                        }
+                    } else {
+                        $(".variationsimpleordercart").attr("style", "display:none");
+                        $(".variationpreordercart").attr("style", "display:block");
+                        if (typeof jsContext.productSc.release_date != undefined && jsContext.productSc.release_date != null && jsContext.productSc.release_date != "") {
+                            showavailabilityvaraint(2);
+                        } else {
+                            showavailabilityvaraint(3);
+                        }
+                    }
+                   }, 2000);
+            });
+
+        $('body .productView-options').on('click', '.form-radio', function (event) {
+                 // event.preventDefault();
+                   setTimeout(function() {
+                       var s1 = $("#showstock").text();
+                    if (typeof s1 != undefined && s1 != null && s1 != "") {
+                        var s2 = parseInt(s1);
+                        if (s2 > 0) {
+                            $(".variationsimpleordercart").attr("style", "display:block");
+                            $(".variationpreordercart").attr("style", "display:none");
+                            showavailabilityvaraint(1);
+                        } else {
+                            $(".variationsimpleordercart").attr("style", "display:none");
+                            $(".variationpreordercart").attr("style", "display:block");
+                            if (typeof jsContext.productSc.release_date != undefined && jsContext.productSc.release_date != null && jsContext.productSc.release_date != "") {
+                                showavailabilityvaraint(2);
+                            } else {
+                                showavailabilityvaraint(3);
+                            }
+                        }
+                    } else {
+                        $(".variationsimpleordercart").attr("style", "display:none");
+                        $(".variationpreordercart").attr("style", "display:block");
+                         if (typeof jsContext.productSc.release_date != undefined && jsContext.productSc.release_date != null && jsContext.productSc.release_date != "") {
+                            showavailabilityvaraint(2);
+                        } else {
+                            showavailabilityvaraint(3);
+                        }
+                    }
+                   }, 1);
+
+             });
+
+        $('body .productView-options').on('click', '.form-option', function (event) {
+          //  event.preventDefault();
+                   setTimeout(function() {
+                       var s1 = $("#showstock").text();
+
+                    if (typeof s1 != undefined && s1 != null && s1 != "") {
+                        var s2 = parseInt(s1);
+                        if (s2 > 0) {
+                            $(".variationsimpleordercart").attr("style", "display:block");
+                            $(".variationpreordercart").attr("style", "display:none");
+                            showavailabilityvaraint(1);
+                        } else {
+                            $(".variationsimpleordercart").attr("style", "display:none");
+                            $(".variationpreordercart").attr("style", "display:block");
+                            if (typeof jsContext.productSc.release_date != undefined && jsContext.productSc.release_date != null && jsContext.productSc.release_date != "") {
+                                showavailabilityvaraint(2);
+                            } else {
+                                showavailabilityvaraint(3);
+                            }
+                        }
+                    } else {
+                        $(".variationsimpleordercart").attr("style", "display:none");
+                        $(".variationpreordercart").attr("style", "display:block");
+                         if (typeof jsContext.productSc.release_date != undefined && jsContext.productSc.release_date != null && jsContext.productSc.release_date != "") {
+                            showavailabilityvaraint(2);
+                        } else {
+                            showavailabilityvaraint(3);
+                        }
+                    }
+                   }, 1);
+
+             });
+
+       });
+
+    function showavailabilityvaraint(sparam) {
+
+        if (sparam == 1) {
+            $("#vstock").attr("style", "display:block;");
+            $("#vreleaseDt").attr("style", "display:none;");
+            $("#vemail").attr("style", "display:none;");
+        }
+        if (sparam == 2) {
+            $("#vstock").attr("style", "display:none;");
+            $("#vreleaseDt").attr("style", "display:block;");
+            $("#vemail").attr("style", "display:none;");
+        }
+        if (sparam == 3) {
+            $("#vstock").attr("style", "display:none;");
+            $("#vreleaseDt").attr("style", "display:none;");
+            $("#vemail").attr("style", "display:block;");
+        }
+
+    }
+</script>
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        var x = document.querySelectorAll(".imgdownload");-->
+<!--        console.log(x,"Images path");-->
+<!--    });-->
+    
+<!--    function productinfo(sparam){-->
+<!--        console.log(JSON.stringify(sparam),"sparam");-->
+<!--    }-->
+    
+<!--    function myFunction(x) {-->
+      <!--if (x.matches) { // If media query matches-->
+<!--        $('#mobslider').attr('style','display:block;');-->
+<!--        $('#deskslider').attr('style','display:none;');-->
+<!--      } else {-->
+<!--        $('#deskslider').attr('style','display:block;');-->
+<!--         $('#mobslider').attr('style','display:none;');-->
+<!--      }-->
+<!--   }-->
+<!--</script>-->

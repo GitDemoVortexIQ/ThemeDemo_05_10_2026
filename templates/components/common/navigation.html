@@ -1,0 +1,25 @@
+<nav class="navUser">
+    <div class="container">
+        <div class="navUser--left"></div>
+        <div class="navUser--right">
+            <!--<div class="navUser-item">
+                <span>FAQs</span>
+            </div>-->
+            <div class="navUser-item">
+                <a class="navUser-action" href="/account.php?action=order_status">My Orders</a>
+            </div>
+            <div class="navUser-item">
+                <a class="navUser-action" href="/about-us/">About Us</a>
+            </div>
+            <div class="navUser-item">
+                <a class="navUser-action" href="/blog/tag/News">Blog</a>
+            </div>
+            <div class="navUser-item">
+                <a class="navUser-action" style="text-transform:none;" href="{{urls.gift_certificate.purchase}}">{{lang 'common.gift_cert'}}</a>
+            </div>
+            <div class="navUser-item">
+                {{> components/common/currency-selector}}
+            </div>
+        </div>
+    </div>
+</nav>

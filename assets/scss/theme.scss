@@ -1,0 +1,905 @@
+// =============================================================================
+// STENCIL
+// =============================================================================
+
+
+// Tools
+// -----------------------------------------------------------------------------
+//
+// 1. Import Citadel's toolkit for use.
+//
+// -----------------------------------------------------------------------------
+
+@import "../../node_modules/@bigcommerce/citadel/dist/tools/toolkit"; // 1
+@import "tools/tools";
+
+// Settings
+// -----------------------------------------------------------------------------
+//
+// 1. Stencil global settings get imported first.
+// 2. Import all Citadel and Foundation settings.
+// 3. Import Citadel's version of foundation.
+//      - This enables the ability to "null" variables in the Stencil settings.
+// 4. Import Stencil's component settings overrides.
+// 5. Import tools which set/reset Citadel's global settings, to be consumed by
+//    the rest of Stencil.
+//
+// -----------------------------------------------------------------------------
+
+@import "settings/global/global"; // 1
+
+@import "../../node_modules/@bigcommerce/citadel/dist/settings/global/global"; // 2
+
+@import "settings/global/tools"; // 5
+
+@import "../../node_modules/@bigcommerce/citadel/dist/settings/normalize/normalize"; // 2
+@import "../../node_modules/@bigcommerce/citadel/dist/settings/foundation/foundation"; // 2
+@import "../../node_modules/@bigcommerce/citadel/dist/settings/bigcommerce/bigcommerce"; // 2
+
+@import "../../node_modules/@bigcommerce/citadel/dist/vendor/foundation/foundation"; // 3
+
+@import "settings/normalize/normalize"; // 4
+@import "settings/vendor/vendor"; // 4
+@import "settings/foundation/foundation"; // 4
+@import "settings/citadel/citadel"; // 4
+@import "settings/stencil/stencil"; // 4
+@import "settings/layouts/layouts"; // 4
+
+// Utilities
+// -----------------------------------------------------------------------------
+
+@import "utilities/utilities";
+@import "../../node_modules/@bigcommerce/citadel/dist/utilities/utilities";
+
+
+// Fonts
+// -----------------------------------------------------------------------------
+
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700');
+
+// Library
+// -----------------------------------------------------------------------------
+
+@import "vendor/animate";
+@import "vendor/fancybox";
+
+
+// Components
+// -----------------------------------------------------------------------------
+//
+// 1. Import Citadel's normalize dependency.
+// 2. Import Citadel's components.
+// 2. Import Stencil's component additions and custom components.
+//
+// -----------------------------------------------------------------------------
+
+@import "../../node_modules/@bigcommerce/citadel/dist/vendor/normalize/normalize"; // 1
+@import "../../node_modules/@bigcommerce/citadel/dist/components/components"; // 2
+@import "components/components"; // 3
+
+
+// Layouts
+// -----------------------------------------------------------------------------
+//
+// 1. Stencil design layout files (example: Header or Footer).
+//
+// -----------------------------------------------------------------------------
+
+@import "layouts/layouts"; // 1
+
+@import "vendor/jstree/style";
+
+@import "custom";
+
+
+.banner-promotion .text ul {
+	display: flex;
+    margin: 0;
+    list-style: none;
+}
+
+.banner-promotion .text ul li {
+margin: 0 5px;
+padding: 0 5px;
+font-size: 15px;
+}
+
+// .banner-promotion .text ul li span {
+// 	display:block;
+// }
+
+.banner-promotion .text ul li a {
+    color: #fff;
+}
+
+.banner-promotion .text ul li img {
+        position: relative;
+    left: -5px;
+    top: -3px;
+}
+
+.heroCarousel-content .button {
+    border-radius: 0;
+}
+
+/*#menu .imageTop .cateArea>ul>li>.navPage-subMenu-action span {
+    color: #adad39;
+}*/
+
+.navPages .navPages-item:hover {
+    background-color: #38393c;
+}
+
+#menu .imageTop .cateArea>ul>li>.navPage-subMenu-action {
+/*    font-weight: 400;*/
+    border-bottom: 0;
+}
+
+.navPage-subMenu-action.navPages-action.navPages-action-depth-max.has-subMenu {
+    border-bottom: 1px solid #eee !important; 
+}
+
+a.navPage-subMenu-action.navPages-action:hover span.text {
+    color: #adad39 !important;
+}
+
+.navPages .navPage-subMenu-action .text:before {
+    display: none;
+}
+
+/*.navPage-subMenu-action.navPages-action.navPages-action-depth-max.has-subMenu a.text {
+    font-weight: 700;
+}
+*/
+
+.themevale_productsByCategoryId .productCarousel-slide .card-title {
+    min-height: 47px;
+    font-weight: 700;
+    line-height: 1.4;
+    font-size: 13px;
+    max-height: 47px;
+}
+
+// .price-section--minor {
+//     color: #f04723;
+// }
+
+/*.themevale_productsByCategoryId .price-section.price-section--withTax {
+    text-decoration: line-through;
+    color: #999;
+}*/
+
+#themevale_customBanner h2.page-heading {
+    padding-top: 20px;
+    margin: 0;
+    position: relative;
+    top: 8px;    
+}
+
+.themevale_productsByCategoryId .productCarousel-slide .card-brand {
+    text-transform: capitalize;
+}
+
+.themevale_productsByCategoryId.layout-2 .tabs.tabs-custom {
+    text-align: left;
+}
+
+.themevale_productsByCategoryId.layout-2 .tabs.tabs-custom li:first-child {
+    margin-left: 0;
+}
+
+.video-wrapper .video-content {
+    position: static;
+    padding: 15px 20px;
+    background: #38393c;
+}
+
+.video-wrapper .video-content .description {
+    font-weight: 400;
+    min-height: 40px;
+    white-space: break-spaces;
+    font-size: 16px;
+}
+
+.tabs-contents .card-price-wrapper.card-price-sale .card-price {
+    display: block;
+    flex-wrap: wrap;
+    line-height: 1.3;
+}
+
+.card-price abbr {
+    font-size: 80%;
+    text-decoration: none;
+}
+
+.card-price {
+    font-size: 16px;
+}
+
+.themevale_productsByCategoryId.layout-2 h2.page-heading {
+    text-align: left;
+}
+
+.themevale_productsByCategoryId.layout-2 a.themevale_link {
+    color: #000 !important;
+    margin-right: 0;
+}
+
+.themevale_productsByCategoryId.layout-2 a.themevale_link:hover {
+    color: #adad39 !important;
+}
+
+.tabs-contents .price-section.price-section--withTax.non-sale-price--withTax {
+    margin-right: 5px !important;
+}
+
+/*
+.tabs-contents .price-section.price-section--withTax {
+    margin-right: 40px !important;
+}*/
+
+.card-price .price-section.price-none+.price-section--withoutTax,
+.card-price .price-section.non-sale-price--withoutTax {
+    color: #f04723;
+}
+
+.card-price .price-section.price-none+.price-section--withoutTax {
+    display: block;
+    padding-top: 5px;
+}
+
+.card-price-wrapper {
+    white-space: inherit;
+}
+
+.card-price .price-section.price-section--withoutTax,
+.card-price .price-section.non-sale-price--withoutTax {
+    padding-top: 5px;
+}
+
+.themevale_page-heading-wrapper.text-center a.themevale_link {
+    margin-right: 0;
+}
+
+.price-wrap2 {
+    width: 100%;
+}
+
+.themevale_productsByCategoryId.layout-2 .card:hover .card-buttonGroup,
+.themevale_productsByCategoryId.layout-2 .card:hover .card-compare,
+.themevale_productsByCategoryId.layout-2 .card:hover .card-img-container:before {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.page-type-default.themevale_loading.pace-done.themevale_navigationHover .themevale_background {
+    opacity: 0;
+}
+
+/* starts */
+@media (min-width: 551px) {
+    .heroCarousel-content .heroCarousel-description {
+        margin: 0 0 35px 0;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .heroCarousel-content .heroCarousel-title {
+        margin-bottom: 15px;
+    }
+
+    .heroCarousel-content .button {
+        font-weight: 400;
+    }
+}
+
+
+@media (min-width: 801px) {
+    .card-figcaption a.button {
+        padding: 8px 15px 8px 15px;
+        text-align: center;
+    }
+
+}
+
+
+@media (min-width: 1025px) {
+    .video-wrapper .video-content .title {
+        font-size: 18px;
+    }
+
+    .tabs.tabs-custom .tab .tab-title {
+        font-size: 18px;
+    }
+    
+    .category-card .category-img-container:before {
+		background-color: rgba(0,0,0,.5);
+	}
+
+    .category-card .title {
+        font-size: 22px;
+        overflow: visible;
+    }
+
+    .category-card .description {
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .category-card .category-button .button--primary {
+        border-radius: 0;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .featured-card .featured-img-container img.lazyloaded {
+        width: auto;
+    }
+
+    .featured-card .featured-img-container {
+        text-align: right;
+    }
+
+    .featured-card:hover .title {
+        color: #fff;
+    }
+
+    // .title-sec .category-button {
+    //     bottom: 90px!important;
+    // }
+
+    .featured-card {
+        width: auto;
+    }
+}
+
+@media (min-width: 1300px) {
+    .themevale_productsByCategoryId.layout-2 .productCarousel .slick-arrow.slick-next {
+        right: -40px;
+    }
+
+    .themevale_productsByCategoryId.layout-2 .productCarousel .slick-arrow.slick-prev {
+        left: -40px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .video-wrapper .video-content .description {
+        white-space: break-spaces;
+        line-height: normal;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .heroCarousel-slide:after {
+        display: none;
+    }
+
+    .heroCarousel-image-wrapper {
+        position: relative;
+    }
+
+    .heroCarousel-image-wrapper:after {
+        content: '';
+        background: rgba(0,0,0,.55);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        padding-top: 0;    
+    }
+}
+
+
+@media (max-width: 700px) {
+.banner-promotion .text ul li {
+    font-size: 15px;
+    margin: 0;
+    position: relative;
+    padding: 0;
+}    
+
+.banner-promotion .text ul li:nth-child(2) {
+    display: none;
+}
+
+.banner-promotion .text ul {
+    font-size: 0;
+    display: block;
+}
+
+.banner-promotion .text {
+    line-height: normal;
+    text-align: left;
+}
+
+.banner-promotion .text ul li:first-child {
+    position: relative;
+    left: -30px;
+}
+
+.banner-promotion .text ul li img {
+    position: absolute;
+    left: -40px;
+    top: 5px;
+}
+
+.banner-promotion .text ul li span {
+    display: block;
+}
+
+.banner-promotion .text ul li {
+    margin-bottom: 5px;
+}
+.banner-promotion {
+    text-align: left;
+    padding-left: 35px;
+}
+}
+
+@media (max-width: 550px) {
+    .heroCarousel-image-wrapper .heroCarousel-titleMobile,
+    .heroCarousel-title.heroCarousel-titleMobile,
+    .heroCarousel-image-wrapper .heroCarousel-title.heroCarousel-titleMobile {
+        visibility: hidden !important;
+        display: none !important;
+    }
+
+    .heroCarousel .slick-slide .container.heroCarousel-content-wrapper .heroCarousel-title {
+        visibility: visible !important;
+        display: block !important;
+    }
+
+    .heroCarousel-image-wrapper .heroCarousel-image {
+        height: 100%;
+        width: 100%;
+        position: static;
+        transform: translateX(0%);
+        display: block;
+    }
+
+    .heroCarousel-image-wrapper:after {
+        display: none;
+    }
+
+}
+
+@media (max-width: 374px) {
+    .banner-promotion .text ul li {
+        font-size: 13px;
+    }
+
+    .heroCarousel-content .heroCarousel-description {
+        font-size: 16px;
+    }
+
+    .heroCarousel-content .heroCarousel-title {
+        font-size: 18px;
+    }
+}
+
+.about-us{
+    font-size: 16px;
+    // text-align: justify;
+    text-align: left;
+    line-height: 1.625;
+}
+
+.navBar-section .navBar-item.is-active .navBar-action {
+    color: #383e46;
+    background-color: #fff;
+}
+
+.navBar-section .navBar-item .navBar-action, .navBar-section .navBar-item>a {
+    color: #fff;
+    background-color: #b5b54c;
+}
+.gift_certificate-page .gift-certificate-form .form-actions #gift-certificate-submit{
+    background-color: #b5b54c;
+    border:none;
+    text-transform: uppercase;
+}
+.gift_certificate-page .gift-certificate-form .form-actions #gift-certificate-submit:hover{
+    background-color: #fff;
+    border: 1px solid #38393c;
+}
+.gift_certificate-page .gift-certificate-form .form-actions .button--transparent:hover{
+    background-color: #b5b54c;
+    color:#fff;
+    border:none;
+}
+.gift_certificate-page .form-prefixPostfix .button.form-prefixPostfix-button--postfix{
+    background-color: #b5b54c;
+    border:none;
+    text-transform: uppercase;
+}
+.gift_certificate-page .form-prefixPostfix .button.form-prefixPostfix-button--postfix:hover{
+    background-color: #fff;
+    border: 1px solid #38393c;
+}
+.themevale_contact-us .themevale_form .form-actions .button{
+    background-color: #b5b54c;
+    border:none;
+    text-transform: uppercase;
+}
+.themevale_contact-us .themevale_form .form-actions .button:hover{
+    background-color: #fff;
+    border: 1px solid #38393c;
+}
+
+
+@media (min-width: 700px) {
+    span.text img {
+        position: relative;
+        top: -2px;
+        left: -3px;    
+    }    
+}
+
+span.text span.divider {
+    display: inline-block;
+    padding: 0 10px 0 15px;
+}
+
+@media (max-width: 699px) {
+    span.text a {
+        display: block;
+        padding-left: 20px;
+    }
+
+    span.text {
+        text-align: left !important;
+        font-size: 0;
+    }
+
+    span.text span.divider {
+        display: none;
+    }
+
+    span.text img {
+        margin-left: 10px;
+        position: relative;
+        top: -2px;
+    }
+    .free-extra span.text {
+        font-size: 14px!important;
+    }
+
+}
+
+@media (max-width: 410px) {
+    span.text,
+    span.text a {
+        font-size: 14px !important;
+    }    
+}
+
+@media (max-width: 360px) {
+    span.text a {
+        padding-left: 15px;
+    }
+    span.text img {
+        margin-left: 5px;
+    }
+}
+
+@media (max-width: 350px) {
+    span.text, span.text a {
+        font-size: 13px!important;
+    }    
+
+    span.text a {
+        padding-left: 10px;
+    }
+
+    span.text img {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 340px) {
+    span.text, span.text a {
+        letter-spacing: -0.3px;
+    }     
+}
+
+.themevale_location .title {
+    font-size: 16px;
+}
+
+.page-sidebar .sidebarBlock .recentPost-sidebar .title:hover{
+    color:#323232;
+}
+.blog .blog-post-body div{
+    font-size: 16px;
+}
+#consent-manager span{
+    font-size:16px !important;
+}
+@media (max-width: 958px) and (min-width:362px){
+.themevale_bottomFooter:last-child{
+    margin-bottom: 45px !important;
+}
+}
+@media (max-width: 361px){
+.themevale_bottomFooter:last-child{
+    margin-bottom: 70px !important;
+}
+}
+.css-7xc4dj{
+    font-size:16px !important;
+}
+.css-1s4cc41{
+    font-size:16px !important;
+}
+.css-1k76mzs{
+    background-color: #b5b54c !important;
+    border:none !important;
+    text-transform: uppercase;
+}
+.css-a0j149{
+    background-color: #b5b54c!important;
+    border:none!important;
+    text-transform: uppercase;
+    color:#fff !important;
+}
+.css-1k76mzs:hover{
+    background-color: #fff!important;
+    border: 1px solid #38393c !important;
+    color:#38393c !important;
+}
+.css-a0j149:hover{
+    background-color: #fff !important;
+    border: 1px solid #38393c !important;
+    color:#38393c !important;
+}
+.css-3e0hge{
+    background-color: #b5b54c !important;
+    border:none !important;
+    text-transform: uppercase;
+}
+.css-3e0hge:hover{
+    background-color: #fff !important;
+    border: 1px solid #38393c !important;
+    color:#38393c !important;
+}
+.css-1zvabp{
+    background-color: #b5b54c !important;
+    border:none !important;
+    text-transform: uppercase;
+    color:#fff !important;
+}
+.css-1zvabp:hover{
+    background-color: #fff !important;
+    border: 1px solid #38393c !important;
+    color:#38393c !important;
+}
+.sub-category .content .description{
+    font-size:16px;
+}
+
+.themevale_subCategory .sub-category .title .text:before,
+.themevale_subCategory .sub-category .title:hover .text:before {
+    display: none;
+}
+.themevale_subCategory .sub-category .title:hover .count {
+    background-color: #b5b54c;
+    color:#fff;
+}
+@media (max-width: 550px){
+.blog-post iframe{
+    width:100% !important;
+}
+}
+@media (min-width: 900px){
+#blog-listing-container .blog-thumbnail>a {
+    height: 23rem;
+    //height: 15rem;
+}
+#blog-listing-container .blog .blog-post-figure .blog-thumbnail img{height:100%;}
+}
+.return-page-heading {
+    //font-size: 22px;
+    margin: 0 0 1rem;
+}
+@media (max-width:363px){
+.pagination .pagination-list .pagination-item--next{
+    margin-top: 10px;
+}
+}
+/*WWW-66*/
+.about-us .table th,
+.about-us .table td {
+    border: 1px solid #e5e5e5;
+}
+/*WWW-200*/
+@media (max-width: 800px){
+#themevale_blogs .themevale_blog_custom .recent-post .blog-post>a {
+    display: contents !important;
+    text-transform: capitalize;
+}
+}
+/*WWW-68*/
+.themevale_faq .contact-us-faq span {
+    font-size: 16px;
+}
+#faceted-search-container2 .sidebarBlock-content{
+    font-size: 16px;
+}
+.sidebarBlock-content span{
+    font-size: 16px;
+}
+.accordion.accordion--List .accordion-title:hover{
+    background-color: #adad39!important;
+}
+.accordion-block.is-open .accordion-title {
+    color: #fff;
+    background-color: #adad39!important;
+}
+/*WWW-209*/
+.navPages .navPages-item>.navPages-action {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    padding: 15px 16px;
+}
+/*WWW-210*/
+.navPages .navPage-subMenu-action .text {
+    color: #323232 !important;
+    font-size: 16px;
+    font-weight: 700;
+    
+}
+.navPages .navPages-item ul.navPage-subMenu-list a span{
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+/*WWW-208*/
+/*.themevale_breadcrumbCategory,
+.category-banner{
+    background-color: #fff !important;
+}*/
+#themevale_brandsImage {
+    border-top: none !important;
+}
+.themevale_subCategory {
+    border-bottom: none !important;
+}
+.static-breadcrumbs{
+    text-transform: capitalize;
+}
+/*WWW-78*/
+.blog .blog-thumbnail>a {
+    display: block !important;
+}
+// .blog .blog-post-figure .blog-thumbnail img{
+//     width:100% !important;
+// }
+.blog-post .button{
+    margin-top: 0px !important;
+}
+.blog-post-body .tag a{
+    border-radius: 20px !important;
+}
+/*WWW-203*/
+.themevale_search #search_query{
+    font-size: 16px;
+}
+/*WWW-204*/
+.navUser--right .navUser-item .navUser-action{
+    font-size: 14px !important;
+}
+/*WWW-205*/
+.form-prefixPostfix #nl_email{
+    font-size: 16px;
+}
+.themevale_footer-info .footer-info-col{
+    font-size: 16px;
+}
+.store-phone .ask_an_expert{
+    font-size: 16px;
+}
+
+
+/*WWW-206*/
+.card-figcaption a.button {
+    padding: 15px 0px !important;
+}
+.blog-post .button {
+    padding: 15px !important;
+}
+@media (min-width: 767px){
+    .blog-listing .blog {
+        padding-bottom: 60px;
+    }
+}
+
+.button{
+    font-weight: 400 !important;
+    height: 46px !important;
+    border-radius: 3px !important;
+    font-size: 16px !important;
+}
+.footer-layout-3 .footer-info-list .ask_an_expert {
+    padding: 11px 20px !important;
+}
+.heroCarousel-content .button{
+    padding: 15px 35px !important;
+}
+.category-card .category-button .button{
+    padding: 15px 35px !important;
+}
+
+/*WWW-211*/
+.all-categories-list .dropdown-category-list .navPage-subMenu-item a {
+    font-size: 16px !important;
+}
+.all-categories-list .navPages-item a {
+    font-size: 16px !important;
+}
+.page-sidebar .accordion--navList ul>li>a{
+    font-size: 16px !important;
+}
+.form-input--small { 
+    font-size: 16px !important;
+}
+.previewCartCheckout .button--primary {
+    padding: 15px 15px 15px 15px !important;
+}
+.category-image.img-brands{
+    display: none;
+}
+.footer .form-prefixPostfix .button {
+    border-radius: 3px !important;
+}
+.customerEmail-container .customerEmail-action #checkout-customer-continue{
+    font-weight: 400;
+    font-size: 16px;
+    height: 46px;
+}
+.jdgm-widget-actions-wrapper .jdgm-write-rev-link {
+    padding: 12px 35px 12px 35px!important;
+    height: 46px;
+}
+#checkout-payment-continue:hover{
+    color: #000 !important;
+    background: #fff !important;
+    border-color: #000 !important;
+}
+
+/*SUPT-9763*/
+table.delivery-fee tr td {
+    padding: 15px 5px;
+}
+
+/*SUPT-9813*/
+
+#themevale_customBanner .themevale_Banner,
+#themevale_customBanner{
+    display: none;
+}
+
+header.header.themevale_header-layout-1.is-sticky {
+    top:44px;
+}
+
+[data-content-region="header_top_promotion--global" ] { 
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    animation-name: fadeInDown;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+@media (max-width: 578px){
+    
+  header.header.themevale_header-layout-1.is-sticky {
+    top:63px;
+   }
+} 
+
+/* end SUPT-9813*/

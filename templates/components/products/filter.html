@@ -1,0 +1,17 @@
+<div class="view-as-group actionBar">
+    <label class="form-label">{{lang 'common.view.view_as'}}</label>
+    <div class="view-as-btn">
+        <a href="javascript:void(0);" id="list-view" data-layout="productGrid--maxCol1" title="List View">
+            <svg class="icon-view"><use xlink:href="#icon-list"></use></svg></a>
+        <a href="javascript:void(0);" id="grid-view" data-layout="productGrid--maxCol3" title="Grid View 3">
+            <svg class="icon-view"><use xlink:href="#icon-list"></use></svg></a>
+        <a href="javascript:void(0);" id="grid-view-4" data-layout="productGrid--maxCol4" title="Grid View 4">
+            <svg class="icon-view"><use xlink:href="#icon-grid"></use></svg></a>
+    </div>
+</div>
+<form class="actionBar" method="get" data-sort-by data-show-products>
+    {{> components/category/show-products limit=limit}}
+</form>
+<form class="actionBar" method="get" data-sort-by>
+    {{> components/category/sort-box sort=sort}}
+</form>

@@ -1,0 +1,133 @@
+<footer class="footer footer-layout-3">
+    <div class="themevale_middleFooter">
+        <div class="container">
+            <div class="footer-info themevale_footer-info">
+                <div class="footer-info-col footer-dropdownmobile" data-section-type="footer-webPages">
+                    <h5 class="footer-info-heading">Wood Workers Workshop</h5>
+                    <ul class="footer-info-list">
+                        <!--<li class="store-address"><svg class="icon"><use xlink:href="#icon-location-2"></use></svg>{{nl2br settings.address}}</li>-->
+                        <li class="store-phone"><svg class="icon"><use xlink:href="#icon-telephone"></use></svg><p><a href="tel:{{settings.phone_number}}">{{settings.phone_number}}</a></p><a class="ask_an_expert button button--transparent" href="/contact-us/" >Ask an Expert</a></li>
+                        <li class="store-email"><img src="/product_images/uploaded_images/envelope-2.png" style="margin-left: -32px; padding-right: 14px;" alt=""/><a href="mailto:sales@woodworkersworkshop.co.uk">sales@woodworkersworkshop.co.uk</a></li>
+                        <li>
+                            
+                            {{> components/common/social-links}} 
+                            
+                       
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading">{{lang 'footer.shop'}}</h5>
+                    <ul class="footer-info-list">
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/search.php?section=content">Search</a>
+                        </li>
+                        <li>
+                            <a href="/about-us/">About Us</a>
+                        </li>
+						<li>
+                            <a href="/blog/">Blog</a>
+                        </li> 
+                        <li>
+                            <a href="/brands/">Brands</a>
+                        </li> 
+                        <li><a href="/blog/tag/videos">How to videos</a></li>
+                         <li><a href="/student-discount-scheme">Student Discount</a></li>
+                        <!--<li>-->
+                        <!--    <a href="/ebay-outlet-store/">eBay Outlet Store</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                        <!--    <a href="https://www.peterseftonfurnitureschool.com/" target="_blank">Wood Working Courses</a>-->
+                        <!--</li>-->
+						<li>
+                            <a href="/contact-us/">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile">
+                    <h5 class="footer-info-heading">{{lang 'footer.services'}}</h5>
+                    <ul class="footer-info-list">
+                        <!--<li><a href="/covid-update/">COVID-19 Update</a></li>-->
+                        <li><a href="/customer-service/">Customer Service</a></li>
+                        <li><a href="/delivery-policy/">Delivery </a></li>
+                        <li><a href="/returns-policy/">Returns </a></li>
+                        <li><a href="/privacy-cookie-policy/">Privacy & Cookie Policy</a></li>
+                        <li><a href="/company-info/">Company Information </a></li>
+                        <li><a href="/terms-of-conditions/">Terms & Conditions </a></li>                   
+                        <!--<li><a href="/blog/tag/videos">How to videos</a></li>-->
+                    </ul>
+                </div>
+                <div class="footer-info-col" data-section-type="newsletterSubscription">
+                    <!--{{#if settings.show_newsletter_box}}-->
+                    <!--    {{> components/common/subscription-form}}-->
+                    <!--{{/if}}-->
+                     <div class="klaviyo-form-QZJsx9"></div>
+                    <p style="padding-top:20px;">We score <span class='jdgm-all-reviews-rating'></span> out of 5 based on <span class='jdgm-all-reviews-count'></span> reviews.</p>
+                    <div class="themevale_securityImage">
+                        <ul>
+                            <li>
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-5.png" alt="">
+                            </li>
+                            <li>
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-2.png" alt="">
+                            </li>
+                            <li>
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-3.png" alt="">
+                            </li>
+                            <li>
+                                <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/security-4.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <div class="themevale_bottomFooter">
+        <div class="container">
+            <ul class="themevale_navigation_footer">
+                <!--<li>
+                    <a href="/faq">FAQs</a>
+                </li>-->
+                <li>
+                    <a href="/account.php?action=order_status">My Orders</a>
+                </li>
+                <li>
+                    <a href="/about-us/">About Us</a>
+                </li>
+                <li>
+                    <a href="/blog/">Blog</a>
+                </li>
+                 <li>
+                    <a href="/giftcertificates.php">e-Gift Cards</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="item">
+                {{#if theme_settings.show_copyright_footer}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">Copyright &copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+                    </div>
+                {{/if}}
+                {{#if theme_settings.show_powered_by}}
+                {{/if}}
+            </div>
+            <div class="item">
+                {{> components/common/payment-icons}}
+            </div>
+        </div>
+    </div>
+</footer>
+
+{{#if theme_settings.themevale_ask_an_expert}}
+    {{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 3'}}
+        {{> components/themevale/ask-an-expert}}
+    {{/if}}
+{{/if}}
+

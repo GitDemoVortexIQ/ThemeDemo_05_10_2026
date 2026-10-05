@@ -1,0 +1,59 @@
+{{#partial "hero"}}
+{{/partial}}
+{{{snippet 'home_content'}}}
+
+{{#partial "page"}}
+
+<div class="main full">
+    <div class="themevale_section_special">
+        <div class="container">
+            <div class="item-left">
+                {{#if carousel}}
+                    {{> components/carousel-2}}
+                {{/if}}
+
+                {{> components/themevale/homepage/component/catergory-custom-block}}
+                {{{region name="below_catergory_custom_block"}}}
+
+                {{#if products.new}}
+                    {{> components/themevale/homepage/component/new_products-2 products=products.new}}
+                    {{{region name="below_new_products"}}}
+                {{/if}}
+
+                {{#if products.featured}}
+                    {{> components/themevale/homepage/component/featured_products products=products.featured}}
+                    {{{region name="below_featured_products"}}}
+                {{/if}}
+            </div>
+            <div class="item-right">
+                <div class="item-right-child">
+                    {{> components/themevale/homepage/component/ajax-products-by-category-id-4 category_id=theme_settings.carousel-category-id}}
+                </div>
+                <div class="item-right-child">
+                    {{> components/themevale/homepage/component/ajax-products-by-category-id-5 category_id=theme_settings.carousel-category-id-3}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="themevale_section">
+        <div class="container">
+            {{> components/themevale/homepage/component/catergory-url-list}}
+            {{{region name="below_catergory_url_list"}}}
+
+            {{> components/themevale/homepage/component/catergory-url-3}}
+            {{{region name="below_catergory_url_list3"}}}
+
+            {{> components/themevale/homepage/component/banner-marketing-3}}
+            {{{region name="below_banner_marketing"}}}
+
+            {{> components/themevale/homepage/component/brands-image-grid-2}}
+            {{{region name="below_brands_image_grid"}}}
+        </div>
+    </div>
+    
+    {{> components/themevale/homepage/component/recent-post-list-3}}
+
+    {{> components/themevale/homepage/component/customer-review}}
+</div>
+{{/partial}}
+{{> layout/base}}

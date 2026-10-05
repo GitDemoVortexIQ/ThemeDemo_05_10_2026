@@ -1,0 +1,116 @@
+// =============================================================================
+// DROPDOWN (CSS)
+// =============================================================================
+
+
+.dropdown {
+    left: -9999px;
+    outline: none;
+    position: absolute;
+}
+
+.dropdown-menu {
+    &.is-loading .loadingOverlay {
+        background: none;
+        padding: (spacing("double") + spacing("single")) 0;
+        position: relative;
+    }
+
+    &.is-open {
+        display: block;
+    }
+}
+
+.dropdown-menu-item {
+    text-align: left;
+
+    &:first-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-top: spacing("half");
+        }
+    }
+
+    &:last-child {
+
+        // scss-lint:disable NestingDepth
+        > a {
+            padding-bottom: spacing("base");
+        }
+    }
+
+    > a {
+        margin: 0;
+        padding: spacing("sixth") (spacing("half") + spacing("quarter"));
+        text-decoration: none;
+    }
+}
+
+.form-wishlist {
+    position: relative;
+}
+
+.dropdown-menu-button {
+    width: 100%;
+
+    &.is-open {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .icon {
+        float: right;
+        margin-left: 10px;
+    }
+}
+
+.form-wishlist .dropdown-menu.is-open {
+    background: #ffffff;
+    left: auto !important;
+    top: auto !important;
+    max-width: none !important;
+    width: 100% !important;
+    position: absolute;
+    padding: 0;
+    margin-top: 10px;
+    border-radius: 3px;
+    &:before {
+        left: auto;
+        right: 22px;
+    }
+    &:after {
+        left: auto;
+        right: 24px;
+    }
+    &:focus {
+        outline: none;
+    }
+    > li + li {
+        border-top: 1px solid #eaeaea;
+    }
+    [data-wishlist] {
+        border-top: none;
+        margin-bottom: 0px;
+        width: 100%;
+    }
+    .button {
+        border: none;
+        padding: 10px 10px;
+        color: #323232;
+        background-color: transparent;
+        text-transform: capitalize;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        width: 100%;
+    }
+    .button--has-items {
+        font-weight: 700;
+    }
+    li:not(:last-child) .button {
+        border-bottom: none;
+        border-radius: 0px;
+        border-top: none;
+        margin-bottom: 0px;
+    }
+}

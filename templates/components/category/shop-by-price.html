@@ -1,0 +1,34 @@
+{{#if theme_settings.shop_by_price_visibility}}
+    <div class="sidebarBlock">
+        <!--<h5 class="sidebarBlock-heading">{{theme_settings.sidebar_allcategories-title}}</h5>-->
+         <h5 class="sidebarBlock-heading">SHOP BY PRICE</h5>
+        <ul class="navList">
+            {{#each shop_by_price}}
+            <li class="navList-item">
+                <a id="pricefilter" class="pricefilter navList-action {{#if selected }} is-active {{/if}}" href="{{url}}" title="{{low.formatted}} - {{high.formatted}}">{{low.formatted}} - {{high.formatted}}</a>
+            </li>
+            {{/each}}
+            {{#any shop_by_price selected=true}}
+                <li class="navList-item">
+                    <a href="{{category_url}}" class="navList-action">
+                        {{lang 'category.reset'}}
+                    </a>
+                </li>
+            {{/any}}
+        </ul>
+    </div>
+{{/if}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+      $('.pricefilter').attr('href', function(i,href) {
+         return href.replace('price_min', 'min_price');
+      });
+      
+       $('.pricefilter').attr('href', function(i,href) {
+         return href.replace('price_max', 'max_price');
+        
+      });
+    });
+</script>

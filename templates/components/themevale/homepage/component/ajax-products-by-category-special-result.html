@@ -1,0 +1,5 @@
+{{#each (limit category.products 4)}}
+<div class="item">
+    {{> components/products/card-3 theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist}}
+</div>
+{{/each}}

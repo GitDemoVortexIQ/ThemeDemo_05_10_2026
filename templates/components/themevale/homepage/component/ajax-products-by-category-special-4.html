@@ -1,0 +1,144 @@
+<div class="themevale_sectionChild padding-top-20">
+    <div class="themevale_sectionChild">
+    {{#each categories}}
+        {{#if id '==' ../category_id}}
+            <div class="themevale_productsByCategoryspecial">
+                <div class="themevale_page-heading-wrapper layout-2">
+                    <h2 class="page-heading">{{name}}</h2>
+                    <a class="themevale_link custom" href="{{url}}">View More</a>
+                </div>
+                <div class="themevale_content">
+                    <div class="themevale_productsByCategoryspecial_wrapper">
+                        <div class="sub_category">
+                            <ul class="sub_category-list">
+                                {{#each children}}
+                                    <li class="sub_category-item">
+                                        <a class="sub_category-action" href="{{url}}">{{name}}</a>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div class="marketting-banner">
+                            <div class="marketting-banner-carousel" 
+                                data-slick='{
+                                    "dots": true,
+                                    "arrows": false,
+                                    "slidesToShow": 1,
+                                    "slidesToScroll": 1,
+                                    "autoplay": true,
+                                    "infinite": true,
+                                    "autoplaySpeed": 3000
+                                }'>
+                                {{#if ../../theme_settings.themevale_category-id-width-banner-4-image-1}}
+                                    <div class="item">
+                                        <div class="banner-link">
+                                            <img class="banner-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{ ../../../theme_settings.themevale_category-id-width-banner-4-image-1}}" alt="">
+                                            <a href="{{url}}" class="link-url"></a>
+                                        </div>
+                                    </div>
+                                {{else}}
+                                <div class="item">
+                                    <div class="banner-link">
+                                        <img class="banner-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="https://via.placeholder.com/426x717" alt="">
+                                            <a href="{{url}}" class="link-url"></a>
+                                    </div>
+                                </div>
+                                {{/if}}
+                                {{#if ../../theme_settings.themevale_category-id-width-banner-4-image-2}}
+                                    <div class="item">
+                                        <div class="banner-link">
+                                            <img class="banner-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{../../../theme_settings.themevale_category-id-width-banner-4-image-2}}" alt="">
+                                            <a href="{{url}}" class="link-url"></a>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                {{#if ../../theme_settings.themevale_category-id-width-banner-4-image-3}}
+                                    <div class="item">
+                                        <div class="banner-link">
+                                            <img class="banner-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{../../../theme_settings.themevale_category-id-width-banner-4-image-3}}" alt="">
+                                            <a href="{{url}}" class="link-url"></a>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                            </div>
+                            <div class="marketting-banner-content">
+                                <h2 class="title">{{../../theme_settings.themevale_category-id-width-banner-4-title}}</h2>
+                                <p class="description">{{../../theme_settings.themevale_category-id-width-banner-4-text}}</p>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-demo-wrapper-mobile">
+                                <div class="product-demo-content">
+                                    <h2 class="title">{{../../theme_settings.themevale_category-special-banner-4-title}}</h2>
+                                    <p class="description">{{../../theme_settings.themevale_category-special-banner-4-text}}</p>
+                                    <a class="link" href="{{../../theme_settings.themevale_category-special-banner-4-url}}">{{../../theme_settings.themevale_category-special-banner-4-link}}
+                                        <svg class="icon"><use xlink:href="#icon-chevron-right"></use></svg></a>
+                                </div>
+                                <div class="product-demo-image">
+                                    {{#if ../../theme_settings.themevale_category-special-banner-4}}
+                                    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{../../../theme_settings.themevale_category-special-banner-4}}" alt="">
+                                    {{else}}
+                                    <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="https://via.placeholder.com/220x270" alt="">
+                                    {{/if}}
+                                    <a class="link-url" href="{{../../theme_settings.themevale_category-special-banner-4-url}}"></a>
+                                </div>
+                            </div>
+                            <div class="product-list" data-themevale-products-by-category-special="{{url}}">
+                                <div class="item item-2-col">
+                                    <div class="product-demo-wrapper">
+                                        <div class="product-demo-content">
+                                            <h2 class="title">{{../../theme_settings.themevale_category-special-banner-4-title}}</h2>
+                                            <p class="description">{{../../theme_settings.themevale_category-special-banner-4-text}}</p>
+                                            <a class="link" href="{{../../theme_settings.themevale_category-special-banner-4-url}}">{{../../theme_settings.themevale_category-special-banner-4-link}}
+                                                <svg class="icon"><use xlink:href="#icon-chevron-right"></use></svg></a>
+                                        </div>
+                                        <div class="product-demo-image">
+                                            {{#if ../../theme_settings.themevale_category-special-banner-4}}
+                                            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{../../../theme_settings.themevale_category-special-banner-4}}" alt="">
+                                            {{else}}
+                                            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="https://via.placeholder.com/220x270" alt="">
+                                            {{/if}}
+                                            <a class="link-url" href="{{../../theme_settings.themevale_category-special-banner-4-url}}"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="brands-image">
+                            <div class="brands-list">
+                                <div class="brand-item">
+                                    <a href="#"><img class="lazyload" src="https://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-vfv3gnutke/product_images/uploaded_images/brands-1.png" alt="" /></a> 
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img class="lazyload" src="https://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-vfv3gnutke/product_images/uploaded_images/brands-2.png" alt="" /></a> 
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img class="lazyload" src="https://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-vfv3gnutke/product_images/uploaded_images/brands-3.png" alt="" /></a> 
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img class="lazyload" src="https://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-vfv3gnutke/product_images/uploaded_images/brands-4.png" alt="" /></a> 
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img class="lazyload" src="https://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-vfv3gnutke/product_images/uploaded_images/brands-5.png" alt="" /></a> 
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img class="lazyload" src="https://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-vfv3gnutke/product_images/uploaded_images/brands-6.png" alt="" /></a> 
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img class="lazyload" src="https://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-vfv3gnutke/product_images/uploaded_images/brands-7.png" alt="" /></a> 
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img class="lazyload" src="https://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-vfv3gnutke/product_images/uploaded_images/brands-8.png" alt="" /></a> 
+                                </div>
+                                <div class="brand-item">
+                                    <a href="#"><img class="lazyload" src="https://caros-demo.mybigcommerce.com/content/loading.svg" data-src="https://cdn11.bigcommerce.com/s-vfv3gnutke/product_images/uploaded_images/brands-9.png" alt="" /></a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        {{/if}}
+    {{/each}}
+</div>
+</div>

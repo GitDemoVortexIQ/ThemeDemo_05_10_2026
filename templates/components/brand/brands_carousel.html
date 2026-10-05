@@ -1,0 +1,42 @@
+<div class="brands-carousel" data-slick='{
+    "dots": true,
+    "arrows": false,
+    "autoplay": false,
+    "slidesToShow": 1, 
+    "slidesToScroll": 1, 
+    "mobileFirst": true,
+    "responsive": [
+        {
+            "breakpoint": 768,
+            "settings": {
+                "slidesToShow": 3,
+                "slidesToScroll": 3
+            }
+        },
+        {
+            "breakpoint": 430,
+            "settings": {
+                "slidesToShow": 2,
+                "slidesToScroll": 2
+            }
+        }
+    ] }'>
+    {{#each shop_by_brand}}
+        <div class="brand">
+            <article class="brand-cart">
+                <figure class="brand-figure">
+                    <a href="{{url}}">
+                        <div class="brand-img-container">
+                            <img class="card-image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image 'brand_size' (cdn ../theme_settings.default_image_brand)}}" alt="{{name}}" title="{{name}}">
+                        </div>
+                    </a>
+                </figure>
+                <div class="brand-body">
+                    <h4 class="brand-title">
+                        <a href="{{url}}">{{name}}</a>
+                    </h4>
+                </div>
+            </article>
+        </div>
+    {{/each}}
+</div>

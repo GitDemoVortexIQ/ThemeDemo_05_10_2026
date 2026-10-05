@@ -1,0 +1,30 @@
+<nav>
+    <!-- All categories -->
+    {{> components/themevale/sidebar/side-all-categories}}
+    <!-- brands -->
+    {{#if shop_by_brand}}
+        <div class="sidebarBlock">
+            <h5 class="sidebarBlock-heading">{{lang 'brand.label'}}</h5>
+            <ul class="navList">
+                {{#each shop_by_brand}}
+                    <li class="navList-item">
+                        <a class="navList-action" href="{{url}}">{{name}}</a>
+                    </li>
+                {{/each}}
+                <li class="navList-item">
+                    <a class="navList-action" href="{{urls.brands}}">{{lang 'common.view_all'}}</a>
+                </li>
+            </ul>
+        </div>
+    {{/if}}
+    <!-- slider product -->
+    {{#if products.featured}}
+        {{> components/themevale/sidebar/featured-products products=products.featured}}
+    {{/if}}
+    <!-- advertisement image -->
+    {{> components/themevale/sidebar/advertisement-image-1}}
+    <!-- advertisement image -->
+    {{> components/themevale/sidebar/advertisement-image-2}}
+    <!-- advertisement text -->
+    {{> components/themevale/sidebar/advertisement-content}}
+</nav>

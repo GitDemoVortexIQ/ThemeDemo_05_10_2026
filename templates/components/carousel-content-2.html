@@ -1,0 +1,10 @@
+<div class="heroCarousel-content-wrapper">
+    <div class="heroCarousel-content{{#unless show_background}} heroCarousel-content--empty{{/unless}}">
+        <h2 class="heroCarousel-title animated">{{{heading}}}</h2>
+        <p class="heroCarousel-description animated">{{{text}}}</p>
+        {{#if button_text}}
+            <a href="{{url}}" class="heroCarousel-action button button--primary animated">{{button_text}}</a>
+        {{/if}}
+    </div>
+</div>
+

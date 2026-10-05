@@ -1,0 +1,12 @@
+<ul class="productGrid productGrid--maxCol2">
+    {{#each products}}
+    <li class="product">
+        {{> components/products/card theme_settings=../theme_settings customer=../customer show_rating=../settings.show_product_rating show_wishlist=../settings.show_wishlist event="list" position=(add @index 1)}}
+    </li>
+    {{/each}}
+</ul>
+{{#if theme_settings.productpage_related_products_count '!==' 4}}
+<div class="button-group text-center">
+    <a class="button button-showMore" href="javascript:void(0)">Show more</a>
+</div>
+{{/if}}

@@ -1,0 +1,15 @@
+<div class="body">
+    {{#block "hero"}} {{/block}}
+    {{#and (if page_type '!==' 'default') (if page_type '!==' 'category')}}
+    	{{#if page_type '!==' 'page_contact_form'}}
+	    	<div class="container">
+		        {{#block "page"}} {{/block}}
+		    </div>
+	    {{else}}
+		    {{#block "page"}} {{/block}}
+	    {{/if}}
+    {{else}}
+    	{{#block "page"}} {{/block}}
+    {{/and}}
+    {{> components/common/modal}}
+</div>

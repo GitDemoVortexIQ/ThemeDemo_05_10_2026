@@ -1,0 +1,56 @@
+<div class="themevale_categoryToolbar themevale_sidebar-mobile-wrapper">
+    <div class="item item-iconSidebar text-left">
+        <div class="themevale_sidebar-mobile">
+            <span class='text'>sidebar:</span>
+            <svg class="icon"><use xlink:href='#sidebar'></use></svg>
+        </div>
+    </div>
+    <div class="item text-right">
+        {{> components/products/filter sort=pagination.category.sort}}
+    </div>
+</div>
+<form action="{{urls.compare}}" method='POST' {{#if settings.data_tag_enabled}} data-list-name="Category: {{category.name}}" {{/if}} data-product-compare>
+    {{#if settings.data_tag_enabled}}
+        {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings event="list" }}
+    {{else}}
+        {{> components/products/grid products=category.products show_compare=category.show_compare theme_settings=theme_settings}}
+    {{/if}}
+</form>
+
+<div class="button-group text-center">
+    <a id="button-showmore-category" class="button button-showmore" href="javascript:void(0)">
+        <svg class="icon"><use xlink:href="#icon-refresh"></use></svg>
+        <span class="text">show more</span>
+    </a>
+</div> 
+{{> components/common/paginator pagination.category total=category.total_products}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer="" type="text/javascript">
+$('body').on('click','.pagination-link',function(e){
+	var href = $(this).attr('href');
+	window.location = href;
+})
+
+</script>
+<script>
+	var jdgmReloadFlag = 0;
+	setInterval(function() {
+		if(jQuery && jdgmCacheServer && "undefined" != typeof jdgmSettings) {
+			var jdgm_preview_badge = jQuery("div.jdgm-preview-badge").length;
+			var jdgm_done_setup = jQuery("div.jdgm--done-setup").length;
+			if(jdgmReloadFlag == 0 && jdgm_preview_badge != 0 && jdgm_preview_badge != jdgm_done_setup) {
+				jdgmReloadFlag = 1;
+				jdgmCacheServer.reloadPreviewBadges();
+			}
+			else {
+				if(jdgm_done_setup != 0 && jdgm_preview_badge != jdgm_done_setup && jdgmReloadFlag == 1) {
+					jdgmReloadFlag++;
+					jdgmCacheServer.reloadPreviewBadges();
+				}
+				else if(jdgm_done_setup != 0 && jdgm_preview_badge == jdgm_done_setup && jdgmReloadFlag > 1) {
+					jdgmReloadFlag = 1;
+				}
+			}
+		}
+	}, 3500);
+</script>

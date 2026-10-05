@@ -1,0 +1,81 @@
+.themevale_badges {
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    z-index: zIndex("lower");
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.themevale_badge {
+    color: #ffffff;
+    height: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    transition: all 0.5s ease;
+    text-transform: capitalize;
+    background-color: #383e47;
+    .label-sale {
+        line-height: 1;
+        color: #ffffff;
+        margin-left: 20px;
+        padding: 4px 7px 4px 2px;
+        position: relative;
+        background-color: #f04723;
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 0 3px 3px 0;
+        &:before {
+            top: 50%;
+            width: 0;
+            height: 0;
+            content: "";
+            right: 100%;
+            display: block;
+            position: absolute;
+            transform: translateY(-50%);
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #f04723;
+        }
+        @media (min-width: 1025px) {
+            &:before {
+                right: 99%;
+            }
+        }
+        &.hide {
+            display: none;
+        }
+    }
+}
+
+.sale-badge {
+    background: stencilColor("color_bg_product_sale_badges");
+    color: stencilColor("color_text_product_sale_badges");
+}
+
+.soldOut-badge {
+    background: stencilColor("color_bg_product_soldOut_badges");
+    color: stencilColor("color_text_product_soldOut_badges");
+}
+
+.new-badge {
+    color: #ffffff;
+    background-color: #4563b3;
+}
+
+.custom-badge {
+    background: stencilColor("color_bg_product_custom_badges");
+    color: stencilColor("color_text_product_custom_badges");
+}
+
+.special-badge {
+    padding: 0;
+    background-color: transparent;
+}

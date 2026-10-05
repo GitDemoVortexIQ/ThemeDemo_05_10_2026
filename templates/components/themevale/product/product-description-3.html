@@ -1,0 +1,97 @@
+<div class="themevale_productDescription-3">
+    <div class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+        <ul class="tabs themevale_tabs" data-tab>
+            <li class="tab is-active">
+                <a class="tab-title" href="#tab-description">{{lang 'products.description'}}</a>
+            </li>
+            {{#if product.warranty}}
+                <li class="tab">
+                    <a class="tab-title" href="#tab-warranty">{{lang 'products.warranty'}}</a>
+                </li>
+            {{/if}}
+            <li class="tab">
+                <a href="#tab-shipping" class="tab-title">Shipping & Returns</a>
+            </li>
+            <li class="tab">
+                <a href="#tab-custom" class="tab-title">Custom Product Tab</a>
+            </li>
+            <li class="tab">
+                <a href="#tab-faq" class="tab-title">FAQ</a>
+            </li>
+        </ul>
+        <div class="tabs-contents">
+            <div class="tab-content is-active" id="tab-description">
+                <div class="toggle-title">
+                    <a class="toggleLink is-open" data-collapsible href="#tabDescription-content">
+                        <span class="page-heading">{{lang 'products.description'}}</span>
+                        <svg class="icon"><use xlink:href="#icon-keyboard-arrow-down"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content is-open" id="tabDescription-content" aria-hidden="false" {{#if settings.data_tag_enabled}} data-event-type="product" {{/if}}>
+                    {{{product.description}}}
+                    {{{snippet 'product_description'}}}
+                </div>
+            </div>
+            {{#if product.warranty}}
+                <div class="tab-content" id="tab-warranty">
+                    <div class="toggle-title">
+                        <a class="toggleLink" data-collapsible href="#tabWarranty-content">
+                            <span class="page-heading">{{lang 'products.warranty'}}</span>
+                            <svg class="icon"><use xlink:href="#icon-keyboard-arrow-down"/></svg>
+                        </a>
+                    </div>
+                    <div class="toggle-content" id="tabWarranty-content" aria-hidden="false">
+                        {{{product.warranty}}}
+                    </div>
+                </div>
+            {{/if}}
+            <div class="tab-content" id="tab-shipping">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabShipping-content">
+                        <span class="page-heading">Shipping & Returns</span>
+                        <svg class="icon"><use xlink:href="#icon-keyboard-arrow-down"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabShipping-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-shipping}}
+                </div>
+            </div>
+            <div class="tab-content" id="tab-custom">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabCustomProduct-content">
+                        <span class="page-heading">Custom Product Tab</span>
+                        <svg class="icon"><use xlink:href="#icon-keyboard-arrow-down"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabCustomProduct-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-custom}}
+                </div>
+            </div>
+            <div class="tab-content" id="tab-faq">
+                <div class="toggle-title">
+                    <a class="toggleLink" data-collapsible href="#tabFaq-content">
+                        <span class="page-heading">FAQ</span>
+                        <svg class="icon"><use xlink:href="#icon-keyboard-arrow-down"/></svg>
+                    </a>
+                </div>
+                <div class="toggle-content" id="tabFaq-content" aria-hidden="false">
+                    {{> components/themevale/tabs/tab-faq}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#if product.related_products}}
+    <div class="toggle productRelated themevale_productsCarousel-custom" id="product-related" data-product-related>
+        <div class="toggle-title">
+            <h4 class="page-heading">{{lang 'products.related_products' }}</h4>
+            <div class="page-heading-arrow">
+                <svg class="btn-arrow btn-arrow-prev"><use xlink:href="#slick-arrow-prev"></use></svg>
+                <svg class="btn-arrow btn-arrow-next"><use xlink:href="#slick-arrow-next"></use></svg>
+            </div>
+        </div>
+        <div class="toggle-content is-open" id="productRelated-content" aria-hidden="false">
+            {{> components/themevale/product/product-carousel-3 products=product.related_products theme_settings=theme_settings}}
+        </div>
+    </div>
+    {{/if}}
+</div>

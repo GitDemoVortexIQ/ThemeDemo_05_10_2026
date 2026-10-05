@@ -1,0 +1,26 @@
+<div class="themevale_section themevale_bgGray" id="themevale_blogs">
+    <div class="container">
+        <div class="themevale_recent_posts_wrapper">
+            <div class="themevale_page-heading-wrapper text-left">
+                <h2 class="page-heading">Recent Blog Posts</h2>
+                <p class="description">Donec placerat de dictum ornare. Phasellus danos interdum an dipsum malesuada blandit cosmopolis delemento massa lorem mollis delous.</p>
+                <a href="/blog/" class="themevale_link custom">
+                    <span>View All Posts</span> 
+                    <svg class="icon icon-view"><use xlink:href="#icon-chevron-right"></use></svg>
+                </a>
+            </div>
+            <div class="themevale_content"> 
+                {{#if blog.recent_posts}}
+                    <ul class="themevale_column themevale_column--col{{theme_settings.homepage_blog_posts_count}}">
+                        {{#each blog.recent_posts}}
+                            <li class="item">
+                                {{> components/blog/recent_post-2 post=this settings=../settings}}
+                            </li>
+                        {{/each}}
+                    </ul>
+                {{/if}}
+            </div>
+        </div>
+        {{{region name="below_recent_post_list"}}}
+    </div>
+</div>

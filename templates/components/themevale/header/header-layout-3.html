@@ -1,0 +1,93 @@
+<header class="header themevale_header-layout-3">
+    {{#if theme_settings.themevale_header-top}}
+        {{> components/themevale/header/navigation-3}}
+    {{/if}}
+    <div class="themevale_middleHeader">
+        <div class="middleHeader-container">
+            <div class="middleHeader-item text-left">
+                <div class="items item--hamburger">
+                    <a class="mobileMenu-toggle" href="#" data-mobile-menu-toggle="menu">
+                        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+                    </a>
+                </div>
+                <div class="items item--searchMobile">
+                    <a class="navUser-action" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
+                        <div class="navUser-icon">
+                            <svg class="icon"><use xlink:href="#icon-search"></use></svg>
+                        </div>
+                        <span class="navUser-text">{{lang 'common.search'}}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="middleHeader-item text-center">
+                <div class="items item--logo">
+                    {{#if page_type '===' 'default'}}
+                        <h1 class="header-logo">
+                            {{> components/common/store-logo}}
+                        </h1>
+                    {{else}}
+                        <div class="header-logo">
+                            {{> components/common/store-logo}}
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="middleHeader-item text-right">
+                <div class="items item--office">
+                    <a class="office-phone" href="tell:{{theme_settings.themevale_office-phone}}">
+                        <svg class="icon"><use xlink:href="#icon-telephone"></use></svg>
+                        {{theme_settings.themevale_office-phone}}
+                    </a>
+                    <p class="office-hours">{{theme_settings.themevale_office-hours}}</p>
+                </div>
+                <div class="items item--quicksearch">
+                    <div class="dropdown dropdown--quickSearch themevale_search layout-2" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+                        {{> components/common/quick-search-2}}
+                    </div>
+                </div>
+                <div class="items item--wishlist layout-2">
+                    <a class="navUser-action layout-2" href="{{urls.account.wishlists.all}}">
+                        <div class="navUser-icon">
+                            <svg class="icon"><use xlink:href="#icon-heart"></use></svg>
+                        </div>
+                    </a>
+                </div>
+                <div class="items item--cart themevale_cart layout-2">
+                    <a class="navUser-action navUser-action-cart layout-2"
+                        data-cart-preview
+                        data-options="align:right"
+                        href="{{urls.cart}}">
+                        <div class="navUser-icon navUser-item-cartIcon">
+                            <svg class="icon"><use xlink:href="#icon-cart"></use></svg><span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                        </div>
+                    </a>
+                    <div class="dropdown-cart baron" id="cart-preview-dropdown" aria-hidden="true"></div>
+                    <div class="navUser-action navUser-action-price layout-2">
+                        <p class="navUser-item-price">My Cart: <span class="cart-total-grandTotal">{{cart.grand_total.formatted}}</span></p>
+                    </div>
+                </div>
+                <div class="items item--account item--mobile">
+                    <a class="navUser-action accountMobile" href="javascript:void(0)">
+                        <div class="navUser-icon">
+                            <svg class="icon"><use xlink:href="#icon-user"/></svg>
+                        </div>
+                        <span class="navUser-text">{{lang 'common.account'}}</span>
+                    </a>
+                </div>
+                <div class="items item--cart themevale_cart item--mobile">
+                    <a class="navUser-action cartMobile" data-cart-preview="" href="/cart.php">
+                        <div class="navUser-icon navUser-item-cartIcon">
+                            <svg class="icon"><use xlink:href="#icon-cart"></use></svg>
+                            <span class="countPill cart-quantity">{{#if cart.items}}{{cart.quantity}}{{else}}0{{/if}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="themevale_bottomHeader">
+        <div class="navPages-container" id="menu" data-menu>
+            {{> components/themevale/header/navigation-menu-3}}
+        </div>
+    </div>
+</header>

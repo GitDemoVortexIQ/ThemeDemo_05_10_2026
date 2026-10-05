@@ -1,0 +1,406 @@
+// =============================================================================
+// SEARCH
+// =============================================================================
+
+.search-suggestion {
+    margin-bottom: spacing("single") + spacing("third");
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+.suggestion-title {
+    margin-top: 0;
+    text-transform: inherit;
+}
+
+.advancedSearch-form {
+    margin-bottom: spacing("double");
+
+    .form-row {
+        margin-bottom: -(spacing("single"));
+    }
+}
+
+.quickSearchResults {
+    width: 100%;
+    margin-top: 1px;
+    max-height: 320px;
+    overflow-y: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    @include breakpoint('small') {
+        max-height: 250px;
+    }
+    @media (min-width: 768px) {
+        max-height: 500px;
+    }
+    @media (min-width: 1025px) {
+        max-height: 500px;
+        /*opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;*/
+    }
+    .modal-close {
+        display: none;
+    }
+    .productList {
+        padding: 0;
+        margin: 0;
+        .product {
+            margin: 0;
+            width: 100%;
+            padding: 15px;
+            display: block;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #eaeaea;
+            &:hover {
+                background-color: #fafafa;
+            }
+            &:last-child {
+                padding-bottom: 15px;
+            }
+            + .product {
+                margin-top: 0;
+            }
+        }
+    }
+    .card {
+        margin: 0;
+        width: 100%;
+        display: table;
+        text-align: left;
+        .card-figure,
+        .card-body {
+            text-align: left;
+            display: table-cell;
+            vertical-align: top;
+        }
+        .card-img-container:before {
+            content: none;
+        }
+        .card-figure {
+            width: 70px;
+            padding-bottom: 0;
+            background-color: transparent;
+        }
+        .card-body {
+            padding-top: 0;
+            padding-left: 15px;
+            .card-brand {
+                display: none;
+            }
+            .card-title {
+                margin-bottom: 10px;
+            }
+            .price-wrapper {
+                margin-bottom: 12px;
+            }
+            @include breakpoint("small") {
+                .card-brand {
+                    display: block;
+                }
+            }
+        }
+    }
+    .quickSearch-wrapper {
+        padding: 15px;
+    }
+
+}
+
+.advancedSearch-separator {
+    display: none;
+}
+
+.advancedSearch-title {
+    margin: 0 0 spacing("single");
+    text-transform: inherit;
+}
+
+.search-price-range {
+    label {
+        display: inline;
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        input {
+            display: block;
+            padding-left: spacing("single");
+
+            @include breakpoint("small") {
+                display: inline;
+                width: 6rem;
+            }
+        }
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        span {
+            @include breakpoint("small") {
+                display: inline;
+                padding-left: spacing("single");
+                padding-right: spacing("single");
+            }
+        }
+    }
+}
+
+.category-suggestion-list {
+    @include grid-row($behavior: "nest");
+    list-style-type: none;
+}
+
+.category-suggestion {
+    @include grid-column(4);
+    font-size: fontSize("smaller");
+}
+
+.search-refine {
+    margin-left: spacing("single");
+}
+
+.quickSearchMessage {
+    margin: 0;
+    line-height: 1.2;
+    font-size: fontSize("smallest");
+    text-align: center;
+}
+
+.page-type-search {
+    .panel-body {
+        background-color: #fafafa;
+    }
+    #search-results-content {
+        ul {
+            margin-left: 0;
+        }
+    }
+}
+
+.search-information {
+    list-style: none;
+    margin: 0;
+    > li {
+        + li {
+            margin-top: 30px;
+        }
+        .title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .description {
+            margin-top: 15px;
+        }
+    }
+}
+
+#search-results-content {
+    ul {
+        strong a {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+/*=========================================
+=            www.themevale.com            =
+=========================================*/
+    
+    .themevale_search {
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+        .form, .form-fieldset, .form-field {
+            margin: 0;
+        }
+        .form-fieldset {
+            margin: 0;
+            width: 100%;
+            position: relative;
+        }
+        .form-field {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: stretch;
+        }
+        #search_category {
+            width: 70px;
+            min-width: 70px;
+            font-weight: 700;
+            overflow: hidden;
+            position: relative;
+            background: #ffffff;
+            color: stencilColor('themevale_middle-color');
+            transition: all 0.3s ease;
+            .select_category {
+                z-index: 2;
+                height: 100%;
+                line-height: 16px;
+                border: none;
+                cursor: pointer;
+                position: relative;
+                appearance: none;
+                -webkit-appearance: none;
+                padding: 15px 15px 15px 17px;
+                background-color: transparent;
+                &::-ms-expand {
+                    display: none;
+                }
+            }
+            .icon {
+                fill: stencilColor('themevale_middle-color');
+                stroke: stencilColor('themevale_middle-color');
+                top: 50%;
+                right: 17px;
+                @include square(10);
+                position: absolute;
+                transform: translateY(-50%);
+            }
+        }
+        .form-input {
+            min-height: auto;
+            border: none;
+            border-radius: 0;
+            background-color: stencilColor('themevale_middle-search-input');
+            &::-webkit-input-placeholder {
+                color: #6e6e6e;
+            }
+            &::-moz-placeholder {
+                color: #6e6e6e;
+            }
+            &:-ms-input-placeholder {
+                color: #6e6e6e;
+            }
+            &:-moz-placeholder {
+                color: #6e6e6e;
+            }
+        }
+        button[type="submit"] {
+            padding: 8px 12px;
+            border: 1px solid stencilColor('themevale_middle-search-bg');
+            background-color: stencilColor('themevale_middle-search-bg');
+            .icon {
+                fill: stencilColor('themevale_middle-search-color');
+                stroke: stencilColor('themevale_middle-search-color');
+                @include square(20);
+            }
+        }
+        &.layout-2 {
+
+        }
+        @media (min-width: 768px) {
+            max-width: 600px;
+            button[type="submit"] {
+                padding: 10px 10px 10px 12px;
+                .icon {
+                    @include square(26);
+                }
+            }
+        }
+        @media (min-width: 1025px) {
+            box-shadow: none;
+            .form-fieldset {
+                box-shadow: 0 1px 6px rgba(0, 0, 0, 0.075);
+            }
+            #search_category {
+                border: 1px solid stencilColor('themevale_middle-search-border');
+                border-radius: 3px 0 0 3px;
+            }
+            .form-input {
+                border: 1px solid stencilColor('themevale_middle-search-border');
+                border-left: none;
+                border-right: none;
+            }
+            button[type="submit"] {
+                border-radius: 0 3px 3px 0;
+            }
+            &.layout-2 {
+                .form-fieldset {
+                    box-shadow: none;
+                }
+                #search_category {
+                    border: 2px solid stencilColor('themevale_middle-search-border');
+                    border-right: none;
+                    position: relative;
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        width: 1px;
+                        height: 26px;
+                        background-color: stencilColor('themevale_middle-search-border');
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+                .form-input {
+                    border: 2px solid stencilColor('themevale_middle-search-border');
+                    border-left: none;
+                    border-right: none;
+                }
+            }
+        }
+    }
+
+    .themevale_quickSearch {
+        overflow: hidden;
+        @media (min-width: 1025px){
+            .header {
+                #quickSearch .themevale_search > .form {
+                    z-index: 10;
+                    position: relative;
+                }
+                .navUser,
+                .navPages-container,
+                .middleHeader-container {
+                    &:before {
+                        display: block;
+                        content: "";
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        z-index: 2;
+                        position: absolute;
+                        background-color: rgba(0, 0, 0, 0.5);
+                    }
+                }
+                .middleHeader-container,
+                .navPages-container {
+                    &:before {
+                        top: -1px;
+                    }
+                }
+                &.is-sticky {
+                    .middleHeader-container {
+                        &:before {
+                            bottom: 0px;
+                        }
+                    }
+                }
+            }
+            .quickSearchResults {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+
+    .themevale_searchMobile {
+        .themevale_search {
+            #search_category {
+                background: #ffffff;
+                color: #3d4044;
+                border-right: 1px solid #f7f7f7;
+                .icon {
+                    fill: #3d4044;
+                    stroke: #3d4044;
+                }
+            }
+        }
+    }
+
+/*=====  End of www.themevale.com  ======*/

@@ -1,0 +1,66 @@
+<div class="tabs-vertical productDescription" data-accordion-item>
+    <h4 class="toggle-title">
+        <a href="#tab-description" class="toggleLink is-open" data-collapsible>
+          <span class="text">{{lang 'products.description'}}</span>
+          <span class="icon"><svg><use xlink:href="#slick-arrow-next"></use></svg></span>
+        </a>
+    </h4>
+    <div class="toggle-content is-open" id="tab-description">
+        {{{product.description}}}
+        {{{snippet 'product_description'}}}
+
+        {{#if product.tags.length}}
+            <ul class="product-tags">
+            {{#each product.tags}}
+                <li>{{name}}</li>
+            {{/each}}
+            </ul>
+        {{/if}}
+    </div>
+</div>
+{{#if product.warranty}}
+    <div class="tabs-vertical productWarranty" data-accordion-item>
+        <h4 class="toggle-title">
+          <a href="#tab-warranty" class="toggleLink" data-collapsible>
+            <span class="text">{{lang 'products.warranty'}}</span>
+            <span class="icon"><svg><use xlink:href="#slick-arrow-next"></use></svg></span>
+          </a>
+        </h4>
+        <div class="toggle-content" id="tab-warranty">
+            {{{product.warranty}}}
+        </div>
+    </div>
+{{/if}}
+<div class="tabs-vertical productShippingReturn" data-accordion-item>
+    <h4 class="toggle-title">
+        <a href="#tab-shipping-returns" class="toggleLink" data-collapsible>
+          <span class="text">Shipping & Returns</span>
+          <span class="icon"><svg><use xlink:href="#slick-arrow-next"></use></svg></span>
+        </a>
+    </h4>
+    <div class="toggle-content" id="tab-shipping-returns" aria-hidden="false">
+        {{> components/themevale/tabs/tab-shipping}}
+    </div>
+</div>
+<div class="tabs-vertical productCustomTab" data-accordion-item>
+    <h4 class="toggle-title">
+        <a href="#tab-custom" class="toggleLink" data-collapsible>
+          <span class="text">Custom Product Tab</span>
+          <span class="icon"><svg><use xlink:href="#slick-arrow-next"></use></svg></span>
+        </a>
+    </h4>
+    <div class="toggle-content" id="tab-custom" aria-hidden="false">
+        {{> components/themevale/tabs/tab-custom}}
+    </div>
+</div>
+<div class="tabs-vertical productCustomTab" data-accordion-item>
+    <h4 class="toggle-title">
+        <a href="#tab-faq" class="toggleLink" data-collapsible>
+          <span class="text">FAQ</span>
+          <span class="icon"><svg><use xlink:href="#slick-arrow-next"></use></svg></span>
+        </a>
+    </h4>
+    <div class="toggle-content" id="tab-faq" aria-hidden="false">
+        {{> components/themevale/tabs/tab-faq}}
+    </div>
+</div>

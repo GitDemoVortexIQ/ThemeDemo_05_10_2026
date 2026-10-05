@@ -1,0 +1,115 @@
+{{#partial "hero"}}
+    {{#if carousel}}
+        {{> components/carousel}}
+    {{/if}}
+    {{{snippet 'home_content'}}}
+{{/partial}}
+
+{{#partial "page"}}
+{{{region name="stop_banner"}}}
+
+<div class="main full">
+    <div class="themevale_service layout-3">
+      <div class="container">
+        <div class="service-item">
+            <div class="service-wrapper">
+                <div class="service-icon">
+                    <a href="/delivery-policy/" style="color:#38393c;"><img src="../product_images/uploaded_images/shipped.png" alt="" style="margin-top:10px;"> </a>
+                </div>
+                <div class="service-content">
+                    <!--<h3 class="title"><a href="/delivery-policy/"></a>Free UK Delivery</a></h3>-->
+                    <!--<a href="/delivery-policy/" class="text">when you spend £45 or more</a>-->
+                     <h3 class="title"><a href="/delivery-policy/" style="color:#38393c;">Competitive</a></h3>
+                    <a href="/delivery-policy/" class="text">Shipping Rates</a>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="service-wrapper">
+                <div class="service-icon">
+                   <a href="tel:{{settings.phone_number}}" style="color:#38393c;"> <img src="../product_images/uploaded_images/information-service.png" alt=""> </a>
+                </div>
+                <div class="service-content">
+                    <h3 class="title"><a href="tel:{{settings.phone_number}}" style="color:#38393c;">Give us a call</a></h3>
+                    <a href="tel:{{settings.phone_number}}" class="text">{{settings.phone_number}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="service-wrapper">
+                <div class="service-icon">
+                   <a href="/returns-policy/" style="color:#38393c;"> <img src="../product_images/uploaded_images/group-190.png" alt=""></a>
+                </div>
+                <div class="service-content">
+                    <h3 class="title"><a href="/returns-policy/" style="color:#38393c;">Easy Returns Policy</a></h3>
+                    <a href="/returns-policy/" class="text">No quibble 30 day returns</a>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="service-wrapper">
+                <div class="service-icon">
+                   <a href="/delivery/" style="color:#38393c;"> <img src="../product_images/uploaded_images/gloab.jpg" alt=""></a>
+                </div>
+                <div class="service-content">
+                    <h3 class="title"><a href="/delivery/" style="color:#38393c;">We ship worldwide</a></h3>
+                    <a href="/delivery/" class="text">Duty and taxes included</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+    <div class="themevale_section themevale_bgGray">
+        <div class="container">
+            
+            {{> components/themevale/homepage/component/banner-marketing-1}}
+
+            {{{region name="below_banner_marketing"}}}
+            
+            {{#if products.new}}
+                {{> components/themevale/homepage/component/new_products products=products.new}}
+                {{{region name="below_new_products"}}}
+            {{/if}}            
+            
+            <!--{{> components/themevale/homepage/component/featured-category-2}}-->
+
+            <!--{{{region name="below_featured_category"}}}-->
+            
+            
+             {{> components/themevale/homepage/component/brands-image-carousel}}
+
+            <!--{{> components/themevale/homepage/component/catergory-url-2}}-->
+
+            <!--{{{region name="below_catergory_url"}}}-->
+            
+            <!-- {{> components/themevale/homepage/component/featured-category}}-->
+
+            <!--{{{region name="below_featured_category"}}}-->
+
+            {{> components/themevale/homepage/component/products-tabs}}
+
+            {{{region name="below_products_tabs"}}}
+
+            <!--{{> components/themevale/homepage/component/banner-marketing-2}}-->
+            <!--{{{region name="below_banner_marketing_2"}}}-->
+            
+            <!--{{{region name="below_banner_marketing_02--global"}}}-->
+             {{{region name="below_banner_marketing_03--global"}}}
+            <!--{{{region name="header_top_promotion--global"}}}-->
+
+
+        </div>
+    </div>
+    
+    
+    {{> components/themevale/homepage/component/recent-post-list-2}}
+  
+    <!--<script src="https://apps.elfsight.com/p/platform.js" defer></script>-->
+    <!--<div class="elfsight-app-73b03c44-b21c-44df-8367-cf948718dc9a"></div>-->
+</div>
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,141 @@
+<header class="header themevale_header-layout-2">
+    {{#if theme_settings.themevale_header-top}}
+        {{> components/themevale/header/navigation-2}}
+    {{/if}}
+    <div class="themevale_middleHeader">
+        <div class="middleHeader-container">
+            <div class="middleHeader-item text-left">
+                <div class="items item--hamburger">
+                    <a class="mobileMenu-toggle" href="#" data-mobile-menu-toggle="menu">
+                        <span class="mobileMenu-toggleIcon">Toggle menu</span>
+                    </a>
+                </div>
+                <div class="items item--searchMobile">
+                    <a class="navUser-action" href="#" data-search="quickSearch" aria-controls="quickSearch" aria-expanded="false">
+                        <div class="navUser-icon">
+                            <svg class="icon"><use xlink:href="#icon-search"></use></svg>
+                        </div>
+                        <span class="navUser-text">{{lang 'common.search'}}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="middleHeader-item text-center">
+                <div class="items item--logo">
+                    {{#if page_type '===' 'default'}}
+                        <h1 class="header-logo">
+                            {{> components/common/store-logo}}
+                        </h1>
+                    {{else}}
+                        <div class="header-logo">
+                            {{> components/common/store-logo}}
+                        </div>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="middleHeader-item text-right">
+                <div class="items item--office-2">
+                    <img class="image lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.themevale_middle-ownimg}}" alt="">
+                    <p class="office-text"><i><strong>{{theme_settings.themevale_middle-owntext1}}</strong><br>{{theme_settings.themevale_middle-owntext2}}</i></p>
+                </div>
+                <div class="items item--quicksearch">
+                    <div class="dropdown dropdown--quickSearch themevale_search layout-2" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+                        {{> components/common/quick-search-2}}
+                    </div>
+                </div>
+                <div class="items item--account">
+                    <div class="navUser-action">
+                        <span class="navUser-icon accountPC">
+                            <svg class="icon"><use xlink:href="#icon-user"></use></svg>
+                        </span>
+                        <div class="navUser-text-wrapper accountPC">
+                            {{#if customer}}
+                                <a class="navUser-action custom-2 navUser-action--myaccount" href="{{urls.account.index}}">
+                                    <span>{{lang 'common.account'}}</span>
+                                    <i class="icon" aria-hidden="true"><svg><use xlink:href="#icon-chevron-down" /></svg></i>
+                                </a>
+                                <ul class="dropdown-menu" id="navPages-account-topbar">
+                                    <li class="dropdown-menu-item">
+                                        <a href="{{urls.account.orders.all}}">{{lang 'account.nav.orders'}}</a>
+                                    </li>
+                                    {{#if settings.returns_enabled}}
+                                        <li class="dropdown-menu-item">
+                                            <a href="{{urls.account.returns}}">{{lang 'account.nav.returns'}}</a>
+                                        </li>
+                                    {{/if}}
+                                    <li class="dropdown-menu-item">
+                                        <a href="{{urls.account.inbox}}">{{lang 'account.mobile_nav.messages'}}</a>
+                                    </li>
+                                    <li class="dropdown-menu-item">
+                                        <a href="{{urls.account.addresses}}">{{lang 'account.nav.addresses'}}</a>
+                                    </li>
+                                    {{#if settings.show_payment_methods}}
+                                        <li class="dropdown-menu-item">
+                                            <a href="{{urls.account.payment_methods.all}}">{{lang 'account.nav.payment_methods'}}</a>
+                                        </li>
+                                    {{/if}}
+                                    <li class="dropdown-menu-item">
+                                        <a href="{{urls.account.wishlists.all}}">{{lang 'account.mobile_nav.wishlists'}}</a>
+                                    </li>
+                                    <li class="dropdown-menu-item">
+                                        <a href="{{urls.account.recent_items}}">{{lang 'account.nav.recently_viewed'}}</a>
+                                    </li>
+                                    <li class="dropdown-menu-item">
+                                        <a href="{{urls.account.details}}">{{lang 'account.nav.settings'}}</a>
+                                    </li>
+                                    <li class="dropdown-menu-item">
+                                        <a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a>
+                                    </li>
+                                </ul>
+                            {{else}}
+                                <a class="navUser-action custom-2 navUser-action-loginLabel" href="javascript:void(0)" data-login-form> {{lang 'common.login'}}</a>
+                                {{#if settings.account_creation_enabled}}
+                                {{#if page_type '!==' 'login'}}
+                                    {{> components/common/login-form}}
+                                {{/if}}
+                                <a class="navUser-action custom-2  navUser-action-create_accountLabel" href="{{urls.auth.create_account}}">{{lang 'common.create_account_2'}}</a>
+                                {{/if}}
+                            {{/if}}
+                        </div>
+                        <a class="navUser-action accountMobile" href="javascript:void(0)">
+                            <div class="navUser-icon">
+                                <svg class="icon"><use xlink:href="#icon-user"/></svg>
+                            </div>
+                            <span class="navUser-text">{{lang 'common.account'}}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="items item--wishlist">
+                    <a class="navUser-action custom-2" href="{{urls.account.wishlists.all}}">
+                        <div class="navUser-icon">
+                            <svg class="icon"><use xlink:href="#icon-heart"></use></svg>
+                        </div>
+                        <span class="navUser-text">{{lang 'common.wishlist'}}</span>
+                    </a>
+                </div>
+                <div class="items item--cart themevale_cart">
+                    <a class="navUser-action custom-2 cartdesktop"
+                        data-cart-preview
+                        data-options="align:right"
+                        href="{{urls.cart}}">
+                        <div class="navUser-icon navUser-item-cartIcon">
+                            <svg class="icon"><use xlink:href="#icon-cart"></use></svg><span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+                        </div>
+                        <span class="navUser-text navUser-item-cartLabel">{{lang 'common.cart'}}</span>
+                    </a>
+                    <div class="dropdown-cart baron" id="cart-preview-dropdown" aria-hidden="true"></div>
+                    <a class="navUser-action cartMobile" data-cart-preview="" href="/cart.php">
+                        <div class="navUser-icon navUser-item-cartIcon">
+                            <svg class="icon"><use xlink:href="#icon-cart"></use></svg>
+                            <span class="countPill cart-quantity">{{#if cart.items}}{{cart.quantity}}{{else}}0{{/if}}</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <div class="themevale_bottomHeader">
+        <div class="navPages-container" id="menu" data-menu>
+            {{> components/themevale/header/navigation-menu-2}}
+        </div>
+    </div>
+</header>

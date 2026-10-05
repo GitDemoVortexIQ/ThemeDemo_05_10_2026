@@ -1,0 +1,24 @@
+<div class="themevale_sectionChild padding-top-20">
+    <div class="themevale_productsByCategoryId layout-2">
+        <ul class="tabs tabs-custom" data-tab data-themevale-products-by-category-id-tabs role="tablist">
+            <li class="tab is-active" role="presentation">
+                <a class="tab-title" href="#category_2" role="tab" tabindex="0" aria-selected="false" aria-controls="category_2">Featured Products</a></li>
+            <li class="tab" role="presentation">
+                <a class="tab-title" href="#category_1" role="tab" tabindex="0" aria-selected="true" aria-controls="category_1">Current Top Sellers</a></li>    
+            <!--<li class="tab" role="presentation">-->
+            <!--    <a class="tab-title" href="#category_1" role="tab" tabindex="0" aria-selected="true" aria-controls="category_1">Best Sellers</a></li>-->
+        </ul>
+        <div class="tabs-contents page-content layout-2">
+            <div class="tab-content is-active" id="category_2" role="tabpanel" aria-hidden="false">
+                {{#if products.featured}}
+                    {{> components/products/carousel-3 products=products.featured}}
+                {{/if}}
+            </div>
+            <div class="tab-content" id="category_1" role="tabpanel" aria-hidden="true">
+                {{#if products.top_sellers}}
+                    {{> components/products/carousel-3 products=products.top_sellers}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

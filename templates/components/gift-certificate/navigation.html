@@ -1,0 +1,45 @@
+
+<div class="collection--description rte">
+    <p> Looking for a gift or shopping for someone else but not sure what to give them? Give them the gift of choice with a Wood Workers Workshop e-Gift Card, ranging from £10 to £350. </p>
+    <p> e-Gift cards are sent immediately by email to either the buyer or directly to the recipient and are redeemable online at <a  href="/">woodworkersworkshop.co.uk.</a> To find out how to redeem an e-Gift Card click on the <a href="/giftcertificates.php?action=redeem">Redeem e-Gift Cards</a> link below. e-Gift Cards can only be purchased and redeemed in the UK.</p>
+    <p> To keep track of how much is on your e-Gift Card click on the <a href="/giftcertificates.php?action=balance">Check e-Gift Cards Balance</a> link below. The amount of a purchase will be deducted from the balance of the card. Any remaining balance on an e-Gift Card can be used as full or part payment on a future purchase.</p>
+    
+    <p> e-Gift Cards are valid for 12 months from the date of purchase. Any remaining balance left after the expiry date will be cancelled and the e-Gift Card will become invalid and no longer available for use.</p>
+ </div>
+<nav class="navBar navBar--sub">
+    <ul class="navBar-section account-navigation">
+        {{#if gift_page '===' 'purchase'}}
+            <li class="navBar-item is-active">
+                <span class="navBar-action">{{lang 'gift_certificate.purchase.heading'}}</span>
+            </li>
+        {{else}}
+            <li class="navBar-item">
+                <a class="navBar-action" href="{{urls.gift_certificate.purchase}}">
+                    {{lang 'gift_certificate.purchase.heading'}}
+                </a>
+            </li>
+        {{/if}}
+        {{#if gift_page '===' 'redeem'}}
+            <li class="navBar-item is-active">
+                <span class="navBar-action">{{lang 'gift_certificate.redeem.heading'}}</span>
+            </li>
+        {{else}}
+            <li class="navBar-item">
+                <a class="navBar-action" href="{{urls.gift_certificate.redeem}}">
+                    {{lang 'gift_certificate.redeem.heading'}}
+                </a>
+            </li>
+        {{/if}}
+        {{#if gift_page '===' 'balance'}}
+            <li class="navBar-item is-active">
+                <span class="navBar-action">{{lang 'gift_certificate.balance.heading'}}</span>
+            </li>
+        {{else}}
+            <li class="navBar-item">
+                <a class="navBar-action" href="{{urls.gift_certificate.balance}}">
+                    {{lang 'gift_certificate.balance.heading'}}
+                </a>
+            </li>
+        {{/if}}
+    </ul>
+</nav>

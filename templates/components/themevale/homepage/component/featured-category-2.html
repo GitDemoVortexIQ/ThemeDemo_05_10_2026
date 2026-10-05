@@ -1,0 +1,188 @@
+<div class="themevale_sectionChild">
+    <div class="themevale_productsByCategoryId layout-2">
+        <div class="themevale_page-heading-wrapper">
+            <h2 class="page-heading"><a href="#">Popular Categories</a></h2>
+            <a class="themevale_link" href="#">View All Categories</a>
+        </div>
+        <div class="page-content layout-2">
+            <div class="themevale_featuredCategory-wrapper">
+                {{#each categories}}
+                    {{#if id '==' ../theme_settings.themevale_category-custom-1}}
+                        <div class="items">
+                            <div class="themevale_featuredCategory">
+                                <div class="image">
+                                    <a href="{{url}}">
+                                        {{#if image}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image '170x170'}}" alt="">
+                                        {{else}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://via.placeholder.com/170x170" alt="">
+                                        {{/if}}
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h2 class="title"><a href="{{url}}">{{name}}</a></h2>
+                                    {{#if children}}
+                                        <ul class="subcategory-list">
+                                            {{#each (limit ../children 6)}}
+                                                <li>
+                                                    <svg class="icon"><use xlink:href="#slick-arrow-next" /></svg>
+                                                    <a href="{{url}}">{{name}}</a>
+                                                </li>
+                                            {{/each}}
+                                        </ul>
+                                        <a class="link" href="{{../url}}">view more</a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if id '==' ../theme_settings.themevale_category-custom-2}}
+                        <div class="items">
+                            <div class="themevale_featuredCategory">
+                                <div class="image">
+                                    <a href="{{url}}">
+                                        {{#if image}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image '170x170'}}" alt="">
+                                        {{else}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://via.placeholder.com/170x170" alt="">
+                                        {{/if}}
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h2 class="title"><a href="{{url}}">{{name}}</a></h2>
+                                    {{#if children}}
+                                        <ul class="subcategory-list">
+                                            {{#each (limit ../children 6)}}
+                                                <li>
+                                                    <svg class="icon"><use xlink:href="#slick-arrow-next" /></svg>
+                                                    <a href="{{url}}">{{name}}</a>
+                                                </li>
+                                            {{/each}}
+                                        </ul>
+                                        <a class="link" href="{{../url}}">view more</a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if id '==' ../theme_settings.themevale_category-custom-3}}
+                        <div class="items">
+                            <div class="themevale_featuredCategory">
+                                <div class="image">
+                                    <a href="{{url}}">
+                                        {{#if image}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image '170x170'}}" alt="">
+                                        {{else}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://via.placeholder.com/170x170" alt="">
+                                        {{/if}}
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h2 class="title"><a href="{{url}}">{{name}}</a></h2>
+                                    {{#if children}}
+                                        <ul class="subcategory-list">
+                                            {{#each (limit ../children 6)}}
+                                                <li>
+                                                    <svg class="icon"><use xlink:href="#slick-arrow-next" /></svg>
+                                                    <a href="{{url}}">{{name}}</a>
+                                                </li>
+                                            {{/each}}
+                                        </ul>
+                                        <a class="link" href="{{../url}}">view more</a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if id '==' ../theme_settings.themevale_category-custom-4}}
+                        <div class="items">
+                            <div class="themevale_featuredCategory">
+                                <div class="image">
+                                    <a href="{{url}}">
+                                        {{#if image}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image '170x170'}}" alt="">
+                                        {{else}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://via.placeholder.com/170x170" alt="">
+                                        {{/if}}
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h2 class="title"><a href="{{url}}">{{name}}</a></h2>
+                                    {{#if children}}
+                                        <ul class="subcategory-list">
+                                            {{#each (limit ../children 6)}}
+                                                <li>
+                                                    <svg class="icon"><use xlink:href="#slick-arrow-next" /></svg>
+                                                    <a href="{{url}}">{{name}}</a>
+                                                </li>
+                                            {{/each}}
+                                        </ul>
+                                        <a class="link" href="{{../url}}">view more</a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if id '==' ../theme_settings.themevale_category-custom-5}}
+                        <div class="items">
+                            <div class="themevale_featuredCategory">
+                                <div class="image">
+                                    <a href="{{url}}">
+                                        {{#if image}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image '170x170'}}" alt="">
+                                        {{else}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://via.placeholder.com/170x170" alt="">
+                                        {{/if}}
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h2 class="title"><a href="{{url}}">{{name}}</a></h2>
+                                    {{#if children}}
+                                        <ul class="subcategory-list">
+                                            {{#each (limit ../children 6)}}
+                                                <li>
+                                                    <svg class="icon"><use xlink:href="#slick-arrow-next" /></svg>
+                                                    <a href="{{url}}">{{name}}</a>
+                                                </li>
+                                            {{/each}}
+                                        </ul>
+                                        <a class="link" href="{{../url}}">view more</a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                    {{#if id '==' ../theme_settings.themevale_category-custom-6}}
+                        <div class="items">
+                            <div class="themevale_featuredCategory">
+                                <div class="image">
+                                    <a href="{{url}}">
+                                        {{#if image}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage image '170x170'}}" alt="">
+                                        {{else}}
+                                            <img class="lazyload" src="{{cdn 'img/loading.svg'}}" data-src="https://via.placeholder.com/170x170" alt="">
+                                        {{/if}}
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h2 class="title"><a href="{{url}}">{{name}}</a></h2>
+                                    {{#if children}}
+                                        <ul class="subcategory-list">
+                                            {{#each (limit ../children 6)}}
+                                                <li>
+                                                    <svg class="icon"><use xlink:href="#slick-arrow-next" /></svg>
+                                                    <a href="{{url}}">{{name}}</a>
+                                                </li>
+                                            {{/each}}
+                                        </ul>
+                                        <a class="link" href="{{../url}}">view more</a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

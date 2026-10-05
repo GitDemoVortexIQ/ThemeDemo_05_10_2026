@@ -1,0 +1,29 @@
+<div class="themevale_section themevale_blogs_custom" id="themevale_blogs">
+    <div class="container">
+        <div class="themevale_page-heading-wrapper">
+            <h2 class="page-heading text-left">From Our Blog</h2>
+            <!--<a href="/blog/" class="themevale_link custom">View More</a>-->
+        </div>
+        {{#if blog.recent_posts}}
+            <div class="themevale_blog_custom">
+                {{#each blog.recent_posts}}
+                    {{#if @first}}
+                        <div class="items">
+                            {{> components/blog/recent_post-2 post=this settings=../settings}}
+                        </div>
+                    {{/if}}
+                {{/each}}
+                <div class="items">
+                    {{#each blog.recent_posts}}
+                        {{#if @index '!=' 0}}
+                            <div class="item">
+                                {{> components/blog/recent_post-3 post=this settings=../settings}}
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        {{/if}}
+        {{{region name="below_recent_post_list"}}}
+    </div>
+</div>

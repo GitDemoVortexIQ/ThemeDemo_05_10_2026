@@ -1,0 +1,477 @@
+// =============================================================================
+// SIDEBAR BLOCKS (CSS)
+// =============================================================================
+
+
+// Block
+// -----------------------------------------------------------------------------
+
+.page-sidebar {
+	line-height: 24px;
+	ul {
+		margin: 0;
+		list-style: none;
+		> li {
+			float: none;
+			display: block;
+			position: relative;
+			line-height: 24px;
+			margin-bottom: 5px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			@media (min-width: 1025px) {
+				line-height: 30px;
+			}
+		}
+	}
+	.accordion--navList ul > li > a {
+		padding: 0;
+		padding-left: 25px;
+		font-size: 12px;
+		font-weight: 700;
+		vertical-align: top;
+		display: inline-block;
+		text-transform: capitalize;
+		color: #323232;
+		margin-bottom: 0;
+		&:hover {
+			color: #5874b0;
+		}
+	}
+	.slick-arrow {
+		&.slick-prev {
+			left: 5px;
+		}
+		&.slick-next {
+			right: 5px;
+		}
+	}
+	.slick-dots {
+		bottom: auto;
+		margin-top: 10px;
+		position: relative;
+		li {
+			display: inline-block;
+			button {
+				width: 8px;
+                height: 8px;
+				display: block;
+			}
+		}
+	}
+	.accordion-block {
+		.toggleLink {
+			padding: 0;
+			margin-bottom: 0;
+		}
+	}
+	.recentPosts_List {
+		margin: 0 0 10px 0;
+		> .item {
+			padding: 0;
+			margin-top: 10px;
+			padding-top: 10px;
+			border-top: 1px dotted #eeeeee;
+			&:first-child {
+				margin-top: 0;
+				padding-top: 0;
+				border-top: 0;
+			}
+		}
+	}
+	.productCarousel {
+		.card-actions .card-figcaption {
+			display: block;
+		}
+	}
+}
+
+.sidebarBlock {
+	border-radius: 3px;
+	border: 1px solid #e2e4e8;
+    + .sidebarBlock {
+        margin-top: 30px;
+    }
+	> ul,
+	.sidebarBlock-content {
+		padding: 12px 20px 12px 20px;
+	}
+	.sidebarBlock-content {
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.productCarousel,
+	#facetedSearch-content--price {
+		margin: 0;
+		padding: 20px;
+		.productCarousel-slide {
+			padding: 0 5px;
+		}
+	}
+	&#advertisement-image-1,
+	&#advertisement-image-2 {
+		border: none;
+	}
+	.advertisement-image {
+		text-align: center;
+	}
+	.productCarousel-slide {
+		width: 100%;
+		.card {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.sidebarBlock-heading {
+	margin: 0;
+	font-size: 1.21rem;
+	line-height: 20px;
+	padding: 12px 20px 12px 20px;
+	text-transform: uppercase;
+	border-bottom: 1px solid #e2e4e8;
+	font-family: $fontFamily-headings;
+    font-weight: stencilFontWeight("headings-font");
+    color: stencilColor('color-textHeading');
+}
+
+.all-categories-list {
+	.navPages-item {
+		margin: 0;
+		float: none;
+		display: block;
+		line-height: 40px;
+		position: relative;
+		border-top: 1px dotted #e2e4e8;
+		&:first-child {
+			border-top: 0;
+		}
+		a {
+			padding: 0;
+			font-size: 13px;
+			font-weight: 700;
+			/*letter-spacing: 0.26px;*/
+			vertical-align: top;
+			display: inline-block;
+			text-transform: capitalize;
+			color: #323232;
+			&:hover {
+				color: #5874b0;
+			}
+		}
+		.icon-arrow {
+			top: 0;
+			padding: 0 15px;
+			right: -10px;
+			width: 40px;
+			height: 40px;
+			display: block;
+			cursor: pointer;
+			line-height: 40px;
+			position: absolute;
+			transition: all 0.3s ease;
+			svg {
+				display: block;
+				width: 100%;
+				height: 100%;
+				fill: #d0d0d0;
+				stroke: #d0d0d0;
+			}
+		}
+	}
+	.dropdown-category-list {
+		margin: 0;
+		display: none;
+		list-style: none;
+		overflow: hidden;
+		padding-top: 5px;
+		padding-left: 15px;
+		padding-bottom: 15px;
+		.navPage-subMenu-item {
+			width: 100%;
+			float: none;
+			display: block;
+			position: relative;
+			padding-left: 0;
+			padding-right: 0;
+			line-height: 30px;
+			a {
+				margin: 0;
+				width: auto;
+				border: none;
+				font-size: 12px;
+			}
+			.icon-arrow {
+				right: -5px;
+				width: 30px;
+				height: 30px;
+				padding: 0 10px;
+				line-height: 30px;
+			}
+		}
+		.dropdown-category-list {
+			padding-left: 0;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			a {
+				font-weight: 400;
+				@media (min-width: 1025px) {
+					&:before {
+						left: 0;
+						width: 0;
+						bottom: 7px;
+						content:"";
+						height: 1px;
+						position: absolute;
+						transition: all 0.3s ease;
+						background-color: #9bacd0;
+					}
+					&:hover {
+						&:before {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+	.is-clicked {
+		> a {
+			color: #5874b0;
+		}
+		> .icon-arrow {
+			transform: rotate(90deg);
+			svg {
+				fill: #323232;
+				stroke: #323232;
+			}
+		}
+	}
+}
+
+.navList {
+	.navList-action {
+		padding: 0;
+		font-size: $body-fontSize;
+		font-weight: 400;
+		vertical-align: top;
+		display: inline-block;
+		text-transform: capitalize;
+		color: stencilColor("color-textBase");
+		&:hover {
+			color: stencilColor("color-textBase--hover");
+		}
+	}
+	.view_all {
+		a {
+			font-weight: 600;
+			color: stencilColor('color-textHeading');
+			&:before {
+				left: 0;
+				width: 0;
+				bottom: 7px;
+				content:"";
+				height: 1px;
+				position: absolute;
+				transition: all 0.3s ease;
+				background-color: #bababa;
+			}
+			&:hover {
+				color: stencilColor("color-textBase--hover");
+				&:before {
+					width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.cms-image {
+	img {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.themevale_sidebar-mobile {
+	display: inline-block;
+	pointer-events: auto;
+	cursor: pointer;
+	> .icon {
+		width: 40px;
+		height: 40px;
+		padding: 10px;
+		display: inline-block;
+		vertical-align: middle;
+		border: 1px solid #e2e4e8;
+		border-radius: 3px;
+		pointer-events: none;
+		fill: stencilColor('color-textHeading');
+	}
+	> .text {
+		font-size: 12px;
+		font-weight: 700;
+		display: inline-block;
+		vertical-align: middle;
+		text-transform: uppercase;
+	    padding-right: 10px;
+    	min-width: 70px;
+		color: stencilColor('color-textHeading');
+	}
+	&:hover,
+    &:focus,
+    &:active {
+        outline: none;
+        text-decoration: none;
+        -webkit-tap-highlight-color:transparent;
+        -moz-tap-highlight-color:transparent;
+        -o-tap-highlight-color:transparent;
+        tap-highlight-color:transparent;
+    }
+	@media (min-width: 1025px) {
+		display: none;
+	}
+}
+
+.sidebarBlock-content.productCarousel {
+	.slick-arrow {
+		@include square(25px);
+		top: calc(50% - 100px);
+	}
+	.card-figure {
+		padding-left: 30px;
+		padding-right: 30px;
+		.card-figcaption {
+			display: none;
+		}
+	}
+	.card-actions {
+		display: block;
+		margin-top: 20px;
+		.button {
+			margin-bottom: 0;
+		}
+		.form-wishlist {
+			display: none;
+		}
+	}
+}
+
+.facetedSearch-refineFilters {
+    > a[data-faceted-search-facet] {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 15px;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #323232;
+        font-size: 12px;
+        &:hover {
+        	color: #323232;
+        }
+    }
+	.facetLabel {
+		color: #323232;
+        font-size: 12px;
+        &:hover {
+        	color: #323232;
+        }
+	}
+}
+
+.navList-action-close {
+	margin-top: 5px;
+}
+
+.themevale_sidebar-mobile-wrapper {
+    display: block;
+    margin-bottom: 30px;
+    > .item {
+        display: block;
+        text-align: left;
+        + .item {
+            margin-top: 15px;
+        }
+    }
+    @media (min-width: 1025px) {
+        display: flex;
+        display: -ms-flexbox;
+        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        align-items: top;
+        > .item {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+            + .item {
+            	margin-top: 0;
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+    	margin-bottom: 0;
+    	> .item-iconSidebar {
+    		display: none;
+    	}
+    	> .text-right {
+    		text-align: right;
+    	}
+    }  
+}
+
+.sidebarBlock_custom {
+	border: none;
+    > ul, .sidebarBlock-content {
+        padding: 5px 0 0 0;
+    }
+    + .sidebarBlock {
+        margin-top: 25px;
+        padding-top: 20px;
+        border-top: 1px solid #eeeeee;
+    }
+    .sidebarBlock-heading {
+        border: none;
+        font-size: 16px;
+        padding-left: 0;
+        padding-right: 0;
+        text-transform: capitalize;
+    }
+	.sidebarBlock-content {
+        p.title {
+            text-decoration: underline;
+            text-underline-position: under;
+        }
+        p.link {
+            color: stencilColor("color-textLink");
+        }
+        > ul {
+            margin-bottom: 25px;
+            margin-left: 15px;
+            list-style-type: disc;
+            list-style-position: outside;
+            li {
+                display: list-item;
+                line-height: 24px;
+            }
+        }
+    }
+}
+
+.recentPost-sidebar {
+    text-align: left;
+    .title {
+        margin: 0;
+        text-transform: capitalize;
+        line-height: 20px;
+        font-size: $body-fontSize;
+        font-weight: $body-font-weight;
+        color: stencilColor('color-textLink');
+        a {
+            color: inherit;
+        }
+    }
+}

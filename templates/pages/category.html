@@ -1,0 +1,203 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+products:
+    featured:
+        limit: 6
+    top_sellers:
+        limit: 6
+customer:
+    wishlists:
+        limit:10
+    recently_viewed_products:
+        limit:10
+---
+
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+    {{#if pagination.category.previous}}
+        <link rel="prev" href="{{pagination.category.previous}}">
+    {{/if}}
+    {{#if pagination.category.next}}
+        <link rel="next" href="{{pagination.category.next}}">
+    {{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+<div class="themevale_breadcrumbCategory">
+    
+    {{#if category.image}}
+        <div class="category-image img-brands">
+          <img class="lazyload" data-sizes="auto" src="{{cdn 'assets/img/loading.svg'}}" data-src="{{getImage category.image 'category_image_size'}}" alt="{{category.name}}">
+           <div class="category-head container">
+                <h1 class="page-heading sub-title">{{category.name}}</h1>
+            </div>
+        </div>
+    {{/if}}
+    
+    <div class="container"> 
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+        <h1 class="page-heading sub-title">{{category.name}}</h1>
+        <div class="category-desc">
+        {{{category.description}}}
+        </div>
+        {{{snippet 'categories'}}}
+        {{{region name="category_below_header"}}}
+    </div>
+ 
+ 
+ <section class="themevale_section category-banner" id="categoryimages" style="display:none;">
+    <div class="container">
+        <div class="brandsImage-slider layout-1" data-slick='{
+            "dots":true,
+            "arrows": false,
+            "autoplay": false,
+            "slidesToShow": 2, 
+            "slidesToScroll": 2, 
+            "adaptiveHeight": true,
+            "mobileFirst": true,
+            "infinite": false,
+            "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-next&apos;></use></svg>", 
+            "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-prev&apos;></use></svg>",
+            "responsive": [
+                {
+                    "breakpoint": 1024,
+                    "settings": {
+                        "slidesToShow": 5,
+                        "slidesToScroll": 5
+                    }
+                },
+                {
+                    "breakpoint": 768,
+                    "settings": {
+                        "slidesToShow": 4,
+                        "slidesToScroll": 4
+                    }
+                },
+                {
+                    "breakpoint": 430,
+                    "settings": {
+                        "slidesToShow": 3,
+                        "slidesToScroll": 3
+                    }
+                }
+            ]}'>
+            <div class="brand-item">
+                <a href="/routing/router-tables/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_07.jpg" alt="brands-1" /></a> 
+            </div>
+            <div class="brand-item">
+                <a href="/routing/routers-and-lifts/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_08.jpg" alt="brands-2" /></a> 
+            </div>
+            <div class="brand-item">
+                <a href="/routing/routers-lifts/router-lifts/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_09.jpg" alt="brands-3" /></a> 
+            </div>
+            <div class="brand-item">
+                <a href="/routing/routing-accessories/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_10.jpg" alt="brands-4" /></a> 
+            </div>
+            <div class="brand-item">
+                <a href="/routing/mitre-gauges-and-sleds/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_05.jpg" alt="brands-5" /></a> 
+            </div>
+            
+            <div class="brand-item">
+                <a href="/routing/router-tables/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_01.jpg" alt="brands-1" /></a> 
+            </div>
+            <div class="brand-item">
+                <a href="/routing/routers-lifts/router-lifts/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_02.jpg" alt="brands-2" /></a> 
+            </div>
+            <div class="brand-item">
+                <a href="/routing/routers-and-lifts/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_03.jpg" alt="brands-3" /></a> 
+            </div>
+            <div class="brand-item">
+                <a href="/routing/mitre-gauges-and-sleds/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_04.jpg" alt="brands-4" /></a> 
+            </div>
+            <div class="brand-item">
+                <a href="/routing/routing-accessories/" class="featured-brand"><img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/categoryImages/cat_06.jpg" alt="brands-5" /></a> 
+            </div>
+        </div>
+        {{{region name="below_brands_image_carousel"}}}
+    </div>
+</section>
+</div>
+
+
+    <div id="showsub">
+          {{> components/themevale/category/subcategories }}
+    </div>
+    
+{{#if theme_settings.product_list_display_mode '===' 'grid 3'}}
+    <div id="grid-list-layout" class="page productGrid--maxCol3">
+    {{else}}
+        {{#if theme_settings.product_list_display_mode '===' 'grid 4'}}
+            <div id="grid-list-layout" class="page productGrid--maxCol4">
+        {{else}}
+            <div id="grid-list-layout" class="page productGrid--maxCol1">
+    {{/if}}
+{{/if}}
+    <div class="container">
+        {{#if theme_settings.categorypage_sidebar}} 
+            <aside class="page-sidebar" id="faceted-search-container">
+                {{> components/category/sidebar}}
+            </aside>
+        {{/if}}
+        <main class="page-content" id="product-listing-container">
+            {{#if category.products}}
+                {{> components/category/product-listing}}
+            {{else}}
+                <p>{{lang 'categories.no_products'}}</p>
+            {{/if}}
+        </main>
+    </div>
+    <div class="container">
+        {{{region name="category_below_content"}}}
+    </div>
+   
+</div>
+
+
+{{#if customer}}
+
+    <div class="container">
+        <div class="account recent_views">
+            <h2 class="page-heading">{{lang 'account.recent_items.heading' }}</h2>
+            {{#unless customer.recently_viewed_products.items}}
+                {{> components/common/alert-info (lang 'account.recent_items.no_items')}}
+            {{/unless}}
+            
+            <form action="{{urls.compare}}" method="post">
+                  {{> components/products/carousel-3 products=customer.recently_viewed_products.items show_compare=customer.recently_viewed_products.show_compare}}
+            </form>
+        
+        </div>
+    </div>
+{{/if}}
+
+
+{{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 2'}}
+    {{> components/themevale/category/brands-image-carousel-2}}
+{{else}}
+    {{> components/themevale/category/brands-image-carousel}}
+{{/if}}
+
+{{/partial}}
+{{> layout/base}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var host = window.location.pathname;
+        console.log("host",host);
+        let count = 0;
+        count = host.split('/').length - 1;
+        if(count > 2){
+            $("#showsub").attr("style","display:none;");
+            $("#categoryimages").attr("style","display:none;");
+            
+        }else{
+             $("#showsub").attr("style","display:block;");
+             $("#categoryimages").attr("style","display:none;");
+        }
+    });
+</script>

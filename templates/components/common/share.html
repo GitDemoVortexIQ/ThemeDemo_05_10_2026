@@ -1,0 +1,188 @@
+{{#if settings.add_this.buttons}}
+ {{assignVar 'encodedUrl' (encodeURI url)}}
+    {{assignVar 'encodedTitle' (encodeURI head.title)}}
+    <div class="addthis_toolbox addthis_32x32_style" addthis:url="{{url}}"
+         addthis:title="{{title}}">
+        <ul class="socialLinks blogsocial">
+            {{#each settings.add_this.buttons}}
+                <li class="socialLinks-item socialLinks-item--{{service}}">
+                    {{#if service '===' 'facebook'}}
+                        <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}} href="https://facebook.com/sharer/sharer.php?u={{getVar 'encodedUrl'}}">
+                            <svg>
+                                <use xlink:href="#icon-facebook"/>
+                            </svg>
+                        </a>
+                     {{/if}}
+                        
+                    {{#if service '===' 'twitter'}}
+                        <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}} href="https://twitter.com/intent/tweet/?text={{getVar 'encodedTitle'}}&amp;url={{getVar 'encodedUrl'}}">
+                            <svg>
+                                <use xlink:href="#icon-twitter"/>
+                            </svg>
+                         </a>
+                    {{/if}}
+
+                        {{#if service '===' 'linkedin'}}
+                        <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}} href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{getVar 'encodedUrl'}}&amp;title={{getVar 'encodedTitle'}}&amp;summary={{getVar 'encodedTitle'}}&amp;source={{getVar 'encodedUrl'}}">
+                            <svg>
+                                <use xlink:href="#icon-linkedin"/>
+                            </svg>
+                            </a>
+                        {{/if}}
+
+                        {{#if service '===' 'google'}}
+                        <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}} href="#">
+                            <svg>
+                                <use xlink:href="#icon-google"/>
+                            </svg>
+                            </a>
+                        {{/if}}
+                         {{#if service '===' 'email'}}
+                         <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}} href="mailto:?subject={{getVar 'encodedTitle'}}&amp;body={{getVar 'encodedUrl'}}">
+                            <svg>
+                                <use xlink:href="#icon-envelope"/>
+                            </svg>
+                            </a>
+                        {{/if}}
+
+                        {{#if service '===' 'google_plusone'}}
+                        <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}} href="#">
+                            <svg>
+                                <use xlink:href="#icon-google-plus"/>
+                            </svg>
+                            </a>
+                        {{/if}}
+
+                        {{#if service '===' 'pinterest'}}
+                        <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}} href="https://pinterest.com/pin/create/button/?url={{getVar 'encodedUrl'}}&amp;description={{getVar 'encodedTitle'}}">
+                            <svg>
+                                <use xlink:href="#icon-pinterest"/>
+                            </svg>
+                            </a>
+                        {{/if}}
+
+                       
+
+                        {{#if service '===' 'print'}}
+                        <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}} onclick="window.print();return false;">
+                            <svg>
+                                <use xlink:href="#icon-print"/>
+                            </svg>
+                            </a>
+                        {{/if}}
+
+                        {{#if service '===' 'facebook_like'}}
+                        <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}} href="#">
+                            <svg>
+                                <use xlink:href="#icon-facebook_like"/>
+                            </svg>
+                            </a>
+                        {{/if}}
+                   
+                </li>
+            {{/each}}
+             <li class="socialLinks-item socialLinks-item--instagram">
+                <a class="addthis_button_ icon icon--instagram instagramshare" title="Instagram" href="" target="_blank">
+                    <svg>
+                        <use xlink:href="#icon-instagram"/>
+                    </svg>
+                </a>
+            </li>
+            
+        </ul>
+       
+        <ul class="socialLinks prodsocial">
+            {{#each settings.add_this.buttons}}
+                <li class="socialLinks-item socialLinks-item--{{service}}">
+                    <a class="addthis_button_{{service}} icon icon--{{service}}" {{{annotation}}}>
+                        {{#if service '===' 'facebook'}}
+                            <img src="/product_images/uploaded_images/fb.png" alt="" width="10">
+                        {{/if}}
+                        
+                        {{#if service '===' 'twitter'}}
+                            <svg>
+                                <use xlink:href="#icon-twitter"/>
+                            </svg>
+                        {{/if}}
+
+                        {{#if service '===' 'linkedin'}}
+                            <svg>
+                                <use xlink:href="#icon-linkedin"/>
+                            </svg>
+                        {{/if}}
+
+                        {{#if service '===' 'google'}}
+                            <svg>
+                                <use xlink:href="#icon-google"/>
+                            </svg>
+                        {{/if}}
+                         {{#if service '===' 'email'}}
+                            <svg>
+                                <use xlink:href="#icon-envelope"/>
+                            </svg>
+                        {{/if}}
+
+                        {{#if service '===' 'google_plusone'}}
+                            <svg>
+                                <use xlink:href="#icon-google-plus"/>
+                            </svg>
+                        {{/if}}
+
+                        {{#if service '===' 'pinterest'}}
+                            <svg>
+                                <use xlink:href="#icon-pinterest"/>
+                            </svg>
+                        {{/if}}
+
+                       
+
+                        {{#if service '===' 'print'}}
+                            <svg>
+                                <use xlink:href="#icon-print"/>
+                            </svg>
+                        {{/if}}
+
+                        {{#if service '===' 'facebook_like'}}
+                            <svg>
+                                <use xlink:href="#icon-facebook_like"/>
+                            </svg>
+                        {{/if}}
+                    </a>
+                </li>
+            {{/each}}
+             <li class="socialLinks-item socialLinks-item--instagram">
+                <a class="addthis_button_ icon icon--instagram instagramshare" title="Instagram"  href="" target="_blank">
+                    <img src="/product_images/uploaded_images/instagram.png" alt="11">
+                </a>
+            </li>
+            
+        </ul>
+        <script type="text/javascript"
+                src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e94ed470ee51e32"></script>
+        <script>
+            if (typeof(addthis) === "object") {
+                addthis.toolbox('.addthis_toolbox');
+            }
+        </script>
+    </div>
+{{/if}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var host = "https://www.instagram.com/accounts/login/?url="+window.location.href;
+         $(".instagramshare").attr("href",host);
+          var pathname = window.location.pathname;
+        if (pathname.indexOf('blog/') != -1) {
+            $('.blogsocial').attr('style', 'display:block;'); 
+            $('.prodsocial').attr('style', 'display:none;'); 
+        } else if (pathname.indexOf('Blog') != -1) {
+             $('.blogsocial').attr('style', 'display:block;'); 
+             $('.prodsocial').attr('style', 'display:none;'); 
+        }
+        else {
+            $('.blogsocial').attr('style', 'display:none;'); 
+            $('.prodsocial').attr('style', 'display:block;');
+        }
+    });
+</script>

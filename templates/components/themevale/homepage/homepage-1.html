@@ -1,0 +1,41 @@
+{{#partial "hero"}}
+    {{#if carousel}}
+        {{> components/carousel}}
+    {{/if}}
+    {{{snippet 'home_content'}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+<div class="main full">
+    {{#each shipping_messages}}
+        {{> components/common/alert-info message}}
+    {{/each}}
+    <div class="themevale_section themevale_bgGray">
+        <div class="container">
+            {{> components/themevale/homepage/component/featured-category}}
+
+            {{{region name="below_featured_category"}}}
+
+            {{> components/themevale/homepage/component/catergory-url}}
+
+            {{{region name="below_catergory_url"}}}
+            
+            {{> components/themevale/homepage/component/catergory-tab}}
+
+            {{{region name="below_catergory_tab"}}}
+            
+            {{> components/themevale/homepage/component/blog-marketing}}
+
+            {{{region name="below_blog_marketing"}}}
+        </div>
+    </div>
+
+    {{> components/themevale/homepage/component/banner-with-video}}
+    
+    {{> components/themevale/homepage/component/recent-post-list}}
+
+    {{> components/themevale/homepage/component/brands-image-carousel}}
+</div>
+{{/partial}}
+{{> layout/base}}

@@ -1,0 +1,708 @@
+{
+  "regions": {
+    "pages/blog": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/blog-post": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/brand": [
+      {
+        "name": "header_top_promotion--global"
+      },
+      {
+        "name": "brand_below_header"
+      },
+      {
+        "name": "brand_below_content"
+      }
+    ],
+    "pages/cart": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/brands": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/category": [
+      {
+        "name": "header_top_promotion--global"
+      },
+      {
+        "name": "category_below_header"
+      },
+      {
+        "name": "below_brands_image_carousel"
+      },
+      {
+        "name": "category_below_content"
+      }
+    ],
+    "pages/checkout": [],
+    "pages/compare": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/contact-us": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/home": [
+      {
+        "name": "header_top_promotion--global"
+      },
+      {
+        "name": "stop_banner"
+      },
+      {
+        "name": "below_banner_marketing"
+      },
+      {
+        "name": "below_new_products"
+      },
+      {
+        "name": "below_featured_category"
+      },
+      {
+        "name": "below_catergory_url"
+      },
+      {
+        "name": "below_products_tabs"
+      },
+      {
+        "name": "below_banner_marketing_2"
+      },
+      {
+        "name": "below_banner_marketing_02--global"
+      },
+      {
+        "name": "below_banner_marketing_03--global"
+      },
+      {
+        "name": "below_recent_post_list"
+      }
+    ],
+    "pages/page": [
+      {
+        "name": "header_top_promotion--global"
+      },
+      {
+        "name": "page_builder_content"
+      }
+    ],
+    "pages/order-confirmation": [],
+    "pages/search": [
+      {
+        "name": "header_top_promotion--global"
+      },
+      {
+        "name": "search_below_content"
+      }
+    ],
+    "pages/product": [
+      {
+        "name": "header_top_promotion--global"
+      },
+      {
+        "name": "product_below_price"
+      },
+      {
+        "name": "product_below_content"
+      }
+    ],
+    "pages/sitemap": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/subscribed": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/unsubscribe": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/auth/create-account": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/auth/forgot-password": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/auth/account-created": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/auth/login": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/auth/new-password": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/amp/category": [],
+    "pages/amp/product": [],
+    "pages/amp/product-options": [],
+    "pages/gift-certificate/balance": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/gift-certificate/purchase": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/gift-certificate/redeem": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/unavailable/hibernation": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/unavailable/maintenance": [],
+    "pages/errors/403": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/errors/404": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/errors/generic": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/add-return": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/add-address": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/add-wishlist": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/addresses": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/inbox": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/download-item": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/edit": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/recent-items": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/return-saved": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/returns": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/wishlists": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/wishlist-details": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/orders/completed": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/orders/all": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/orders/details": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/account/orders/invoice": [],
+    "pages/custom/category/custom-category": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ],
+    "pages/custom/product/product-layout-2": [
+      {
+        "name": "header_top_promotion--global"
+      },
+      {
+        "name": "product_below_price"
+      }
+    ],
+    "pages/custom/product/product-layout-4": [
+      {
+        "name": "header_top_promotion--global"
+      },
+      {
+        "name": "product_below_price"
+      }
+    ],
+    "pages/custom/product/product-layout-3": [
+      {
+        "name": "header_top_promotion--global"
+      },
+      {
+        "name": "product_below_price"
+      }
+    ],
+    "pages/custom/page/faq": [
+      {
+        "name": "header_top_promotion--global"
+      }
+    ]
+  },
+  "templates": [
+    "layout/amp-iframe",
+    "layout/amp",
+    "layout/base",
+    "layout/empty",
+    "pages/blog",
+    "pages/blog-post",
+    "pages/brand",
+    "pages/cart",
+    "pages/brands",
+    "pages/category",
+    "pages/checkout",
+    "pages/compare",
+    "pages/contact-us",
+    "pages/home",
+    "pages/page",
+    "pages/order-confirmation",
+    "pages/search",
+    "pages/product",
+    "pages/sitemap",
+    "pages/subscribed",
+    "pages/unsubscribe",
+    "pages/auth/create-account",
+    "pages/auth/forgot-password",
+    "pages/auth/account-created",
+    "pages/auth/login",
+    "pages/auth/new-password",
+    "pages/amp/category",
+    "pages/amp/product",
+    "pages/amp/product-options",
+    "pages/gift-certificate/balance",
+    "pages/gift-certificate/purchase",
+    "pages/gift-certificate/redeem",
+    "pages/unavailable/hibernation",
+    "pages/unavailable/maintenance",
+    "pages/errors/403",
+    "pages/errors/404",
+    "pages/errors/generic",
+    "pages/account/add-return",
+    "pages/account/add-address",
+    "pages/account/add-wishlist",
+    "pages/account/addresses",
+    "pages/account/inbox",
+    "pages/account/download-item",
+    "pages/account/edit",
+    "pages/account/recent-items",
+    "pages/account/return-saved",
+    "pages/account/returns",
+    "pages/account/wishlists",
+    "pages/account/wishlist-details",
+    "pages/account/orders/completed",
+    "pages/account/orders/all",
+    "pages/account/orders/details",
+    "pages/account/orders/invoice",
+    "pages/custom/category/custom-category",
+    "pages/custom/product/product-layout-2",
+    "pages/custom/product/product-layout-4",
+    "pages/custom/product/product-layout-3",
+    "pages/custom/page/faq",
+    "components/carousel-content",
+    "components/carousel-2",
+    "components/carousel-content-2",
+    "components/carousel",
+    "components/blog/recent_post-3",
+    "components/blog/post",
+    "components/blog/recent_post",
+    "components/blog/recent_post-2",
+    "components/blog/recent_posts",
+    "components/blog/sidebar",
+    "components/account/add-wishlist",
+    "components/account/address-list",
+    "components/account/edit-account",
+    "components/account/messages-form",
+    "components/account/order-contents",
+    "components/account/navigation",
+    "components/account/messages-list",
+    "components/account/orders-list",
+    "components/account/returns-list",
+    "components/account/wishlist-list",
+    "components/account/wishlist-item-list",
+    "components/brand/brands_carousel",
+    "components/brand/product-listing",
+    "components/brand/show-more",
+    "components/brand/sidebar",
+    "components/category/shop-by-price",
+    "components/category/product-listing",
+    "components/category/show-more",
+    "components/category/show-products",
+    "components/category/sidebar",
+    "components/category/sort-box",
+    "components/gift-certificate/navigation",
+    "components/page/contact-us-form",
+    "components/page/rss_feed",
+    "components/search/advanced-search",
+    "components/search/heading",
+    "components/search/product-count",
+    "components/search/content-sort-box",
+    "components/search/quick-results",
+    "components/search/show-more",
+    "components/search/product-listing",
+    "components/search/sidebar",
+    "components/sitemap/links",
+    "components/social/connect",
+    "components/social/instagram",
+    "components/social/twitter",
+    "components/cart/content",
+    "components/cart/gift-certificate-input",
+    "components/cart/item-giftwrap",
+    "components/cart/coupon-input",
+    "components/cart/item-options",
+    "components/cart/page-title",
+    "components/cart/shipping-estimator",
+    "components/cart/preview",
+    "components/cart/shipping-quotes",
+    "components/cart/status-messages",
+    "components/cart/totals",
+    "components/cart/modals/configure-product",
+    "components/cart/modals/gift-wrapping-form",
+    "components/faceted-search/index",
+    "components/faceted-search/show-more-facets",
+    "components/faceted-search/selected-facets",
+    "components/faceted-search/facets/hierarchy-children",
+    "components/faceted-search/facets/multi",
+    "components/faceted-search/facets/range",
+    "components/faceted-search/facets/hierarchy",
+    "components/faceted-search/facets/rating",
+    "components/products/add-to-cart",
+    "components/products/bulk-discount-rates",
+    "components/products/card-3",
+    "components/products/card-category",
+    "components/products/card-new-2",
+    "components/products/card-2",
+    "components/products/card-new",
+    "components/products/card-sidebar",
+    "components/products/card-sale-2",
+    "components/products/card-sale",
+    "components/products/card-sale-3",
+    "components/products/card",
+    "components/products/carousel-3",
+    "components/products/carousel-2",
+    "components/products/carousel-5",
+    "components/products/carousel-4",
+    "components/products/carousel",
+    "components/products/event-date",
+    "components/products/featured",
+    "components/products/description",
+    "components/products/filter",
+    "components/products/grid",
+    "components/products/price-range",
+    "components/products/new",
+    "components/products/price-range1",
+    "components/products/price",
+    "components/products/price1",
+    "components/products/product-sidebar",
+    "components/products/product-description",
+    "components/products/product-view-2",
+    "components/products/product-quick-view",
+    "components/products/product-view-3",
+    "components/products/quick-view",
+    "components/products/related",
+    "components/products/ratings",
+    "components/products/product-view",
+    "components/products/reviews",
+    "components/products/tabs",
+    "components/products/videos",
+    "components/products/top",
+    "components/products/customizations/checkbox",
+    "components/products/customizations/file",
+    "components/products/customizations/select",
+    "components/products/customizations/text",
+    "components/products/customizations/textarea",
+    "components/products/modals/writeReview",
+    "components/products/options/date",
+    "components/products/options/input-checkbox",
+    "components/products/options/input-file",
+    "components/products/options/input-numbers",
+    "components/products/options/product-list",
+    "components/products/options/input-text",
+    "components/products/options/set-rectangle",
+    "components/products/options/set-radio",
+    "components/products/options/set-select",
+    "components/products/options/textarea",
+    "components/products/options/swatch",
+    "components/common/alert-error",
+    "components/common/alert-generic",
+    "components/common/alert-info",
+    "components/common/body",
+    "components/common/alert-success",
+    "components/common/breadcrumbs",
+    "components/common/cookie",
+    "components/common/footer",
+    "components/common/cart-preview",
+    "components/common/currency-selector",
+    "components/common/geotrust-ssl-seal",
+    "components/common/login-for-pricing",
+    "components/common/login-form",
+    "components/common/modal",
+    "components/common/header",
+    "components/common/navigation-accountMobile",
+    "components/common/navigation-dropdown",
+    "components/common/navigation-dropdownMobile",
+    "components/common/navigation-list-alternate",
+    "components/common/navigation-list-alternateMobile",
+    "components/common/navigation-list",
+    "components/common/navigation-menu",
+    "components/common/navigation",
+    "components/common/paginator",
+    "components/common/payment-icons",
+    "components/common/navigation-menuMobile",
+    "components/common/quick-search-2",
+    "components/common/quick-search",
+    "components/common/search-box",
+    "components/common/small-paginator",
+    "components/common/social-links",
+    "components/common/share",
+    "components/common/store-logo",
+    "components/common/subscription-form",
+    "components/common/wishlist-dropdown",
+    "components/common/forms/date",
+    "components/common/forms/checkbox",
+    "components/common/forms/password",
+    "components/common/forms/number",
+    "components/common/forms/multiline",
+    "components/common/forms/radio",
+    "components/common/forms/select",
+    "components/common/forms/selectortext",
+    "components/common/forms/text",
+    "components/amp/category/product-listing",
+    "components/amp/category/styles",
+    "components/amp/category/subcategories",
+    "components/amp/common/alert-error",
+    "components/amp/common/alert-success",
+    "components/amp/common/header",
+    "components/amp/common/icon-defs",
+    "components/amp/common/footer",
+    "components/amp/common/navigation-menu",
+    "components/amp/common/paginator",
+    "components/amp/common/share",
+    "components/amp/common/store-logo",
+    "components/amp/css/base",
+    "components/amp/css/category",
+    "components/amp/css/footer",
+    "components/amp/css/header",
+    "components/amp/css/product-options",
+    "components/amp/css/product",
+    "components/amp/css/form",
+    "components/amp/products/grid",
+    "components/amp/products/list-item",
+    "components/amp/products/list",
+    "components/amp/products/card",
+    "components/amp/products/product-options",
+    "components/amp/products/product-view-details",
+    "components/amp/products/ratings",
+    "components/amp/products/product-view",
+    "components/amp/products/reviews",
+    "components/amp/products/videos",
+    "components/amp/products/styles",
+    "components/amp/products/options/date",
+    "components/amp/products/options/input-checkbox",
+    "components/amp/products/options/input-numbers",
+    "components/amp/products/options/input-text",
+    "components/amp/products/options/input-file",
+    "components/amp/products/options/product-list",
+    "components/amp/products/options/set-rectangle",
+    "components/amp/products/options/set-radio",
+    "components/amp/products/options/set-select",
+    "components/amp/products/options/swatch",
+    "components/themevale/ask-an-expert",
+    "components/themevale/brands-list",
+    "components/themevale/fbt-item",
+    "components/themevale/contact-us-map",
+    "components/themevale/countdown",
+    "components/themevale/fbt-options",
+    "components/themevale/megamenu",
+    "components/themevale/newsletter",
+    "components/themevale/themevale-fbt",
+    "components/themevale/banners-marketing/layout-banner",
+    "components/themevale/banners-marketing/banner",
+    "components/themevale/category/customer-html",
+    "components/themevale/category/brands-image-carousel-2",
+    "components/themevale/category/brands-image-carousel",
+    "components/themevale/category/customer-review",
+    "components/themevale/category/subcategories",
+    "components/themevale/header/header-layout-1",
+    "components/themevale/header/header-layout-2",
+    "components/themevale/header/header-layout-3",
+    "components/themevale/header/navigation-2",
+    "components/themevale/header/navigation-3",
+    "components/themevale/header/navigation-menu-2",
+    "components/themevale/header/navigation-menu-3",
+    "components/themevale/header/navigation-mobile",
+    "components/themevale/footer/footer-1",
+    "components/themevale/footer/footer-3",
+    "components/themevale/footer/footer-2",
+    "components/themevale/modals/instruction",
+    "components/themevale/modals/video-gallery-pc",
+    "components/themevale/modals/video-gallery",
+    "components/themevale/modals/warranty",
+    "components/themevale/options-2/date",
+    "components/themevale/options-2/input-checkbox",
+    "components/themevale/options-2/input-file",
+    "components/themevale/options-2/input-text",
+    "components/themevale/options-2/set-radio",
+    "components/themevale/options-2/product-list",
+    "components/themevale/options-2/input-numbers",
+    "components/themevale/options-2/set-rectangle",
+    "components/themevale/options-2/set-select",
+    "components/themevale/options-2/swatch",
+    "components/themevale/options-2/textarea",
+    "components/themevale/product/ask-an-expert",
+    "components/themevale/product/description-tabs-2",
+    "components/themevale/product/product-carousel-2",
+    "components/themevale/product/product-carousel-3",
+    "components/themevale/product/product-description-3",
+    "components/themevale/product/product-description-2",
+    "components/themevale/product/securityImage",
+    "components/themevale/product/sticky-add-to-cart",
+    "components/themevale/options/date",
+    "components/themevale/options/input-file",
+    "components/themevale/options/input-numbers",
+    "components/themevale/options/input-checkbox",
+    "components/themevale/options/input-text",
+    "components/themevale/options/product-list",
+    "components/themevale/options/set-select",
+    "components/themevale/options/set-rectangle",
+    "components/themevale/options/swatch",
+    "components/themevale/options/textarea",
+    "components/themevale/options/set-radio",
+    "components/themevale/tabs/tab-shipping",
+    "components/themevale/tabs/tab-custom",
+    "components/themevale/tabs/tab-faq",
+    "components/themevale/sidebar/advertisement-image-1",
+    "components/themevale/sidebar/advertisement-content",
+    "components/themevale/sidebar/featured-products",
+    "components/themevale/sidebar/advertisement-image-2",
+    "components/themevale/sidebar/recent-post",
+    "components/themevale/sidebar/sub-categories",
+    "components/themevale/sidebar/side-all-categories",
+    "components/themevale/homepage/homepage-2",
+    "components/themevale/homepage/homepage-3",
+    "components/themevale/homepage/homepage-1",
+    "components/themevale/homepage/component/ajax-products-by-category-id-2",
+    "components/themevale/homepage/component/ajax-products-by-category-id-3",
+    "components/themevale/homepage/component/ajax-products-by-category-id-4",
+    "components/themevale/homepage/component/ajax-products-by-category-id-result-2",
+    "components/themevale/homepage/component/ajax-products-by-category-id-5",
+    "components/themevale/homepage/component/ajax-products-by-category-id-result-3",
+    "components/themevale/homepage/component/ajax-products-by-category-id",
+    "components/themevale/homepage/component/ajax-products-by-category-id-result",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-1",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-3",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-2",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-4",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-6",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-5",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-7",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-content",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-8",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-result",
+    "components/themevale/homepage/component/ajax-products-by-category-special-1",
+    "components/themevale/homepage/component/ajax-products-by-category-sorting-tabs-result2",
+    "components/themevale/homepage/component/ajax-products-by-category-special-2",
+    "components/themevale/homepage/component/ajax-products-by-category-special-4",
+    "components/themevale/homepage/component/ajax-products-by-category-special-3",
+    "components/themevale/homepage/component/ajax-products-by-category-special-5",
+    "components/themevale/homepage/component/ajax-products-by-category-special-7",
+    "components/themevale/homepage/component/ajax-products-by-category-special-6",
+    "components/themevale/homepage/component/ajax-products-by-category-special-8",
+    "components/themevale/homepage/component/banner-marketing-1",
+    "components/themevale/homepage/component/ajax-products-by-category-special-result",
+    "components/themevale/homepage/component/banner-with-video-2",
+    "components/themevale/homepage/component/banner-marketing-3",
+    "components/themevale/homepage/component/banner-marketing-2",
+    "components/themevale/homepage/component/banner-with-video",
+    "components/themevale/homepage/component/blog-marketing",
+    "components/themevale/homepage/component/brands-image-carousel",
+    "components/themevale/homepage/component/brands-image-grid-2",
+    "components/themevale/homepage/component/catergory-custom-block",
+    "components/themevale/homepage/component/brands-image-grid",
+    "components/themevale/homepage/component/catergory-url-3",
+    "components/themevale/homepage/component/catergory-tab",
+    "components/themevale/homepage/component/catergory-url-2",
+    "components/themevale/homepage/component/catergory-url-list",
+    "components/themevale/homepage/component/catergory-url",
+    "components/themevale/homepage/component/customer-review",
+    "components/themevale/homepage/component/featured-category-2",
+    "components/themevale/homepage/component/featured_products",
+    "components/themevale/homepage/component/featured-category",
+    "components/themevale/homepage/component/new_products-2",
+    "components/themevale/homepage/component/products-tabs",
+    "components/themevale/homepage/component/product-loading",
+    "components/themevale/homepage/component/new_products",
+    "components/themevale/homepage/component/recent-post-list-2",
+    "components/themevale/homepage/component/recent-post-list",
+    "components/themevale/homepage/component/recent-post-list-3"
+  ]
+}

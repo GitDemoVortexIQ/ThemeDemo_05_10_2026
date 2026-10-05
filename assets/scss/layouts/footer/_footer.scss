@@ -1,0 +1,768 @@
+// =============================================================================
+// FOOTER (CSS)
+// =============================================================================
+
+
+// Layout and columns
+// -----------------------------------------------------------------------------
+//
+// 1. To enable the grid's display: inline-block; to work properly, we need to
+//    remove the white-space that it creates between columns with font-size: 0;
+// 2. Re-set the font-size that was reduced to 0 in point 1 for children.
+//
+// -----------------------------------------------------------------------------
+
+.footer {
+    .socialLinks {
+        .socialLinks-item {
+            margin-right: 12px;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 13px;
+            border-radius: 3px;
+            margin-left: 0;
+            color: stencilColor('footer-socialColor');
+            border: 1px solid stencilColor('footer-socialborderColor');
+            background-color: stencilColor('footer-socialbackgroundColor');
+            transform: scale(1);
+            svg {
+                fill: stencilColor('footer-socialColor');
+                stroke: stencilColor('footer-socialColor');
+            }
+        }
+        + .footer-info-heading {
+            margin-top: 30px;
+        }
+        &.socialLinks--layout2 {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            .icon {
+                border-radius: 50%;
+                padding: 0 12px;
+            }
+        }
+        @media (min-width: 1025px) {
+            &.socialLinks--layout2 {
+                margin-top: 50px;
+            }
+        }
+    }
+}
+
+.footer-info {
+    @include grid-row($behavior: nest);
+    font-size: 0;
+    margin: 0 -8px;
+    @media (min-width: 1025px) {
+        margin: 0 -15px;
+    }
+}
+
+.footer-info-col {
+    @include grid-column(12);
+    font-size: $body-fontSize;
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 8px;
+    &.custom {
+        margin-top: 30px;
+    }
+    .form, .form-field {
+        margin-bottom: 0;
+    }
+    @media (min-width: 768px) {
+        width: 50%;
+    }
+    @media (min-width: 1025px) {
+        padding: 0 15px;
+        width: width("4/12");
+        &.custom {
+            margin-top: 0px;
+        }
+    }
+}
+
+.footer-info-col--small {
+    @media (min-width: 768px) {
+        width: width("3/12");
+    }
+    @media (min-width: 1025px) {
+        width: width("2/12");
+    }
+}
+
+.footer-info-col--social {
+    width: 100%;
+}
+
+// Content
+// -----------------------------------------------------------------------------
+
+.footer-info-heading {
+    font-weight: 700;
+    color: stencilColor('footer-titleColor');
+    font-size: 16px;
+    margin: 0 0 15px 0;
+    text-transform: capitalize;
+    @media (max-width: 767px) {
+        .footer-dropdownmobile & {
+            position: relative;
+            padding: 2px 0 20px 0;
+            margin: 0 0 20px 0;
+            border-bottom: 1px solid #4d4f52;
+            &:before {
+                right: 0;
+                top: 0;
+                z-index: 2;
+                content: "+";
+                color: inherit;
+                font-size: 20px;
+                line-height: 1;
+                font-weight: 600;
+                position: absolute;
+                /*transform: translateY(-50%);*/
+            }
+        }
+        .footer-dropdownmobile.open-dropdown & {
+            &:before {
+                top: 9px;
+                right: 1px;
+                width: 10px;
+                height: 2px;
+                background-color: stencilColor('footer-titleColor');
+                content: "";
+            }
+        }
+    }
+    @media (min-width: 1025px) {
+        font-size: 15px;
+    }
+}
+
+.footer-info-list {
+    list-style: none;
+    margin-left: 0;
+    > li {
+        line-height: 30px;
+        a, .icon {
+            line-height: 20px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .icon {
+            @include square(15);
+            margin-left: -5px;
+        }
+    }
+    .view-all {
+        font-weight: 700;
+        color: stencilColor('footer-titleColor');
+        &:before {
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            content: "";
+            display: block;
+            position: absolute;
+            background-color: $footer-fontColorHover;
+            transition: all 0.3s ease;
+        }
+        &:hover:before {
+            width: 100%;
+        }
+    }
+    > .store-address, > .store-phone, > .store-email {
+        line-height: 22px;
+        padding-left: 30px;
+        position: relative;
+        margin-bottom: 20px;
+        a {
+            text-transform: none;
+        }
+        .icon {
+            position: absolute;
+            left: 4px;
+            top: 4px;
+        }
+    }
+    > .store-phone {
+        p {
+            margin-bottom: 5px;
+        }
+    }
+    > .store-email {
+        margin-bottom: 0;
+    }
+    .ask_an_expert {
+        font-size: 13px;
+        font-weight: 700;
+        margin: 20px 0 5px 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        text-transform: capitalize;
+        border-color: #484b51;
+        background-color: transparent;
+        color: stencilColor('footer-titleColor');
+        &:before {
+            content: none;
+        }
+        &:hover {
+            border-color: #484b51;
+            background-color: transparent;
+            color: stencilColor('footer-titleColor');
+        }
+        @media (min-width: 1025px) {
+            &:hover, &:focus, &:active {
+                color: stencilColor("button--primary-colorHover");
+                border: 1px solid stencilColor("button--primary-borderColorHover");
+                background-color: stencilColor("button--primary-backgroundColorHover");
+                svg {
+                    fill: stencilColor("button--primary-colorHover");
+                }
+            }
+        }
+    }
+    .socialLinks {
+        margin-top: 35px;
+    }
+}
+
+.footer-copyright {
+    text-align: center;
+    @media (min-width: 993px) {
+        text-align: left;
+    }
+    + .footer-copyright {
+        margin-top: 6px;
+    }
+}
+
+.footer-newsletter-summary {
+    text-align: left;
+}
+
+.footer-protective-image {
+    text-align: center;
+    max-width: 250px;
+    margin-top: 30px;
+    .slick-arrow {
+        width: 30px;
+        height: 15px;
+        opacity: 0.5;
+        fill: #ffffff;
+        &:hover {
+            fill: #ffffff;
+        }
+        &.slick-next {
+            right: -10px;
+        }
+        &.slick-prev {
+            left: -10px;
+        }
+
+    }
+    img {
+        opacity: 0.3;
+        margin: 0 auto;
+        display: inline-block;
+        max-height: 65px;
+    }
+}
+
+.payment-wrapper {
+    text-align: center;
+    font-size: 0;
+    img {
+        display: inline-block;
+        vertical-align: top;
+        max-height: 28px;
+        margin-bottom: 10px;
+        + img {
+            margin-left: 10px;
+        }
+    }
+    @media (min-width: 993px) {
+        text-align: right;
+        img {
+            max-height: 32px;
+            margin-bottom: 0px;
+            + img {
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+.themevale_navigation_footer {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    li {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        margin-bottom: 5px;
+        &:after {
+            content: "|";
+            top: -2px;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px;
+            color: #4e4f51;
+        }
+        &:last-child:after {
+            content: none;
+        }
+    }
+    @media (min-width: 993px) {
+        text-align: left;
+        margin-bottom: 30px;
+    }
+}
+
+
+/*=========================================
+=            www.themevale.com            =
+=========================================*/
+    .footer {
+        .form-prefixPostfix {
+            max-width: 430px;
+            .form-input, .button {
+                width: 100%;
+            }
+            .button {
+                margin: 0.75rem 0 0 0;
+            }
+            @media (min-width: 360px) {
+                .form-input, .button {
+                    width: auto;
+                }
+                .button {
+                    margin: 0 0 0 0.75rem;
+                }
+            }
+        }
+        .themevale_description {
+            margin-top: 15px;
+        }
+        .themevale_securityImage {
+            margin-top: 20px;
+        }
+        @include breakpoint('medium') {
+            .themevale_securityImage {
+                margin-top: 40px;
+            }
+        }
+    }
+
+    .footer-layout-2 {
+        .footer-info-list .ask_an_expert {
+            min-width: 160px;
+            padding-top: 10px;
+            padding-bottom: 9px;
+        }
+        .footer-info-list {
+            .icon-view {
+                fill: $footer-fontColorHover;
+                stroke: $footer-fontColorHover;
+            }
+            .view-all {
+                color: $footer-fontColorHover;
+                &:before {
+                    background-color: $footer-fontColorHover;
+                }
+            }
+        }
+        .footer-info-col--big {
+            width: 100%;
+        }
+        @media (min-width: 1025px) {
+            .themevale_middleFooter {
+                padding-top: 65px;
+                padding-bottom: 45px;
+            }
+            .footer-info-col {
+                width: 20%;
+            }
+
+            .footer-info-col--small {
+                width: 12.5%;
+            }
+
+            .footer-info-col--big {
+                width: 30%;
+            }
+            .footer-info-heading {
+                font-size: 16px;
+            }
+        }
+        @media (max-width: 767px) {
+            .footer-dropdownmobile .footer-info-heading {
+                border-bottom: 1px solid #cccfd7;
+            }
+        }
+    }
+
+    .footer-layout-3 {
+        .footer-info-list .ask_an_expert {
+            text-transform: uppercase;
+        }
+        @media (min-width: 1025px) {
+            .themevale_middleFooter {
+                padding-top: 65px;
+                padding-bottom: 45px;
+            }
+        }
+    }
+
+    .themevale_contactUs {
+        font-size: 14px;
+        padding: 20px 0;
+        text-align: center;
+        border-top: 1px solid #ededed;
+        p, a, span {
+            margin: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        span + a {
+            margin-left: 4px;
+        }
+        strong {
+            font-weight: 700;
+            color: stencilColor('color-textHeading');
+        }
+        a:not(.button) {
+            color: inherit;
+            &:hover {
+                color: inherit;
+            }
+        }
+        .button {
+            margin: 0;
+            min-width: 140px;
+            padding: 12px 35px 11px 35px;
+        }
+        .or1 {
+            display: block;
+            font-size: 0;
+            line-height: 10px;
+        }
+        .or2 {
+            display: block;
+            margin: 5px 0;
+        }
+        @include breakpoint("small") {
+            .or1 {
+                font-size: 12px;
+                line-height: 20px;
+                display: inline-block;
+            }
+        }
+        @include breakpoint("medium") {
+            .or2 {
+                margin: 0;
+                display: inline-block;
+                + .button {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+
+    .themevale_service {
+        .service-item {
+            position: relative;
+            text-align: center;
+            padding: 20px 10px;
+            .icon {
+                @include square(40);
+                svg {
+                    fill: #484b51;
+                    stroke: #484b51;
+                }
+            }
+            .title {
+                font-size: 16px;
+                font-weight: 700;
+                margin: 15px 0;
+                line-height: 24px;
+                text-transform: capitalize;
+                color: stencilColor('color-textHeading');
+            }
+            .text {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        @media (min-width: 360px) {
+            .service-item {
+                padding: 30px 20px;
+            }
+        }
+        @include breakpoint("small") {
+            .service-item {
+                .icon {
+                    @include square(50);
+                }
+            }
+            .service-item.slick-active + .service-item.slick-active {
+                &:before {
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    width: 1px;
+                    height: 100%;
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    background-color: #ededed;
+                }
+            }
+        }
+        @media (min-width: 993px) {
+            font-size: 0;
+            display: block;
+            .service-item {
+                width: 25%;
+                vertical-align: top;
+                display: inline-block;
+                font-size: $body-fontSize;
+                border-left: 1px solid #ededed;
+                &:last-child {
+                    border-right: 1px solid #ededed;
+                }
+                + .service-item:before {
+                    content: none !important;
+                }
+            }
+        }
+    }
+
+    .themevale_service.layout-2 {
+        color: stencilColor('themevale_service-color');
+        background-color: stencilColor('themevale_service-bgcolor');
+        padding-top: 20px;
+        padding-bottom: 20px;
+        .container {
+            overflow: auto;
+            display: flex;
+            white-space: nowrap;
+            > .service-item {
+                vertical-align: top;
+                display: inline-block;
+                margin-right: 15px;
+                white-space: normal;
+                min-width: 212px;
+            }
+        }
+        .service-item {
+            border: none;
+            padding: 0px;
+        }
+        .service-wrapper {
+            position: relative;
+            text-align: left;
+            display: table;
+            margin: 0 auto;
+            padding: 0;
+            .service-icon,
+            .service-content {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                padding: 18px;
+                border-radius: 50%;
+                border: 1px solid rgba(255,255,255,0.2);
+            }
+            .service-content {
+                padding-left: 18px;
+            }
+            .icon {
+                @include square(24);
+                svg {
+                    fill: stencilColor('themevale_service-color');
+                    stroke: stencilColor('themevale_service-color');
+                }
+            }
+            .title {
+                font-size: 12px;
+                font-weight: 700;
+                margin: 0 0 2px 0;
+                line-height: 20px;
+                text-transform: capitalize;
+                color: stencilColor('themevale_service-color');
+            }
+            .text {
+                font-size: 12px;
+                font-weight: 400;
+                opacity: 0.5;
+                color: stencilColor('themevale_service-color');
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        @media (min-width: 993px) {
+            .container {
+                display: block;
+                white-space: normal;
+                overflow: visible;
+                > .service-item {
+                    margin-right: 0;
+                    min-width: auto;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+
+    .themevale_service.layout-3 {
+        color: stencilColor('themevale_service-color');
+        background-color: stencilColor('themevale_service-bgcolor');
+        padding-top: 25px;
+        padding-bottom: 25px;
+        .container {
+            overflow: auto;
+            display: flex;
+            white-space: nowrap;
+            > .service-item {
+                vertical-align: top;
+                display: inline-block;
+                margin-right: 15px;
+                white-space: normal;
+                min-width: 240px;
+            }
+        }
+        .service-item {
+            padding: 0;
+            border-left: none;
+            &:last-child {
+                border-right: none;
+            }
+            + .service-item {
+                border-left: 1px solid rgba(255,255,255,0.5);
+            }
+        }
+        .service-wrapper {
+            position: relative;
+            text-align: left;
+            display: table;
+            margin: 0 auto;
+            padding: 4px 10px;
+            .service-icon,
+            .service-content {
+                display: table-cell;
+                vertical-align: top;
+            }
+            .service-icon {
+                width: 30px;
+                padding-top: 5px;
+            }
+            .service-content {
+                padding-left: 18px;
+            }
+            .icon {
+                @include square(30);
+                svg {
+                    fill: stencilColor('themevale_service-color');
+                    stroke: stencilColor('themevale_service-color');
+                }
+            }
+            .title {
+                font-size: 12px;
+                font-weight: 700;
+                margin: 0 0 2px 0;
+                line-height: 20px;
+                text-transform: capitalize;
+                color: stencilColor('themevale_service-color');
+            }
+            .text {
+                font-size: 12px;
+                font-weight: 400;
+                opacity: 0.5;
+                color: stencilColor('themevale_service-color');
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        @media (min-width: 993px) {
+            .container {
+                display: block;
+                white-space: normal;
+                overflow: visible;
+                > .service-item {
+                    margin-right: 0;
+                    min-width: auto;
+                }
+            }
+        }
+    }
+
+    .themevale_topFooter {
+        border-top: 1px solid #ededed;
+        border-bottom: 1px solid #ededed;
+    }
+
+    .themevale_middleFooter {
+        padding: 35px 0;
+        color: $footer-fontColor;
+        background-color: $footer-background;
+        svg {
+            fill: $footer-fontColor;
+            stroke: $footer-fontColor;
+        }
+        a {
+            color: $footer-fontColor;
+            &:hover {
+                color: $footer-fontColorHover;
+            }
+        }
+    }
+
+    .themevale_bottomFooter {
+        padding: 35px 0;
+        color: stencilColor('footer-bottom-textColor');
+        background-color: stencilColor('footer-bottom-backgroundColor');
+        a, p {
+            margin: 0;
+            color: stencilColor('footer-bottom-textColor');
+        }
+        .container {
+            .item + .item {
+                margin-top: 15px;
+            }
+            @media (min-width: 993px) {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                .item {
+                    width: 50%;
+                    + .item {
+                        margin-top: 0px;
+                    }
+                }
+            }
+        }
+    }
+
+/*=====  End of www.themevale.com  ======*/

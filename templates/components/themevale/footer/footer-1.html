@@ -1,0 +1,150 @@
+<div class="themevale_contactUs">
+    <div class="container">
+        <div class="contactUs">
+            <span>Need help? We're available at</span><a href="tel:{{settings.phone_number}}"><strong>{{settings.phone_number}}</strong></a>
+            <span class="or1"> - </span>
+            <span>Email us at</span><a href="mailto:support@halothemes.com">support@halothemes.com</a>
+            <span class="or2">or</span><a class="button button--primary" href="#">live help</a>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="themevale_topFooter">
+        <div class="container">
+            <div class="themevale_service">
+                <div class="service-item">
+                    <div class="service-wrapper">
+                        <i class="icon"><svg><use xlink:href="#icon-truck"></use></svg></i>
+                        <h3 class="title">Worldwide Delivery</h3>
+                        <p class="text">Metus tellus ultricies et quam sit amet commodo odio diam a libero nulla facilisi suspendissous enim sodales lacinia neque commodo.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-wrapper">
+                        <i class="icon"><svg><use xlink:href="#icon-credit-card"></use></svg></i>
+                        <h3 class="title">Secure Shopping</h3>
+                        <p class="text">Metus tellus ultricies et quam sit amet commodo odio diam a libero nulla facilisi suspendissous enim sodales lacinia neque commodo.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-wrapper">
+                        <i class="icon"><svg><use xlink:href="#icon-shield"></use></svg></i>
+                        <h3 class="title">Shop with Confidence</h3>
+                        <p class="text">Metus tellus ultricies et quam sit amet commodo odio diam a libero nulla facilisi suspendissous enim sodales lacinia neque commodo.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-wrapper">
+                        <i class="icon"><svg><use xlink:href="#icon-support"></use></svg></i>
+                        <h3 class="title">24/7 Help Center</h3>
+                        <p class="text">Metus tellus ultricies et quam sit amet commodo odio diam a libero nulla facilisi suspendissous enim sodales lacinia neque commodo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="themevale_middleFooter">
+        <div class="container">
+            <div class="footer-info themevale_footer-info">
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-webPages">
+                    <h5 class="footer-info-heading">{{lang 'footer.navigate'}}</h5>
+                    <ul class="footer-info-list">
+                        {{#each (limit pages 8)}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile">
+                        <h5 class="footer-info-heading">{{lang 'footer.services'}}</h5>
+                        <ul class="footer-info-list">
+                            <li><a href="/faq/">Help & FAQs</a></li>
+                            <li><a href="/terms-of-conditions/">Terms of Conditions</a></li>
+                            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="/returns-policy/">Online Returns Policy</a></li>
+                            <li><a href="/rewards-program/">Rewards Program</a></li>
+                            <li><a href="/rebate-center/">Rebate Center</a></li>
+                            <li><a href="/partners/">Partners</a></li>
+                        </ul>
+                    </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-categories">
+                    <h5 class="footer-info-heading">{{lang 'footer.shop'}}</h5>
+                    <ul class="footer-info-list">
+                        {{#each (limit categories 8)}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="footer-info-col footer-info-col--small footer-dropdownmobile" data-section-type="footer-brands">
+                    <h5 class="footer-info-heading">{{lang 'footer.brands'}}</h5>
+                    <ul class="footer-info-list">
+                        {{#each (limit shop_by_brand 8)}}
+                            <li>
+                                <a href="{{url}}">{{name}}</a>
+                            </li>
+                        {{/each}}
+                        <li>
+                            <svg class="icon"><use xlink:href="#icon-chevron-right"></use></svg>
+                            <a class="view-all" href="{{urls.brands}}">
+                                {{lang 'common.view_all_brands'}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-info-col custom" data-section-type="newsletterSubscription">
+                    {{> components/common/social-links}}
+
+                    {{#if settings.show_newsletter_box}}
+                        {{> components/common/subscription-form}}
+                    {{/if}}
+
+                    <div class="footer-protective-image" data-slick='{
+                        "dots": false,
+                        "arrows": true,
+                        "slidesToShow": 1,
+                        "slidesToScroll": 1,
+                        "mobileFirst": true,
+                        "adaptiveHeight": true,
+                        "nextArrow": "<svg class=&apos;slick-next slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-next&apos;></use></svg>", 
+                        "prevArrow": "<svg class=&apos;slick-prev slick-arrow&apos;><use xlink:href=&apos;#slick-arrow-prev&apos;></use></svg>"}'>
+                        <div class="item">
+                            <a href="#">
+                            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/brands-footer.png" alt="brands-footer-1">
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#">
+                            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/brands-footer.png" alt="brands-footer-2">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="themevale_bottomFooter">
+        <div class="container">
+            <div class="item">
+                {{#if theme_settings.show_copyright_footer}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
+                    </div>
+                {{/if}}
+                {{#if theme_settings.show_powered_by}}
+                    <div class="footer-copyright">
+                        <p class="powered-by">Bigcommerce Themes & Templates by <a href="themevale.com" rel="nofollow">ThemeVale.com</a></p>
+                    </div>
+                {{/if}}
+            </div>
+            <div class="item">
+                {{> components/common/payment-icons}}
+            </div>
+        </div>
+    </div>
+</footer>

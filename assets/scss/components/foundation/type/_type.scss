@@ -1,0 +1,144 @@
+// =============================================================================
+// TYPE (CSS)
+// =============================================================================
+
+// Stencil type component additions
+// -----------------------------------------------------------------------------
+
+html * {
+    outline: 0 !important;
+}
+
+body {
+    padding: 0;
+    line-height: 20px;
+    position: relative;
+    overflow-x: hidden;
+    font-size: $body-fontSize;
+    color: stencilColor('color-textBase');
+    font-weight: $body-font-weight;
+    font-family: $fontFamily-sans;
+    -wenkit-font-smoothing: subpixel-antialiased;
+    &.themevale_open-Cart,
+    &.themevale_open-Sidebar,
+    &.themevale_open-Account,
+    &.has-activeNavPages,
+    &.has-newsletter {
+        overflow: hidden;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    letter-spacing: 0;
+    font-weight: $header-font-weight;
+    margin-top: $heading-marginTop;
+    font-family: $fontFamily-headings;
+    color: stencilColor('color-textHeading');
+}
+
+h5,
+h6 {
+    text-transform: $heading-textTransform;
+}
+
+a {
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    &:hover,
+    &:focus,
+    &:active {
+        outline: none;
+        text-decoration: none;
+        -webkit-tap-highlight-color:transparent;
+        -moz-tap-highlight-color:transparent;
+        -o-tap-highlight-color:transparent;
+        tap-highlight-color:transparent;
+    }
+}
+
+cite {
+    line-height: $blockquote-cite-lineHeight;
+    margin: $blockquote-cite-margin;
+}
+
+.page-heading {
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 0 0 30px;
+    font-family: $fontFamily-headings;
+    color: stencilColor('color-textHeading');
+    font-weight: stencilFontWeight("headings-font");
+    @include breakpoint('small') {
+        font-size: 22px;
+        margin: 0 0 spacing("double");
+        .page-full-width & {
+            font-size: 20px;
+        }
+    }
+    > a {
+        color: inherit;
+    }
+}
+
+h1 {
+    font-size: $h1-font-size;
+}
+
+h2 {
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-size: $h3-font-size;
+}
+
+h4 {
+    font-size: $h4-font-size;
+}
+
+h5 {
+    font-size: $h5-font-size;
+}
+
+h6 {
+    font-size: $h6-font-size;
+}
+
+.definitionList {
+    @include clearfix;
+}
+
+.definitionList-key {
+    color: stencilColor("color-textSecondary");
+    float: left;
+    font-weight: fontWeight("normal");
+    margin: 0 spacing("quarter") 0 0;
+}
+
+.definitionList-value {
+    margin: 0;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

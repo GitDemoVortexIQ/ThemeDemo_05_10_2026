@@ -1,0 +1,39 @@
+{{#if banners.bottom}}
+    {{#if settings.data_tag_enabled}}
+        <div class="banners" data-banner-location="bottom">
+            {{#each (limit banners.bottom_metadata 1)}}
+                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
+                    <div data-event-type="promotion-click">
+                        {{{this.content}}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+            <div class="banners" data-banner-location="bottom">
+            <div class="banner">
+                {{{limit banners.bottom 1}}}
+            </div>
+        </div>
+    {{/if}}
+{{/if}}
+{{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 1'}}
+    {{> components/themevale/footer/footer-1}}
+{{/if}}
+{{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 2'}}
+    {{> components/themevale/footer/footer-2}}
+{{/if}}
+{{#if theme_settings.themevale_homepage_layout '===' 'homepage layout 3'}}
+    {{> components/themevale/footer/footer-3}}
+{{/if}}
+{{#if theme_settings.themevale_BackTop}}
+    <div id="back-to-top">
+        <a href="javascript:void(0)">to top<svg class="icon"><use xlink:href="#icon-keyboard-arrow-down"></use></svg></a>
+    </div>
+{{/if}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+<script type="text/javascript">// <![CDATA[
+(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='COMPANY';ftypes[3]='text';fnames[4]='ADDRESS';ftypes[4]='address';}(jQuery));var $mcj = jQuery.noConflict(true);
+// ]]></script>

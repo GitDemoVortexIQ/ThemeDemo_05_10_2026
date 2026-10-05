@@ -1,0 +1,21 @@
+{{> components/common/header}}
+
+
+{{#partial "page"}}
+<div class="container">
+<h1 class="page-heading">{{category.name}}</h1>
+
+
+{{#if category.description}}
+<div class="category-description">
+{{{category.description}}}
+</div>
+{{/if}}
+
+
+{{> components/category/product-listing}}
+</div>
+{{/partial}}
+
+
+{{> layout/base}}

@@ -1,0 +1,49 @@
+<div id="themevale_newsletter" class="hide">
+    <div class="popup-overlay"></div>
+    <div class="newsletterPopup">
+        <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button" data-close-newsletter-popup>
+            <span aria-hidden="true">&#215;</span>
+        </a>
+        <div class="newsletter-content">
+            <h2 class="newsletter-heading">{{theme_settings.themevale_NewsletterPopup-heading}}</h2>
+            {{#if theme_settings.themevale_NewsletterPopup-subheading}}
+                <p class="newsletter-sub-heading">{{theme_settings.themevale_NewsletterPopup-subheading}}</p>
+            {{/if}}
+            <div id="popupSubcribeForm">
+                <form class="form" action="{{urls.subscribe.action}}" method="post" id="popupSubcribeFormSubmit">
+                    <fieldset class="form-fieldset">
+                        <input type="hidden" name="action" value="subscribe">
+                        <input type="hidden" name="nl_first_name" value="bc">
+                        <input type="hidden" name="check" value="1">
+                        <div class="form-field">
+                            <div class="form-wrap">
+                                <input class="form-input" id="nl_email2" name="nl_email" type="email" placeholder="{{theme_settings.themevale_NewsletterPopup-placeholder}}">
+                                <!--<input class="button button--primary" type="submit" value="{{theme_settings.themevale_NewsletterPopup-btn}}">-->
+                                  <input class="button button--primary" type="submit" value="Subscribe">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            {{#if theme_settings.themevale_NewsletterPopup-text}}
+                <p class="newsletter-message">{{theme_settings.themevale_NewsletterPopup-text}}</p>
+            {{/if}}
+            {{#if theme_settings.themevale_NewsletterPopup-sociallink}}
+                <div class="newsletter-icons">
+                    {{> components/common/social-links}}
+                </div>
+            {{/if}}
+            {{#if theme_settings.themevale_NewsletterPopup-dontshowagain}}
+                <div class="newsletter-show-again">
+                    <form>
+                        <input id="do-not-show-again" class="do-not-show-again" type="checkbox" name="don't show again" value="1"> 
+                        <label for="do-not-show-again">Don’t show again!</label>
+                    </form>
+                </div>
+            {{/if}}
+        </div>
+        <div class="newsletter-image">
+            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="/product_images/uploaded_images/{{theme_settings.themevale_NewsletterPopup-img}}" alt="{{theme_settings.themevale_NewsletterPopup-heading}}" title="{{theme_settings.themevale_NewsletterPopup-heading}}">
+        </div>
+    </div>
+</div>

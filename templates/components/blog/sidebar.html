@@ -1,0 +1,13 @@
+<nav>
+	{{> components/themevale/sidebar/recent-post}}
+
+    {{#if products.featured}}
+        {{> components/themevale/sidebar/featured-products products=products.featured}}
+    {{/if}}
+
+    {{> components/themevale/sidebar/advertisement-image-1}}
+
+    {{> components/themevale/sidebar/advertisement-image-2}}
+
+    <!--{{> components/themevale/sidebar/advertisement-content}}-->
+</nav>

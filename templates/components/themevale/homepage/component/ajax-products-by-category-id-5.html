@@ -1,0 +1,38 @@
+{{#each categories}}
+    {{#if id '==' ../category_id}}
+        <div class="themevale_productsByCategoryId layout-3">
+            <div class="themevale_page-heading-wrapper text-center">
+                <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+            </div>
+            <div class="themevale-content" data-themevale-products-by-categories2="{{url}}">
+                {{> components/themevale/homepage/component/product-loading theme_settings=../../theme_settings}}
+            </div>
+        </div>
+    {{else}}
+        {{#each children}}
+            {{#if id '==' ../../../category_id}}
+                <div class="themevale_productsByCategoryId layout-3">
+                    <div class="themevale_page-heading-wrapper text-center">
+                        <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                    </div>
+                    <div class="themevale-content" data-themevale-products-by-categories2="{{url}}">
+                        {{> components/themevale/homepage/component/product-loading theme_settings=../../../../theme_settings}}
+                    </div>
+                </div>
+            {{else}}
+                {{#each children}}
+                    {{#if id '==' ../../../../../category_id}}
+                        <div class="themevale_productsByCategoryId layout-3">
+                            <div class="themevale_page-heading-wrapper text-center">
+                                <h2 class="page-heading"><a href="{{url}}">{{name}}</a></h2>
+                            </div>
+                            <div class="themevale-content" data-themevale-products-by-categories2="{{url}}">
+                                {{> components/themevale/homepage/component/product-loading theme_settings=../../../../../../theme_settings}}
+                            </div>
+                        </div>
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}

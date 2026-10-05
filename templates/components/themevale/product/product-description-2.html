@@ -1,0 +1,40 @@
+<div class="themevale_productDescription-2">
+    <div class="item item-left">
+        <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+            {{#if theme_settings.show_product_details_tabs}}
+                {{> components/themevale/product/description-tabs-2}}
+            {{else}}
+                {{> components/products/description  settings=../settings}}
+            {{/if}}
+        </article>
+    </div>
+    <div class="item item-right">
+        {{#if product.related_products}}
+            <div class="productRelated themevale_productsCarousel-custom" id="product-related" data-product-related>
+                <div class="toggle-title">
+                    <h4 class="page-heading">{{lang 'products.related_products'}}</h4>
+                    <div class="page-heading-arrow">
+                        <svg class="btn-arrow btn-arrow-prev"><use xlink:href="#slick-arrow-prev"></use></svg>
+                        <svg class="btn-arrow btn-arrow-next"><use xlink:href="#slick-arrow-next"></use></svg>
+                    </div>
+                </div>
+                {{> components/themevale/product/product-carousel-2 products=product.related_products theme_settings=theme_settings}}
+            </div>
+        {{/if}}
+        {{#if product.similar_by_views}}
+            <div class="productSimilar themevale_productsCarousel-custom" id="product-similar" data-product-reviews>
+                <div class="toggle-title">
+                    <h4 class="page-heading">{{lang 'products.similar_by_views'}}</h4>
+                    <div class="page-heading-arrow">
+                        <svg class="btn-arrow btn-arrow-prev"><use xlink:href="#slick-arrow-prev"></use></svg>
+                        <svg class="btn-arrow btn-arrow-next"><use xlink:href="#slick-arrow-next"></use></svg>
+                    </div>
+                </div>
+                {{> components/themevale/product/product-carousel-2 products=product.similar_by_views theme_settings=theme_settings}}
+            </div>
+        {{/if}}
+    </div>
+</div>
+{{#all settings.show_product_reviews}}
+    {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+{{/all}}
