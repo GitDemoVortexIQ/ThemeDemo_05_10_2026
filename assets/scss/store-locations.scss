@@ -1,0 +1,241 @@
+$black:  #0f0f0f;
+$white:  #ffffff;
+$red:  #E82222;
+$green: #08BC72;
+$grey:  #868686;
+
+
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+.popup-store-locations {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 28px;
+    background-color: white;
+    z-index: 1100;
+    border-radius: 15px;
+    .popup-content{
+        .popup-header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+            .warning{
+                display: flex;
+                text-align: left;
+                text-transform: none;
+                margin:0 ;
+            }
+            .modal-close-custom{
+                margin-bottom: 0;
+                span{
+                    //font-weight: 100;
+                    font-size: 34px;
+                }
+            }
+        }
+        .help{
+            font-size: 14px;
+            font-weight: 300;
+            color: #a0a0a0;
+        }
+        .mapList{
+            margin-top: 15px;
+            .location-container{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                max-width: 400px;
+                height: 400px;
+                min-width: 400px;
+                overflow-y: auto;
+                .location-item.selected-location{
+                    border: 1px solid $green;
+                    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+                }
+                .location-item{
+                    border: 1px solid $black;
+                    border-radius: 15px;
+                    padding: 13px;
+                    max-width: 380px;
+                    margin-right: 8px;
+                    cursor: pointer;
+                    .location-name{
+                        font-size: 18px;
+                        font-weight: 700;
+                    }
+                    .location-addr{
+                        font-size: 10px;
+                        color: $grey;
+                        margin-bottom: 0;
+                    }
+                    .location-addr.phone{
+                        margin-bottom: 10px;
+                    }
+                    .location-availability{
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                        .availability-dot{
+                            width: 15px;
+                            height: 15px;
+                            border-radius: 50%;
+                            min-width: 15px;
+                        }
+                        .availability-dot.red{
+                            background-color: #FF0000;
+                        }
+                        .availability-dot.orange{
+                            background-color: #ff8800;
+                        }
+                        .availability-dot.green{
+                            background-color: #0DA300;
+                        }
+                        .stock-info{
+                            font-size: 13px;
+                            font-weight: 300;
+                            margin-bottom: 0;
+                            color: #0DA300;
+                        }
+                        .no-stock-info{
+                            font-size: 13px;
+                            font-weight: 300;
+                            margin-bottom: 0;
+                            color: #FF0000;
+                        }
+                        .limited-stock-info{
+                            font-size: 13px;
+                            font-weight: 300;
+                            margin-bottom: 0;
+                            color: #ff8800;
+                        }
+                    }
+                    .open-map-link{
+                        display: none;
+                    }
+                }
+            }
+            #map{
+                min-width: 490px
+            }
+        }
+
+    }
+    .actions{
+        .button.button--secondary{
+            color: $white;
+            background-color: $black;
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .popup-store-locations {
+        width: auto;
+    }
+}
+
+@media (max-width: 1000px) {
+    .popup-store-locations {
+        .popup-content{
+            .mapList{
+                .location-container{
+                    max-width: 350px;
+                    height: 400px;
+                    min-width: 350px;
+                    .location-item{
+                        max-width: 380px;
+                    }
+                }
+                #map{
+                    min-width: 400px
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 800px) {
+    .popup-store-locations {
+        width: 100%;
+        border-radius: 0;
+        padding: 5px 12px;
+        top: 45%;
+        .popup-content{
+            .popup-header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 4px;
+                .warning{
+                    display: flex;
+                    text-align: left;
+                    text-transform: none;
+                    margin:0 ;
+                    font-size: 18px;
+                }
+                .modal-close-custom{
+                    margin-bottom: 0;
+                    span{
+                        font-size: 34px;
+                    }
+                }
+            }
+            .help{
+                font-size: 14px;
+                font-weight: 300;
+                color: #a0a0a0;
+            }
+            .mapList{
+                margin-top: 15px;
+                .location-container{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    width: 100%;
+                    height: 355px;
+                    max-width: 100%;
+                    min-width: 100%;
+                    overflow-y: auto;
+                    padding-right: 8px;
+                    .location-item{
+                        border: 1px solid $black;
+                        border-radius: 15px;
+                        padding: 13px;
+                        width: 100%;
+                        max-width: unset;
+                        margin-right: 0;
+                        .location-name{
+                            font-size: 18px;
+                            font-weight: 700;
+                        }
+                        .open-map-link{
+                            display: block;
+                            font-size: 12px;
+                            font-weight: 700;
+                            margin-top: 10px;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+                #map{
+                    display: none;
+                }
+            }
+        }
+    }
+}

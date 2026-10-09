@@ -1,2 +1,11 @@
-# ThemeDemo_05_10_2026
-ThemeDemo_05_10_2026
+# Roots Theme
+
+Up to date with Cornerstone v6.1.1
+
+## Install
+
+```
+npm install
+stencil init
+stencil start
+```

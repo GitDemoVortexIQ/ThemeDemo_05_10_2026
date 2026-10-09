@@ -1,0 +1,288 @@
+<header class="header" role="banner">
+    <div class="slogan-region">
+        {{{region name="above_header--global"}}}
+
+        <div class="store-switcher">
+            <span class="send-to"><strong>{{lang 'header.sendto'}}</strong></span>
+            <a class="store-switcher-trigger" id="modalTrigger" href="#storeSwitcherModal" data-reveal-id="storeSwitcherModal"> | </a>
+
+            <div id="storeSwitcherModal" class="modal" data-reveal>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        {{> components/common/modal/modal-close-btn}}
+                    </div>
+                    <form action="#" method="GET" onsubmit="redirectToStore(event)" >
+                        <div class="store-select">
+                            <label for="store">{{lang 'header.select_country'}}</label>
+                            <div class="store-dropdown">
+                                <select id="store" name="store" onchange="updateStoreLang()">
+                                    {{#each theme_settings.channels }}
+                                        <option value="{{this.code}}" data-url="{{this.store_url}}" class="flag-{{this.code}}">
+                                            {{#if this.code '==' 'and'}} 🇦🇩  &#160;&#160;{{lang 'header.country.andorra'}}{{/if}}
+                                            {{#if this.code '==' 'es'}} 🇪🇸  &#160;&#160;{{lang 'header.country.spain'}}{{/if}}
+                                            {{#if this.code '==' 'ccm'}} 🇪🇸  &#160;&#160;{{lang 'header.country.canary'}}{{/if}}
+                                            {{#if this.code '==' 'it'}} 🇮🇹  &#160;&#160;{{lang 'header.country.italy'}}{{/if}}
+                                            {{#if this.code '==' 'pt'}} 🇵🇹  &#160;&#160;{{lang 'header.country.portugal'}}{{/if}}
+                                            {{#if this.code '==' 'fr'}} 🇫🇷  &#160;&#160;{{lang 'header.country.france'}}{{/if}}
+                                            {{#if this.code '==' 'de'}} 🇩🇪  &#160;&#160;{{lang 'header.country.germany'}}{{/if}}
+                                            {{#if this.code '==' 'en'}} 🇪🇺  &#160;&#160;{{lang 'header.country.global'}}{{/if}}
+                                        </option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="language-select">
+                            <label for="language">{{lang 'header.select_language'}}</label>
+                            <select id="language" name="language" onchange="updateStoreLang()">
+                                <option value="es">{{lang 'header.lang.spanish'}}</option>
+                                <option value="ca">{{lang 'header.lang.catalan'}}</option>
+                                <option value="fr">{{lang 'header.lang.french'}}</option>
+                                <option value="de">{{lang 'header.lang.german'}}</option>
+                                <option value="it">{{lang 'header.lang.italian'}}</option>
+                                <option value="pt">{{lang 'header.lang.portuguese'}}</option>
+                                <option value="en">{{lang 'header.lang.english'}}</option>
+                            </select>
+                        </div>
+                        <div class="actions">
+                            <button type="submit" class="button button--primary button--small">{{lang 'header.confirm'}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="header-content-wrapper">
+        <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+            <span class="mobileMenu-toggleIcon"></span>
+        </a>
+
+        <span class="navUser-item--mobile-search" id="mobile-search-icon">
+            <i class="icon" aria-hidden="true">
+                <svg><use xlink:href="#icon-search" /></svg>
+            </i>
+        </span>
+
+        <div class="header-logo--wrap">
+            <div class="header-logo{{#if theme_settings.logo_size '===' 'original'}} logo-full-size-desktop{{/if}}{{#if theme_settings.logo_size_mobile '===' 'original'}} logo-full-size-mobile{{/if}}">
+                
+                <div class="logo-and-toggle">
+                    <div class="desktopMenu-toggle">
+                        <a href="javascript:void(0);" class="mobileMenu-toggle">
+                            <span class="mobileMenu-toggleIcon"></span>
+                        </a>
+                    </div>
+                    
+                    {{#if page_type '===' 'default'}}
+                        <h1 class="logo-wrap">{{> components/common/store-logo}}</h1>
+                    {{else}}
+                        <div class="logo-wrap">{{> components/common/store-logo}}</div>
+                    {{/if}}
+                </div>
+                
+                <div class="quickSearchWrap" id="quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
+                    {{> components/common/quick-search}}
+                </div>
+                <div class="navUser-wrap">
+                    {{> components/common/navigation-escapa}}
+                </div>
+            </div>
+        </div>
+    
+        <div class="navPages-container" id="menu" data-menu>
+            {{> components/common/navigation-menu}}
+        </div>
+    </div>
+
+    {{{region name="header_bottom-inner--global"}}}
+
+</header>
+{{#unless page_type '===' 'default'}}
+
+{{#if banners.top}}
+<div class="banners" data-banner-location="top">
+    {{#each (limit banners.top_metadata 1)}}
+    <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
+        <div data-event-type="promotion-click">
+            {{{this.content}}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
+
+{{/unless}}
+
+{{{region name="header_bottom--global"}}}
+{{{region name="header_bottom"}}}
+
+
+<script>
+
+    function updateStoreLang() {
+        const language = document.getElementById('language').value.toUpperCase();
+        const storeCode = document.getElementById('store').value.toUpperCase();
+        document.getElementById('modalTrigger').textContent = `${language} | ${storeCode}`;
+    }
+    function updateStoreLang() {
+        const storeSelect = document.getElementById('store');
+        const languageSelect = document.getElementById('language');
+        const selectedStoreCode = storeSelect.value;
+
+        // Define behavior per store
+        const fixedLanguagePerStore = {
+            fr: 'fr', de: 'de', it: 'it', pt: 'pt', en: 'en', and: 'es', ccm: 'es'
+        };
+
+        const flexibleLanguageStores = {
+            es: ['es', 'ca'] 
+        };
+
+        const allLangOptions = Array.from(languageSelect.options);
+
+        // Reset all options
+        allLangOptions.forEach(option => {
+            option.hidden = false;
+        });
+
+        if (fixedLanguagePerStore[selectedStoreCode]) {
+            const langCode = fixedLanguagePerStore[selectedStoreCode];
+            languageSelect.value = langCode;
+            languageSelect.disabled = true;
+
+        } else if (flexibleLanguageStores[selectedStoreCode]) {
+            const allowedLangs = flexibleLanguageStores[selectedStoreCode];
+            languageSelect.disabled = false;
+
+            // Disable all other languages except allowed
+            allLangOptions.forEach(option => {
+                option.hidden = !allowedLangs.includes(option.value);
+            });
+
+            // Default to 'es' if current selection is not allowed
+            if (!allowedLangs.includes(languageSelect.value)) {
+                languageSelect.value = allowedLangs[0];
+            }
+
+        } else {
+            // For undefined stores: enable all languages
+            languageSelect.disabled = false;
+            allLangOptions.forEach(option => {
+                option.hidden = false;
+            });
+        }
+    }
+
+    function updateTriggerText() {
+        const currentElement = document.querySelector('.wgcurrent');
+        const languageSelect = document.getElementById('language');
+        const storeSelect = document.getElementById('store');
+
+        const currentUrl = '{{ this.settings.base_url }}'
+        let storeCode = '';
+
+        function decodeHtmlEntities(text) {
+            const txt = document.createElement('textarea');
+            txt.innerHTML = text;
+            return txt.value;
+        }
+
+        const rawJsonString = '{{json theme_settings.channels}}';
+        const decodedJsonString = decodeHtmlEntities(rawJsonString);
+
+        const channels = JSON.parse(decodedJsonString); 
+
+        channels.forEach(channel => {
+            if (currentUrl.includes(channel.store_url)) {
+                storeCode = channel.code.toUpperCase();
+            }
+        });
+
+        if (!currentElement) {
+            const fixedLanguagePerStore = {
+                FR: 'FR', DE: 'DE', IT: 'IT', PT: 'PT', EN: 'EN', AND: 'ES', CCM: 'ES'
+            };
+            const effectiveLang = fixedLanguagePerStore[storeCode];
+            document.getElementById('modalTrigger').textContent = `${storeCode} | ${effectiveLang}`;
+            languageSelect.value = effectiveLang.toLowerCase();
+            storeSelect.value = storeCode.toLowerCase();
+            updateStoreLang();
+        }else{
+            const linkElement = currentElement.querySelector('a');
+            // Extract the language code from the 'id' attribute
+            const languageCode = linkElement.id.split("-").pop();
+            
+            for (let i = 0; i < languageSelect.options.length; i++) {
+                if (languageSelect.options[i].value === languageCode) {
+                    languageSelect.value = languageCode;
+                    break;
+                }
+            }
+
+            document.getElementById('modalTrigger').textContent = `${storeCode} | ${languageCode.toUpperCase()}`;
+        }
+
+    }
+    
+    setTimeout(() => {
+        updateTriggerText();
+    }, 4000);
+
+    let initialStoreValue = ''; 
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Set the initial value once the page loads
+        const storeSelect = document.getElementById('store');
+        if (storeSelect) {
+            initialStoreValue = storeSelect.value;
+        }
+        updateStoreLang();
+    });
+
+    function redirectToStore(event) {
+        event.preventDefault();
+
+        const selectedStore = document.getElementById('store').value;
+        const selectedLanguage = document.getElementById('language').value;
+        const _weglot = document.querySelector('.wgcurrent');
+
+        if (_weglot){
+            // Find the store URL for the selected store
+            const storeOptions = document.getElementById('store').options;
+            let storeUrl = '';
+
+            if (selectedStore === initialStoreValue) {
+                // Store remains the same, just update the language
+                const destination = document.getElementById(`weglot-language-${selectedLanguage}`).href;
+                window.location.href = destination;
+                return;
+            }
+
+            // Loop through the store options to find the selected store's URL
+            for (let i = 0; i < storeOptions.length; i++) {
+                if (storeOptions[i].value === selectedStore) {
+                    storeUrl = storeOptions[i].getAttribute('data-url');
+                    break;
+                }
+            }
+
+            if (storeUrl !== '') {
+                let modifiedUrl;
+                const destination = document.getElementById(`weglot-language-${selectedLanguage}`)?.href;
+                if (destination){
+                    // Redirect to the store's URL with the selected language
+                    const url = new URL(destination);
+                    modifiedUrl = destination.replace(url.origin, storeUrl);
+                }else{
+                    modifiedUrl = storeUrl;
+                }
+                window.location.href = modifiedUrl;
+            }
+        }else{
+            const storeSelect = document.getElementById('store');
+            const selectedOption = storeSelect.options[storeSelect.selectedIndex];
+            const selectedUrl = selectedOption.getAttribute('data-url');
+            window.location.href = selectedUrl;
+        }
+    }
+</script>

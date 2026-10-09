@@ -1,0 +1,158 @@
+<div class="accordion-block">
+    {{> components/faceted-search/faceted-search-navigation}}
+
+    <div id="facetedSearch-content--{{hyphenate facet }}" class="accordion-content {{#unless start_collapsed }} is-open {{/unless}}">
+        <form id="facet-range-form" class="form" method="get" data-faceted-search-range novalidate>
+            <input type="hidden" name="search_query" value="{{search_query}}">
+            {{#if this.sort}}
+                <input type="hidden" name="sort" value="{{this.sort}}">
+            {{/if}}
+            <fieldset class="form-fieldset">
+                <div class="form-minMaxRow range_container">
+                    <!-- Range Slider -->
+                    <div class="sliders_control">
+                        <input
+                            id="price-range-min"
+                            name="min_price"
+                            type="range"
+                            min="0"
+                            max="17000"
+                            step="100"
+                            value="{{#if min_price}}{{min_price}}{{else}}0{{/if}}"
+                            class="price-range-slider"
+                        />
+                        <input
+                            id="price-range-max"
+                            name="max_price"
+                            type="range"
+                            min="0"
+                            max="17000"
+                            step="100"
+                            value="{{#if max_price}}{{max_price}}{{else}}17000{{/if}}"
+                            class="price-range-slider"
+                        />
+                    </div>
+
+                    <div class="form_control">
+                        <div class="form_control_container">
+                            <input class="form_control_container__time__input" type="number" id="fromInput" value="{{#if min_price}}{{min_price}}{{else}}0{{/if}}" min="0" max="17000"/>€
+                        </div>
+                        <div class="form_control_container">
+                            <input class="form_control_container__time__input" type="number" id="toInput" value="{{#if max_price}}{{max_price}}{{else}}17000{{/if}}" min="0" max="17000"/>€
+                        </div>
+                    </div>
+
+
+                    <div class="form-field">
+                        <button class="button button--small" type="submit">
+                            {{lang 'search.faceted.range.update'}}
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-inlineMessage"></div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+
+<style>
+
+.range_container {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  margin: 10% auto 5% auto;
+}
+
+.range_container .form-field{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6px;
+}
+
+.sliders_control {
+  position: relative;
+  min-height: 26px;
+}
+
+.form_control {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: black;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #0f0f0f;
+  cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+  -webkit-appearance: none;
+  pointer-events: all;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #0f0f0f;
+  cursor: pointer;  
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  background: #f7f7f7;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+  box-shadow: inset 0 0 3px #0f0f0f, 0 0 6px #0f0f0f;
+  -webkit-box-shadow: inset 0 0 3px #0f0f0f, 0 0 6px #0f0f0f;
+}
+
+.form_control_container{
+    background-color: #ececec;
+    border-radius: 5px;
+    padding-right: 4px;
+}
+
+.form_control_container__time__input {
+  color: black;
+  width: 50px;
+  height: 30px;
+  font-size: 14px;
+  border: none;
+  text-align: end;
+  background-color: transparent;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {  
+   opacity: 1;
+   -webkit-appearance: none;
+   -moz-appearance: textfield;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; 
+  appearance: none;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  background-color: #C6C6C6;
+  pointer-events: none;
+}
+
+#price-range-min {
+  height: 0;
+  z-index: 1;
+  top: 2px;
+}
+
+</style>

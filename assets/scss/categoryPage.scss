@@ -1,0 +1,733 @@
+$black:  #0f0f0f;
+$white:  #ffffff;
+$red:  #E82222;
+$green: #08BC72;
+$grey:  #868686;
+
+
+.page.page--category{
+    .page-content.container{
+        .breadcrumbs{
+
+        }
+    }
+    .main.full.grid-bg{
+        padding-top: 10px;
+        .container{
+            .page-sidebar{
+
+            }
+        }
+    }
+}
+
+@media (min-width: 800px) {
+
+    .productGrid{
+        .product{
+            padding-left: 1.75rem;
+            padding-right: 1.75rem;
+        }
+    }
+    
+    //NOFILTERS CATEGORY LAYOUT
+    .page{
+        .page-content.no-filters{
+            .container.description{
+                p{
+                    font-size: 20px;
+                }
+                .page-heading{
+                    font-size: 32px;
+                    text-transform: uppercase;
+                }
+                .page-content-subcategories{
+                    margin-top: 1.5rem;
+                    display: inline-block;
+                    .navList{
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 22px;
+                        .navList-item{
+                            .navList-action{
+                                border: 1px solid $black;
+                                border-radius: 30px;
+                                padding: 6px 30px;
+                                align-items: center;
+                                span{
+                                    font-size: 14px;
+                                    white-space: nowrap;
+                                    display: block;
+                                    line-height: normal;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .grid-bg{
+                padding-top: 20px;
+            }
+            .sort-and-pagination{
+                justify-content: end;
+                #toggle-filters{
+                    display: none;
+                }
+                .actionBar.sort-products{
+                    .form-fieldset.actionBar-section{
+                        .form-field{
+                            border-radius: 30px;
+                            border: 1px solid $black;
+                            padding-right: 14px;
+                            .form-label{
+                                font-size: 14px;
+                            }
+                            .form-select.form-select--small {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                .pagination{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    ////--------------
+    .page.page--category{
+        .page-content.container{
+            .breadcrumbs{
+
+            }
+        }
+        .main.full.grid-bg{
+            .container{
+                .page-sidebar{
+                    padding-top: 8px;
+                    width: 18%;
+                    border: 0;
+                    .facetedSearch-enabled{
+                        .sidebar-header-mobile{
+                            display: none;
+                        }
+                        .facetedSearch.sidebarBlock{
+                            margin-top: 0;
+                            padding-top: 0;
+                            border-top-color: transparent;
+                            .facetedSearch-refineFilters.sidebarBlock{
+                                border-bottom: 1px solid $black;
+                                padding-bottom: 19px;
+                                .sidebarBlock-heading{
+                                    font-size: 18px;
+                                    text-transform: none;
+                                }
+                                .inlineList.inlineList--labels{
+                                    .facetLabel{
+                                        font-weight: 300;
+                                        text-decoration: none;
+                                        border-radius: 30px;
+                                        border: 1px solid $black;
+                                        background-color: $white;
+                                        padding-top: 0.15rem;
+                                        padding-bottom: 0.15rem;
+                                        .icon{
+                                            margin-left: 8px;
+                                        }
+                                    }
+                                }
+                                a[data-faceted-search-facet]{
+                                    font-weight: bold;
+                                    text-decoration: underline;
+                                    font-size: 14px;
+                                }
+                            }
+                            #subcategoryList{
+                                display: none !important;
+                                .accordion.accordion--navList{
+                                    .sidebarBlock-heading{
+                                        border-bottom: none;
+                                        margin-bottom: 0;
+                                        padding: 0 0 0.78rem 0;
+                                        font-size: 18px;
+                                        text-transform: none;
+                                    }
+                                    .navList{
+                                        padding-bottom: 0;
+                                        .navList-item{
+                                            .navList-action{
+                                                font-size: 14px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .facetedSearch-navList{
+                                .accordion.accordion--navList{
+                                    .accordion-block{
+                                        border-top: 0;
+                                        border-bottom: 1px solid $black;
+                                        padding-bottom: 12px;
+                                        margin-top: 14px;
+                                        padding-top: 0;
+                                        &:first-child {
+                                            border-top: none;
+                                        }
+                                        .accordion-navigation.toggleLink{
+                                            margin-bottom: 0 !important;
+                                            .accordion-title{
+                                                font-size: 18px;
+                                                text-transform: none;
+                                            }
+                                        }
+                                        .accordion-content{
+                                            padding-top: 10px;
+                                            .navList{
+                                                .navList-item{
+                                                    .navList-action.navList-action--checkbox{
+                                                        font-size: 14px;
+                                                        font-weight: 300;
+                                                        padding-left: 1.85714rem;
+                                                        padding-right: 0;
+                                                        .navList-action-close{
+
+                                                        }
+                                                    }
+                                                    .navList-action.navList-action--checkbox::before{
+                                                        right: unset;
+                                                        left: 0;
+                                                    }
+                                                    .navList-action.navList-action--checkbox::after{
+                                                        right: unset;
+                                                        left: 1px;
+                                                    }
+                                                }
+                                            }
+                                            .toggleLink{
+                                                .toggleLink-text.toggleLink-text--off{
+                                                    font-size: 12px;
+                                                }
+                                            }
+                                        }
+                                        #facetedSearch-content--price{
+                                            .form{
+                                                .form-fieldset{
+                                                    .form-minMaxRow{
+                                                        .form-field{
+                                                            .form-input.form-input--small{
+                                                                font-size: 12px;
+                                                                padding: 4px;
+                                                            }
+                                                            .button.button--small{
+                                                                font-size: 12px;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #apply-filters{
+                        display: none;
+                    }
+                }
+                .page-content{
+                    width: 82%;
+                    padding: 0 0 0 15px;
+                    .container{
+                        p{
+                            font-size: 20px;
+                        }
+                        .page-heading{
+                            font-size: 32px;
+                            text-transform: uppercase;
+                        }
+                        .page-content-subcategories{
+                            margin-top: 1.5rem;
+                            display: inline-block;
+                            .navList{
+                                display: flex;
+                                flex-wrap: wrap;
+                                gap: 22px;
+                                .navList-item{
+                                    .navList-action{
+                                        border: 1px solid $black;
+                                        border-radius: 30px;
+                                        padding: 6px 30px;
+                                        align-items: center;
+                                        span{
+                                            font-size: 14px;
+                                            white-space: nowrap;
+                                            display: block;
+                                            line-height: normal;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .sort-and-pagination{
+                        justify-content: end;
+                        #toggle-filters{
+                            display: none;
+                        }
+                        .actionBar.sort-products{
+                            .form-fieldset.actionBar-section{
+                                .form-field{
+                                    border-radius: 30px;
+                                    border: 1px solid $black;
+                                    padding-right: 14px;
+                                    .form-label{
+                                        font-size: 14px;
+                                    }
+                                    .form-select.form-select--small {
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                        .pagination{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+
+    //NOFILTERS CATEGORY LAYOUT
+    .page{
+        .page-content.no-filters{
+            .container.description{
+                margin-top: 20px;
+                padding: 0px 0px;
+                p{
+                    font-size: 20px;
+                }
+                .page-heading{
+                    font-size: 30px;
+                    text-transform: uppercase;
+                }
+                .page-content-subcategories{
+                    width: 100%;
+                    margin-top: 1rem;
+                    display: inline-block;
+                    .navList{
+                        display: flex;
+                        flex-wrap: nowrap;
+                        gap: 16px;
+                        overflow-x: auto;
+                        padding-bottom: 10px;
+                        .navList-item{
+                            .navList-action{
+                                border: 1px solid $black;
+                                border-radius: 30px;
+                                padding: 0px 30px;
+                                align-items: center;
+                                span{
+                                    font-size: 14px;
+                                    white-space: nowrap;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .grid-bg{
+                padding-top: 10px;
+            }
+            .sort-and-pagination{
+                display: flex;
+                gap: 2;
+                justify-content: space-between;
+                padding-top: 15px;
+                .sidebar-nav-mobile{
+                    background: none;
+                    max-width: 110px;
+                    .facetedSearch-toggle.toggleLink{
+                        display: none;
+                    }
+                }
+                .actionBar.sort-products{
+                    width: auto;
+                    .form-fieldset.actionBar-section{
+                        float: right !important;
+                        .form-field{
+                            border-radius: 30px;
+                            border: 1px solid $black;
+                            padding-right: 14px;
+                            display: flex;
+                            width: auto;
+                            .form-label{
+                                font-size: 12px;
+                                min-width: 70px;
+                            }
+                            .form-select.form-select--small {
+                                font-size: 12px;
+                                max-width: 120px;
+                                min-width: 50px;
+                                width: auto;
+                            }
+                        }
+                    }
+                }
+                .pagination{
+                    display: none;
+                }
+            }
+        }
+    }
+
+
+    ////---------------
+    
+
+    .page.page--category{
+        .page-content.container{
+            .breadcrumbs{
+    
+            }
+        }
+        .overlay{
+            display: none;
+            opacity: 0.6;
+            background: $black;
+            height: 100%;
+            width: 100%;
+            z-index: 105;
+        }
+        .main.full.grid-bg{
+            .container{
+                .page-sidebar.active{
+                    display: block;
+                    height: 100%;
+                    .sidebar-cont{
+                        max-height: 450px;
+                        overflow-y: auto;
+                        .facetedSearch-enabled{
+                            .facetedSearch.sidebarBlock{
+                                .facetedSearch-navList{
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                    #apply-filters{
+                        display: block;
+                        margin-left: auto;
+                        margin-right: auto;
+                        margin-top: 18px;
+                        padding: 4px 14px;
+                        font-weight: 700;
+                        text-align: center;
+                        border: 1px solid $black;
+                        border-radius: 30px;
+                    }
+                }
+                .page-sidebar{
+                    display: none;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    z-index: 110;
+                    left: 0;
+                    border: 0;
+                    .sidebar-cont{
+                        .facetedSearch-enabled{
+                            .sidebar-header-mobile{
+                                padding: 11px 14px;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                .sidebarBlock-heading{
+                                    text-transform: none;
+                                    margin-bottom: 0;
+                                    font-size: 24px;
+                                }
+                            }
+                            .facetedSearch.sidebarBlock{
+                                padding: 11px 30px 11px 14px;
+                                #subcategoryList{
+                                    display: block;
+                                    .accordion.accordion--navList{
+                                        .sidebarBlock-heading{
+                                            border-bottom: none;
+                                            margin-bottom: 0;
+                                            padding: 4px 14px;
+                                            font-size: 18px;
+                                            text-transform: none;
+                                        }
+                                        .navList{
+                                            padding-bottom: 0;
+                                            .navList-item{
+                                                .navList-action{
+                                                    font-size: 14px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .facetedSearch-toggle{
+                                    border: none;
+                                }
+                                .facetedSearch-refineFilters.sidebarBlock{
+                                    display: block;
+                                    border-bottom: 1px solid $black;
+                                    padding-bottom: 19px;
+                                    .sidebarBlock-heading{
+                                        font-size: 18px;
+                                        text-transform: none;
+                                    }
+                                    .inlineList.inlineList--labels{
+                                        .facetLabel{
+                                            font-weight: 300;
+                                            text-decoration: none;
+                                            border-radius: 30px;
+                                            border: 1px solid $black;
+                                            background-color: $white;
+                                            padding-top: 0.15rem;
+                                            padding-bottom: 0.15rem;
+                                            .icon{
+                                                margin-left: 8px;
+                                            }
+                                        }
+                                    }
+                                    a[data-faceted-search-facet]{
+                                        font-weight: bold;
+                                        text-decoration: underline;
+                                        font-size: 14px;
+                                    }
+                                }
+                                .facetedSearch-navList{
+                                    .accordion.accordion--navList{
+                                        border: 0;
+                                        .accordion-block{
+                                            border-top: 1px solid $black;
+                                            &:first-child {
+                                                border-top: none;
+                                            }
+                                            .accordion-navigation.toggleLink{
+                                                border: 0;
+                                                .accordion-title{
+                                                    font-size: 18px;
+                                                    text-transform: none;
+                                                    padding: 0.7rem;
+                                                }
+                                            }
+                                            .accordion-content{
+                                                .navList{
+                                                    .navList-item{
+                                                        .navList-action.navList-action--checkbox{
+                                                            font-size: 14px;
+                                                            font-weight: 300;
+                                                            padding-left: 1.85714rem;
+                                                            padding-right: 0;
+                                                            .navList-action-close{
+        
+                                                            }
+                                                        }
+                                                        .navList-action.navList-action--checkbox::before{
+                                                            right: unset;
+                                                            left: 0;
+                                                        }
+                                                        .navList-action.navList-action--checkbox::after{
+                                                            right: unset;
+                                                            left: 1px;
+                                                        }
+                                                    }
+                                                }
+                                                .toggleLink{
+                                                    .toggleLink-text.toggleLink-text--off{
+                                                        font-size: 12px;
+                                                    }
+                                                }
+                                            }
+                                            #facetedSearch-content--price{
+                                                .form{
+                                                    .form-fieldset{
+                                                        .form-minMaxRow{
+                                                            .form-field{
+                                                                .form-input.form-input--small{
+                                                                    font-size: 12px;
+                                                                    padding: 4px;
+                                                                }
+                                                                .button.button--small{
+                                                                    font-size: 12px;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .page-content{
+                    width: 100%;
+                    .container{
+                        padding: 0px 0px;
+                        p{
+                            font-size: 20px;
+                        }
+                        .page-heading{
+                            font-size: 30px;
+                            text-transform: uppercase;
+                        }
+                        .page-content-subcategories{
+                            width: 100%;
+                            margin-top: 1rem;
+                            display: inline-block;
+                            .navList{
+                                display: flex;
+                                flex-wrap: nowrap;
+                                gap: 16px;
+                                overflow-x: auto;
+                                padding-bottom: 10px;
+                                .navList-item{
+                                    .navList-action{
+                                        border: 1px solid $black;
+                                        border-radius: 30px;
+                                        padding: 0px 30px;
+                                        align-items: center;
+                                        span{
+                                            font-size: 14px;
+                                            white-space: nowrap;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .sort-and-pagination{
+                        display: flex;
+                        gap: 2;
+                        justify-content: space-between;
+                        padding-top: 15px;
+                        .sidebar-nav-mobile{
+                            background: none;
+                            max-width: 110px;
+                            .facetedSearch-toggle.toggleLink{
+                                display: none;
+                            }
+                            #toggle-filters{
+                                border: 1px solid $black;
+                                border-radius: 30px;
+                                padding: 5px 16px;
+                                cursor: pointer;
+                                background: none;
+                                align-items: center;
+                                display: flex;
+                                flex-direction: row;
+                                height: 32px;
+                                text-transform: none;
+                                .toggleLink-text.toggleLink-text--off{
+                                    display: flex;
+                                    flex-wrap: nowrap;
+                                    align-items: center;
+                                    span{
+                                        font-weight: 300;
+                                        //font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                        .actionBar.sort-products{
+                            width: auto;
+                            .form-fieldset.actionBar-section{
+                                float: right !important;
+                                .form-field{
+                                    border-radius: 30px;
+                                    border: 1px solid $black;
+                                    padding-right: 14px;
+                                    display: flex;
+                                    width: auto;
+                                    .form-label{
+                                        font-size: 12px;
+                                        min-width: 70px;
+                                    }
+                                    .form-select.form-select--small {
+                                        font-size: 12px;
+                                        max-width: 120px;
+                                        min-width: 50px;
+                                        width: auto;
+                                    }
+                                }
+                            }
+                        }
+                        .pagination{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//PAGINATOR
+
+#product-listing-container{
+    .category__title-count{
+        display: block;
+        width: 100%;
+        text-align: right;
+        margin-bottom: 6px;
+    }
+    .pagination{
+        .pagination-item{
+            border-bottom: 0 !important;
+            .pagination-link{
+                color: $black;
+                padding: 6px 10px;
+            }
+        }
+        .pagination-item.pagination-item--previous, .pagination-item.pagination-item--next{
+            .pagination-link{
+                padding: 4px 5px;
+            }
+        }
+        .pagination-item.pagination-item--current{
+            background-color: $black;
+            .pagination-link{
+                color: $white;
+                padding: 6px 10px;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+//USEFUL LINKS
+
+.useful-links{
+    h2{
+        text-align: center;
+        text-transform: unset;
+        margin-bottom: 30px;
+    }
+    .links{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        .useful-link{
+            border: 1px solid $black;
+            padding: 8px 30px;
+            text-align: center;
+            border-radius: 24px;
+            white-space: nowrap;
+        }
+    }
+}

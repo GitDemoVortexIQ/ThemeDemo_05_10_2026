@@ -1,0 +1,295 @@
+$black:  #0f0f0f;
+$white:  #ffffff;
+$red:  #E82222;
+$green: #08BC72;
+$grey:  #868686;
+
+.page_type__compare{
+    .body {
+        .page-heading{
+
+        }
+    }
+}
+
+.compareTable{
+    border-top: 0;
+    .compareTable-row.specs{
+        .compareTable-item.specs{
+            ul{
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-auto-rows: 80px;
+                li{
+                    min-height: 0;
+                    overflow-y: auto;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 800px) {
+    .page_type__compare{
+        .body {
+            .page-heading{
+                font-size: 26px;
+                text-transform: inherit;
+            }
+        }
+    }
+    .compareTable{
+        .compareTable-row{
+            &:not(:nth-child(-n+2)) {
+                border-top: 1px solid $black;
+            }
+            th, td, .compareTable-item, .compareTable-heading{
+                border: 0;
+            }
+            .compareTable-heading{
+                padding: 8px 0;
+                text-align: left;
+                width: 15%;
+                &:not(:first-child) {
+                    border-top: 1px solid $black;
+                }
+                .compareTable-headingText{
+                    font-size: 20px;
+                    font-weight: 700;
+                    word-wrap: break-word;
+                    white-space: normal;
+                    overflow-wrap: break-word;
+                }
+            }
+            .compareTable-action{
+                a{
+                    width: fit-content;
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding: 12px 30px;
+                }
+            }
+            .compareTable-item{
+                .compareTable-headingText-mobile{
+                    display: none;
+                }
+                ul{
+                    margin-left: 0;
+                    li{
+                        margin-bottom: 16px;
+                        list-style-type: none;
+                    }
+                }
+                .icon.icon--ratingEmpty{
+                    svg{
+                        fill: $black;
+                        opacity: 0.2;
+                    }
+                }
+                .icon.icon--ratingFull{
+                    
+                }
+            }
+            .compareTable-product{
+                .card{
+                    .card-figure{
+                        .card-img-container{
+                            max-width: unset;
+                            .card-figure__link{
+                                .card-image{
+                                    min-height: 280px;
+                                }
+                            }
+                        }
+                        .compareTable-removeProduct{
+                            background-color: rgba(255, 255, 255, 0.3);
+                            right: 1rem;
+                        }
+                    }
+                    .card-body{
+                        padding-top: 20px;
+                        .card-text{
+                            margin-bottom: 8px;
+                        }
+                        .card-title{
+                            font-size: 17px;
+                            margin-bottom: 4px;
+                            a{
+                                text-transform: uppercase;
+                            }
+                        }
+                        
+                        .price-section.price-section--withTax{
+                            flex-direction: row-reverse;
+                            vertical-align: bottom;
+                            .price-section.price-section--withTax.non-sale-price--withTax{
+                                .old-price{
+                                    .price.price--non-sale{
+                                        opacity: 0.5;
+                                        font-weight: 300;
+                                        font-size: 14px;
+                                    }
+                                    .saving{
+                                        display: block;
+                                        font-size: 13px;
+                                        font-weight: 300;
+                                        color: $red;
+                                        flex-wrap: nowrap;
+                                    }
+                                }
+                            }
+                            .price{
+                                font-weight: 700;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .page_type__compare{
+        .body {
+            margin-top: 9%;
+            .page-heading{
+                font-size: 24px;
+                text-transform: inherit;
+            }
+        }
+    }
+    .compareTable{
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+        margin-bottom: 40px;
+        .compareTable-row{
+            &:not(:nth-child(-n+2)) {
+                border-top: 1px solid transparent;
+            }
+            th, td, .compareTable-item, .compareTable-heading{
+                border: 0;
+                min-width: 300px !important;
+                max-width: 300px;
+                white-space: normal;
+                overflow-wrap: break-word;
+            }
+            th{
+                min-width: 300px !important;
+            }
+            .compareTable-heading{
+                display: none;
+                padding: 8px 0;
+                text-align: left;
+                width: 0;
+                &:not(:first-child) {
+                    border-top: 1px solid transparent;
+                }
+                .compareTable-headingText{
+                    font-size: 20px;
+                    font-weight: 700;
+                    word-wrap: break-word;
+                    white-space: normal;
+                    overflow-wrap: break-word;
+                }
+            }
+            .compareTable-action{
+                a{
+                    width: fit-content;
+                    margin-left: auto;
+                    margin-right: auto;
+                    padding: 9px 22px;
+                    font-size: 14px;
+                }
+            }
+            .compareTable-item{
+                padding: 20px 8px;
+                .compareTable-headingText-mobile{
+                    display: block;
+                    width: 100%;
+                    padding: 4px 4px;
+                    border-bottom: 1px solid $black;
+                    font-weight: 700;
+                    font-size: 16px;
+                    margin-bottom: 14px;
+                }
+                ul{
+                    margin-left: 0;
+                    li{
+                        margin-bottom: 12px;
+                        list-style-type: none;
+                    }
+                }
+                .icon.icon--ratingEmpty{
+                    svg{
+                        fill: $black;
+                        opacity: 0.2;
+                    }
+                }
+                .icon.icon--ratingFull{
+                    
+                }
+            }
+            .compareTable-product{
+                .card{
+                    .card-figure{
+                        .card-img-container{
+                            max-width: unset;
+                            .card-figure__link{
+                                .card-image{
+                                    padding-bottom: 10px;
+                                    min-height: 280px;
+                                }
+                            }
+                        }
+                        .compareTable-removeProduct{
+                            background-color: rgba(255, 255, 255, 0.3);
+                            right: 1rem;
+                        }
+                    }
+                    .card-body{
+                        .card-text{
+                            margin-bottom: 8px;
+                            font-size: 13px;
+                        }
+                        .card-title{
+                            font-size: 15px;
+                            line-height: normal;
+                            margin-bottom: 4px;
+                            a{
+                                text-transform: uppercase;
+                            }
+                        }
+                        
+                        .price-section.price-section--withTax{
+                            flex-direction: row-reverse;
+                            vertical-align: bottom;
+                            .price-section.price-section--withTax.non-sale-price--withTax{
+                                .old-price{
+                                    .price.price--non-sale{
+                                        opacity: 0.5;
+                                        font-weight: 300;
+                                        font-size: 13px;
+                                    }
+                                    .saving{
+                                        display: none;
+                                        //font-size: 13px;
+                                        //font-weight: 300;
+                                        //color: $red;
+                                        //flex-wrap: nowrap;
+                                    }
+                                }
+                            }
+                            .price{
+                                font-weight: 700;
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
